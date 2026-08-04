@@ -1,0 +1,199 @@
+/* =========================================================
+   JOVI Vision — Tela 1 (Onboarding)
+   Fonte de referência: Figma node 109:618 ("Tela 1"), frame 360x800
+
+   NOTA — FONTE:
+   font-family original do design = 'JOVI_Sans_CN' (Regular/Bold),
+   arquivo não disponível. Usando 'Inter' como fallback provisório.
+   TODO: trocar var(--jovi-font) por 'JOVI_Sans_CN' quando os
+   arquivos .woff2 forem entregues.
+   ========================================================= */
+
+:root {
+  --jovi-font: 'Inter', system-ui, sans-serif;
+  --jovi-purple: #7c5bd9;
+  --jovi-gray-500: #737373;
+  --jovi-gray-400: #a3a3a3;
+  --jovi-bg-dark: #0a0a0a;
+  --jovi-white: #ffffff;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  font-family: var(--jovi-font);
+}
+
+.dev-font-alert {
+  font-family: var(--jovi-font);
+}
+
+.onboarding-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Frame responsivo mobile-first: mantém a proporção 360:800 do Figma
+   em qualquer largura de tela usando container query units (cqw). */
+.onboarding-screen {
+  position: relative;
+  container-type: inline-size;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 360 / 800;
+  overflow: hidden;
+  background: #d9d9d9;
+}
+
+.onboarding-bg {
+  position: absolute;
+  top: -13.48%;
+  left: -23.48%;
+  width: 147.18%;
+  height: auto;
+  max-width: none;
+}
+
+.onboarding-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 34.02%,
+    var(--jovi-bg-dark) 64.439%,
+    var(--jovi-bg-dark) 100%
+  );
+}
+
+/* Status bar */
+.status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5.5%;
+  padding: 0 6.667cqw;
+}
+
+.status-time {
+  font-size: 3.889cqw;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--jovi-white);
+}
+
+.status-icon {
+  width: 4.444cqw;
+  height: 4.444cqw;
+}
+
+.battery-icon {
+  position: relative;
+  width: 4.444cqw;
+  height: 2.778cqw;
+}
+
+.battery-body {
+  width: 100%;
+  height: 100%;
+}
+
+.battery-tip {
+  position: absolute;
+  right: -0.6cqw;
+  top: 30%;
+}
+
+/* Logo "JOVI" — wordmark de texto provisório (ver TODO no HTML) */
+.onboarding-heading {
+  position: absolute;
+  left: 11.667%;
+  top: 47%;
+  width: 76.8%;
+  height: 6%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-family: var(--jovi-font);
+  font-weight: 900;
+  font-size: 6.667cqw;
+  letter-spacing: 0.02em;
+  color: var(--jovi-white);
+}
+
+/* Subtítulo */
+.onboarding-paragraph {
+  position: absolute;
+  top: 69.625%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 88.889%;
+  margin: 0;
+  font-size: 5cqw;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--jovi-white);
+}
+
+/* Botões */
+.btn-onboarding-primary,
+.btn-onboarding-secondary {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 83.333%;
+  font-family: var(--jovi-font);
+  font-weight: 700;
+  font-size: 4.444cqw;
+  border: none;
+}
+
+.btn-onboarding-primary {
+  top: 75.25%;
+  height: 6.875%;
+  background: var(--jovi-white);
+  color: var(--jovi-purple);
+  border-radius: 5cqw;
+}
+
+.btn-onboarding-primary:hover,
+.btn-onboarding-primary:focus {
+  background: #f2f2f2;
+  color: var(--jovi-purple);
+}
+
+.btn-onboarding-secondary {
+  top: 85.375%;
+  height: 7%;
+  background: transparent;
+  color: var(--jovi-gray-500);
+  border-radius: 999px;
+}
+
+.btn-onboarding-secondary:hover,
+.btn-onboarding-secondary:focus {
+  color: var(--jovi-gray-400);
+}
+
+/* Dots de progresso */
+.onboarding-dots {
+  position: absolute;
+  top: 95.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 2.222cqw;
+}
+
+.dot {
+  width: 1.667cqw;
+  height: 1.667cqw;
+  border-radius: 999px;
+  background: var(--jovi-gray-400);
+}
+
+.dot-active {
+  background: var(--jovi-purple);
+}
