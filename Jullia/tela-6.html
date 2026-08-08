@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JOVI · Galeria</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="css/jovi.css" rel="stylesheet">
+</head>
+<body>
+  <button type="button" class="theme-toggle" data-theme-toggle style="left: 16px;">🌙 Dark</button>
+  <a href="index.html" class="theme-toggle" style="right: 16px; left: auto; text-decoration:none;">← Telas</a>
+
+  <div class="phone-shell">
+    <main class="phone-frame">
+      <!-- Status bar -->
+      <div class="jovi-statusbar">
+        <span>17:32</span>
+        <div class="d-flex align-items-center gap-1">
+          <img src="assets/icons/status-signal.svg" alt="">
+          <img src="assets/icons/status-wifi.svg" alt="">
+          <img src="assets/icons/status-battery-body.svg" alt="" style="height:14px;">
+        </div>
+      </div>
+
+      <!-- Header -->
+      <div class="d-flex align-items-center justify-content-between px-3 py-2 flex-shrink-0">
+        <div class="d-flex align-items-center gap-2">
+          <button type="button" class="btn p-2 border-0" aria-label="Voltar">
+            <img src="assets/icons/gallery-back.svg" alt="" class="jovi-icon-auto" style="width:24px;height:24px;">
+          </button>
+          <h1 class="fw-semibold mb-0" style="font-size:18px;">Galeria</h1>
+        </div>
+        <button type="button" class="btn p-2 border-0" aria-label="Favoritos">
+          <img src="assets/icons/gallery-star.svg" alt="" style="width:20px;height:20px;">
+        </button>
+      </div>
+
+      <!-- Filtros -->
+      <div class="d-flex gap-2 px-3 pb-3 overflow-auto flex-shrink-0" role="tablist" aria-label="Filtro de mídia">
+        <button type="button" class="jovi-pill active" data-gallery-filter>Tudo</button>
+        <button type="button" class="jovi-pill" data-gallery-filter>Vídeos</button>
+        <button type="button" class="jovi-pill" data-gallery-filter>Esporte</button>
+        <button type="button" class="jovi-pill" data-gallery-filter>Estudos</button>
+      </div>
+
+      <!-- Busca -->
+      <div class="px-3 pb-3 flex-shrink-0">
+        <label class="gallery-search" for="gallery-search-input">
+          <img src="assets/icons/gallery-search.svg" alt="">
+          <img src="assets/icons/gallery-sparkle.svg" alt="">
+          <input id="gallery-search-input" type="search" placeholder="Buscar fotos, pessoas, lugares...">
+        </label>
+      </div>
+
+      <!-- Conteúdo scrollável -->
+      <div class="gallery-scroll px-3">
+        <button type="button" class="jovi-btn-primary w-100 d-flex align-items-center justify-content-center gap-2 py-3 mb-4" style="font-size:16px;">
+          <img src="assets/icons/gallery-plus.svg" alt="" style="width:20px;height:20px;filter:brightness(0) invert(1);">
+          Criar álbum
+        </button>
+
+        <h2 class="fw-semibold mb-2" style="font-size:18px;">Vibe Canina</h2>
+        <div class="jovi-card mb-4">
+          <img src="assets/images/gallery-hero-dog.png" alt="Cachorro na grama" class="w-100" style="height:184px;object-fit:cover;">
+          <div class="p-3">
+            <h3 class="fw-medium mb-2" style="font-size:16px;">Vibes folhas</h3>
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="d-flex align-items-center gap-1 text-jovi-muted" style="font-size:12px;">
+                <img src="assets/icons/gallery-calendar.svg" alt="" style="width:14px;height:14px;">
+                16 de abr. de 2024 - 17h30, ter.
+              </span>
+              <img src="assets/icons/gallery-heart-outline.svg" alt="Favoritar" style="width:14px;height:14px;">
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <h2 class="fw-semibold mb-0" style="font-size:18px;">Álbuns</h2>
+        </div>
+        <div class="d-flex gap-2 overflow-auto mb-4 pb-1">
+          <img src="assets/images/album-1.png" alt="Álbum 1" class="album-thumb">
+          <img src="assets/images/album-2.png" alt="Álbum 2" class="album-thumb">
+          <img src="assets/images/album-3.png" alt="Álbum 3" class="album-thumb">
+        </div>
+
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <h2 class="fw-semibold mb-0" style="font-size:18px;">mai. de 2024</h2>
+          <span class="text-jovi-muted" style="font-size:14px;">9 fotos</span>
+        </div>
+        <div class="d-flex flex-wrap gap-2 mb-4">
+          <img src="assets/images/month-1.png" alt="" class="month-thumb">
+          <img src="assets/images/month-2.png" alt="" class="month-thumb">
+          <img src="assets/images/month-3.png" alt="" class="month-thumb">
+          <img src="assets/images/month-4.png" alt="" class="month-thumb">
+          <img src="assets/images/month-5.png" alt="" class="month-thumb">
+          <img src="assets/images/month-6.png" alt="" class="month-thumb">
+          <img src="assets/images/month-7.png" alt="" class="month-thumb">
+          <img src="assets/images/month-8.png" alt="" class="month-thumb">
+          <img src="assets/images/month-9.png" alt="" class="month-thumb">
+        </div>
+      </div>
+
+      <!-- Nav inferior -->
+      <nav class="jovi-nav-bottom" aria-label="Navegação principal">
+        <button type="button" class="btn p-0 border-0" aria-label="Início">
+          <svg class="jovi-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </button>
+        <button type="button" class="btn p-0 border-0" aria-label="Galeria" aria-current="page">
+          <svg class="jovi-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+        </button>
+        <button type="button" class="jovi-nav-fab" aria-label="Abrir câmera" onclick="window.location.href='tela-16.html'">
+          <img src="assets/icons/nav-camera.svg" alt="">
+        </button>
+        <button type="button" class="btn p-0 border-0" aria-label="Diário">
+          <svg class="jovi-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+        </button>
+        <button type="button" class="btn p-0 border-0" aria-label="Ajustes">
+          <svg class="jovi-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </nav>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/jovi.js"></script>
+</body>
+</html>
