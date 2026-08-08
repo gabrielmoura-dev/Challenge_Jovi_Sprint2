@@ -1,0 +1,21 @@
+/* =========== Tela 4 — Preferências de foto =========== */
+.pref-tile {
+  aspect-ratio: 1;
+  width: 100%;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px;
+  color: var(--jovi-text);
+  background: var(--jovi-surface);
+  border: none;
+  cursor: pointer;
+}
+.pref-tile.selected {
+  background: var(--jovi-primary);
+  color: #fff;
+}

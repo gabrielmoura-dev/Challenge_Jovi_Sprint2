@@ -7,16 +7,12 @@
    arquivo não disponível. Usando 'Inter' como fallback provisório.
    TODO: trocar var(--jovi-font) por 'JOVI_Sans_CN' quando os
    arquivos .woff2 forem entregues.
+
+   Variáveis de tokens (--jovi-*) foram extraídas para tokens.css —
+   este arquivo depende dele sendo carregado antes (ver <link> no HTML).
    ========================================================= */
 
-:root {
-  --jovi-font: 'Inter', system-ui, sans-serif;
-  --jovi-purple: #7c5bd9;
-  --jovi-gray-500: #737373;
-  --jovi-gray-400: #a3a3a3;
-  --jovi-bg-dark: #0a0a0a;
-  --jovi-white: #ffffff;
-}
+@import url("tokens.css");
 
 body {
   margin: 0;

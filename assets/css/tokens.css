@@ -1,0 +1,15 @@
+/* =========================================================
+   JOVI Vision — Design Tokens
+   Variáveis globais compartilhadas por todas as telas do projeto.
+   Extraído de assets/css/style.css durante a reorganização de
+   estrutura (pasta /telas/).
+   ========================================================= */
+
+:root {
+  --jovi-font: 'Inter', system-ui, sans-serif;
+  --jovi-purple: #7c5bd9;
+  --jovi-gray-500: #737373;
+  --jovi-gray-400: #a3a3a3;
+  --jovi-bg-dark: #0a0a0a;
+  --jovi-white: #ffffff;
+}
