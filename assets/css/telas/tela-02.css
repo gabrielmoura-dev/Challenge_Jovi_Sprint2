@@ -1,0 +1,52 @@
+/* =========================================================
+   JOVI Vision — Tela 2 (Onboarding — "Digite seu nome")
+   Fonte de referência: Figma node 109:634 ("Tela 2"), frame 360x800
+
+   Reaproveita a estrutura base de assets/css/style.css (Tela 1):
+   .onboarding-screen, .status-bar, .btn-onboarding-primary/secondary,
+   .onboarding-dots — este arquivo cobre apenas o que é diferente
+   nesta tela (posição do heading, campo de texto).
+   ========================================================= */
+
+@import url("../tokens.css");
+
+/* Heading "JOVI" nesta tela fica mais alto e centralizado
+   (não divide espaço com o parágrafo, que aqui é vazio) */
+.tela02-heading {
+  top: 46.875%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36.111%;
+  height: 6.25%;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Campo "Digite seu nome" */
+.onboarding-input {
+  position: absolute;
+  top: 64.625%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 83.333%;
+  height: 6.875%;
+  padding: 0 6.667cqw;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--jovi-purple-muted);
+  border-radius: 5cqw;
+  color: var(--jovi-white);
+  font-family: var(--jovi-font);
+  font-size: 4.444cqw;
+  text-align: center;
+}
+
+.onboarding-input::placeholder {
+  color: var(--jovi-white);
+  opacity: 1;
+}
+
+/* TODO: verificar se essa borda é intencional — Tela 1 não tem borda nesse botão.
+   Possível inconsistência no Figma, confirmar com design antes de tokenizar. */
+.btn-onboarding-secondary--bordered {
+  border: 1px solid #000000;
+}

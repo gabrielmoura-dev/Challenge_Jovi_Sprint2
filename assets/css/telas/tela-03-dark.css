@@ -1,0 +1,45 @@
+/* =========================================================
+   JOVI Vision — Tela 3 (versão DARK, temporária)
+   Fonte de referência: Figma node 112:755 ("Tela 3 ", fundo escuro
+   confirmado visualmente — nome do layer não indicava tema).
+
+   Reaproveita o layout de tela-03.css (mesmas classes tela03-*,
+   mesmas posições/tamanhos) e sobrescreve só as cores, através do
+   modificador .tela03-dark aplicado junto de .tela03-screen.
+   ========================================================= */
+
+@import url("../tokens.css");
+@import url("tela-03.css");
+
+.tela03-dark.tela03-screen {
+  background: var(--jovi-bg-dark);
+}
+
+.tela03-dark .tela03-statusbar .status-time {
+  color: var(--jovi-white);
+}
+
+/* Ícones de status já são brancos na origem — remove o filtro de
+   inversão usado na versão clara (tela-03.css) */
+.tela03-dark .tela03-statusbar .status-icon,
+.tela03-dark .tela03-statusbar .battery-icon {
+  filter: none;
+}
+
+.tela03-dark .tela03-title {
+  color: var(--jovi-white);
+}
+
+.tela03-dark .tela03-subtitle {
+  color: var(--jovi-white);
+}
+
+.tela03-dark .tela03-card {
+  background: var(--jovi-surface-dark);
+  color: var(--jovi-white);
+}
+
+.tela03-dark .tela03-card.selected {
+  background: var(--jovi-purple);
+  color: var(--jovi-white);
+}

@@ -1,0 +1,200 @@
+/* =========================================================
+   JOVI Vision — Tela 3 (Onboarding — "O que você gosta de fotografar?")
+   Fonte de referência: Figma node 115:1267 (layer chamado "Tela 3 - Dark"
+   no Figma, mas com fundo CLARO na prática — nome do layer trocado por
+   engano na origem, confirmado visualmente antes da extração).
+
+   Fundo claro: reaproveita @import de tokens.css, mas define suas
+   próprias classes (não reaproveita .onboarding-* da Tela 1/2, que
+   são para telas de fundo escuro com foto).
+   ========================================================= */
+
+@import url("../tokens.css");
+
+.tela03-screen {
+  position: relative;
+  container-type: inline-size;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 360 / 800;
+  overflow: hidden;
+  background: var(--jovi-white);
+}
+
+.tela03-statusbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5.5%;
+  padding: 0 6.667cqw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tela03-statusbar .status-time {
+  font-size: 3.889cqw;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--jovi-bg-dark);
+}
+
+.tela03-statusbar .status-icon {
+  width: 4.444cqw;
+  height: 4.444cqw;
+  /* ícones de status originais são brancos (Tela 1/2); aqui o fundo é
+     claro, então invertemos para exibi-los em tom escuro */
+  filter: brightness(0);
+}
+
+.tela03-statusbar .battery-icon {
+  position: relative;
+  width: 4.444cqw;
+  height: 2.778cqw;
+  filter: brightness(0);
+}
+
+.tela03-statusbar .battery-body {
+  width: 100%;
+  height: 100%;
+}
+
+.tela03-statusbar .battery-tip {
+  position: absolute;
+  right: -0.6cqw;
+  top: 30%;
+}
+
+.tela03-title {
+  position: absolute;
+  top: 11.75%;
+  left: 7.5%;
+  width: 84.722%;
+  margin: 0;
+  font-family: var(--jovi-font);
+  font-weight: 700;
+  font-size: 5.556cqw;
+  line-height: 1.25;
+  color: var(--jovi-bg-dark);
+}
+
+.tela03-subtitle {
+  position: absolute;
+  top: 24.25%;
+  left: 7.5%;
+  width: 84.722%;
+  margin: 0;
+  font-family: var(--jovi-font);
+  font-weight: 600;
+  font-size: 4.444cqw;
+  color: var(--jovi-text-secondary);
+}
+
+.tela03-grid {
+  position: absolute;
+  top: 28.5%;
+  left: 7.5%;
+  width: 84.722%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.778cqw;
+}
+
+.tela03-card {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.222cqw;
+  border-radius: 5cqw;
+  border: none;
+  padding: 0 4.444cqw;
+  background: var(--jovi-card-bg-light);
+  color: var(--jovi-bg-dark);
+}
+
+.tela03-card.selected {
+  background: var(--jovi-purple);
+  color: var(--jovi-white);
+}
+
+.tela03-card img {
+  width: 6.667cqw;
+  height: 6.667cqw;
+}
+
+/* ícones das categorias não selecionadas usam a cor --jovi-bg-dark (SVGs
+   originais já vêm nessa cor); nas selecionadas, invertemos para branco */
+.tela03-card.selected img {
+  filter: brightness(0) invert(1);
+}
+
+.tela03-card span {
+  font-family: var(--jovi-font);
+  font-weight: 500;
+  font-size: 3.333cqw;
+  line-height: 1.25;
+  text-align: center;
+}
+
+/* Botões — mesmas posições percentuais usadas nas Telas 1/2 */
+.tela03-btn-primary,
+.tela03-btn-secondary {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 83.333%;
+  font-family: var(--jovi-font);
+  font-weight: 700;
+  font-size: 4.444cqw;
+  border: none;
+}
+
+.tela03-btn-primary {
+  top: 75.25%;
+  height: 6.875%;
+  background: var(--jovi-purple);
+  color: var(--jovi-white);
+  border-radius: 5cqw;
+}
+
+.tela03-btn-primary:hover,
+.tela03-btn-primary:focus {
+  background: var(--jovi-purple);
+  color: var(--jovi-white);
+}
+
+.tela03-btn-secondary {
+  top: 85.375%;
+  height: 7%;
+  background: transparent;
+  color: var(--jovi-gray-500);
+  border-radius: 999px;
+}
+
+.tela03-btn-secondary:hover,
+.tela03-btn-secondary:focus {
+  color: var(--jovi-gray-500);
+}
+
+/* Dots de progresso */
+.tela03-dots {
+  position: absolute;
+  top: 95.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 2.222cqw;
+}
+
+.tela03-dot {
+  width: 1.667cqw;
+  height: 1.667cqw;
+  border-radius: 999px;
+  background: var(--jovi-gray-400);
+}
+
+.tela03-dot-active {
+  background: var(--jovi-purple);
+}
