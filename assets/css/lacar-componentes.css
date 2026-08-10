@@ -1,0 +1,159 @@
+/* =========================================================
+   JOVI — Componentes das telas 05, 10, 13, 21 (Larissa)
+
+   Arquivo independente de assets/css/jullia-componentes.css —
+   nunca importar/editar aquele arquivo a partir daqui. Reaproveita
+   somente assets/css/tokens.css (leitura) para as variáveis de
+   marca (--jovi-font, --jovi-purple etc.).
+
+   Contém a "moldura" comum às telas (phone frame, status bar, nav
+   inferior) e as variáveis de tema light/dark (--lacar-*). Cores
+   que divergem por tela no Figma (ex.: cinza de subtítulo, roxo do
+   banner) NÃO ficam aqui — cada tela-XX.css define o valor exato
+   que aquele Figma específico usa.
+   ========================================================= */
+
+@import url("tokens.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+/* Fonte real do Figma (JOVI_Sans_CN) — arquivos em assets/fonts/,
+   usada apenas nas telas 05/10/13/21 (não altera tokens.css/jullia-componentes.css). */
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Thin.ttf") format("truetype"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Extralight.ttf") format("truetype"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Light.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Demibold.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Extrabold.ttf") format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Heavy.ttf") format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
+
+:root,
+[data-bs-theme="light"] {
+  --lacar-bg: #ffffff;
+  --lacar-surface: #f5f5f5;
+  --lacar-surface-border: transparent;
+  --lacar-text: #0a0a0a;
+  --lacar-text-strong: #0a0a0a;
+  --lacar-text-subtle: #737373;
+  --lacar-text-placeholder: #9ca3af;
+  --lacar-primary: #7c5bd9;
+  --lacar-primary-contrast: #ffffff;
+  --lacar-dot-inactive: #a3a3a3;
+  --lacar-navbar-bg: #ffffff;
+  --lacar-navbar-border: #e5e5e5;
+  --lacar-overlay: rgba(10, 10, 10, 0.4);
+  --lacar-overlay-strong: rgba(0, 0, 0, 0.4);
+}
+
+[data-bs-theme="dark"] {
+  --lacar-bg: #0a0a0a;
+  --lacar-surface: #1a1a1a;
+  --lacar-surface-border: #262626;
+  --lacar-text: #ffffff;
+  --lacar-text-strong: #ffffff;
+  --lacar-text-subtle: #737373;
+  --lacar-text-placeholder: #9ca3af;
+  --lacar-primary: #7c5bd9;
+  --lacar-primary-contrast: #ffffff;
+  --lacar-dot-inactive: #a3a3a3;
+  --lacar-navbar-bg: #0a0a0a;
+  --lacar-navbar-border: transparent;
+  --lacar-overlay: rgba(10, 10, 10, 0.4);
+  --lacar-overlay-strong: rgba(0, 0, 0, 0.4);
+}
+
+body {
+  font-family: "JOVI Sans CN", var(--jovi-font);
+  background: #e5e5e5;
+}
+
+/* Moldura de celular — mesmo racional do jullia-componentes.css
+   (frame fixo 360x800, conteúdo interno em flex/Bootstrap). */
+.lacar-phone-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 76px 12px 24px;
+}
+
+.lacar-phone-frame {
+  width: 360px;
+  height: 800px;
+  background: var(--lacar-bg);
+  color: var(--lacar-text);
+  border-radius: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Status bar — hora usa Inter no Figma (não a fonte da marca) */
+.lacar-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.lacar-statusbar > span:first-child { font-family: var(--jovi-font); }
+.lacar-statusbar img { height: 16px; width: auto; }
+[data-bs-theme="light"] .lacar-statusbar img { filter: none; }
+[data-bs-theme="dark"] .lacar-statusbar img { filter: brightness(0) invert(1); }
+
+/* Toggle de tema — ferramenta de QA, não faz parte do design */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  z-index: 50;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--lacar-bg);
+  color: var(--lacar-text);
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Nav inferior */
+.lacar-nav-bottom {
+  background: var(--lacar-navbar-bg);
+  border-top: 1px solid var(--lacar-navbar-border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.lacar-nav-bottom img { width: 20px; height: 20px; }
+[data-bs-theme="dark"] .lacar-nav-bottom img { filter: brightness(0) invert(1); }
+
+.lacar-ico {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+.lacar-nav-bottom .lacar-ico { color: var(--lacar-text-subtle); }
+.lacar-nav-bottom [aria-current="page"] .lacar-ico { color: var(--lacar-primary); }
+
+.lacar-nav-fab {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: var(--lacar-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  border: none;
+}
+.lacar-nav-fab img { width: 24px; height: 24px; filter: brightness(0) invert(1) !important; }
+
+.text-lacar-muted { color: var(--lacar-text-subtle); }

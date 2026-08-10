@@ -1,0 +1,169 @@
+/* =========== Tela 21 — Ajustes =========== */
+/* Toda a tipografia desta tela usa Inter no Figma (não a fonte da marca). */
+.tela-21 { font-family: var(--jovi-font); }
+
+.settings-header {
+  height: 64px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.settings-back {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 4px;
+  color: var(--lacar-text);
+}
+.settings-back img { width: 24px; height: 24px; }
+[data-bs-theme="dark"] .settings-back img { filter: brightness(0) invert(1); }
+.settings-title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.44px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+
+.settings-scroll {
+  overflow-y: auto;
+  flex: 1 1 auto;
+  padding: 14px 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0 0 16px;
+  color: var(--lacar-text);
+}
+/* No Figma o título "Aparência" fica bem mais colado no grid que o padrão
+   de 16px usado nas outras seções (confirmado por screenshot do node). */
+.appearance-section .settings-section-title {
+  margin-bottom: 8px;
+}
+
+/* Aparência */
+.appearance-grid {
+  display: flex;
+  gap: 10px;
+  /* A seção "Aparência" ocupa 127px no Figma (confirmado por screenshot) —
+     título(20)+gap(8)+grid(94) = 122px, sobram 5px de respiro após os
+     botões, antes do gap:10px que separa as seções. */
+  margin-bottom: 5px;
+}
+.appearance-btn {
+  flex: 1;
+  height: 94px;
+  border-radius: 18px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #f3f3f3;
+  color: #0a0a0a;
+}
+[data-bs-theme="dark"] .appearance-btn { background: #1a1a1a; color: #ffffff; }
+.appearance-btn img { width: 24px; height: 24px; }
+[data-bs-theme="dark"] .appearance-btn img { filter: brightness(0) invert(1); }
+.appearance-btn span { font-size: 12px; font-weight: 500; line-height: 16px; }
+.appearance-btn.active {
+  background: #7c5bd9;
+  color: #ffffff;
+}
+.appearance-btn.active img { filter: brightness(0) invert(1); }
+
+/* Rows (Refazer Onboarding / Lixeira) */
+.settings-row {
+  width: 100%;
+  height: 68px;
+  border-radius: 16px;
+  border: none;
+  background: #f3f3f3;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 16px;
+  text-align: left;
+}
+[data-bs-theme="dark"] .settings-row { background: #1a1a1a; border: 1px solid #262626; }
+.settings-row-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: #7c5bd9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.settings-row-icon img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+.settings-row-icon.icon-lg img { width: 24px; height: 24px; }
+.settings-row-title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--lacar-text);
+  margin: 0;
+}
+.settings-row-subtitle {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #666666;
+  margin: 0;
+}
+
+/* Sobre */
+.about-card {
+  height: 180px;
+  background: #f3f3f3;
+  border-radius: 20px;
+  padding: 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+[data-bs-theme="dark"] .about-card { background: #1a1a1a; border: 1px solid #262626; }
+.about-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 24px;
+}
+.about-label {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--lacar-text);
+}
+.about-value {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #666666;
+}
+.about-divider {
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  padding-top: 13px;
+}
+.about-caption {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22.75px;
+  color: #666666;
+  margin: 0;
+}
