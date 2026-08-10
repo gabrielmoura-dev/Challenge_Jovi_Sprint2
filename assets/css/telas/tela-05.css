@@ -1,0 +1,117 @@
+/* =========== Tela 5 — Início =========== */
+.home-scroll {
+  overflow-y: auto;
+  flex: 1 1 auto;
+  padding: 0 28px 24px;
+}
+
+.home-header {
+  padding-top: 34px;
+}
+
+.home-greeting {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  margin: 0 0 4px;
+  color: var(--lacar-text);
+}
+.text-home-primary { color: #7c5bd9; }
+[data-bs-theme="dark"] .text-home-primary { color: #e9d0f9; }
+
+.home-subtitle {
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+  color: #737373;
+}
+
+.home-banner {
+  background: #8259e1;
+  border-radius: 18px;
+  padding: 13px 16px 15px;
+  color: #fff;
+  margin: 35px 0 30px;
+}
+[data-bs-theme="dark"] .home-banner { background: #7c5bd9; }
+
+.home-banner-badge {
+  font-size: 12px;
+  line-height: 16px;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+.home-banner-title {
+  font-size: 18px;
+  line-height: 24.75px;
+  font-weight: 500;
+  margin-bottom: 4.5px;
+}
+.home-banner-subtitle {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 300;
+  margin-bottom: 14.75px;
+}
+.home-banner-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 31px;
+  background: #fff;
+  color: #0a0a0a;
+  border: none;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 0;
+  width: 194px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+
+.home-card {
+  background: var(--lacar-surface);
+  border-radius: 16px;
+  padding: 17px 5px 17px 16px;
+}
+.home-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 23px;
+}
+.home-card-icon img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+.home-card-icon.icon-camera { background: #7c5bd9; }
+.home-card-icon.icon-study { background: #3960ff; }
+.home-card-icon.icon-gallery { background: #fb923c; }
+.home-card-icon.icon-assistant { background: #a275b7; }
+.home-card-icon.icon-assistant img { width: 20px; height: 20px; }
+
+.home-card-title {
+  font-size: 14px;
+  line-height: normal;
+  font-weight: 500;
+  color: var(--lacar-text-strong);
+  margin-bottom: 4px;
+}
+.home-card-subtitle {
+  font-family: var(--jovi-font);
+  font-size: 12px;
+  line-height: 16px;
+  color: #737373;
+  margin: 0;
+}

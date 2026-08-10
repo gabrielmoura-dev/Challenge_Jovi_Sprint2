@@ -1,0 +1,293 @@
+/* =========== Tela 13 — Assistente de Estudo =========== */
+/* Fonte mista: títulos usam JOVI Sans CN (herdado do body), o resto do
+   texto desta tela usa Inter — sobrescrito elemento a elemento abaixo. */
+
+.study-header {
+  padding: 12px 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.study-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #7c5bd9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.study-avatar img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+.study-title {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+.study-subtitle {
+  font-family: var(--jovi-font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+  color: #666666;
+}
+
+.study-scroll {
+  overflow-y: auto;
+  scrollbar-width: none;
+  flex: 1 1 auto;
+  padding: 27px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.study-scroll::-webkit-scrollbar { display: none; }
+
+/* Card do capítulo */
+.chapter-card {
+  height: 98px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+[data-bs-theme="dark"] .chapter-card { background: #1a1a1a; }
+.chapter-thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: #f5f5f7;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.chapter-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.chapter-info {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.chapter-text { min-width: 0; }
+.chapter-title {
+  font-family: var(--jovi-font);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0;
+  color: var(--lacar-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chapter-subtitle {
+  font-family: var(--jovi-font);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0;
+  color: #9ca3af;
+}
+.chapter-go-btn {
+  flex-shrink: 0;
+  width: 46px;
+  height: 25px;
+  border-radius: 16px;
+  border: none;
+  background: #7c5bd9;
+  color: #ffffff;
+  font-family: "JOVI Sans CN";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 0;
+}
+
+/* Card "Exercício detectado" */
+.exercise-card {
+  height: 146px;
+  flex-shrink: 0;
+  background: #f3f3f3;
+  border-radius: 16px;
+  padding: 17px;
+}
+[data-bs-theme="dark"] .exercise-card { background: #1a1a1a; border: 1px solid #262626; }
+.exercise-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.exercise-title-row img { width: 20px; height: 20px; flex-shrink: 0; }
+.exercise-title-row span {
+  font-family: var(--jovi-font);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--lacar-text);
+}
+.exercise-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.exercise-step:last-child { margin-bottom: 0; }
+.step-num {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--jovi-font);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #7c5bd9;
+}
+.step-text {
+  font-family: var(--jovi-font);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--lacar-text);
+}
+
+/* Card "Resumo gerado pela IA" */
+.summary-card {
+  height: 200px;
+  flex-shrink: 0;
+  background: #f3f3f3;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+[data-bs-theme="dark"] .summary-card { background: #1a1a1a; border-color: #262626; }
+.summary-row {
+  display: flex;
+  gap: 12px;
+}
+.summary-icon {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: #7c5bd9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.summary-icon img { width: 20px; height: 20px; }
+.summary-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.summary-title {
+  font-family: "JOVI Sans CN";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+.summary-body {
+  font-family: var(--jovi-font);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 19.5px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+.summary-body .hl { color: #7c5bd9; font-weight: 500; }
+.summary-buttons {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+}
+.summary-btn {
+  width: 118px;
+  height: 30px;
+  border-radius: 12px;
+  border: none;
+  background: #7c5bd9;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0;
+}
+.summary-btn img { width: 11.37px; height: 13.33px; }
+.summary-btn span {
+  font-family: "JOVI Sans CN";
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+/* Card Pergunta/Resposta */
+.qa-card {
+  height: 196px;
+  flex-shrink: 0;
+  background: #f5f5f5;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 21px 21px 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+[data-bs-theme="dark"] .qa-card { background: #1a1a1a; border-color: #262626; }
+.qa-label {
+  font-family: var(--jovi-font);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  margin: 0 0 8px;
+  color: #7c5bd9;
+}
+.qa-question {
+  font-family: var(--jovi-font);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+.qa-answer-block {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 22px;
+}
+.qa-label-answer {
+  font-family: var(--jovi-font);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  margin: 0 0 8px;
+  color: #999999;
+}
+.qa-answer {
+  font-family: var(--jovi-font);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22.75px;
+  margin: 0;
+  color: var(--lacar-text);
+}

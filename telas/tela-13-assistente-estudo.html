@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JOVI · Assistente de Estudo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/lacar-componentes.css">
+  <link rel="stylesheet" href="../assets/css/telas/tela-13.css">
+</head>
+<body>
+  <button type="button" class="theme-toggle" data-theme-toggle style="left: 16px;">🌙 Dark</button>
+  <a href="../index.html" class="theme-toggle" style="right: 16px; left: auto; text-decoration:none;">← Telas</a>
+
+  <div class="lacar-phone-shell">
+    <main class="lacar-phone-frame">
+      <div class="lacar-statusbar">
+        <span>18:30</span>
+        <div class="d-flex align-items-center gap-1">
+          <img src="../assets/img/status-signal.svg" alt="">
+          <img src="../assets/img/status-wifi.svg" alt="">
+          <img src="../assets/img/status-battery.svg" alt="" style="height:14px;">
+        </div>
+      </div>
+
+      <header class="study-header">
+        <div class="study-avatar">
+          <img src="../assets/img/book-open.svg" alt="">
+        </div>
+        <div>
+          <h1 class="study-title">Assistente de Estudo</h1>
+          <p class="study-subtitle">Cálculo · Capítulo 5</p>
+        </div>
+      </header>
+
+      <div class="study-scroll">
+        <div class="chapter-card">
+          <div class="chapter-thumb">
+            <img src="../assets/img/chapter-thumb.png" alt="">
+          </div>
+          <div class="chapter-info">
+            <div class="chapter-text">
+              <p class="chapter-title">Cálculo · Capítulo 5</p>
+              <p class="chapter-subtitle">3 fotos</p>
+            </div>
+            <button type="button" class="chapter-go-btn">IR</button>
+          </div>
+        </div>
+
+        <div class="exercise-card">
+          <div class="exercise-title-row">
+            <img src="../assets/img/lightbulb.svg" alt="">
+            <span>Exercício detectado</span>
+          </div>
+          <div class="exercise-step">
+            <span class="step-num">1</span>
+            <span class="step-text">Identifique os limites de integração</span>
+          </div>
+          <div class="exercise-step">
+            <span class="step-num">2</span>
+            <span class="step-text">Aplique a regra fundamental do cálculo</span>
+          </div>
+          <div class="exercise-step">
+            <span class="step-num">3</span>
+            <span class="step-text">Calcule F(b) - F(a)</span>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <div class="summary-row">
+            <div class="summary-icon">
+              <img src="../assets/img/brain.svg" alt="">
+            </div>
+            <div class="summary-text">
+              <p class="summary-title">Resumo gerado pela IA</p>
+              <p class="summary-body">Este álbum contém exercícios sobre <span class="hl">integrais definidas</span> e <span class="hl">teorema fundamental do cálculo</span>. A IA identificou 3 tópicos principais e criou flashcards personalizados.</p>
+            </div>
+          </div>
+          <div class="summary-buttons">
+            <button type="button" class="summary-btn">
+              <img src="../assets/img/download.svg" alt="">
+              <span>Baixar PDF</span>
+            </button>
+            <button type="button" class="summary-btn">
+              <img src="../assets/img/share-thin.svg" alt="">
+              <span>Compartilhar</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="qa-card">
+          <div>
+            <p class="qa-label">PERGUNTA</p>
+            <p class="qa-question">O que é uma integral definida?</p>
+          </div>
+          <div class="qa-answer-block">
+            <p class="qa-label-answer">RESPOSTA</p>
+            <p class="qa-answer">Uma integral definida calcula a área sob uma curva entre dois pontos específicos.</p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="lacar-nav-bottom" aria-label="Navegação principal">
+        <button type="button" class="btn p-0 border-0" aria-label="Início" onclick="window.location.href='tela-05-inicio.html'">
+          <svg class="lacar-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </button>
+        <button type="button" class="btn p-0 border-0" aria-label="Galeria" onclick="window.location.href='tela-06-galeria.html'">
+          <svg class="lacar-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+        </button>
+        <button type="button" class="lacar-nav-fab" aria-label="Abrir câmera" onclick="window.location.href='tela-16-camera.html'">
+          <img src="../assets/img/nav-camera.svg" alt="">
+        </button>
+        <button type="button" class="btn p-0 border-0" aria-label="Diário" aria-current="page">
+          <svg class="lacar-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+        </button>
+        <button type="button" class="btn p-0 border-0" aria-label="Ajustes" onclick="window.location.href='tela-21-ajustes.html'">
+          <svg class="lacar-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </nav>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/jovi.js"></script>
+</body>
+</html>
