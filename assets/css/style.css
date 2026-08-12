@@ -1,6 +1,12 @@
 /* =========================================================
-   JOVI Vision — Tela 1 (Onboarding)
-   Fonte de referência: Figma node 109:618 ("Tela 1"), frame 360x800
+   JOVI Vision — base de onboarding (hoje usada só pela Tela 2)
+   Fonte de referência original: Figma node 109:618 ("Tela 1"), frame 360x800
+
+   RENOMEAÇÃO DE ESCOPO: a Tela 1 foi reconstruída em
+   assets/css/telas/tela-01.css (independente, sem depender deste arquivo).
+   Este style.css continua vivo só porque telas/tela-02-nome.html e
+   assets/css/telas/tela-02.css ainda reaproveitam as classes .onboarding-*
+   e .status-* daqui. Não delete sem migrar a Tela 2 antes.
 
    NOTA — FONTE:
    font-family original do design = 'JOVI_Sans_CN' (Regular/Bold),

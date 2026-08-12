@@ -6,7 +6,7 @@
    ========================================================= */
 
 :root {
-  --jovi-font: 'Inter', system-ui, sans-serif;
+  --jovi-font: 'JOVI Sans CN', 'Inter', system-ui, sans-serif;
   --jovi-purple: #7c5bd9;
   --jovi-gray-500: #737373;
   --jovi-gray-400: #a3a3a3;
@@ -21,4 +21,17 @@
   /* Superfície elevada em tema escuro (cards, inputs, modais) — um tom
      acima do fundo --jovi-bg-dark para criar hierarquia visual */
   --jovi-surface-dark: #1a1a1a;
+
+  /* Adicionadas na Tela 08 (Galeria) — cores fora da tolerância de 2%
+     dos tokens acima, aprovadas pelo time antes de codar. */
+  /* Texto terciário: datas, localização */
+  --lacar-text-muted: #999999;
+  /* Borda sutil de inputs em tema claro */
+  --lacar-border-subtle: rgba(0, 0, 0, 0.08);
+  /* Fundo de badges sobre fotos */
+  --lacar-photo-badge-overlay: rgba(0, 0, 0, 0.6);
+  /* Cor de destaque para elementos de IA (borda) */
+  --jovi-ai-accent: #b5a1e8;
+  /* Camada sutil sobre fundo escuro */
+  --lacar-overlay-white-05: rgba(255, 255, 255, 0.05);
 }
