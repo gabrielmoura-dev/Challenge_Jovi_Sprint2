@@ -1,0 +1,67 @@
+/* =========== Tela 11 — Câmera (seleção de fotos IA) =========== */
+/* Variação da Tela 10: mesma base de câmera + filmstrip de fotos geradas
+   por IA com seleção múltipla e botão de confirmação. */
+
+/* Especificidade precisa igualar/superar ".camera-frame > *:not(.camera-bg)"
+   (definida em tela-10.css), que força position:relative nos filhos diretos
+   do frame e sobrescreveria um simples ".camera-confirm-btn { position:absolute }". */
+.camera-frame > .camera-confirm-btn {
+  position: absolute;
+  z-index: 2;
+  top: 465px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: none;
+  background: var(--lacar-select-confirm-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.camera-confirm-btn img { width: 15px; height: auto; }
+
+.camera-filmstrip {
+  flex-shrink: 0;
+  display: flex;
+  gap: 5px;
+  padding: 12px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.camera-filmstrip::-webkit-scrollbar { display: none; }
+
+.camera-filmstrip-item {
+  position: relative;
+  flex-shrink: 0;
+  width: 87px;
+  height: 87px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.camera-filmstrip-item img:first-child {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.filmstrip-check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--jovi-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filmstrip-check img { width: 9px; height: auto; }
+
+/* Nesta tela nenhum pill de modo usa o destaque de fundo (--active) do
+   Figma; o "Chat" é destacado só pela cor do texto. */
+.mode-pill.mode-chat span { color: var(--lacar-chat-highlight); }

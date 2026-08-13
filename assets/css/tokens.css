@@ -34,4 +34,20 @@
   --jovi-ai-accent: #b5a1e8;
   /* Camada sutil sobre fundo escuro */
   --lacar-overlay-white-05: rgba(255, 255, 255, 0.05);
+
+  /* Adicionadas na Tela 11 (Câmera — seleção de fotos IA) — cores fora da
+     tolerância de 2% dos tokens acima, aprovadas pelo time antes de codar. */
+  /* Botão de confirmação de seleção (check azul flutuante) */
+  --lacar-select-confirm-blue: #2e5bff;
+  /* AUDITAR: 3º tom de roxo-claro no projeto, possível redundância com
+     --jovi-purple-muted/--jovi-ai-accent — confirmar com design se é
+     intencional */
+  --lacar-chat-highlight: #e9d0f9;
+
+  /* Adicionadas na Tela 20 (Configuração de tradução) — cores fora da
+     tolerância de 2% dos tokens acima, aprovadas pelo time antes de codar. */
+  /* Borda do pill inativo do seletor de idioma, tema claro */
+  --lacar-toggle-border-light: #e5e7eb;
+  /* Divisor entre linhas de card, tema escuro */
+  --lacar-divider-dark: #383838;
 }

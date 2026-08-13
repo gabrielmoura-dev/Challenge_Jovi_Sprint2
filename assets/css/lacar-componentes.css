@@ -14,7 +14,7 @@
    ========================================================= */
 
 @import url("tokens.css");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
 /* Fonte real do Figma (JOVI_Sans_CN) — arquivos em assets/fonts/,
    usada apenas nas telas 05/10/13/21 (não altera tokens.css/jullia-componentes.css). */
