@@ -1,0 +1,293 @@
+/* ==========================================================================
+   Tokens — fontes, cores e escalas extraídas do Figma (arquivo Benchmark)
+   Frames de origem: 127:2002 (claro) e 127:2340 (escuro), 360x800.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Fontes locais. Só os dois pesos que aparecem nos layouts.
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "JOVI Sans CN";
+  src: url("../../fonts/jovi-sans-cn/JOVISansCN-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JOVI Sans CN";
+  src: url("../../fonts/jovi-sans-cn/JOVISansCN-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JOVI Sans CN";
+  src: url("../../fonts/jovi-sans-cn/JOVISansCN-Demibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JOVI Sans CN";
+  src: url("../../fonts/jovi-sans-cn/JOVISansCN-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Largura comprimida da família, usada nos selos da câmera (POSE, 200 mp) */
+@font-face {
+  font-family: "JOVI Sans Comp";
+  src: url("../../fonts/jovi-sans-comp/JOVISansComp400-400.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JOVI Sans Comp";
+  src: url("../../fonts/jovi-sans-comp/JOVISansComp600-600.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JOVI Sans Comp";
+  src: url("../../fonts/jovi-sans-comp/JOVISansComp800-800.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-display: "JOVI Sans CN", "Inter", system-ui, sans-serif;
+  --font-compressed: "JOVI Sans Comp", "JOVI Sans CN", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bs-body-font-family: var(--font-body);
+
+  /* Largura do frame do Figma; acima disso o app centraliza. */
+  --app-width: 420px;
+  --frame-width: 360px;
+
+  /* Espaçamentos recorrentes nos layouts */
+  --space-2: 4px;
+  --space-4: 8px;
+  --space-6: 12px;
+  --space-8: 16px;
+  --space-12: 24px;
+
+  --radius-sm: 16px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Alturas fixas do frame */
+  --statusbar-h: 44px;
+  --header-h: 64px;
+  --nav-h: 80px;
+}
+
+/* --------------------------------------------------------------------------
+   Tema claro (frame 127:2002)
+   -------------------------------------------------------------------------- */
+:root,
+[data-bs-theme="light"] {
+  --brand: #7c5bd9;
+  --brand-soft: #a275b7; /* traço do ícone de IA na busca */
+
+  --surface-page: #ffffff;
+  --surface-raised: #ffffff; /* fundo da barra de busca */
+  --surface-muted: #f5f5f5;  /* chip inativo, card, input do sheet */
+  --surface-sheet: #ffffff;
+  --surface-neutral: #e5e5e5; /* botão Cancelar */
+  --surface-placeholder: #1a1a1a; /* fundo atrás das fotos enquanto carregam */
+  --surface-bubble: #f3f4f6;  /* balão de mensagem do assistente */
+  --surface-field: #f3f3f3;   /* campo do compositor de mensagem */
+
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-strong: #e5e5e5;
+  --border-input: transparent;
+  /* Divisórias de painel. O Figma usa #e3e3e3 no topo e #e5e7eb no rodapé —
+     dois pontos de diferença, imperceptíveis; unificados num token só. */
+  --border-hairline: #e5e7eb;
+  --border-field: #e5e7eb;
+
+  --text-primary: #0a0a0f;
+  --text-secondary: #737373;
+  --text-placeholder: #9ca3af;
+  --text-on-brand: #ffffff;
+  --text-field-value: rgba(0, 0, 0, 0.5);
+  --text-composer-placeholder: rgba(10, 10, 10, 0.5);
+  --icon-nav: #737373;
+
+  --scrim: rgba(15, 15, 15, 0.6);
+  --shadow-fab: 0 10px 7.5px rgba(0, 0, 0, 0.1), 0 4px 3px rgba(0, 0, 0, 0.1);
+
+  /* Ponte para o Bootstrap, para os componentes nativos herdarem o tema */
+  --bs-body-bg: var(--surface-page);
+  --bs-body-color: var(--text-primary);
+  --bs-border-color: var(--border-strong);
+  --bs-secondary-color: var(--text-secondary);
+  --bs-primary: var(--brand);
+  --bs-emphasis-color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Tema escuro (frame 127:2340) — só as cores mudam.
+   -------------------------------------------------------------------------- */
+[data-bs-theme="dark"] {
+  --brand: #7c5bd9;
+  --brand-soft: #a275b7;
+
+  --surface-page: #0a0a0a;
+  --surface-raised: #1a1a1a;
+  --surface-muted: #1a1a1a;
+  --surface-sheet: #1a1a1a;
+  --surface-neutral: #1a1a1a;
+  --surface-placeholder: #1a1a1a;
+  --surface-bubble: #1a1a1a;
+  --surface-field: #1a1a1a;
+
+  --border-subtle: #262626;
+  --border-strong: #262626;
+  --border-input: #262626;
+  --border-hairline: #1a1a1a;
+  --border-field: #262626;
+
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+  --text-placeholder: #9ca3af;
+  --text-on-brand: #ffffff;
+  --text-field-value: rgba(255, 255, 255, 0.5);
+  --text-composer-placeholder: #9ca3af;
+  --icon-nav: #737373;
+
+  --scrim: rgba(15, 15, 15, 0.6);
+  --shadow-fab: 0 10px 7.5px rgba(0, 0, 0, 0.1), 0 4px 3px rgba(0, 0, 0, 0.1);
+
+  --bs-body-bg: var(--surface-page);
+  --bs-body-color: var(--text-primary);
+  --bs-border-color: var(--border-strong);
+  --bs-secondary-color: var(--text-secondary);
+  --bs-primary: var(--brand);
+  --bs-emphasis-color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Escalas de texto. Os tracking são os valores literais do Figma —
+   arredondá-los desalinha a largura das linhas.
+   -------------------------------------------------------------------------- */
+.t-heading-lg {          /* título do sheet */
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.4492px;
+}
+
+.t-heading-md {          /* "Galeria" */
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.4395px;
+}
+
+.t-heading-panel {       /* título de painel: "Assistente IA" (sem tracking) */
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.t-heading-section {     /* "Vibe Canina", "Álbuns" */
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.4395px;
+}
+
+.t-heading-sm {          /* "mai. de 2024" — Inter no design */
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.4395px;
+}
+
+.t-button {              /* Criar álbum, Cancelar, Criar */
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.3125px;
+}
+
+.t-button-bold {         /* Começar, Pular — no onboarding os botões são Bold */
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.t-tagline {             /* frase de apoio do onboarding */
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+/* Os dois frames dão a mesma largura de chip (65.03px em "Tudo"), mas
+   divergem na fonte: o claro usa JOVI Medium 12px e o escuro, Inter Medium
+   14px. Adotamos o claro, que é o que reproduz as larguras do design. */
+.t-chip {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: -0.1504px;
+}
+
+.t-label {               /* rótulos de modo/ação: Esporte, Foto, Video */
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.1504px;
+}
+
+.t-body-md {             /* nome do card, valor do input */
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.3125px;
+}
+
+.t-body-sm {             /* label do sheet, placeholder da busca, "9 fotos" */
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.1504px;
+}
+
+.t-meta {                /* data sob o nome do card */
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: normal;
+}
+
+.t-message {             /* corpo das mensagens do assistente */
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22.75px;
+}

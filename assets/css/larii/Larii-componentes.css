@@ -1,0 +1,592 @@
+/* ==========================================================================
+   Componentes comuns do app: moldura, status bar, header, chips, busca,
+   botões, cards de foto, navegação inferior e bottom sheet.
+   Nenhuma cor literal aqui — tudo vem das custom properties de tokens.css,
+   para que trocar data-bs-theme repinte a tela inteira.
+   ========================================================================== */
+
+body {
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Acima de 600px a moldura do app ganha um fundo neutro em volta. */
+@media (min-width: 600px) {
+  body {
+    background: color-mix(in srgb, var(--surface-page) 88%, #808080);
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Moldura do app
+   -------------------------------------------------------------------------- */
+.app-frame {
+  position: relative;
+  width: 100%;
+  max-width: var(--app-width);
+  margin-inline: auto;
+  min-height: 100dvh;
+  background: var(--surface-page);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 600px) {
+  .app-frame {
+    min-height: 100dvh;
+    box-shadow: 0 0 0 1px var(--border-subtle), 0 24px 60px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Status bar (decorativa, faz parte da composição do mock)
+   -------------------------------------------------------------------------- */
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--statusbar-h);
+  padding-inline: var(--space-12);
+  flex: none;
+}
+
+.status-bar__time {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.status-bar__icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-primary);
+}
+
+/* Sobre foto a status bar é sempre branca, independente do tema */
+.status-bar--on-media,
+.status-bar--on-media .status-bar__time,
+.status-bar--on-media .status-bar__icons {
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-h);
+  padding-inline: var(--space-8);
+  flex: none;
+}
+
+.app-header__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.app-header__title {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+/* Botão só de ícone, usado no header e no sheet */
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--text-primary);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  flex: none;
+}
+
+.icon-button--32 { width: 32px; height: 32px; }
+.icon-button--36 { width: 36px; height: 36px; border-radius: 14px; }
+.icon-button--40 { width: 40px; height: 40px; }
+
+.icon-button--brand { color: var(--brand); }
+
+/* Cabeçalho de painel (assistente): mais alto, com divisória e recuo de 20 */
+.app-header--panel {
+  height: 69px;
+  padding-inline: 20px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.app-header--panel .app-header__left { gap: var(--space-4); }
+
+/* Selo redondo na cor da marca, com ícone dentro */
+.avatar-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background: var(--brand);
+  color: var(--text-on-brand);
+  flex: none;
+}
+
+/* --------------------------------------------------------------------------
+   Chips de categoria — transbordam a largura do frame e rolam na horizontal
+   -------------------------------------------------------------------------- */
+.chip-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  height: 32px;
+  padding-inline: var(--space-8);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  flex: none;
+}
+
+.chip-row::-webkit-scrollbar { display: none; }
+
+/* No Figma o chip ativo é 2px mais estreito de cada lado que os inativos. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding-inline: 20px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--surface-muted);
+  color: var(--text-primary);
+  white-space: nowrap;
+  cursor: pointer;
+  flex: none;
+}
+
+.chip.is-active {
+  padding-inline: 18px;
+  background: var(--brand);
+  color: var(--text-on-brand);
+}
+
+/* --------------------------------------------------------------------------
+   Barra de busca
+   -------------------------------------------------------------------------- */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  height: 46px;
+  margin: 20px auto 0;
+  width: calc(100% - 56px);
+  padding: 13px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  flex: none;
+}
+
+.search-bar__icon {
+  color: var(--text-placeholder);
+  flex: none;
+}
+
+.search-bar__icon--ai { color: var(--brand-soft); }
+
+.search-bar__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 20px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--text-primary);
+  appearance: none;
+}
+
+/* O botão de limpar nativo do type="search" rouba largura do placeholder */
+.search-bar__input::-webkit-search-cancel-button,
+.search-bar__input::-webkit-search-decoration {
+  appearance: none;
+}
+
+.search-bar__input::placeholder { color: var(--text-placeholder); }
+.search-bar__input:focus { outline: none; }
+.search-bar:focus-within { border-color: var(--brand); }
+
+/* --------------------------------------------------------------------------
+   Botões
+   -------------------------------------------------------------------------- */
+/* Botão de bloco: a base carrega a forma, as variantes só a cor. */
+.btn-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  height: 55px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.btn-block--brand {
+  background: var(--brand);
+  color: var(--text-on-brand);
+}
+
+/* Sobre foto: fundo claro com o texto na cor da marca (onboarding) */
+.btn-block--inverse {
+  border-radius: 18px;
+  background: #ffffff;
+  color: var(--brand);
+}
+
+/* Ação secundária sem fundo */
+.btn-block--ghost {
+  height: 56px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: #737373;
+}
+
+.btn-sheet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1 1 0;
+  height: 48px;
+  border: 0;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+}
+
+.btn-sheet--neutral {
+  background: var(--surface-neutral);
+  color: var(--text-primary);
+}
+
+.btn-sheet--brand {
+  background: var(--brand);
+  color: var(--text-on-brand);
+}
+
+/* Estado desabilitado do "Criar": é literalmente o opacity 50% do Figma */
+.btn-sheet--brand:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   Cards de foto
+   -------------------------------------------------------------------------- */
+.photo-card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: var(--surface-muted);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+}
+
+/* No Figma a foto tem 328px de largura dentro de um card de 306 e é cortada
+   pelas bordas; o que importa é a altura visível de 184.5px. */
+.photo-card__media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 306 / 184.5;
+  object-fit: cover;
+}
+
+.photo-card__body {
+  display: block;
+  height: 80px;
+  padding: 16px 16px 0 21px;
+}
+
+.photo-card__title {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.photo-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  color: var(--text-secondary);
+}
+
+.photo-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Miniatura quadrada/retangular sem legenda (álbuns e grade) */
+.photo-tile {
+  display: block;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: var(--surface-placeholder);
+  cursor: pointer;
+}
+
+.photo-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   Vidro fosco: preenchimento translúcido, contorno e desfoque do que está
+   atrás. Cada uso ajusta as três variáveis; o raio do desfoque corresponde
+   ao "Background blur" do Figma.
+   -------------------------------------------------------------------------- */
+.glass {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.08));
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.12));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 24px));
+  backdrop-filter: blur(var(--glass-blur, 24px));
+}
+
+/* --------------------------------------------------------------------------
+   Conversa: balão de mensagem e compositor
+   -------------------------------------------------------------------------- */
+.chat-bubble {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-bubble);
+  color: var(--text-primary);
+}
+
+.chat-bubble p { margin: 0; }
+
+/* Barra de escrita ancorada no rodapé da moldura */
+.composer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, var(--app-width));
+  height: 85px;
+  padding: 16px 20px 0; /* 17px do Figma menos o 1px da borda de cima */
+  background: var(--surface-page);
+  border-top: 1px solid var(--border-hairline);
+  z-index: 1030;
+}
+
+.composer__row {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-4);
+  height: 46px;
+}
+
+.composer__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 12px 16px;
+  border: 1px solid var(--border-field);
+  border-radius: 14px;
+  background: var(--surface-field);
+  color: var(--text-primary);
+}
+
+.composer__input::placeholder { color: var(--text-composer-placeholder); }
+.composer__input:focus {
+  outline: none;
+  border-color: var(--brand);
+}
+
+.composer__send {
+  flex: none;
+  width: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 14px;
+  background: var(--brand);
+  color: var(--text-on-brand);
+  cursor: pointer;
+}
+
+.composer__send:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   Indicador de páginas do onboarding
+   -------------------------------------------------------------------------- */
+.dots {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.dots__item {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: #a3a3a3;
+}
+
+.dots__item.is-active { background: var(--brand); }
+
+/* --------------------------------------------------------------------------
+   Navegação inferior, ancorada à moldura do app
+   -------------------------------------------------------------------------- */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, var(--app-width));
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 33.6px;
+  background: var(--surface-page);
+  border-top: 1px solid var(--border-strong);
+  z-index: 1030;
+}
+
+.bottom-nav__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--icon-nav);
+  cursor: pointer;
+}
+
+.bottom-nav__item.is-active { color: var(--brand); }
+
+.bottom-nav__fab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--brand);
+  color: var(--text-on-brand);
+  box-shadow: var(--shadow-fab);
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   Bottom sheet — Modal do Bootstrap ancorado embaixo, na largura da moldura
+   -------------------------------------------------------------------------- */
+.sheet .modal-dialog {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: min(100%, var(--app-width));
+  max-width: none;
+  margin: 0;
+  transition: transform 0.3s ease-out;
+}
+
+.sheet.show .modal-dialog {
+  transform: translateX(-50%) translateY(0);
+}
+
+.sheet .modal-content {
+  height: 248px;
+  padding: 24px 24px 0;
+  gap: 24px;
+  border: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: var(--surface-sheet);
+}
+
+.sheet__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+}
+
+.sheet__title {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.sheet__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* No Figma o label é Inter Medium, um passo acima do corpo */
+.sheet__label {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.sheet__input {
+  height: 52px;
+  padding: 12px 16px;
+  border: 2px solid var(--border-input);
+  border-radius: var(--radius-lg);
+  background: var(--surface-muted);
+  color: var(--text-primary);
+  width: 100%;
+}
+
+.sheet__input::placeholder { color: var(--text-field-value); }
+.sheet__input:focus {
+  outline: none;
+  border-color: var(--brand);
+}
+
+.sheet__actions {
+  display: flex;
+  gap: var(--space-6);
+  height: 48px;
+}
+
+/* O backdrop do Bootstrap usa a cor de scrim do Figma (#0F0F0F a 60%) */
+.modal-backdrop {
+  --bs-backdrop-bg: #0f0f0f;
+  --bs-backdrop-opacity: 0.6;
+}
+
+/* --------------------------------------------------------------------------
+   Foco visível e movimento reduzido
+   -------------------------------------------------------------------------- */
+:where(button, input, a):focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet .modal-dialog { transition: none; }
+}

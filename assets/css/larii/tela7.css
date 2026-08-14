@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Tela 7 — Galeria. Só o que é exclusivo desta tela: o bloco fixo do topo
+   e as três seções da galeria. Medidas conforme os frames 127:2002 / 127:2340.
+   ========================================================================== */
+
+/* No Figma o topo (status bar, header, chips e busca) fica fora da área de
+   rolagem: 225px fixos. Aqui isso vira um bloco sticky sobre a página. */
+.gallery-top {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  background: var(--surface-page);
+  flex: none;
+}
+
+.gallery {
+  padding-top: 19px;
+  padding-bottom: calc(var(--nav-h) + 24px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Botão "Criar álbum": x27, largura 305 no frame de 360 */
+.gallery__cta {
+  margin: 0 28px 0 27px;
+}
+
+/* Seções em x16, largura 328 */
+.gallery__section {
+  margin-inline: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* A do card grande é a exceção: x27, largura 306 */
+.gallery__section--hero {
+  margin: 13.5px 27px 0;
+}
+
+/* O frame "Vibe Canina" do Figma declara 300.5px de altura, mas seus filhos
+   somam 303.5. Descontamos a diferença aqui para que as seções seguintes
+   caiam nas mesmas coordenadas absolutas do design. */
+.gallery__section--albums { margin-top: 27.5px; }
+.gallery__section--month  { margin-top: 24px; }
+
+.gallery__heading {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.gallery__heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gallery__count { color: var(--text-primary); }
+
+/* Faixa horizontal de álbuns: cards 128x192, gap 8 */
+.album-row {
+  display: flex;
+  gap: var(--space-4);
+  padding-bottom: var(--space-4);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.album-row::-webkit-scrollbar { display: none; }
+
+.album-row .photo-tile {
+  flex: none;
+  width: 128px;
+  height: 192px;
+  border-radius: var(--radius-lg);
+}
+
+/* Grade 3x3 de quadrados. No frame são 106.664px com passo de 110.66 — ou
+   seja, 4px de gap; em proporção isso é 1fr por coluna. */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+}
+
+.photo-grid .photo-tile {
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+}

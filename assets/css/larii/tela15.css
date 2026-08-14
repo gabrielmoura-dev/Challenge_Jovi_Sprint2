@@ -1,0 +1,232 @@
+/* ==========================================================================
+   Tela 15 — Câmera. Frame 145:3667 do Figma, 360x800, tema único.
+   Toda a interface flutua sobre a imagem da câmera; as duas faixas escuras
+   (topo e rodapé) são véus pretos a 35%, medidos a partir do frame.
+   ========================================================================== */
+
+.app-frame--camera {
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+.camera__preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Véus que dão contraste aos controles: 0–104 no topo, 181px no rodapé.
+
+   PROVISÓRIO: os --glass-blur desta tela estão em 24px como marcador. O
+   "Background blur" ainda não existe nos nós do Figma (conferido em
+   145:3730, 145:3757, 145:3765 e 145:3767) e o Dev Mode não exporta esse
+   efeito no CSS. Assim que ele for adicionado ao arquivo, o valor sai de
+   uma medição do render e é trocado nos três pontos abaixo. */
+.camera__veil {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.camera__veil--top {
+  top: 0;
+  height: 104px;
+  background: rgba(0, 0, 0, 0.37);
+}
+
+/* O painel é uma lâmina de vidro: cantos de cima arredondados e um fio de
+   luz só na aresta superior (as laterais e a base não têm borda). */
+.camera__veil--bottom {
+  --glass-bg: rgba(0, 0, 0, 0.355);
+  --glass-border: transparent;
+  --glass-blur: 24px;
+  bottom: 0;
+  height: 181px;
+  border-top-color: rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.camera__ui {
+  position: relative;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Barra de ferramentas superior (y 44, altura 60)
+   -------------------------------------------------------------------------- */
+.camera__toolbar {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px 0 20px;
+}
+
+.camera__tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.camera__toolbar .icon-button { color: #ffffff; }
+
+/* O ícone de IA é o mesmo lilás usado na busca da galeria */
+.camera__toolbar .icon-button.camera__tool--ai { color: var(--brand-soft); }
+
+/* Os dois selos usam a largura comprimida da família (JOVI Sans Comp) */
+.camera__badge-pose,
+.camera__badge-mp {
+  font-family: var(--font-compressed);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 13px;
+  white-space: nowrap;
+}
+
+/* Selo "POSE": moldura tracejada de 24px com o texto dentro. O tracejado vem
+   de um SVG porque o `border: dashed` do Chrome desenha traços de 3px, e o
+   design usa 2px de traço com 2px de intervalo. */
+.camera__badge-pose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding-bottom: 2px; /* alinha a caixa alta com a do design */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Crect x='.5' y='.5' width='23' height='23' rx='2.5' fill='none' stroke='%23fff' stroke-dasharray='2 2'/%3E%3C/svg%3E");
+}
+
+/* --------------------------------------------------------------------------
+   Etiqueta de modo detectado (y 113)
+   -------------------------------------------------------------------------- */
+.camera__scene {
+  --glass-bg: rgba(10, 10, 10, 0.4);
+  --glass-blur: 24px;
+  position: absolute;
+  top: 113px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 38px;
+  padding: 0 16px 0 15px;
+  border-radius: var(--radius-sm);
+}
+
+.camera__scene-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: #f31313;
+  opacity: 0.51;
+}
+
+.camera__scene-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Painel inferior: seletor de modo e ações
+   -------------------------------------------------------------------------- */
+.camera__panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 181px;
+}
+
+/* Faixa de modos, rolável na horizontal (Noturno fica fora do frame) */
+.camera__modes {
+  position: absolute;
+  top: 21px;
+  left: 20px;
+  right: 0;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.camera__modes::-webkit-scrollbar { display: none; }
+
+.camera__mode {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex: none;
+  height: 36px;
+  padding-inline: 16px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: #ffffff;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Espessura de traço por contexto. Os symbols não trazem stroke-width para
+   que o valor herde daqui: a barra superior usa traço fino (1 no viewBox de
+   24), o rodapé usa 2px em tela — daí o 3 nos ícones de 16px. */
+.app-frame--camera svg { stroke-width: 1; }     /* barra superior: 1px */
+.status-bar svg { stroke-width: 2; }
+.camera__mode svg { stroke-width: 2.25; }       /* 2.25/24 * 16px = 1.5px */
+.camera__side-button svg { stroke-width: 1.5; } /* 1.5/24 * 24px = 1.5px */
+
+/* O modo corrente é destacado só pela cor do texto e do ícone (#e9d0f9),
+   sem fundo — é assim no design. */
+.camera__mode.is-active { color: #e9d0f9; }
+
+.camera__mode:active { background: rgba(255, 255, 255, 0.12); }
+
+/* Linha de ações: galeria, disparo e troca de câmera */
+.camera__actions {
+  position: absolute;
+  top: 85px;
+  left: 20px;
+  right: 20px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.camera__side-button {
+  --glass-blur: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Disparo: círculo branco de 72px com um miolo opaco de 60px (#0a0a0a),
+   sobre uma sombra suave. O miolo não deixa a imagem passar. */
+.camera__shutter {
+  width: 72px;
+  height: 72px;
+  padding: 0;
+  border: 6px solid #ffffff;
+  border-radius: var(--radius-pill);
+  background: #0a0a0a;
+  background-clip: padding-box;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.camera__shutter:active { background: rgba(255, 255, 255, 0.25); }
