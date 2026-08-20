@@ -4,6 +4,19 @@
 
   /* ---------------------------------------------------------------- chips */
   var chipRow = document.querySelector("[data-chips]");
+  var panels = document.querySelectorAll("[data-filter-panel]");
+
+  // "Vídeos" e "Esporte" não têm design próprio — caem de volta no painel
+  // "Tudo" em vez de mostrar uma tela vazia.
+  function showPanel(filter) {
+    if (!panels.length) return;
+    var hasPanel = document.querySelector('[data-filter-panel="' + filter + '"]');
+    var target = hasPanel ? filter : "tudo";
+
+    panels.forEach(function (panel) {
+      panel.hidden = panel.getAttribute("data-filter-panel") !== target;
+    });
+  }
 
   if (chipRow) {
     chipRow.addEventListener("click", function (event) {
@@ -17,6 +30,7 @@
       });
 
       chip.scrollIntoView({ inline: "nearest", block: "nearest", behavior: "smooth" });
+      showPanel(chip.getAttribute("data-filter"));
     });
   }
 

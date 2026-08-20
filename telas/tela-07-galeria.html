@@ -86,6 +86,17 @@
   <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M20 6 9 17l-5-5"/>
   </symbol>
+  <symbol id="i-share-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+    <line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>
+  </symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="6 3 20 12 6 21 6 3"/>
+  </symbol>
+  <symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+    <circle cx="12" cy="10" r="3"/>
+  </symbol>
 </svg>
 
 <div class="app-frame">
@@ -115,11 +126,11 @@
     </header>
 
     <div class="chip-row" data-chips role="group" aria-label="Filtrar por categoria">
-      <button type="button" class="chip t-chip is-active" aria-pressed="true">Tudo</button>
-      <button type="button" class="chip t-chip" aria-pressed="false">Vídeos</button>
-      <button type="button" class="chip t-chip" aria-pressed="false">Esporte</button>
-      <button type="button" class="chip t-chip" aria-pressed="false">Estudos</button>
-      <button type="button" class="chip t-chip" aria-pressed="false">Palestras</button>
+      <button type="button" class="chip t-chip is-active" aria-pressed="true" data-filter="tudo">Tudo</button>
+      <button type="button" class="chip t-chip" aria-pressed="false" data-filter="videos">Vídeos</button>
+      <button type="button" class="chip t-chip" aria-pressed="false" data-filter="esporte">Esporte</button>
+      <button type="button" class="chip t-chip" aria-pressed="false" data-filter="estudos">Estudos</button>
+      <button type="button" class="chip t-chip" aria-pressed="false" data-filter="palestras">Palestras</button>
     </div>
 
     <form class="search-bar" role="search" onsubmit="return false">
@@ -133,54 +144,208 @@
 
   <main class="gallery">
 
-    <button type="button" class="btn-block btn-block--brand t-button gallery__cta" data-open-sheet>
-      <svg width="20" height="20" aria-hidden="true"><use href="#i-plus"/></svg>
-      Criar álbum
-    </button>
+    <!-- Filtro "Tudo" (e fallback para "Vídeos"/"Esporte", sem design próprio) -->
+    <div class="gallery__panel" data-filter-panel="tudo">
 
-    <section class="gallery__section gallery__section--hero" aria-labelledby="sec-vibe-canina">
-      <h2 class="gallery__heading t-heading-section" id="sec-vibe-canina">Vibe Canina</h2>
-      <button type="button" class="photo-card">
-        <img class="photo-card__media" src="../assets/img/hero-cachorro.png" alt="Cachorro de pelo claro sentado sobre fundo verde">
-        <span class="photo-card__body">
-          <span class="photo-card__title t-body-md d-block">Vibes folhas</span>
-          <span class="photo-card__meta t-meta">
-            <span class="photo-card__meta-item">
-              <svg width="14" height="14" aria-hidden="true"><use href="#i-calendar"/></svg>
-              16 de abr. de 2024 - 17h30, ter.
-            </span>
-            <svg width="14" height="14" aria-hidden="true"><use href="#i-heart"/></svg>
-          </span>
-        </span>
+      <button type="button" class="btn-block btn-block--brand t-button gallery__cta" data-open-sheet>
+        <svg width="20" height="20" aria-hidden="true"><use href="#i-plus"/></svg>
+        Criar álbum
       </button>
-    </section>
 
-    <section class="gallery__section gallery__section--albums" aria-labelledby="sec-albuns">
-      <h2 class="gallery__heading t-heading-section" id="sec-albuns">Álbuns</h2>
-      <div class="album-row">
-        <button type="button" class="photo-tile"><img src="../assets/img/album-1.png" alt="Mulher entre folhagens em uma floresta"></button>
-        <button type="button" class="photo-tile"><img src="../assets/img/album-2.png" alt="Pessoa segurando uma folha em frente ao rosto"></button>
-        <button type="button" class="photo-tile"><img src="../assets/img/album-3.png" alt="Mulher sentada em um tronco na mata"></button>
-      </div>
-    </section>
+      <section class="gallery__section gallery__section--hero" aria-labelledby="sec-vibe-canina">
+        <h2 class="gallery__heading t-heading-section" id="sec-vibe-canina">Vibe Canina</h2>
+        <button type="button" class="photo-card">
+          <img class="photo-card__media" src="../assets/img/hero-cachorro.png" alt="Cachorro de pelo claro sentado sobre fundo verde">
+          <span class="photo-card__body">
+            <span class="photo-card__title t-body-md d-block">Vibes folhas</span>
+            <span class="photo-card__meta t-meta">
+              <span class="photo-card__meta-item">
+                <svg width="14" height="14" aria-hidden="true"><use href="#i-calendar"/></svg>
+                16 de abr. de 2024 - 17h30, ter.
+              </span>
+              <svg width="14" height="14" aria-hidden="true"><use href="#i-heart"/></svg>
+            </span>
+          </span>
+        </button>
+      </section>
 
-    <section class="gallery__section gallery__section--month" aria-labelledby="sec-maio">
-      <div class="gallery__heading-row">
-        <h2 class="gallery__heading t-heading-sm" id="sec-maio">mai. de 2024</h2>
-        <span class="gallery__count t-body-sm">9 fotos</span>
-      </div>
-      <div class="photo-grid">
-        <button type="button" class="photo-tile"><img src="../assets/img/grid-1.png" alt="Silhuetas ao pôr do sol"></button>
-        <button type="button" class="photo-tile"><img src="../assets/img/grid-2.png" alt="Homem caminhando por uma trilha na floresta"></button>
-        <button type="button" class="photo-tile"><img src="../assets/img/grid-3.png" alt="Homem sentado ao pé de uma árvore"></button>
-        <button type="button" class="photo-tile"><img src="../assets/img/grid-4.png" alt="Pessoa com uma folha diante do rosto à beira do rio"></button>
-        <button type="button" class="photo-tile"><img src="../assets/img/grid-5.png" alt="Mulher sentada em um tronco caído"></button>
-        <button type="button" class="photo-tile"><img src="../assets/img/grid-6.png" alt="Pessoa de boné vista de costas em campo aberto"></button>
-        <button type="button" class="photo-tile"><img src="../assets/img/grid-7.png" alt="Pessoa sentada em um tronco à beira do lago"></button>
-        <button type="button" class="photo-tile"><img src="../assets/img/grid-8.png" alt="Homem em pé entre árvores altas"></button>
-        <button type="button" class="photo-tile"><img src="../assets/img/grid-9.png" alt="Mulher de saia longa em um gramado ao entardecer"></button>
-      </div>
-    </section>
+      <section class="gallery__section gallery__section--albums" aria-labelledby="sec-albuns">
+        <h2 class="gallery__heading t-heading-section" id="sec-albuns">Álbuns</h2>
+        <div class="album-row">
+          <button type="button" class="photo-tile"><img src="../assets/img/album-1.png" alt="Mulher entre folhagens em uma floresta"></button>
+          <button type="button" class="photo-tile"><img src="../assets/img/album-2.png" alt="Pessoa segurando uma folha em frente ao rosto"></button>
+          <button type="button" class="photo-tile"><img src="../assets/img/album-3.png" alt="Mulher sentada em um tronco na mata"></button>
+        </div>
+      </section>
+
+      <section class="gallery__section gallery__section--month" aria-labelledby="sec-maio">
+        <div class="gallery__heading-row">
+          <h2 class="gallery__heading t-heading-sm" id="sec-maio">mai. de 2024</h2>
+          <span class="gallery__count t-body-sm">9 fotos</span>
+        </div>
+        <div class="photo-grid">
+          <button type="button" class="photo-tile"><img src="../assets/img/grid-1.png" alt="Silhuetas ao pôr do sol"></button>
+          <button type="button" class="photo-tile"><img src="../assets/img/grid-2.png" alt="Homem caminhando por uma trilha na floresta"></button>
+          <button type="button" class="photo-tile"><img src="../assets/img/grid-3.png" alt="Homem sentado ao pé de uma árvore"></button>
+          <button type="button" class="photo-tile"><img src="../assets/img/grid-4.png" alt="Pessoa com uma folha diante do rosto à beira do rio"></button>
+          <button type="button" class="photo-tile"><img src="../assets/img/grid-5.png" alt="Mulher sentada em um tronco caído"></button>
+          <button type="button" class="photo-tile"><img src="../assets/img/grid-6.png" alt="Pessoa de boné vista de costas em campo aberto"></button>
+          <button type="button" class="photo-tile"><img src="../assets/img/grid-7.png" alt="Pessoa sentada em um tronco à beira do lago"></button>
+          <button type="button" class="photo-tile"><img src="../assets/img/grid-8.png" alt="Homem em pé entre árvores altas"></button>
+          <button type="button" class="photo-tile"><img src="../assets/img/grid-9.png" alt="Mulher de saia longa em um gramado ao entardecer"></button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Filtro "Estudos" — node 174:6938 / 174:7176 do Figma -->
+    <div class="gallery__panel" data-filter-panel="estudos" hidden>
+
+      <section class="gallery__section" aria-label="Resumo semanal gerado por IA">
+        <div class="gallery-summary">
+          <span class="gallery-summary__icon" aria-hidden="true">
+            <img src="../assets/img/brain.svg" width="20" height="20" alt="">
+          </span>
+          <span class="gallery-summary__body">
+            <span class="gallery-summary__title t-meta">RESUMO DA SEMANA · IA</span>
+            <span class="gallery-summary__text t-body-sm">
+              Você capturou <strong>47 fotos</strong> esta semana. Momentos de estudo aumentaram <strong>+32%</strong>.
+            </span>
+          </span>
+        </div>
+      </section>
+
+      <section class="gallery__section" aria-label="Fotos de estudo">
+        <div class="gallery-card-list">
+
+          <article class="gallery-card">
+            <div class="gallery-card__thumb">
+              <img src="../assets/img/gallery-estudo-calculo.jpg" alt="Anotações de cálculo com equações em um caderno">
+              <span class="gallery-card__badge">Estudo</span>
+            </div>
+            <div class="gallery-card__body">
+              <h3 class="gallery-card__title t-body-md">Cálculo - Cap 5</h3>
+              <p class="gallery-card__meta t-meta">
+                <span class="gallery-card__meta-item"><svg width="14" height="14" aria-hidden="true"><use href="#i-calendar"/></svg>Ontem, 06:45</span>
+                <span class="gallery-card__meta-item"><svg width="14" height="14" aria-hidden="true"><use href="#i-map-pin"/></svg>Parque Central</span>
+              </p>
+              <p class="gallery-card__ai">
+                <svg width="16" height="16" aria-hidden="true"><use href="#i-sparkles"/></svg>
+                IA detectou exercícios de cálculo. Flashcard criado.
+              </p>
+              <div class="gallery-card__actions">
+                <button type="button" class="gallery-card__action" aria-label="Curtir"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
+                <button type="button" class="gallery-card__action" aria-label="Compartilhar"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-card__thumb">
+              <img src="../assets/img/gallery-estudo-fisica.jpg" alt="Exercícios de física resolvidos em um caderno">
+              <span class="gallery-card__badge">Estudo</span>
+            </div>
+            <div class="gallery-card__body">
+              <h3 class="gallery-card__title t-body-md">Física - Exercícios</h3>
+              <p class="gallery-card__meta t-meta">
+                <span class="gallery-card__meta-item"><svg width="14" height="14" aria-hidden="true"><use href="#i-calendar"/></svg>Ontem, 06:45</span>
+                <span class="gallery-card__meta-item"><svg width="14" height="14" aria-hidden="true"><use href="#i-map-pin"/></svg>Parque Central</span>
+              </p>
+              <p class="gallery-card__ai">
+                <svg width="16" height="16" aria-hidden="true"><use href="#i-sparkles"/></svg>
+                IA detectou exercícios de cálculo. Flashcard criado.
+              </p>
+              <div class="gallery-card__actions">
+                <button type="button" class="gallery-card__action" aria-label="Curtir"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
+                <button type="button" class="gallery-card__action" aria-label="Compartilhar"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-card__thumb">
+              <img src="../assets/img/gallery-estudo-quimica.jpg" alt="Anotações de química orgânica em um caderno">
+              <span class="gallery-card__badge">Estudo</span>
+            </div>
+            <div class="gallery-card__body">
+              <h3 class="gallery-card__title t-body-md">Química orgânica</h3>
+              <p class="gallery-card__meta t-meta">
+                <span class="gallery-card__meta-item"><svg width="14" height="14" aria-hidden="true"><use href="#i-calendar"/></svg>Ontem, 06:45</span>
+                <span class="gallery-card__meta-item"><svg width="14" height="14" aria-hidden="true"><use href="#i-map-pin"/></svg>Parque Central</span>
+              </p>
+              <p class="gallery-card__ai">
+                <svg width="16" height="16" aria-hidden="true"><use href="#i-sparkles"/></svg>
+                IA detectou exercícios de cálculo. Flashcard criado.
+              </p>
+              <div class="gallery-card__actions">
+                <button type="button" class="gallery-card__action" aria-label="Curtir"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
+                <button type="button" class="gallery-card__action" aria-label="Compartilhar"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Filtro "Palestras" — node 169:5564 / 169:5727 do Figma -->
+    <div class="gallery__panel" data-filter-panel="palestras" hidden>
+
+      <section class="gallery__section" aria-label="Vídeos de palestra">
+        <div class="gallery-card-list">
+
+          <article class="gallery-card">
+            <div class="gallery-card__thumb">
+              <img src="../assets/img/gallery-palestra-1.jpg" alt="Plateia assistindo a uma palestra sobre tecnologia">
+              <span class="gallery-card__badge">Palestra</span>
+              <button type="button" class="gallery-card__play" aria-label="Reproduzir vídeo">
+                <svg width="24" height="24" aria-hidden="true"><use href="#i-play"/></svg>
+              </button>
+            </div>
+            <div class="gallery-card__body">
+              <h3 class="gallery-card__title t-body-md">Tecnologia</h3>
+              <p class="gallery-card__meta t-meta">
+                <span class="gallery-card__meta-item"><svg width="14" height="14" aria-hidden="true"><use href="#i-calendar"/></svg>Ontem, 06:45</span>
+                <span class="gallery-card__meta-item"><svg width="14" height="14" aria-hidden="true"><use href="#i-map-pin"/></svg>Parque Central</span>
+              </p>
+              <div class="gallery-card__actions">
+                <button type="button" class="gallery-card__action gallery-card__action--soft" aria-label="Curtir"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--soft" aria-label="Compartilhar"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
+              </div>
+            </div>
+          </article>
+
+          <article class="gallery-card">
+            <div class="gallery-card__thumb">
+              <img src="../assets/img/gallery-palestra-2.jpg" alt="Pessoas em um workshop com anotações em post-its em um quadro">
+              <span class="gallery-card__badge">Palestra</span>
+              <button type="button" class="gallery-card__play" aria-label="Reproduzir vídeo">
+                <svg width="24" height="24" aria-hidden="true"><use href="#i-play"/></svg>
+              </button>
+            </div>
+            <div class="gallery-card__body">
+              <h3 class="gallery-card__title t-body-md">Tecnologia</h3>
+              <p class="gallery-card__meta t-meta">
+                <span class="gallery-card__meta-item"><svg width="14" height="14" aria-hidden="true"><use href="#i-calendar"/></svg>Ontem, 06:45</span>
+                <span class="gallery-card__meta-item"><svg width="14" height="14" aria-hidden="true"><use href="#i-map-pin"/></svg>Parque Central</span>
+              </p>
+              <div class="gallery-card__actions">
+                <button type="button" class="gallery-card__action gallery-card__action--soft" aria-label="Curtir"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--soft" aria-label="Compartilhar"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
 
   </main>
 

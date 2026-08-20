@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR" data-bs-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Câmera · Estudo</title>
+
+<!--
+  Nota: a tela 17 no Figma só existe em versão "no escuro" (câmera em
+  fullscreen sobre uma cena de estudo). Como não há variante light no
+  design, o tema fica fixo em dark aqui, seguindo o mesmo critério já
+  usado na tela 16.
+-->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="../assets/css/larii/tokens.css" rel="stylesheet">
+<link href="../assets/css/larii/Larii-componentes.css" rel="stylesheet">
+<link href="../assets/css/larii/tela15.css" rel="stylesheet">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-signal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 20V4"/>
+  </symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/>
+  </symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <rect width="16" height="10" x="2" y="7" rx="2" ry="2"/><path d="M22 11v2"/>
+  </symbol>
+  <symbol id="i-book-open-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 7C12 5.93913 11.5786 4.92172 10.8284 4.17157C10.0783 3.42143 9.06087 3 8 3H2V18H9C9.79565 18 10.5587 18.3161 11.1213 18.8787C11.6839 19.4413 12 20.2044 12 21M12 7V21M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H22V18H15C14.2044 18 13.4413 18.3161 12.8787 18.8787C12.3161 19.4413 12 20.2044 12 21M6 8H8M6 12H8M16 8H18M16 12H18"/>
+  </symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+    <path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>
+  </symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.3055 3.04842C13.5367 3.15725 13.6703 3.42583 13.6289 3.69868L12.6439 10.2H17.4546C17.6611 10.2 17.85 10.3284 17.9424 10.5317C18.0348 10.735 18.0149 10.9782 17.8908 11.16L11.3454 20.76C11.1946 20.9813 10.9257 21.0603 10.6945 20.9516C10.4633 20.8428 10.3297 20.5742 10.371 20.3013L11.3561 13.8H6.54545C6.33886 13.8 6.14999 13.6716 6.05759 13.4683C5.9652 13.2651 5.98513 13.0218 6.10909 12.84L12.6545 3.24005C12.8054 3.01875 13.0743 2.9396 13.3055 3.04842Z"/>
+  </symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </symbol>
+  <symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/>
+    <rect x="2" y="6" width="14" height="12" rx="2"/>
+  </symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+  </symbol>
+  <symbol id="i-message-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+  </symbol>
+  <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+  </symbol>
+  <symbol id="i-refresh-ccw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>
+    <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M21 21v-5h-5"/>
+  </symbol>
+</svg>
+
+<div class="app-frame app-frame--camera">
+
+  <img class="camera__preview" src="../assets/img/camera-bg-estudo.jpg"
+       alt="Prévia da câmera apontada para um livro aberto sobre a grama, em uma cena de estudo ao ar livre">
+  <div class="camera__veil camera__veil--top" aria-hidden="true"></div>
+  <div class="camera__veil camera__veil--bottom glass" aria-hidden="true"></div>
+
+  <div class="camera__ui">
+
+    <div class="status-bar status-bar--on-media" aria-hidden="true">
+      <span class="status-bar__time">17:32</span>
+      <span class="status-bar__icons">
+        <svg width="16" height="16"><use href="#i-signal"/></svg>
+        <svg width="16" height="16"><use href="#i-wifi"/></svg>
+        <svg width="20" height="20"><use href="#i-battery"/></svg>
+      </span>
+    </div>
+
+    <div class="camera__toolbar">
+      <div class="camera__tools">
+        <button type="button" class="icon-button icon-button--36" aria-label="Guia de pose">
+          <span class="camera__badge-pose" aria-hidden="true">POSE</span>
+        </button>
+        <button type="button" class="icon-button icon-button--36" aria-label="Modo leitura">
+          <svg width="24" height="24" aria-hidden="true"><use href="#i-book-open-text"/></svg>
+        </button>
+        <button type="button" class="icon-button icon-button--36 camera__tool--ai" aria-label="Realce com IA">
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-sparkles"/></svg>
+        </button>
+        <button type="button" class="icon-button icon-button--36" aria-label="Resolução: 200 megapixels">
+          <span class="camera__badge-mp" aria-hidden="true">200 mp</span>
+        </button>
+        <button type="button" class="icon-button icon-button--36" aria-label="Flash">
+          <svg width="24" height="24" aria-hidden="true"><use href="#i-zap"/></svg>
+        </button>
+      </div>
+      <button type="button" class="icon-button icon-button--40" aria-label="Configurações da câmera">
+        <svg width="20" height="20" aria-hidden="true"><use href="#i-settings"/></svg>
+      </button>
+    </div>
+
+    <div class="camera__panel">
+
+      <div class="camera__modes" data-modes role="group" aria-label="Modo de captura">
+        <button type="button" class="camera__mode t-label" aria-pressed="false">
+          <svg width="16" height="16" aria-hidden="true"><use href="#i-zap"/></svg>Esporte
+        </button>
+        <button type="button" class="camera__mode t-label" aria-pressed="false">
+          <svg width="16" height="16" aria-hidden="true"><use href="#i-message-circle"/></svg>Chat
+        </button>
+        <button type="button" class="camera__mode t-label is-active" aria-pressed="true">
+          <svg width="16" height="16" aria-hidden="true"><use href="#i-video"/></svg>Palestra
+        </button>
+        <button type="button" class="camera__mode t-label" aria-pressed="false">
+          <svg width="16" height="16" aria-hidden="true"><use href="#i-moon"/></svg>Noturno
+        </button>
+      </div>
+
+      <div class="camera__actions">
+        <button type="button" class="camera__side-button glass" aria-label="Abrir galeria">
+          <svg width="24" height="24" aria-hidden="true"><use href="#i-image"/></svg>
+        </button>
+        <button type="button" class="camera__shutter" aria-label="Tirar foto"></button>
+        <button type="button" class="camera__side-button glass" aria-label="Alternar câmera">
+          <svg width="24" height="24" aria-hidden="true"><use href="#i-refresh-ccw"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script src="../assets/js/tela15.js"></script>
+</body>
+</html>

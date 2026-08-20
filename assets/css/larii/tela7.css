@@ -88,3 +88,183 @@
   aspect-ratio: 1;
   border-radius: var(--radius-md);
 }
+
+/* --------------------------------------------------------------------------
+   Painéis de filtro (chips "Estudos" / "Palestras" — frames 174:6938 e
+   169:5564). Só um fica visível por vez; a troca é feita por tela7.js.
+   -------------------------------------------------------------------------- */
+.gallery__panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.gallery__panel[hidden] { display: none; }
+
+/* Card "Resumo da semana · IA" */
+.gallery-summary {
+  display: flex;
+  gap: var(--space-8);
+  margin-inline: 16px;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+}
+
+.gallery-summary__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: var(--brand);
+}
+
+.gallery-summary__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.gallery-summary__title {
+  color: var(--brand);
+  text-transform: uppercase;
+}
+
+.gallery-summary__text {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.gallery-summary__text strong { color: var(--brand); font-weight: 500; }
+
+/* Lista de cards de estudo/palestra */
+.gallery-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin-inline: 16px;
+}
+
+.gallery-card {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+}
+
+.gallery-card__thumb {
+  position: relative;
+  aspect-ratio: 306 / 161;
+}
+
+.gallery-card__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.gallery-card__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.9);
+  color: #0a0a0a;
+  cursor: pointer;
+}
+
+.gallery-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: 12px 18px 16px;
+}
+
+.gallery-card__title {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.gallery-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.gallery-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gallery-card__ai {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 19.5px;
+}
+
+.gallery-card__ai svg { flex: none; margin-top: 2px; color: var(--brand-soft); }
+
+.gallery-card__actions {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.gallery-card__action {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  border: 0;
+  border-radius: var(--space-8);
+  background: color-mix(in srgb, var(--brand) 30%, transparent);
+  color: var(--brand);
+  cursor: pointer;
+}
+
+/* O claro do Figma usa a marca opaca a 30% de tom mais claro nos cards de
+   estudo; nos de palestra é a mesma cor só que mais translúcida ainda. */
+.gallery-card__action--soft { background: color-mix(in srgb, var(--brand) 18%, transparent); }
+
+.gallery-card__action--primary {
+  flex: 0 0 46px;
+  background: var(--brand);
+  color: var(--text-on-brand);
+}
