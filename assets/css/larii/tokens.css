@@ -85,6 +85,12 @@
   --radius-lg: 24px;
   --radius-pill: 999px;
 
+  /* Fundo dos botões de ação nos cards de estudo/palestra (Tela 07, filtros
+     Estudos/Palestra) — duas intensidades da marca, sem token de cor exato
+     correspondente no Figma. */
+  --brand-action-bg: color-mix(in srgb, var(--brand) 30%, transparent);
+  --brand-action-bg-soft: color-mix(in srgb, var(--brand) 18%, transparent);
+
   /* Alturas fixas do frame */
   --statusbar-h: 44px;
   --header-h: 64px;

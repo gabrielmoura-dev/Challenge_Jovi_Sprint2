@@ -254,14 +254,14 @@
   height: 25px;
   border: 0;
   border-radius: var(--space-8);
-  background: color-mix(in srgb, var(--brand) 30%, transparent);
+  background: var(--brand-action-bg);
   color: var(--brand);
   cursor: pointer;
 }
 
 /* O claro do Figma usa a marca opaca a 30% de tom mais claro nos cards de
    estudo; nos de palestra é a mesma cor só que mais translúcida ainda. */
-.gallery-card__action--soft { background: color-mix(in srgb, var(--brand) 18%, transparent); }
+.gallery-card__action--soft { background: var(--brand-action-bg-soft); }
 
 .gallery-card__action--primary {
   flex: 0 0 46px;
