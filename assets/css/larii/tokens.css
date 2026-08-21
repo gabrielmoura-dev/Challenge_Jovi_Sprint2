@@ -3,6 +3,12 @@
    Frames de origem: 127:2002 (claro) e 127:2340 (escuro), 360x800.
    ========================================================================== */
 
+/* ATENÇÃO: este é um sistema de tokens paralelo ao projeto (assets/css/tokens.css).
+--brand aqui equivale a --jovi-purple no sistema principal. Pendente de unificação
+quando o time reorganizar a pasta de componentes (ver discussão sobre cqw vs
+lacar-phone-shell). Não criar tokens novos aqui sem verificar se já existe
+equivalente no sistema principal. */
+
 /* --------------------------------------------------------------------------
    Fontes locais. Só os dois pesos que aparecem nos layouts.
    -------------------------------------------------------------------------- */
