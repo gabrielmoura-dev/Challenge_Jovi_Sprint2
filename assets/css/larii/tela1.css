@@ -12,6 +12,13 @@
   background: #0a0a0a;
 }
 
+/* O degradê só escurece a partir de 34% da altura (ver .onboarding__scrim),
+   então a status bar fica direto sobre a foto. Sem sombra os ícones brancos
+   somem contra a parte clara do letreiro de neon (ex.: bateria). */
+.app-frame--onboarding .status-bar__icons svg {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+}
+
 /* Enquadramento da foto no Figma, obtido por casamento com o frame de
    referência: escala de "cover" (146.67% da largura), centralizada na
    horizontal e deslocada 13.42% para cima. O degradê cobre o rodapé. */
