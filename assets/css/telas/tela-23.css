@@ -1,0 +1,139 @@
+/* =========== Tela 23 — Modo Farol · Configurar ===========
+   Reaproveita a moldura de tela-21.css (settings-header, settings-scroll,
+   settings-section-title, settings-back) e soma só o que é específico do
+   Farol: o switch, os cartões de gesto (mesma lógica de preenchimento do
+   .appearance-btn.active da Tela 21) e as linhas de contato. */
+
+.tela-23 { font-family: var(--jovi-font); }
+
+.farol-title-row { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.farol-icon-badge {
+  width: 36px; height: 36px; border-radius: 999px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, #7c5bd9 16%, transparent);
+}
+.farol-icon-badge img { width: 18px; height: 18px; }
+
+/* --------------------------------------------------------------------------
+   Switch — não existe componente equivalente em lacar-componentes.css,
+   então fica aqui (só a Tela 23 usa).
+   -------------------------------------------------------------------------- */
+.farol-switch {
+  width: 44px; height: 26px; border-radius: 999px; border: none; padding: 2px;
+  background: #d4d4d4; flex-shrink: 0; cursor: pointer;
+  transition: background .2s ease;
+}
+[data-bs-theme="dark"] .farol-switch { background: #333333; }
+.farol-switch i {
+  display: block; width: 22px; height: 22px; border-radius: 50%;
+  background: #ffffff; transition: transform .2s ease;
+}
+.farol-switch.is-on { background: #7c5bd9; }
+.farol-switch.is-on i { transform: translateX(18px); }
+
+.farol-section-hint {
+  font-size: 13px; line-height: 19px; color: var(--lacar-text-subtle);
+  margin: -8px 0 14px;
+}
+
+/* --------------------------------------------------------------------------
+   Cartões de gesto — mesma lógica do .appearance-btn.active (Tela 21):
+   o preenchimento inteiro muda de cor no estado ativo, sem indicador extra.
+   -------------------------------------------------------------------------- */
+.farol-gestures { display: flex; flex-direction: column; gap: 10px; margin-bottom: 4px; }
+
+.gesture-option {
+  display: flex; align-items: center; gap: 14px; width: 100%;
+  padding: 13px 14px; border: none; border-radius: 16px; text-align: left;
+  background: #f3f3f3; cursor: pointer;
+}
+[data-bs-theme="dark"] .gesture-option { background: #1a1a1a; border: 1px solid #262626; }
+
+.gesture-option__icon {
+  width: 36px; height: 36px; border-radius: 999px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(124, 91, 217, .12);
+  transition: background .2s ease;
+}
+.gesture-option__icon img { width: 17px; height: 17px; }
+[data-bs-theme="dark"] .gesture-option__icon img { filter: brightness(0) invert(1); opacity: .85; }
+
+.gesture-option__title { font-size: 14px; font-weight: 600; line-height: 19px; margin: 0 0 2px; color: var(--lacar-text); }
+.gesture-option__desc { font-size: 12px; line-height: 17px; margin: 0; color: var(--lacar-text-subtle); }
+
+.gesture-option.is-active { background: #7c5bd9; }
+.gesture-option.is-active .gesture-option__icon { background: rgba(255, 255, 255, .18); }
+.gesture-option.is-active .gesture-option__icon img { filter: brightness(0) invert(1); opacity: 1; }
+.gesture-option.is-active .gesture-option__title,
+.gesture-option.is-active .gesture-option__desc { color: #ffffff; }
+.gesture-option.is-active .gesture-option__desc { color: rgba(255, 255, 255, .82); }
+
+/* Testar gesto: trilho fino que pulsa três vezes, eco do botão físico */
+.gesture-test { display: flex; align-items: center; gap: 10px; margin: 6px 2px 18px; }
+.gesture-test__btn {
+  border: 1px solid var(--lacar-navbar-border); background: transparent; color: var(--lacar-text-subtle);
+  font-size: 12.5px; font-weight: 600; padding: 7px 12px; border-radius: 999px; cursor: pointer;
+}
+[data-bs-theme="dark"] .gesture-test__btn { border-color: #333333; }
+.gesture-test__btn:hover { border-color: #7c5bd9; color: #7c5bd9; }
+
+.gesture-test__rail { position: relative; width: 5px; height: 26px; border-radius: 3px; background: #d4d4d4; overflow: hidden; flex-shrink: 0; }
+[data-bs-theme="dark"] .gesture-test__rail { background: #333333; }
+.gesture-test__rail i { position: absolute; inset: 0; background: #7c5bd9; opacity: 0; }
+.gesture-test__rail.is-firing i { animation: farol-rail-pulse 1.3s ease-in-out; }
+@keyframes farol-rail-pulse {
+  0%, 100% { opacity: 0; }
+  12%, 34%, 56% { opacity: 1; }
+  23%, 45%, 67% { opacity: 0; }
+}
+.gesture-test__label { font-size: 12px; color: var(--lacar-text-subtle); }
+
+/* --------------------------------------------------------------------------
+   Contatos de confiança
+   -------------------------------------------------------------------------- */
+.farol-contact-row { display: flex; align-items: center; gap: 12px; padding: 10px 4px; }
+.farol-contact-row + .farol-contact-row { border-top: 1px solid var(--border-hairline, #e5e7eb); }
+[data-bs-theme="dark"] .farol-contact-row + .farol-contact-row { border-color: #262626; }
+
+.farol-avatar {
+  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0; color: #ffffff;
+  display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600;
+  background: linear-gradient(150deg, #8d75f7, #5a49b8);
+}
+.farol-contact-info { flex: 1; min-width: 0; }
+.farol-contact-name { font-size: 14px; font-weight: 500; color: var(--lacar-text); margin: 0; }
+.farol-contact-rel { font-size: 12px; color: var(--lacar-text-subtle); margin: 2px 0 0; }
+
+.farol-add-contact {
+  display: flex; align-items: center; width: 100%; padding: 10px 4px; margin-top: 2px;
+  background: none; border: none; color: #7c5bd9; font-size: 13.5px; font-weight: 600; text-align: left;
+}
+
+/* Linhas simples ("junto com o alerta") */
+.farol-inline-card { background: #f3f3f3; border-radius: 20px; padding: 4px 20px; }
+[data-bs-theme="dark"] .farol-inline-card { background: #1a1a1a; border: 1px solid #262626; }
+
+.farol-simple-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+.farol-simple-row + .farol-simple-row { border-top: 1px solid var(--border-hairline, #e5e7eb); }
+[data-bs-theme="dark"] .farol-simple-row + .farol-simple-row { border-color: #262626; }
+.farol-simple-row p { margin: 0; font-size: 13.5px; color: var(--lacar-text); }
+
+/* --------------------------------------------------------------------------
+   Rodapé fixo
+   -------------------------------------------------------------------------- */
+.farol-footer {
+  display: flex; gap: 10px; flex-shrink: 0;
+  padding: 14px 24px calc(14px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--border-hairline, #e5e7eb);
+}
+[data-bs-theme="dark"] .farol-footer { border-color: #262626; }
+.farol-footer button {
+  height: 48px; border-radius: 999px; font-weight: 600; font-size: 14px; cursor: pointer;
+}
+.farol-footer .btn-ghost { flex: 1; border: 1px solid var(--lacar-navbar-border); background: transparent; color: var(--lacar-text); }
+[data-bs-theme="dark"] .farol-footer .btn-ghost { border-color: #333333; }
+.farol-footer .btn-primary { flex: 1.5; border: none; background: #7c5bd9; color: #ffffff; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gesture-test__rail.is-firing i { animation: none; }
+}

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR" data-bs-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Modo Blindagem</title>
+
+<!--
+  Nota: assim como as Telas 15/17, o Modo Blindagem é câmera em fullscreen
+  sobre a cena real (aqui, um boleto/QR sendo escaneado) — não existe uma
+  variante "light" no design, então o tema fica fixo em dark, seguindo o
+  mesmo critério das outras telas de câmera.
+-->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="../assets/css/larii/tokens.css" rel="stylesheet">
+<link href="../assets/css/larii/Larii-componentes.css" rel="stylesheet">
+<link href="../assets/css/larii/tela15.css" rel="stylesheet">
+<link href="../assets/css/larii/tela22.css" rel="stylesheet">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-signal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 20V4"/>
+  </symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/>
+  </symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <rect width="16" height="10" x="2" y="7" rx="2" ry="2"/><path d="M22 11v2"/>
+  </symbol>
+  <symbol id="i-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m15 18-6-6 6-6"/>
+  </symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 13c0 5-3.5 7.5-7.35 8.95a1 1 0 0 1-1.3 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+    <path d="m9 12 2 2 4-4"/>
+  </symbol>
+  <symbol id="i-shield-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 13c0 5-3.5 7.5-7.35 8.95a1 1 0 0 1-1.3 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+    <path d="M12 8v4"/><path d="M12 16h.01"/>
+  </symbol>
+  <symbol id="i-shield-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 13c0 5-3.5 7.5-7.35 8.95a1 1 0 0 1-1.3 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+    <path d="m14.5 9.5-5 5"/><path d="m9.5 9.5 5 5"/>
+  </symbol>
+  <symbol id="i-loader" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/>
+    <path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/>
+  </symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.3055 3.04842C13.5367 3.15725 13.6703 3.42583 13.6289 3.69868L12.6439 10.2H17.4546C17.6611 10.2 17.85 10.3284 17.9424 10.5317C18.0348 10.735 18.0149 10.9782 17.8908 11.16L11.3454 20.76C11.1946 20.9813 10.9257 21.0603 10.6945 20.9516C10.4633 20.8428 10.3297 20.5742 10.371 20.3013L11.3561 13.8H6.54545C6.33886 13.8 6.14999 13.6716 6.05759 13.4683C5.9652 13.2651 5.98513 13.0218 6.10909 12.84L12.6545 3.24005C12.8054 3.01875 13.0743 2.9396 13.3055 3.04842Z"/>
+  </symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </symbol>
+  <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+  </symbol>
+  <symbol id="i-refresh-ccw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>
+    <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M21 21v-5h-5"/>
+  </symbol>
+  <symbol id="i-barcode" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 5v14"/><path d="M8 5v14"/><path d="M12 5v14"/><path d="M17 5v14"/><path d="M21 5v14"/>
+  </symbol>
+  <symbol id="i-pix" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8.5 4.5 11 7a1.5 1.5 0 0 0 2 0l2.5-2.5"/>
+    <path d="M8.5 19.5 11 17a1.5 1.5 0 0 1 2 0l2.5 2.5"/>
+    <path d="M4.5 15.5 7 13a1.5 1.5 0 0 0 0-2L4.5 8.5"/>
+    <path d="M19.5 15.5 17 13a1.5 1.5 0 0 1 0-2l2.5-2.5"/>
+  </symbol>
+  <symbol id="i-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
+  </symbol>
+  <symbol id="i-qr-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/>
+    <path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/>
+    <path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/>
+  </symbol>
+</svg>
+
+<div class="app-frame app-frame--camera tela-22">
+
+  <img class="camera__preview" data-preview src="../assets/img/blindagem-boleto.svg"
+       alt="Prévia da câmera apontada para um boleto sobre a mesa">
+  <div class="camera__veil camera__veil--top" aria-hidden="true"></div>
+  <div class="camera__veil camera__veil--bottom glass" aria-hidden="true"></div>
+
+  <div class="camera__ui">
+
+    <div class="status-bar status-bar--on-media" aria-hidden="true">
+      <span class="status-bar__time">17:32</span>
+      <span class="status-bar__icons">
+        <svg width="16" height="16"><use href="#i-signal"/></svg>
+        <svg width="16" height="16"><use href="#i-wifi"/></svg>
+        <svg width="20" height="20"><use href="#i-battery"/></svg>
+      </span>
+    </div>
+
+    <div class="camera__toolbar">
+      <div class="camera__tools">
+        <button type="button" class="icon-button icon-button--36" aria-label="Voltar" onclick="window.location.href='tela-05-inicio.html'">
+          <svg width="24" height="24" aria-hidden="true"><use href="#i-chevron-left"/></svg>
+        </button>
+        <span class="blindagem__badge glass">
+          <svg width="16" height="16" aria-hidden="true"><use href="#i-shield-check"/></svg>
+          <span>Modo Blindagem</span>
+        </span>
+        <button type="button" class="icon-button icon-button--36" aria-label="Flash">
+          <svg width="24" height="24" aria-hidden="true"><use href="#i-zap"/></svg>
+        </button>
+      </div>
+      <button type="button" class="icon-button icon-button--40" aria-label="Configurações do Modo Blindagem">
+        <svg width="20" height="20" aria-hidden="true"><use href="#i-settings"/></svg>
+      </button>
+    </div>
+
+    <div class="blindagem__verdict is-safe" data-verdict role="status" aria-live="polite">
+      <span class="blindagem__verdict-icon" data-verdict-icon aria-hidden="true">
+        <svg width="20" height="20"><use href="#i-shield-check"/></svg>
+      </span>
+      <span class="blindagem__verdict-body">
+        <p class="blindagem__verdict-title" data-verdict-title>Nenhum risco encontrado</p>
+        <p class="blindagem__verdict-text" data-verdict-text>Nenhum sinal relevante encontrado. Segue normalmente.</p>
+      </span>
+    </div>
+
+    <div class="blindagem__scan-frame" data-scan-frame aria-hidden="true">
+      <span></span>
+      <span class="blindagem__scan-line" data-scan-line></span>
+    </div>
+
+    <div class="camera__panel">
+
+      <div class="camera__modes blindagem__targets" data-modes role="group" aria-label="O que verificar">
+        <button type="button" class="camera__mode t-label is-active" aria-pressed="true"
+          data-target="boleto" data-img="../assets/img/blindagem-boleto.svg"
+          data-alt="Prévia da câmera apontada para um boleto sobre a mesa"
+          data-state="safe" data-title="Nenhum risco encontrado"
+          data-text="Nenhum sinal relevante encontrado. Segue normalmente.">
+          <svg width="16" height="16" aria-hidden="true"><use href="#i-barcode"/></svg>Boleto
+        </button>
+        <button type="button" class="camera__mode t-label" aria-pressed="false"
+          data-target="pix" data-img="../assets/img/blindagem-pix.svg"
+          data-alt="Prévia da câmera apontada para uma tela de pagamento Pix"
+          data-state="caution" data-title="Verifique antes de confirmar"
+          data-text="Sinais parciais. Recomenda checagem manual antes de agir.">
+          <svg width="16" height="16" aria-hidden="true"><use href="#i-pix"/></svg>Pix
+        </button>
+        <button type="button" class="camera__mode t-label" aria-pressed="false"
+          data-target="anuncio" data-img="../assets/img/blindagem-anuncio.svg"
+          data-alt="Prévia da câmera apontada para um anúncio de oferta na tela do computador"
+          data-state="caution" data-title="Padrão de anúncio suspeito"
+          data-text="Promessas fora do padrão do mercado. Evite comprar sem pesquisar a loja.">
+          <svg width="16" height="16" aria-hidden="true"><use href="#i-megaphone"/></svg>Anúncio
+        </button>
+        <button type="button" class="camera__mode t-label" aria-pressed="false"
+          data-target="qrcode" data-img="../assets/img/blindagem-qrcode.svg"
+          data-alt="Prévia da câmera apontada para um QR Code impresso em um cartaz"
+          data-state="danger" data-title="Padrão de golpe conhecido"
+          data-text="Este QR Code reaproveita um golpe já mapeado. Recomenda não prosseguir.">
+          <svg width="16" height="16" aria-hidden="true"><use href="#i-qr-code"/></svg>QR Code
+        </button>
+      </div>
+
+      <div class="camera__actions">
+        <button type="button" class="camera__side-button glass" aria-label="Abrir galeria" onclick="window.location.href='tela-06-galeria.html'">
+          <svg width="24" height="24" aria-hidden="true"><use href="#i-image"/></svg>
+        </button>
+        <button type="button" class="camera__shutter" data-shutter aria-label="Verificar agora"></button>
+        <button type="button" class="camera__side-button glass" aria-label="Alternar câmera">
+          <svg width="24" height="24" aria-hidden="true"><use href="#i-refresh-ccw"/></svg>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script src="../assets/js/tela15.js"></script>
+<script src="../assets/js/tela22.js"></script>
+</body>
+</html>

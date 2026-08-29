@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" width="800" height="1200">
+  <defs>
+    <linearGradient id="deskBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3f4b"/>
+      <stop offset="100%" stop-color="#20232b"/>
+    </linearGradient>
+    <linearGradient id="adRed" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff5b5b"/>
+      <stop offset="100%" stop-color="#e01e37"/>
+    </linearGradient>
+    <linearGradient id="btnGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffb703"/>
+      <stop offset="100%" stop-color="#ff8c00"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="1200" fill="url(#deskBg)"/>
+
+  <!-- phone/browser frame -->
+  <rect x="90" y="120" width="620" height="960" rx="28" fill="#0e1015"/>
+  <rect x="106" y="150" width="588" height="900" rx="6" fill="#ffffff"/>
+
+  <!-- browser chrome -->
+  <rect x="106" y="150" width="588" height="56" fill="#f1f1f1"/>
+  <circle cx="132" cy="178" r="7" fill="#ff5f57"/>
+  <circle cx="156" cy="178" r="7" fill="#febc2e"/>
+  <circle cx="180" cy="178" r="7" fill="#28c840"/>
+  <rect x="230" y="164" width="380" height="28" rx="14" fill="#ffffff" stroke="#dcdcdc"/>
+  <text x="250" y="183" font-family="Arial, sans-serif" font-size="16" fill="#8a8f9c">megapromo-oficial.shop</text>
+
+  <!-- ad banner -->
+  <rect x="106" y="206" width="588" height="300" fill="url(#adRed)"/>
+  <text x="400" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" font-weight="900" fill="#ffffff">OFERTA RELÂMPAGO</text>
+  <text x="400" y="336" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#ffe6e6">Últimas unidades — só hoje!</text>
+
+  <g transform="translate(400,420)">
+    <circle r="72" fill="#ffffff"/>
+    <text x="0" y="16" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" font-weight="900" fill="#e01e37">-70%</text>
+  </g>
+
+  <!-- fake product card -->
+  <rect x="146" y="546" width="508" height="220" rx="16" fill="#f7f7f8" stroke="#eaeaea"/>
+  <rect x="170" y="570" width="172" height="172" rx="12" fill="#d9dde3"/>
+  <path d="M198 700 l40 -60 l30 34 l24 -28 l40 54 z" fill="#b7bfca"/>
+  <circle cx="212" cy="602" r="12" fill="#c7cdd6"/>
+
+  <g font-family="Arial, sans-serif">
+    <text x="366" y="606" font-size="24" font-weight="700" fill="#1a1c22">Smartwatch Ultra Pro</text>
+    <text x="366" y="642" font-size="18" fill="#8a8f9c" text-decoration="line-through">R$ 1.899,00</text>
+    <text x="366" y="682" font-size="34" font-weight="900" fill="#e01e37">R$ 189,90</text>
+    <text x="366" y="712" font-size="16" fill="#3f9142" font-weight="700">Frete grátis · Estoque: 2 unidades</text>
+  </g>
+
+  <!-- CTA button -->
+  <rect x="146" y="796" width="508" height="76" rx="18" fill="url(#btnGrad)"/>
+  <text x="400" y="846" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="800" fill="#3a1f00">COMPRAR AGORA</text>
+
+  <!-- countdown -->
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <text x="400" y="912" font-size="16" fill="#8a8f9c">A oferta acaba em</text>
+    <text x="400" y="956" font-size="30" font-weight="800" fill="#e01e37">00:04:59</text>
+  </g>
+
+  <!-- fake reviews -->
+  <g font-family="Arial, sans-serif" fill="#ffb703" font-size="22">
+    <text x="146" y="1008">★★★★★</text>
+    <text x="330" y="1008" fill="#8a8f9c" font-size="16">4,9 · 12.482 avaliações</text>
+  </g>
+</svg>
