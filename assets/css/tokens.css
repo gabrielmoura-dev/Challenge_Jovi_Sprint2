@@ -50,4 +50,35 @@
   --lacar-toggle-border-light: #e5e7eb;
   /* Divisor entre linhas de card, tema escuro */
   --lacar-divider-dark: #383838;
+
+  /* Adicionadas nas Telas 23-25 (Modo Farol) — paleta própria do pilar,
+     fixa em dark nas 3 telas (configurar/ativação/alerta), sem variante
+     clara ainda. */
+  /* Roxo de destaque do Farol — indicador de bloqueio ativo, avatar dos
+     contatos, ação primária do alerta. Mais claro que --jovi-purple para
+     se destacar sobre fundos quase pretos. */
+  --farol-accent: #8d75f7;
+  /* Par escuro de --farol-accent nos gradientes de avatar dos contatos. */
+  --farol-accent-deep: #5a49b8;
+  /* Lavanda clara — texto/links de destaque sobre fundo escuro do Farol. */
+  --farol-accent-soft: #c9bdfb;
+  /* Superfície elevada (cards) da Tela 25, sobre o fundo --farol-bg. */
+  --farol-surface-1: #151519;
+  /* Fundo do preview de câmera/áudio da Tela 25 — ponta do gradiente radial
+     com leve tom de roxo. */
+  --farol-surface-tint: #241a30;
+  /* Fundo de página da Tela 25 (alerta recebido). */
+  --farol-bg: #0a0a0f;
+  /* Verde das barras do waveform de áudio ao vivo (Tela 25). */
+  --farol-waveform: #3fa88d;
+  /* Texto secundário sobre fundo escuro do Farol (ex.: localização). */
+  --farol-text-soft: #c7c7cf;
+  /* Texto de metadados (ex.: horário do envio) sobre fundo escuro. */
+  --farol-text-muted: #8a8a92;
+  /* Texto mais apagado — link "marcar como falso alarme". */
+  --farol-text-faint: #5c5c66;
+  /* Vermelho do badge "AO VIVO" e da ação de perigo (Tela 25). Mesmo tom de
+     --verdict-danger em larii/tokens.css; duplicado aqui porque esta tela
+     não importa aquele sistema de tokens. */
+  --farol-danger: #ff7a85;
 }

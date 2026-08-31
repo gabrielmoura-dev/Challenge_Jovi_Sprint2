@@ -101,6 +101,14 @@ equivalente no sistema principal. */
   --statusbar-h: 44px;
   --header-h: 64px;
   --nav-h: 80px;
+
+  /* Paleta de veredito (Tela 22 — Modo Blindagem) — mesmos tons de
+     safe/caution/danger do artefato de referência "Modo Blindagem"
+     (variante escura, já que a câmera é sempre um fundo de foto). Sem
+     variante clara: a tela é fixa em dark. */
+  --verdict-safe: #4ad493;
+  --verdict-caution: #f0b445;
+  --verdict-danger: #ff7a85;
 }
 
 /* --------------------------------------------------------------------------

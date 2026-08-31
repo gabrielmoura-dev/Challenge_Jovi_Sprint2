@@ -10,7 +10,7 @@
 .farol-icon-badge {
   width: 36px; height: 36px; border-radius: 999px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  background: color-mix(in srgb, #7c5bd9 16%, transparent);
+  background: color-mix(in srgb, var(--jovi-purple) 16%, transparent);
 }
 .farol-icon-badge img { width: 18px; height: 18px; }
 
@@ -28,7 +28,7 @@
   display: block; width: 22px; height: 22px; border-radius: 50%;
   background: #ffffff; transition: transform .2s ease;
 }
-.farol-switch.is-on { background: #7c5bd9; }
+.farol-switch.is-on { background: var(--jovi-purple); }
 .farol-switch.is-on i { transform: translateX(18px); }
 
 .farol-section-hint {
@@ -61,7 +61,7 @@
 .gesture-option__title { font-size: 14px; font-weight: 600; line-height: 19px; margin: 0 0 2px; color: var(--lacar-text); }
 .gesture-option__desc { font-size: 12px; line-height: 17px; margin: 0; color: var(--lacar-text-subtle); }
 
-.gesture-option.is-active { background: #7c5bd9; }
+.gesture-option.is-active { background: var(--jovi-purple); }
 .gesture-option.is-active .gesture-option__icon { background: rgba(255, 255, 255, .18); }
 .gesture-option.is-active .gesture-option__icon img { filter: brightness(0) invert(1); opacity: 1; }
 .gesture-option.is-active .gesture-option__title,
@@ -75,11 +75,11 @@
   font-size: 12.5px; font-weight: 600; padding: 7px 12px; border-radius: 999px; cursor: pointer;
 }
 [data-bs-theme="dark"] .gesture-test__btn { border-color: #333333; }
-.gesture-test__btn:hover { border-color: #7c5bd9; color: #7c5bd9; }
+.gesture-test__btn:hover { border-color: var(--jovi-purple); color: var(--jovi-purple); }
 
 .gesture-test__rail { position: relative; width: 5px; height: 26px; border-radius: 3px; background: #d4d4d4; overflow: hidden; flex-shrink: 0; }
 [data-bs-theme="dark"] .gesture-test__rail { background: #333333; }
-.gesture-test__rail i { position: absolute; inset: 0; background: #7c5bd9; opacity: 0; }
+.gesture-test__rail i { position: absolute; inset: 0; background: var(--jovi-purple); opacity: 0; }
 .gesture-test__rail.is-firing i { animation: farol-rail-pulse 1.3s ease-in-out; }
 @keyframes farol-rail-pulse {
   0%, 100% { opacity: 0; }
@@ -98,7 +98,7 @@
 .farol-avatar {
   width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0; color: #ffffff;
   display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600;
-  background: linear-gradient(150deg, #8d75f7, #5a49b8);
+  background: linear-gradient(150deg, var(--farol-accent), var(--farol-accent-deep));
 }
 .farol-contact-info { flex: 1; min-width: 0; }
 .farol-contact-name { font-size: 14px; font-weight: 500; color: var(--lacar-text); margin: 0; }
@@ -106,7 +106,7 @@
 
 .farol-add-contact {
   display: flex; align-items: center; width: 100%; padding: 10px 4px; margin-top: 2px;
-  background: none; border: none; color: #7c5bd9; font-size: 13.5px; font-weight: 600; text-align: left;
+  background: none; border: none; color: var(--jovi-purple); font-size: 13.5px; font-weight: 600; text-align: left;
 }
 
 /* Linhas simples ("junto com o alerta") */
@@ -132,7 +132,7 @@
 }
 .farol-footer .btn-ghost { flex: 1; border: 1px solid var(--lacar-navbar-border); background: transparent; color: var(--lacar-text); }
 [data-bs-theme="dark"] .farol-footer .btn-ghost { border-color: #333333; }
-.farol-footer .btn-primary { flex: 1.5; border: none; background: #7c5bd9; color: #ffffff; }
+.farol-footer .btn-primary { flex: 1.5; border: none; background: var(--jovi-purple); color: #ffffff; }
 
 @media (prefers-reduced-motion: reduce) {
   .gesture-test__rail.is-firing i { animation: none; }

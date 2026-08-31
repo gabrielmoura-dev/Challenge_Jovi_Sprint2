@@ -32,7 +32,7 @@
 
 .lock-indicator {
   width: 7px; height: 7px; border-radius: 50%;
-  background: #8d75f7; opacity: 0;
+  background: var(--farol-accent); opacity: 0;
 }
 .lock-indicator.is-on {
   opacity: 1;
@@ -58,20 +58,20 @@
   border-top: 1px solid rgba(255, 255, 255, .08);
 }
 .lock-hint b { display: block; color: rgba(255, 255, 255, .85); font-size: 13px; font-weight: 500; margin-bottom: 4px; }
-.lock-hint.is-active b { color: #c9bdfb; }
+.lock-hint.is-active b { color: var(--farol-accent-soft); }
 
 .lock-tap-target {
   margin: 0 auto 26px; display: block;
   background: transparent; border: 1px solid rgba(255, 255, 255, .14); color: rgba(255, 255, 255, .6);
   font-size: 12px; padding: 9px 16px; border-radius: 999px; cursor: pointer;
 }
-.lock-tap-target:hover { border-color: #8d75f7; color: #c9bdfb; }
+.lock-tap-target:hover { border-color: var(--farol-accent); color: var(--farol-accent-soft); }
 .lock-tap-target:disabled { opacity: .35; cursor: default; }
 
 .lock-next { margin: 0 24px 30px; display: flex; justify-content: center; }
 .lock-next a {
   opacity: 0; pointer-events: none; transition: opacity .4s ease;
-  color: #c9bdfb; font-size: 13px; font-weight: 600; text-decoration: none;
+  color: var(--farol-accent-soft); font-size: 13px; font-weight: 600; text-decoration: none;
 }
 .lock-next.is-ready a { opacity: 1; pointer-events: auto; }
 

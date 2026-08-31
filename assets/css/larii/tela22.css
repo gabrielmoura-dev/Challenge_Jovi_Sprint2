@@ -7,14 +7,8 @@
 
 .tela-22 { font-family: var(--font-display); }
 
-/* Paleta de veredito — mesmos tons de safe/caution/danger usados no
-   artefato de referência "Modo Blindagem" (variante escura, já que a
-   câmera é sempre um fundo de foto). */
-.tela-22 {
-  --verdict-safe: #4ad493;
-  --verdict-caution: #f0b445;
-  --verdict-danger: #ff7a85;
-}
+/* Paleta de veredito (--verdict-safe/caution/danger) definida em
+   larii/tokens.css, compartilhada com o restante do projeto. */
 
 /* --------------------------------------------------------------------------
    Guia de enquadramento — mira central para apontar boleto/QR/Pix
