@@ -1,0 +1,81 @@
+/* =========== Tela 24 — Modo Farol · Ativação ===========
+   Tela de sistema (bloqueio), não tela do app — por isso fica fixa em dark,
+   mesmo critério da Tela 22 (Modo Blindagem). O antigo rascunho usava uma
+   moldura de cantos (lockframe) em âmbar; o ajuste pedido foi trocar isso
+   por algo bem mais discreto: um ponto roxo na barra de status, com uma
+   lavagem de luz suave logo abaixo dela — o mesmo tipo de indicador que o
+   sistema operacional usa para avisar que a câmera/microfone estão em uso,
+   só que na cor da marca. Nada de moldura, nada de cantos piscando. */
+
+.tela-24 {
+  background: #050608;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.lock-topwash {
+  position: absolute; top: 0; left: 0; right: 0; height: 130px;
+  background: linear-gradient(to bottom, rgba(141, 117, 247, .5), rgba(141, 117, 247, 0) 75%);
+  opacity: 0; pointer-events: none;
+}
+.lock-topwash.is-flash { opacity: 1; animation: farol-wash-settle 1.2s ease forwards; }
+@keyframes farol-wash-settle { from { opacity: 1; } to { opacity: .38; } }
+
+.lock-status {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px 0; font-size: 13px; color: rgba(255, 255, 255, .55);
+}
+.lock-status__icons { display: flex; align-items: center; gap: 8px; }
+.lock-status__icons img { height: 14px; filter: brightness(0) invert(1); opacity: .55; }
+
+.lock-indicator {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--farol-accent); opacity: 0;
+}
+.lock-indicator.is-on {
+  opacity: 1;
+  animation: farol-indicator-breathe 2.6s ease-in-out infinite;
+}
+@keyframes farol-indicator-breathe {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(141, 117, 247, .45); }
+  50% { box-shadow: 0 0 0 5px rgba(141, 117, 247, 0); }
+}
+
+.lock-clock {
+  position: relative; z-index: 1; flex: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.lock-clock .time { font-size: 62px; font-weight: 300; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.lock-clock .date { margin-top: 8px; font-size: 13px; color: rgba(255, 255, 255, .5); }
+
+.lock-brand { text-align: center; padding-bottom: 8px; font-size: 11px; letter-spacing: .26em; color: rgba(255, 255, 255, .35); }
+
+.lock-hint {
+  margin: 0 32px 24px; padding-top: 16px; text-align: center;
+  font-size: 12.5px; line-height: 1.6; color: rgba(255, 255, 255, .4);
+  border-top: 1px solid rgba(255, 255, 255, .08);
+}
+.lock-hint b { display: block; color: rgba(255, 255, 255, .85); font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+.lock-hint.is-active b { color: var(--farol-accent-soft); }
+
+.lock-tap-target {
+  margin: 0 auto 26px; display: block;
+  background: transparent; border: 1px solid rgba(255, 255, 255, .14); color: rgba(255, 255, 255, .6);
+  font-size: 12px; padding: 9px 16px; border-radius: 999px; cursor: pointer;
+}
+.lock-tap-target:hover { border-color: var(--farol-accent); color: var(--farol-accent-soft); }
+.lock-tap-target:disabled { opacity: .35; cursor: default; }
+
+.lock-next { margin: 0 24px 30px; display: flex; justify-content: center; }
+.lock-next a {
+  opacity: 0; pointer-events: none; transition: opacity .4s ease;
+  color: var(--farol-accent-soft); font-size: 13px; font-weight: 600; text-decoration: none;
+}
+.lock-next.is-ready a { opacity: 1; pointer-events: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lock-topwash.is-flash { animation: none; opacity: .38; }
+  .lock-indicator.is-on { animation: none; }
+}
