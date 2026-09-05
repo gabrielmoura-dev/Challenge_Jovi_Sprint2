@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Tela "Modo Esporte" — viewfinder de câmera. Node 145:3390 do Figma
+   ("tela 9" no arquivo), 360x800, tema único (câmera é sempre fundo de
+   foto, sem variante clara — mesmo critério das telas 15/16/17).
+   Reaproveita a base de assets/css/larii/tela15.css (frame, toolbar,
+   seletor de modo, ações) e acrescenta só o que é exclusivo desta tela:
+   a tira de capturas em rajada acima do seletor de modo.
+   ========================================================================== */
+
+/* Tira "Capturas de pico" — cartão de vidro independente, com a mesma
+   margem lateral de 16px do frame (145:3548 no Figma), a pouca distância
+   acima do camera__panel. Ao contrário do véu do rodapé, tem borda e
+   cantos arredondados nos quatro lados — é um cartão solto, não uma
+   continuação do painel. */
+.camera__bursts {
+  --glass-bg: rgba(10, 10, 10, 0.4);
+  --glass-blur: 24px;
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 190px;
+  padding: 11px 11px 1px;
+  border-radius: var(--radius-sm);
+}
+
+.camera__bursts-label {
+  display: block;
+  margin: 0 0 8px 4px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.camera__bursts-row {
+  display: flex;
+  gap: 8px;
+  height: 56px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.camera__bursts-row::-webkit-scrollbar { display: none; }
+
+.camera__burst-thumb {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  object-fit: cover;
+  background: #364153;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}

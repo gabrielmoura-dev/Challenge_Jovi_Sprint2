@@ -268,3 +268,39 @@
   background: var(--brand);
   color: var(--text-on-brand);
 }
+
+/* Painel "Esporte" — recuperado da extinta tela-08-galeria.html (node
+   130:2522 claro / 130:2743 escuro). A caixa de insight de IA e os botões
+   Curtir/Compartilhar tinham tratamento próprio nesse design (diferente
+   do tom de marca usado por Estudos/Palestras), então ficam escopados
+   aqui em vez de mudar as classes compartilhadas .gallery-card__ai e
+   .gallery-card__action. */
+[data-filter-panel="esporte"] .gallery-card__ai {
+  border: 1px solid var(--brand-soft);
+}
+[data-bs-theme="dark"] [data-filter-panel="esporte"] .gallery-card__ai {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: transparent;
+}
+[data-bs-theme="dark"] [data-filter-panel="esporte"] .gallery-card__action:not(.gallery-card__action--primary) {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+/* Botão de troca de tema — mesmo padrão visual usado nas telas que já têm
+   essa opção (assets/css/lacar-componentes.css / jullia-componentes.css),
+   mas com os tokens da própria família larii, já que esta tela não carrega
+   aqueles dois arquivos. */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  z-index: 50;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-raised);
+  color: var(--text-primary);
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

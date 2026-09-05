@@ -100,6 +100,9 @@
   text-align: left;
 }
 [data-bs-theme="dark"] .settings-row { background: #1a1a1a; border: 1px solid #262626; }
+/* Seção "Segurança" tem duas rows — mesmo espaçamento de 10px usado entre
+   as seções (.settings-scroll), só que aqui é entre rows irmãs. */
+.settings-row + .settings-row { margin-top: 10px; }
 .settings-row-icon {
   width: 44px;
   height: 44px;

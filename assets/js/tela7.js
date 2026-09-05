@@ -6,8 +6,8 @@
   var chipRow = document.querySelector("[data-chips]");
   var panels = document.querySelectorAll("[data-filter-panel]");
 
-  // "Vídeos" e "Esporte" não têm design próprio — caem de volta no painel
-  // "Tudo" em vez de mostrar uma tela vazia.
+  // "Vídeos" não tem design próprio ainda — cai de volta no painel "Tudo"
+  // em vez de mostrar uma tela vazia.
   function showPanel(filter) {
     if (!panels.length) return;
     var hasPanel = document.querySelector('[data-filter-panel="' + filter + '"]');
