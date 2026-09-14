@@ -16,13 +16,85 @@
   object-fit: cover;
   z-index: 0;
 }
-.camera-content { position: relative; z-index: 1; display: flex; flex-direction: column; flex: 1 1 auto; min-height: 100%; }
+.camera-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.8) 0%,
+    rgba(10, 10, 10, 0.16) 34%,
+    rgba(10, 10, 10, 0.1) 72%,
+    rgba(10, 10, 10, 0.42) 100%
+  );
+}
+.camera-pose-outline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 23.75%;
+  bottom: 9.77%;
+  z-index: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.42)) drop-shadow(0 0 0.5px rgba(255, 255, 255, 0.95));
+  opacity: 0.96;
+}
+.camera-pose-outline img { width: 100%; height: 100%; display: block; }
+.camera-content { position: relative; z-index: 2; display: flex; flex-direction: column; flex: 1 1 auto; min-height: 100%; }
 .camera-topbar {
   background: var(--jovi-overlay);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 16px;
+}
+.camera-instruction {
+  padding: 12px 20px 14px;
+}
+.camera-instruction__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.camera-instruction__step {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  font-family: var(--jovi-font);
+  color: #fff;
+}
+.camera-instruction__step-current { font-size: 20px; line-height: 1; letter-spacing: -1px; }
+.camera-instruction__step-total { font-size: 12px; color: rgba(255, 255, 255, 0.6); font-weight: 500; }
+.camera-align-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  background: rgba(10, 10, 10, 0.55);
+  border: 1px solid var(--tela16-pose-success);
+  border-radius: 999px;
+  padding: 5px 12px 6px 10px;
+  color: var(--tela16-pose-success);
+  font-size: 11px;
+  font-family: var(--jovi-font);
+  font-weight: 500;
+}
+.camera-align-badge img { width: 13px; height: 13px; }
+.camera-instruction__title {
+  margin: 8px 0 0;
+  font-family: var(--jovi-font);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  color: #fff;
+}
+.camera-instruction__subtitle {
+  margin: 2px 0 0;
+  font-size: 10px;
+  line-height: 17px;
+  color: rgba(255, 255, 255, 0.76);
 }
 .camera-chip {
   background: transparent;
@@ -36,18 +108,44 @@
   padding: 6px 10px;
 }
 .camera-chip img, .camera-chip svg { width: 20px; height: 20px; }
-.camera-thumbs {
+.camera-pose-carousel {
   display: flex;
-  gap: 6px;
-  padding: 12px 16px;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
   overflow-x: auto;
 }
-.camera-thumbs img {
-  width: 72px;
-  height: 72px;
-  object-fit: cover;
-  border-radius: 8px;
+.camera-pose-thumb {
+  position: relative;
   flex-shrink: 0;
+  width: 56px;
+  height: 72px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.07);
+}
+.camera-pose-thumb.active {
+  border: 2px solid var(--jovi-purple-muted);
+}
+.camera-pose-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.camera-pose-thumb__label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+}
+.camera-pose-thumb.active .camera-pose-thumb__label {
+  color: var(--jovi-purple-muted);
 }
 .camera-bottom {
   margin-top: auto;

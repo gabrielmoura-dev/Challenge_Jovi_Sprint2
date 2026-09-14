@@ -21,12 +21,16 @@
 
   <div class="phone-shell">
     <main class="phone-frame p-0">
-      <div class="camera-frame">
-        <img src="../assets/img/camera-bg.png" alt="Pré-visualização da câmera" class="camera-bg">
+      <div class="camera-frame" data-node-id="561:2216">
+        <img src="../assets/img/camera-bg.png" alt="Pré-visualização da câmera" class="camera-bg" data-node-id="561:2217">
+        <div class="camera-scrim" data-node-id="561:2218"></div>
+        <div class="camera-pose-outline" data-node-id="561:2219" data-name="Contorno da pose (traçado na foto)">
+          <img src="../assets/img/cam-pose-outline.svg" alt="">
+        </div>
 
         <div class="camera-content">
           <!-- Status bar -->
-          <div class="jovi-statusbar" style="background:rgba(10,10,10,0.4);">
+          <div class="jovi-statusbar" style="background:rgba(10,10,10,0.4);" data-node-id="561:2262">
             <span>17:32</span>
             <div class="d-flex align-items-center gap-1">
               <img src="../assets/img/status-signal.svg" alt="" style="filter:brightness(0) invert(1);">
@@ -36,7 +40,7 @@
           </div>
 
           <!-- Barra de ferramentas superior -->
-          <div class="camera-topbar">
+          <div class="camera-topbar" data-node-id="561:2234">
             <div class="d-flex align-items-center gap-2">
               <button type="button" class="camera-chip" aria-label="Modo pose">
                 <img src="../assets/img/cam-pose-badge.png" alt="">
@@ -61,17 +65,47 @@
             </button>
           </div>
 
-          <!-- Miniaturas de estilo -->
-          <div class="camera-thumbs">
-            <img src="../assets/img/camera-thumb-1.png" alt="Estilo 1">
-            <img src="../assets/img/camera-thumb-2.png" alt="Estilo 2">
-            <img src="../assets/img/camera-thumb-3.png" alt="Estilo 3">
-            <img src="../assets/img/camera-thumb-4.png" alt="Estilo 4">
+          <!-- Instrução de enquadramento -->
+          <div class="camera-instruction" data-node-id="561:2223" data-name="Container (instrução)">
+            <div class="camera-instruction__row" data-node-id="561:2224">
+              <p class="camera-instruction__step" data-node-id="561:2225">
+                <span class="camera-instruction__step-current" data-node-id="561:2226">01</span>
+                <span class="camera-instruction__step-total" data-node-id="561:2227">/ 05</span>
+              </p>
+              <div class="camera-align-badge" data-node-id="561:2228" data-name="Status (alinhamento)">
+                <img src="../assets/img/cam-pose-check.svg" alt="" data-node-id="561:2229">
+                <span data-node-id="561:2231">Pose alinhada</span>
+              </div>
+            </div>
+            <p class="camera-instruction__title" data-node-id="561:2232">Olhe para a câmera</p>
+            <p class="camera-instruction__subtitle" data-node-id="561:2233">Incline levemente a cabeça para o lado.</p>
           </div>
 
           <!-- Barra inferior -->
           <div class="camera-bottom">
-            <div class="d-flex gap-2 overflow-auto mb-3" role="tablist" aria-label="Modo de captura">
+            <div class="camera-pose-carousel" data-node-id="561:2282" data-name="Carrossel de poses">
+              <div class="camera-pose-thumb active" data-node-id="561:2283" data-name="Pose 01 (atual)">
+                <img src="../assets/img/camera-bg.png" alt="Pose 1 (atual)">
+                <span class="camera-pose-thumb__label" data-node-id="561:2284">01</span>
+              </div>
+              <div class="camera-pose-thumb" data-node-id="561:2285" data-name="Pose 02">
+                <img src="../assets/img/camera-pose-thumb-02.png" alt="Pose 2">
+                <span class="camera-pose-thumb__label" data-node-id="561:2286">02</span>
+              </div>
+              <div class="camera-pose-thumb" data-node-id="561:2287" data-name="Pose 03">
+                <img src="../assets/img/camera-pose-thumb-03.png" alt="Pose 3">
+                <span class="camera-pose-thumb__label" data-node-id="561:2288">03</span>
+              </div>
+              <div class="camera-pose-thumb" data-node-id="561:2289" data-name="Pose 04">
+                <img src="../assets/img/camera-pose-thumb-04.png" alt="Pose 4">
+                <span class="camera-pose-thumb__label" data-node-id="561:2290">04</span>
+              </div>
+              <div class="camera-pose-thumb" data-node-id="561:2291" data-name="Pose 05">
+                <img src="../assets/img/camera-pose-thumb-05.png" alt="Pose 5">
+                <span class="camera-pose-thumb__label" data-node-id="561:2292">05</span>
+              </div>
+            </div>
+            <div class="d-flex gap-2 overflow-auto mb-3 mt-3" role="tablist" aria-label="Modo de captura">
               <button type="button" class="camera-mode-pill active" data-camera-mode>
                 <img src="../assets/img/cam-mode-sport.svg" alt="" style="width:16px;height:16px;">
                 Esporte

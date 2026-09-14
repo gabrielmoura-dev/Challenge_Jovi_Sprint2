@@ -81,4 +81,10 @@
      --verdict-danger em larii/tokens.css; duplicado aqui porque esta tela
      não importa aquele sistema de tokens. */
   --farol-danger: #ff7a85;
+
+  /* Adicionada na Tela 16 (Câmera — guia de pose) — cor fora da tolerância
+     de 2% dos tokens acima. Mesmo hex de --farol-waveform, mas mantida
+     separada: são pilares diferentes (guia de pose vs. Modo Farol) e a
+     coincidência de valor não foi confirmada como intencional pelo design. */
+  --tela16-pose-success: #3fa88d;
 }
