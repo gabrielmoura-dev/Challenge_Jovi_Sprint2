@@ -114,7 +114,16 @@
   align-items: center;
   justify-content: center;
   overflow-x: auto;
+  scrollbar-width: none;
 }
+.camera-pose-carousel::-webkit-scrollbar { display: none; }
+
+/* Fileira de modos de captura (Esporte/Foto/Retrato/Noturno) — rola/arrasta
+   normalmente, só sem a barra de rolagem visível por cima do layout. */
+.camera-mode-scroll {
+  scrollbar-width: none;
+}
+.camera-mode-scroll::-webkit-scrollbar { display: none; }
 .camera-pose-thumb {
   position: relative;
   flex-shrink: 0;

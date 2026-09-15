@@ -124,10 +124,10 @@
       </div>
 
       <div class="camera__actions">
-        <button type="button" class="camera__side-button glass" aria-label="Abrir galeria">
+        <button type="button" class="camera__side-button glass" aria-label="Abrir galeria" onclick="window.location.href='tela-06-galeria.html'">
           <svg width="24" height="24" aria-hidden="true"><use href="#i-image"/></svg>
         </button>
-        <button type="button" class="camera__shutter" aria-label="Tirar foto"></button>
+        <button type="button" class="camera__shutter" aria-label="Tirar foto" data-camera-shutter></button>
         <button type="button" class="camera__side-button glass" aria-label="Alternar câmera">
           <svg width="24" height="24" aria-hidden="true"><use href="#i-refresh-ccw"/></svg>
         </button>
@@ -138,6 +138,20 @@
   </div>
 </div>
 
+<script src="../assets/js/jovi.js"></script>
+<script src="../assets/js/toast.js"></script>
 <script src="../assets/js/tela15.js"></script>
+<script>
+  // Igual à câmera geral (tela-13): não existe tela de revisão de foto pra
+  // esse fluxo — o clique já dispara o flash do obturador (jovi.js); só
+  // falta a confirmação.
+  (function () {
+    var shutter = document.querySelector("[data-camera-shutter]");
+    if (!shutter) return;
+    shutter.addEventListener("click", function () {
+      if (window.JoviToast) window.JoviToast.show("Foto salva na galeria");
+    });
+  })();
+</script>
 </body>
 </html>

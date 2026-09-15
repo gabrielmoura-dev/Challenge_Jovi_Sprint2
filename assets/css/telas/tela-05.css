@@ -80,6 +80,12 @@
   background: var(--lacar-surface);
   border-radius: 16px;
   padding: 17px 5px 17px 16px;
+  border: 0;
+  width: 100%;
+  display: block;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
 }
 .home-card-icon {
   width: 36px;

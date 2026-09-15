@@ -5,14 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Galeria</title>
 
-<!--
-  Tema: esta tela usava antes um script próprio de auto-detecção
-  (localStorage["theme"] + prefers-color-scheme), mas sem botão visível
-  de troca. Passou a usar o mesmo padrão de botão clicável das demais
-  telas do fluxo (assets/js/jovi.js, chave localStorage["jovi-theme"]),
-  pra não ter dois sistemas de tema lendo chaves diferentes na mesma
-  tela. Claro continua sendo o padrão (data-bs-theme abaixo).
--->
+<!-- Aplica o tema salvo (assets/js/theme.js — AppTheme) antes da primeira
+     pintura, para não piscar. -->
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem("theme"); } catch (e) {}
+    if (saved !== "light" && saved !== "dark") {
+      saved = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    document.documentElement.setAttribute("data-bs-theme", saved);
+  })();
+</script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,12 +119,12 @@
 
     <header class="app-header">
       <div class="app-header__left">
-        <button type="button" class="icon-button icon-button--32" aria-label="Voltar">
+        <button type="button" class="icon-button icon-button--32" aria-label="Voltar" data-gallery-back>
           <svg width="24" height="24" aria-hidden="true"><use href="#i-chevron-left"/></svg>
         </button>
         <h1 class="app-header__title t-heading-md">Galeria</h1>
       </div>
-      <button type="button" class="icon-button icon-button--40 icon-button--brand" aria-label="Favoritos">
+      <button type="button" class="icon-button icon-button--40 icon-button--brand" aria-label="Favoritos" aria-pressed="false" data-gallery-favorites>
         <svg width="20" height="20" aria-hidden="true"><use href="#i-heart-filled"/></svg>
       </button>
     </header>
@@ -222,9 +226,9 @@
                 Momento de pico capturado com 98% de precisão.
               </p>
               <div class="gallery-card__actions">
-                <button type="button" class="gallery-card__action" aria-label="Curtir"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
-                <button type="button" class="gallery-card__action" aria-label="Compartilhar"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
-                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
+                <button type="button" class="gallery-card__action" aria-label="Curtir" data-card-action="like"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
+                <button type="button" class="gallery-card__action" aria-label="Compartilhar" data-card-action="share"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar" data-card-action="download"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
               </div>
             </div>
           </article>
@@ -245,9 +249,9 @@
                 Momento de pico capturado com 98% de precisão.
               </p>
               <div class="gallery-card__actions">
-                <button type="button" class="gallery-card__action" aria-label="Curtir"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
-                <button type="button" class="gallery-card__action" aria-label="Compartilhar"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
-                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
+                <button type="button" class="gallery-card__action" aria-label="Curtir" data-card-action="like"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
+                <button type="button" class="gallery-card__action" aria-label="Compartilhar" data-card-action="share"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar" data-card-action="download"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
               </div>
             </div>
           </article>
@@ -268,9 +272,9 @@
                 Momento de pico capturado com 98% de precisão.
               </p>
               <div class="gallery-card__actions">
-                <button type="button" class="gallery-card__action" aria-label="Curtir"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
-                <button type="button" class="gallery-card__action" aria-label="Compartilhar"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
-                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
+                <button type="button" class="gallery-card__action" aria-label="Curtir" data-card-action="like"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
+                <button type="button" class="gallery-card__action" aria-label="Compartilhar" data-card-action="share"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar" data-card-action="download"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
               </div>
             </div>
           </article>
@@ -316,9 +320,9 @@
                 IA detectou exercícios de cálculo. Flashcard criado.
               </p>
               <div class="gallery-card__actions">
-                <button type="button" class="gallery-card__action" aria-label="Curtir"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
-                <button type="button" class="gallery-card__action" aria-label="Compartilhar"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
-                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
+                <button type="button" class="gallery-card__action" aria-label="Curtir" data-card-action="like"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
+                <button type="button" class="gallery-card__action" aria-label="Compartilhar" data-card-action="share"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar" data-card-action="download"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
               </div>
             </div>
           </article>
@@ -339,9 +343,9 @@
                 IA detectou exercícios de cálculo. Flashcard criado.
               </p>
               <div class="gallery-card__actions">
-                <button type="button" class="gallery-card__action" aria-label="Curtir"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
-                <button type="button" class="gallery-card__action" aria-label="Compartilhar"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
-                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
+                <button type="button" class="gallery-card__action" aria-label="Curtir" data-card-action="like"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
+                <button type="button" class="gallery-card__action" aria-label="Compartilhar" data-card-action="share"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar" data-card-action="download"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
               </div>
             </div>
           </article>
@@ -362,9 +366,9 @@
                 IA detectou exercícios de cálculo. Flashcard criado.
               </p>
               <div class="gallery-card__actions">
-                <button type="button" class="gallery-card__action" aria-label="Curtir"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
-                <button type="button" class="gallery-card__action" aria-label="Compartilhar"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
-                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
+                <button type="button" class="gallery-card__action" aria-label="Curtir" data-card-action="like"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
+                <button type="button" class="gallery-card__action" aria-label="Compartilhar" data-card-action="share"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar" data-card-action="download"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
               </div>
             </div>
           </article>
@@ -395,9 +399,9 @@
                 <span class="gallery-card__meta-item"><svg width="14" height="14" aria-hidden="true"><use href="#i-map-pin"/></svg>Parque Central</span>
               </p>
               <div class="gallery-card__actions">
-                <button type="button" class="gallery-card__action gallery-card__action--soft" aria-label="Curtir"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
-                <button type="button" class="gallery-card__action gallery-card__action--soft" aria-label="Compartilhar"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
-                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
+                <button type="button" class="gallery-card__action gallery-card__action--soft" aria-label="Curtir" data-card-action="like"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--soft" aria-label="Compartilhar" data-card-action="share"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar" data-card-action="download"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
               </div>
             </div>
           </article>
@@ -417,9 +421,9 @@
                 <span class="gallery-card__meta-item"><svg width="14" height="14" aria-hidden="true"><use href="#i-map-pin"/></svg>Parque Central</span>
               </p>
               <div class="gallery-card__actions">
-                <button type="button" class="gallery-card__action gallery-card__action--soft" aria-label="Curtir"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
-                <button type="button" class="gallery-card__action gallery-card__action--soft" aria-label="Compartilhar"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
-                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
+                <button type="button" class="gallery-card__action gallery-card__action--soft" aria-label="Curtir" data-card-action="like"><svg width="16" height="16" aria-hidden="true"><use href="#i-heart"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--soft" aria-label="Compartilhar" data-card-action="share"><svg width="16" height="16" aria-hidden="true"><use href="#i-share-2"/></svg></button>
+                <button type="button" class="gallery-card__action gallery-card__action--primary" aria-label="Baixar" data-card-action="download"><img src="../assets/img/download.svg" width="16" height="16" alt=""></button>
               </div>
             </div>
           </article>
@@ -432,19 +436,19 @@
   </main>
 
   <nav class="bottom-nav" aria-label="Navegação principal">
-    <button type="button" class="bottom-nav__item is-active" aria-label="Início" aria-current="page">
+    <button type="button" class="bottom-nav__item" aria-label="Início" data-nav="inicio">
       <svg width="20" height="20" aria-hidden="true"><use href="#i-home"/></svg>
     </button>
-    <button type="button" class="bottom-nav__item" aria-label="Galeria">
+    <button type="button" class="bottom-nav__item is-active" aria-label="Galeria" aria-current="page">
       <svg width="20" height="20" aria-hidden="true"><use href="#i-image"/></svg>
     </button>
-    <button type="button" class="bottom-nav__fab" aria-label="Nova foto">
+    <button type="button" class="bottom-nav__fab" aria-label="Nova foto" data-nav="camera">
       <svg width="24" height="24" aria-hidden="true"><use href="#i-camera"/></svg>
     </button>
-    <button type="button" class="bottom-nav__item" aria-label="Álbuns">
+    <button type="button" class="bottom-nav__item" aria-label="Álbuns" data-nav="albuns">
       <svg width="20" height="20" aria-hidden="true"><use href="#i-book-open"/></svg>
     </button>
-    <button type="button" class="bottom-nav__item" aria-label="Perfil">
+    <button type="button" class="bottom-nav__item" aria-label="Perfil" data-nav="perfil">
       <svg width="20" height="20" aria-hidden="true"><use href="#i-user"/></svg>
     </button>
   </nav>
@@ -480,7 +484,8 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/js/jovi.js"></script>
+<script src="../assets/js/theme.js"></script>
+<script src="../assets/js/toast.js"></script>
 <script src="../assets/js/tela7.js"></script>
 </body>
 </html>

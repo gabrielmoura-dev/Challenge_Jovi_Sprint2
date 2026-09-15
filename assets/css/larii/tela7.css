@@ -304,3 +304,27 @@
   font-weight: 600;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
+/* Curtir (ações de card) — coração preenchido usa a mesma cor de marca do
+   botão de Favoritos do header. */
+.gallery-card__action.is-liked { color: var(--brand); }
+
+/* Botão de Favoritos do header, quando ativo (filtro "só curtidos"). */
+.icon-button--brand.is-active {
+  background: var(--brand);
+  color: #fff;
+}
+
+/* Filtro "só curtidos" (botão Favoritos do header) — só afeta os cards com
+   mecanismo de curtir (Esporte/Estudos/Palestras); o painel "Tudo" não tem
+   estado de curtida por item, então não é filtrado. */
+.gallery.is-favorites-only .gallery-card:not(.is-liked) {
+  display: none;
+}
+
+/* Aprovado: reforça a inércia do scroll vertical principal desta tela (é a
+   rolagem nativa da página — sem container próprio). Não muda nenhum
+   comportamento visível, só a sensação de "momentum" em iOS. */
+html, body {
+  -webkit-overflow-scrolling: touch;
+}

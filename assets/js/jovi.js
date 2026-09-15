@@ -1,38 +1,10 @@
 // JOVI — comportamento compartilhado entre telas
+// Tema fica só em assets/js/theme.js (AppTheme). Este arquivo cuida de
+// tiles de preferência (Telas 03/04) e modos de captura das câmeras.
+// O filtro de categoria da Galeria (Tela 06) tem lógica própria demais
+// (troca de painel, fallback de "Vídeos") — fica em assets/js/tela7.js.
 (function () {
   "use strict";
-
-  var STORAGE_KEY = "jovi-theme";
-
-  function applyTheme(theme) {
-    document.documentElement.setAttribute("data-bs-theme", theme);
-    var toggle = document.querySelector("[data-theme-toggle]");
-    if (toggle) {
-      toggle.textContent = theme === "dark" ? "☀️ Light" : "🌙 Dark";
-    }
-  }
-
-  function initTheme() {
-    var saved = null;
-    try {
-      saved = localStorage.getItem(STORAGE_KEY);
-    } catch (e) {
-      // localStorage pode estar bloqueado (modo privado); segue com padrão
-    }
-    applyTheme(saved === "dark" ? "dark" : "light");
-
-    var toggle = document.querySelector("[data-theme-toggle]");
-    if (toggle) {
-      toggle.addEventListener("click", function () {
-        var current = document.documentElement.getAttribute("data-bs-theme");
-        var next = current === "dark" ? "light" : "dark";
-        applyTheme(next);
-        try {
-          localStorage.setItem(STORAGE_KEY, next);
-        } catch (e) {}
-      });
-    }
-  }
 
   // Tela 4 — seleção múltipla de preferências (toggle visual)
   function initPrefTiles() {
@@ -43,17 +15,6 @@
           "aria-pressed",
           btn.classList.contains("selected") ? "true" : "false"
         );
-      });
-    });
-  }
-
-  // Tela 6 — filtro de categoria (Tudo / Vídeos / Esporte / Estudos)
-  function initGalleryFilters() {
-    var pills = document.querySelectorAll("[data-gallery-filter]");
-    pills.forEach(function (pill) {
-      pill.addEventListener("click", function () {
-        pills.forEach(function (p) { p.classList.remove("active"); });
-        pill.classList.add("active");
       });
     });
   }
@@ -80,9 +41,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    initTheme();
     initPrefTiles();
-    initGalleryFilters();
     initCameraModes();
   });
 })();

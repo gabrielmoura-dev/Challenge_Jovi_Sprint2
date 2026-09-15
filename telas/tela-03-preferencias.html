@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JOVI Vision — Onboarding — Preferências de fotografia</title>
 
+  <!-- Aplica o tema antes da primeira pintura para não piscar (mesmo padrão
+       das demais telas — ver assets/js/theme.js). -->
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (e) {}
+      if (saved !== "light" && saved !== "dark") {
+        saved = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-bs-theme", saved);
+    })();
+  </script>
+
   <!--
     ATENÇÃO — FONTE PROVISÓRIA
     O design original (Figma) usa a fonte customizada "JOVI_Sans_CN" (Regular/Bold/Demibold/Medium),
@@ -54,46 +67,46 @@
       <p class="tela03-subtitle" data-node-id="115:1296">Escolha todas que se aplicam</p>
 
       <div class="tela03-grid" data-node-id="115:1298">
-        <button type="button" class="tela03-card selected" data-node-id="115:1299" aria-pressed="true">
+        <button type="button" class="tela03-card selected" data-node-id="115:1299" data-pref-tile aria-pressed="true">
           <img src="../assets/img/cat-camera.svg" alt="">
           <span data-node-id="115:1304">Social Media</span>
         </button>
-        <button type="button" class="tela03-card selected" data-node-id="115:1305" aria-pressed="true">
+        <button type="button" class="tela03-card selected" data-node-id="115:1305" data-pref-tile aria-pressed="true">
           <img src="../assets/img/cat-book.svg" alt="">
           <span data-node-id="115:1310">Educação</span>
         </button>
-        <button type="button" class="tela03-card selected" data-node-id="115:1311" aria-pressed="true">
+        <button type="button" class="tela03-card selected" data-node-id="115:1311" data-pref-tile aria-pressed="true">
           <img src="../assets/img/cat-trophy.svg" alt="">
           <span data-node-id="115:1320">Esportes</span>
         </button>
-        <button type="button" class="tela03-card" data-node-id="115:1321" aria-pressed="false">
+        <button type="button" class="tela03-card" data-node-id="115:1321" data-pref-tile aria-pressed="false">
           <img src="../assets/img/cat-presentation.svg" data-src-light="../assets/img/cat-presentation.svg" data-src-dark="../assets/img/cat-presentation-dark.svg" alt="">
           <span data-node-id="115:1327">Palestras</span>
         </button>
-        <button type="button" class="tela03-card" data-node-id="115:1328" aria-pressed="false">
+        <button type="button" class="tela03-card" data-node-id="115:1328" data-pref-tile aria-pressed="false">
           <img src="../assets/img/cat-heart.svg" data-src-light="../assets/img/cat-heart.svg" data-src-dark="../assets/img/cat-heart-dark.svg" alt="">
           <span data-node-id="115:1332">Estilo de Vida</span>
         </button>
-        <button type="button" class="tela03-card" data-node-id="115:1333" aria-pressed="false">
+        <button type="button" class="tela03-card" data-node-id="115:1333" data-pref-tile aria-pressed="false">
           <img src="../assets/img/cat-palette.svg" data-src-light="../assets/img/cat-palette.svg" data-src-dark="../assets/img/cat-palette-dark.svg" alt="">
           <span data-node-id="115:1341">Arte</span>
         </button>
-        <button type="button" class="tela03-card" data-node-id="115:1342" aria-pressed="false">
+        <button type="button" class="tela03-card" data-node-id="115:1342" data-pref-tile aria-pressed="false">
           <img src="../assets/img/cat-pin.svg" data-src-light="../assets/img/cat-pin.svg" data-src-dark="../assets/img/cat-pin-dark.svg" alt="">
           <span data-node-id="115:1347">Viagens</span>
         </button>
-        <button type="button" class="tela03-card" data-node-id="115:1348" aria-pressed="false">
+        <button type="button" class="tela03-card" data-node-id="115:1348" data-pref-tile aria-pressed="false">
           <img src="../assets/img/cat-burger.svg" data-src-light="../assets/img/cat-burger.svg" data-src-dark="../assets/img/cat-burger-dark.svg" alt="">
           <span data-node-id="115:1353">Comida</span>
         </button>
-        <button type="button" class="tela03-card" data-node-id="115:1354" aria-pressed="false">
+        <button type="button" class="tela03-card" data-node-id="115:1354" data-pref-tile aria-pressed="false">
           <img src="../assets/img/cat-image.svg" data-src-light="../assets/img/cat-image.svg" data-src-dark="../assets/img/cat-image-dark.svg" alt="">
           <span data-node-id="115:1359">Retrato</span>
         </button>
       </div>
 
-      <button type="button" class="tela03-btn-primary" data-node-id="115:1269">Começar</button>
-      <button type="button" class="tela03-btn-secondary" data-node-id="115:1271">Pular</button>
+      <button type="button" class="tela03-btn-primary" data-node-id="115:1269" data-onboarding-start data-next="tela-04-preferencias-foto.html">Começar</button>
+      <button type="button" class="tela03-btn-secondary" data-node-id="115:1271" data-onboarding-skip data-next="tela-05-inicio.html">Pular</button>
 
       <div class="tela03-dots d-flex align-items-center justify-content-center" data-node-id="150:4280">
         <span class="tela03-dot"></span>
@@ -106,6 +119,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/theme.js"></script>
   <script src="../assets/js/jovi.js"></script>
   <script src="../assets/js/tela03.js"></script>
 </body>

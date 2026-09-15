@@ -1,7 +1,18 @@
-/* Tema da aplicação.
-   A escolha do usuário vive em localStorage["theme"] e é aplicada como
-   data-bs-theme no <html>. Sem escolha salva, segue o sistema.
-   A tela de configurações usa AppTheme.set() para gravar a preferência. */
+/* Tema da aplicação — fonte única de verdade.
+   A escolha do usuário vive em localStorage["theme"] ("light"/"dark") e é
+   aplicada como data-bs-theme no <html>. Sem escolha salva, segue o
+   sistema (prefers-color-scheme) e continua acompanhando o sistema em
+   tempo real.
+
+   Duas formas de controle na UI, ambas ligadas aqui:
+   - botão simples [data-theme-toggle] (ícone 🌙/☀️, alterna claro/escuro)
+   - seletor de 3 opções [data-appearance-option="light|dark|system"]
+     (Tela 17 · Ajustes)
+
+   Cada tela que usa tema chama este arquivo no fim do <body>. Para evitar
+   o "flash" da tela no tema errado, a tela também deve ter um pequeno
+   script inline no <head> que aplica o tema salvo antes da primeira
+   pintura (ver telas/tela-01-onboarding.html para o padrão). */
 (function (global) {
   "use strict";
 
@@ -18,6 +29,10 @@
     }
   }
 
+  function systemTheme() {
+    return media.matches ? "dark" : "light";
+  }
+
   function apply(theme) {
     root.setAttribute("data-bs-theme", theme);
   }
@@ -32,6 +47,16 @@
     apply(theme);
   }
 
+  // Volta a seguir o tema do sistema (opção "Sistema" nos Ajustes).
+  function clear() {
+    try {
+      global.localStorage.removeItem(STORAGE_KEY);
+    } catch (error) {
+      /* modo privativo: nada para limpar */
+    }
+    apply(systemTheme());
+  }
+
   function current() {
     return root.getAttribute("data-bs-theme");
   }
@@ -41,5 +66,50 @@
     if (!stored()) apply(event.matches ? "dark" : "light");
   });
 
-  global.AppTheme = { set: set, current: current, stored: stored };
+  function syncToggleButton() {
+    var toggle = document.querySelector("[data-theme-toggle]");
+    if (toggle) toggle.textContent = current() === "dark" ? "☀️ Light" : "🌙 Dark";
+  }
+
+  function syncAppearanceOptions() {
+    var mode = stored() || "system";
+    document.querySelectorAll("[data-appearance-option]").forEach(function (btn) {
+      var active = btn.getAttribute("data-appearance-option") === mode;
+      btn.classList.toggle("active", active);
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+  }
+
+  function refreshControls() {
+    syncToggleButton();
+    syncAppearanceOptions();
+  }
+
+  function initControls() {
+    var toggle = document.querySelector("[data-theme-toggle]");
+    if (toggle) {
+      toggle.addEventListener("click", function () {
+        set(current() === "dark" ? "light" : "dark");
+        refreshControls();
+      });
+    }
+
+    document.querySelectorAll("[data-appearance-option]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var option = btn.getAttribute("data-appearance-option");
+        if (option === "system") {
+          clear();
+        } else {
+          set(option);
+        }
+        refreshControls();
+      });
+    });
+
+    refreshControls();
+  }
+
+  document.addEventListener("DOMContentLoaded", initControls);
+
+  global.AppTheme = { set: set, clear: clear, current: current, stored: stored };
 })(window);

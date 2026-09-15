@@ -39,6 +39,9 @@
   height: 87px;
   border-radius: 6px;
   overflow: hidden;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 .camera-filmstrip-item img:first-child {
   width: 100%;
@@ -47,6 +50,8 @@
   display: block;
 }
 
+/* Seleção da foto (Tela 9): a marca só aparece nos itens selecionados —
+   as 3 primeiras vêm pré-selecionadas pela IA, a 4ª não. */
 .filmstrip-check {
   position: absolute;
   top: 50%;
@@ -56,10 +61,11 @@
   height: 20px;
   border-radius: 999px;
   background: var(--jovi-purple);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
+.camera-filmstrip-item.is-selected .filmstrip-check { display: flex; }
 .filmstrip-check img { width: 9px; height: auto; }
 
 /* Nesta tela nenhum pill de modo usa o destaque de fundo (--active) do

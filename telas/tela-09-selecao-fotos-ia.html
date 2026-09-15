@@ -55,28 +55,29 @@
         </button>
       </div>
 
-      <button type="button" class="camera-confirm-btn" aria-label="Confirmar seleção" data-node-id="159:4409">
+      <button type="button" class="camera-confirm-btn" aria-label="Confirmar seleção" data-node-id="159:4409" onclick="window.location.href='tela-11-assistente-estudo.html'">
         <img src="../assets/img/icon-check.svg" alt="">
       </button>
 
       <div class="camera-spacer"></div>
 
       <div class="camera-filmstrip" data-node-id="159:4456">
-        <div class="camera-filmstrip-item" data-node-id="159:4458">
+        <button type="button" class="camera-filmstrip-item is-selected" data-node-id="159:4458" data-filmstrip-item aria-pressed="true" aria-label="Foto gerada por IA 1 — selecionada">
           <img src="../assets/img/ai-photo-filmstrip-1.png" alt="Foto gerada por IA 1">
           <span class="filmstrip-check" data-node-id="159:4407"><img src="../assets/img/icon-check.svg" alt=""></span>
-        </div>
-        <div class="camera-filmstrip-item" data-node-id="159:4459">
+        </button>
+        <button type="button" class="camera-filmstrip-item is-selected" data-node-id="159:4459" data-filmstrip-item aria-pressed="true" aria-label="Foto gerada por IA 2 — selecionada">
           <img src="../assets/img/ai-photo-filmstrip-2.png" alt="Foto gerada por IA 2">
           <span class="filmstrip-check" data-node-id="159:4462"><img src="../assets/img/icon-check.svg" alt=""></span>
-        </div>
-        <div class="camera-filmstrip-item" data-node-id="159:4460">
+        </button>
+        <button type="button" class="camera-filmstrip-item is-selected" data-node-id="159:4460" data-filmstrip-item aria-pressed="true" aria-label="Foto gerada por IA 3 — selecionada">
           <img src="../assets/img/ai-photo-filmstrip-3.png" alt="Foto gerada por IA 3">
           <span class="filmstrip-check" data-node-id="159:4464"><img src="../assets/img/icon-check.svg" alt=""></span>
-        </div>
-        <div class="camera-filmstrip-item" data-node-id="159:4461">
+        </button>
+        <button type="button" class="camera-filmstrip-item" data-node-id="159:4461" data-filmstrip-item aria-pressed="false" aria-label="Foto gerada por IA 4 — não selecionada">
           <img src="../assets/img/ai-photo-filmstrip-4.png" alt="Foto gerada por IA 4">
-        </div>
+          <span class="filmstrip-check"><img src="../assets/img/icon-check.svg" alt=""></span>
+        </button>
       </div>
 
       <div class="camera-bottombar" data-node-id="159:4466">
@@ -117,9 +118,16 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/jovi.js"></script>
   <script>
-    /* Tela sem alternância de tema — o jovi.js restaura o tema salvo no
-       localStorage de outras telas, o que quebraria os ícones brancos fixos. */
-    document.documentElement.setAttribute('data-bs-theme', 'dark');
+    // Tela 9 — seleção das fotos que a IA escolheu: toca numa foto do
+    // filmstrip pra incluir/excluir ela da seleção (a marca de check).
+    (function () {
+      document.querySelectorAll("[data-filmstrip-item]").forEach(function (item) {
+        item.addEventListener("click", function () {
+          var selected = item.classList.toggle("is-selected");
+          item.setAttribute("aria-pressed", String(selected));
+        });
+      });
+    })();
   </script>
 </body>
 </html>
