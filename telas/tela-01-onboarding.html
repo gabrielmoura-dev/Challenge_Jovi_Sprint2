@@ -26,19 +26,12 @@
 <link href="../assets/css/larii/tokens.css" rel="stylesheet">
 <link href="../assets/css/larii/Larii-componentes.css" rel="stylesheet">
 <link href="../assets/css/larii/tela1.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <link rel="stylesheet" href="../assets/css/jovi-story.css">
 </head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-signal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 20V4"/>
-  </symbol>
-  <symbol id="i-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 14 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/>
-  </symbol>
-  <symbol id="i-battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <rect width="16" height="10" x="2" y="7" rx="2" ry="2"/><path d="M22 11v2"/>
-  </symbol>
 </svg>
 
 <div class="app-frame app-frame--onboarding">
@@ -52,9 +45,9 @@
     <div class="status-bar status-bar--on-media" aria-hidden="true">
       <span class="status-bar__time">17:32</span>
       <span class="status-bar__icons">
-        <svg width="16" height="16"><use href="#i-signal"/></svg>
-        <svg width="16" height="16"><use href="#i-wifi"/></svg>
-        <svg width="20" height="20"><use href="#i-battery"/></svg>
+        <img src="../assets/img/status-signal.svg" alt="">
+        <img src="../assets/img/status-wifi.svg" alt="">
+        <img src="../assets/img/status-battery.svg" alt="" style="height:14px;">
       </span>
     </div>
 
@@ -79,5 +72,6 @@
 
 <script src="../assets/js/theme.js"></script>
 <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/jovi-story.js"></script>
 </body>
 </html>

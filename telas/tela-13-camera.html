@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/jullia-componentes.css">
   <link rel="stylesheet" href="../assets/css/telas/tela-16.css">
+  <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <link rel="stylesheet" href="../assets/css/jovi-story.css">
 </head>
 <body>
   <a href="../index.html" class="theme-toggle" style="right: 16px; left: auto; text-decoration:none;">← Telas</a>
@@ -17,30 +19,33 @@
     fundo é a própria foto/vídeo capturado, então omiti o toggle de tema
     nesta tela (mantê-lo criaria uma opção que não corresponde a nada
     no design real).
+
+    Atualização: carrossel de pose ganhou tag de estilo por foto (em vez
+    de sets separados por gênero — ver tela-22 para a justificativa).
+    A pose dinâmica já aparece como guia branco sobre o preview normal
+    da câmera, atrás de todos os controles, como no app Poze. As 4
+    fotos de referência ainda são as originais do protótipo; são
+    todas do mesmo enquadramento (retrato/beleza), então a diversidade
+    de "estilo" aqui é só demonstrativa até entrar fotografia nova.
   -->
 
   <div class="phone-shell">
     <main class="phone-frame p-0">
-      <div class="camera-frame" data-node-id="561:2216">
-        <img src="../assets/img/camera-bg.png" alt="Pré-visualização da câmera" class="camera-bg" data-node-id="561:2217">
-        <div class="camera-scrim" data-node-id="561:2218"></div>
-        <div class="camera-pose-outline" data-node-id="561:2219" data-name="Contorno da pose (traçado na foto)">
-          <img src="../assets/img/cam-pose-outline.svg" alt="">
-        </div>
-
+      <div class="camera-frame">
+        <img src="../assets/img/camera-bg.png" alt="Pré-visualização da câmera" class="camera-bg">
         <div class="camera-content">
           <!-- Status bar -->
-          <div class="jovi-statusbar" style="background:rgba(10,10,10,0.4);" data-node-id="561:2262">
+          <div class="jovi-statusbar" style="background:rgba(10,10,10,0.4);">
             <span>17:32</span>
             <div class="d-flex align-items-center gap-1">
               <img src="../assets/img/status-signal.svg" alt="" style="filter:brightness(0) invert(1);">
               <img src="../assets/img/status-wifi.svg" alt="" style="filter:brightness(0) invert(1);">
-              <img src="../assets/img/status-battery-body.svg" alt="" style="height:14px;filter:brightness(0) invert(1);">
+              <img src="../assets/img/status-battery.svg" alt="" style="height:14px;filter:brightness(0) invert(1);">
             </div>
           </div>
 
           <!-- Barra de ferramentas superior -->
-          <div class="camera-topbar" data-node-id="561:2234">
+          <div class="camera-topbar">
             <div class="d-flex align-items-center gap-2">
               <button type="button" class="camera-chip" aria-label="Modo pose">
                 <img src="../assets/img/cam-pose-badge.png" alt="">
@@ -59,53 +64,36 @@
               <button type="button" class="camera-chip" aria-label="Flash">
                 <img src="../assets/img/cam-lightning.svg" alt="">
               </button>
+              <button type="button" class="camera-chip camera-chip--toggle" aria-label="Guia por voz" aria-pressed="false" data-voice-toggle>
+                <img src="../assets/img/mic.svg" alt="" style="filter:brightness(0) invert(1);">
+              </button>
             </div>
             <button type="button" class="camera-chip" aria-label="Configurações">
               <img src="../assets/img/cam-settings.svg" alt="">
             </button>
           </div>
 
-          <!-- Instrução de enquadramento -->
-          <div class="camera-instruction" data-node-id="561:2223" data-name="Container (instrução)">
-            <div class="camera-instruction__row" data-node-id="561:2224">
-              <p class="camera-instruction__step" data-node-id="561:2225">
-                <span class="camera-instruction__step-current" data-node-id="561:2226">01</span>
-                <span class="camera-instruction__step-total" data-node-id="561:2227">/ 05</span>
-              </p>
-              <div class="camera-align-badge" data-node-id="561:2228" data-name="Status (alinhamento)">
-                <img src="../assets/img/cam-pose-check.svg" alt="" data-node-id="561:2229">
-                <span data-node-id="561:2231">Pose alinhada</span>
-              </div>
-            </div>
-            <p class="camera-instruction__title" data-node-id="561:2232">Olhe para a câmera</p>
-            <p class="camera-instruction__subtitle" data-node-id="561:2233">Incline levemente a cabeça para o lado.</p>
+          <!-- Miniaturas de pose: cada uma leva ao guia de silhueta (tela 22)
+               com a pose escolhida. Tag de estilo no lugar de sets por
+               gênero — ver nota no topo do arquivo. -->
+          <div class="camera-thumbs">
+            <button type="button" class="camera-thumb-item" onclick="window.location.href='tela-35-guia-pose-silhueta.html?pose=0'">
+              <img src="../assets/img/camera-thumb-1.png" alt="Pose dinâmica, mãos no rosto">
+              <span class="camera-thumb-tag">Dinâmica</span>
+            </button>
+            <button type="button" class="camera-thumb-item" onclick="window.location.href='tela-35-guia-pose-silhueta.html?pose=1'">
+              <img src="../assets/img/camera-thumb-2.png" alt="Pose clássica, olhando por cima dos óculos">
+              <span class="camera-thumb-tag">Clássica</span>
+            </button>
+            <button type="button" class="camera-thumb-item" onclick="window.location.href='tela-35-guia-pose-silhueta.html?pose=2'">
+              <img src="../assets/img/camera-thumb-3.png" alt="Pose editorial, corpo de perfil">
+              <span class="camera-thumb-tag">Editorial</span>
+            </button>
           </div>
 
           <!-- Barra inferior -->
           <div class="camera-bottom">
-            <div class="camera-pose-carousel" data-node-id="561:2282" data-name="Carrossel de poses">
-              <div class="camera-pose-thumb active" data-node-id="561:2283" data-name="Pose 01 (atual)">
-                <img src="../assets/img/camera-bg.png" alt="Pose 1 (atual)">
-                <span class="camera-pose-thumb__label" data-node-id="561:2284">01</span>
-              </div>
-              <div class="camera-pose-thumb" data-node-id="561:2285" data-name="Pose 02">
-                <img src="../assets/img/camera-pose-thumb-02.png" alt="Pose 2">
-                <span class="camera-pose-thumb__label" data-node-id="561:2286">02</span>
-              </div>
-              <div class="camera-pose-thumb" data-node-id="561:2287" data-name="Pose 03">
-                <img src="../assets/img/camera-pose-thumb-03.png" alt="Pose 3">
-                <span class="camera-pose-thumb__label" data-node-id="561:2288">03</span>
-              </div>
-              <div class="camera-pose-thumb" data-node-id="561:2289" data-name="Pose 04">
-                <img src="../assets/img/camera-pose-thumb-04.png" alt="Pose 4">
-                <span class="camera-pose-thumb__label" data-node-id="561:2290">04</span>
-              </div>
-              <div class="camera-pose-thumb" data-node-id="561:2291" data-name="Pose 05">
-                <img src="../assets/img/camera-pose-thumb-05.png" alt="Pose 5">
-                <span class="camera-pose-thumb__label" data-node-id="561:2292">05</span>
-              </div>
-            </div>
-            <div class="d-flex gap-2 overflow-auto mb-3 mt-3 camera-mode-scroll" role="tablist" aria-label="Modo de captura">
+            <div class="camera-mode-strip d-flex gap-2 overflow-auto mb-3" role="tablist" aria-label="Modo de captura">
               <button type="button" class="camera-mode-pill active" data-camera-mode>
                 <img src="../assets/img/cam-mode-sport.svg" alt="" style="width:16px;height:16px;">
                 Esporte
@@ -128,7 +116,7 @@
               <button type="button" class="camera-side-btn" aria-label="Abrir galeria" onclick="window.location.href='tela-06-galeria.html'">
                 <img src="../assets/img/cam-gallery-icon.svg" alt="" style="width:24px;height:24px;">
               </button>
-              <button type="button" class="camera-shutter" data-camera-shutter aria-label="Capturar foto">
+              <button type="button" class="camera-shutter" data-camera-shutter aria-label="Capturar foto" onclick="window.location.href='tela-15-visualizador-midia.html'">
                 <span class="camera-shutter-inner"></span>
               </button>
               <button type="button" class="camera-side-btn" aria-label="Alternar câmera" style="background:transparent;border:none;">
@@ -143,18 +131,25 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/jovi.js"></script>
-  <script src="../assets/js/toast.js"></script>
   <script>
-    // Câmera geral: não existe tela de revisão de foto pra esse fluxo (a
-    // tela-15 é o visualizador de PALESTRA, conteúdo diferente) — o clique
-    // já dispara o flash do obturador (jovi.js); só falta a confirmação.
+    // Preferência de guia por voz: liga/desliga aqui e persiste pra tela
+    // 22 (guia de silhueta) refletir o mesmo estado ao navegar.
     (function () {
-      var shutter = document.querySelector("[data-camera-shutter]");
-      if (!shutter) return;
-      shutter.addEventListener("click", function () {
-        if (window.JoviToast) window.JoviToast.show("Foto salva na galeria");
+      var toggle = document.querySelector('[data-voice-toggle]');
+      if (!toggle) return;
+      var isOn = sessionStorage.getItem('jovi-voice-guide') === 'on';
+      function render() {
+        toggle.classList.toggle('is-on', isOn);
+        toggle.setAttribute('aria-pressed', String(isOn));
+      }
+      toggle.addEventListener('click', function () {
+        isOn = !isOn;
+        sessionStorage.setItem('jovi-voice-guide', isOn ? 'on' : 'off');
+        render();
       });
+      render();
     })();
   </script>
+  <script src="../assets/js/jovi-story.js"></script>
 </body>
 </html>

@@ -1,0 +1,87 @@
+<frame id="550:714" name="tela 27" x="8215" y="8494" width="360" height="800">
+    <frame id="550:715" name="StatusBar" x="0" y="0" width="360" height="44">
+      <text id="550:716" name="txt/17:32" x="24" y="12" width="36" height="20" />
+      <frame id="550:717" name="Container" x="272" y="12" width="64" height="20">
+        <frame id="550:718" name="asset/lari-signal" x="0" y="2" width="16" height="16" />
+        <frame id="550:725" name="asset/lari-wifi" x="22" y="2" width="16" height="16" />
+        <frame id="550:731" name="asset/lari-battery" x="44" y="0" width="20" height="20" />
+      </frame>
+    </frame>
+    <frame id="550:736" name="Container (header)" x="0" y="44" width="360" height="52">
+      <frame id="550:737" name="Button (sair)" x="16" y="10" width="32" height="32">
+        <frame id="550:738" name="Frame" x="5" y="5" width="22" height="22" />
+      </frame>
+      <text id="550:741" name="Heading 1 · trocar p/ JOVI Sans CN Demibold" x="60" y="12" width="284" height="28" />
+    </frame>
+    <frame id="550:742" name="Conteúdo" x="0" y="96" width="360" height="624">
+      <frame id="550:743" name="Container (origem)" x="20" y="8" width="320" height="56">
+        <frame id="550:744" name="miniatura" x="8" y="8" width="40" height="40">
+          <frame id="550:745" name="asset/estudo-rascunho-antes" x="0" y="0" width="40" height="50.66666793823242">
+            <vector id="550:746" name="Vector" x="0" y="0" width="40" height="50.66666793823242" />
+            <vector id="550:747" name="Vector" x="0" y="0" width="40" height="50.66666793823242" />
+            <vector id="550:748" name="Vector" x="4.400000095367432" y="0" width="0" height="50.66666793823242" />
+            <frame id="550:749" name="Group" x="0.800000011920929" y="2.4000000953674316" width="1.2000000476837158" height="46.400001525878906" />
+            <frame id="550:758" name="Group" x="5.524088382720947" y="4.316910743713379" width="18.005945578235696" height="38.96349346485658">
+              <text id="550:759" name="Cálculo · capítulo 5" x="5.857413574137645" y="4.311116472948051" width="14.03277275338769" height="2.244029100984335" />
+              <text id="550:760" name="Integrais definidas / exercício 03" x="5.912092935111315" y="7.443961523518318" width="17.014863478019834" height="1.296538608148694" />
+              <text id="550:761" name="∫" x="6.854256018887949" y="11.761507267317292" width="1.0522049274295568" height="3.0169955361634493" />
+              <text id="550:762" name="3" x="8.045930869066384" y="11.273974437606798" width="1.0347525216639042" height="2.0171478260308504" />
+              <text id="550:763" name="1" x="7.963810157350153" y="14.209195760140087" width="1.0347525216639042" height="2.0171478260308504" />
+              <text id="550:764" name="2x dx = ?" x="9.854964197016818" y="11.775813626962812" width="10.050834318622947" height="3.174067188054323" />
+              <text id="550:765" name="F(x) = x²" x="6.11105126073398" y="18.842235990719814" width="9.033534202724695" height="2.1567670721560717" />
+              <text id="550:766" name="F(3) = 3²" x="6.222745621208032" y="25.24126001831189" width="9.033534202724695" height="2.1567670721560717" />
+              <text id="550:767" name="= 9" x="6.332120601074516" y="31.506966243186554" width="4.0517480578273535" height="3.0693527534604073" />
+              <vector id="550:768" name="Vector" x="6.0497150208854436" y="34.427897676797684" width="5.070859241086509" height="0.3728266547605017" />
+              <text id="550:769" name="área entre 1 e 3" x="6.5147866504157115" y="41.97203949429341" width="9.016081796959043" height="1.1569193620234728" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="550:770" name="texto" x="58" y="11" width="222" height="34">
+          <text id="550:771" name="txt/Foto 2 do seu cade" x="0" y="0" width="222" height="17" />
+          <text id="550:772" name="txt/Cálculo · Capítulo" x="0" y="18" width="222" height="16" />
+        </frame>
+        <frame id="550:773" name="asset/lari-sparkle" x="290" y="19" width="18" height="18" />
+      </frame>
+      <frame id="550:783" name="enunciado" x="20" y="82" width="320" height="49">
+        <text id="550:784" name="tópico" x="0" y="0" width="320" height="15" />
+        <text id="550:785" name="pergunta" x="0" y="23" width="320" height="26" />
+      </frame>
+      <frame id="550:786" name="passos" x="20" y="149" width="320" height="208">
+        <frame id="550:787" name="Passo 1" x="0" y="0" width="320" height="52">
+          <frame id="550:788" name="nº" x="15" y="14" width="24" height="24">
+            <text id="550:789" name="txt/1" x="0" y="4" width="24" height="16" />
+          </frame>
+          <text id="550:790" name="txt/∫₁³ 2x dx" x="51" y="15.5" width="254" height="21" />
+        </frame>
+        <frame id="550:791" name="Passo 2" x="0" y="52" width="320" height="52">
+          <frame id="550:792" name="nº" x="15" y="14" width="24" height="24">
+            <text id="550:793" name="txt/2" x="0" y="4" width="24" height="16" />
+          </frame>
+          <text id="550:794" name="txt/F(x) = x²" x="51" y="15.5" width="254" height="21" />
+        </frame>
+        <frame id="550:795" name="Passo 3" x="0" y="104" width="320" height="52">
+          <frame id="550:796" name="nº" x="15" y="14" width="24" height="24">
+            <text id="550:797" name="txt/3" x="0" y="4" width="24" height="16" />
+          </frame>
+          <text id="550:798" name="txt/F(3) = 9" x="51" y="15.5" width="254" height="21" />
+        </frame>
+        <frame id="550:799" name="Passo 4 · quebrou" x="0" y="156" width="320" height="52">
+          <frame id="550:800" name="nº" x="15" y="14" width="24" height="24">
+            <text id="550:801" name="txt/4" x="0" y="4" width="24" height="16" />
+          </frame>
+          <text id="550:802" name="txt/Resultado = 9" x="51" y="15.5" width="224" height="21" />
+          <frame id="550:803" name="Frame" x="287" y="17" width="18" height="18" />
+        </frame>
+      </frame>
+      <frame id="550:807" name="retorno" x="20" y="375" width="320" height="109">
+        <text id="550:808" name="título" x="15" y="14" width="290" height="20" />
+        <text id="550:809" name="porquê" x="15" y="38" width="290" height="57" />
+      </frame>
+    </frame>
+    <frame id="550:810" name="Container (ações)" x="0" y="720" width="360" height="80">
+      <frame id="550:811" name="Button (Próxima)" x="20" y="12" width="320" height="50">
+        <text id="550:812" name="label · trocar p/ JOVI Sans CN Bold" x="127" y="13" width="66" height="24" />
+      </frame>
+    </frame>
+  </frame>
+  

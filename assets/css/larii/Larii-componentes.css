@@ -5,60 +5,61 @@
    para que trocar data-bs-theme repinte a tela inteira.
    ========================================================================== */
 
+/* Moldura fixa 360x800, igual a lacar-componentes.css e jullia-componentes.css
+   (telas 05 e 13, por exemplo) — o app-frame vive dentro de um cartao de
+   celular flutuante, nunca ocupando a tela cheia do navegador. Antes disso,
+   esta tela esticava para 100dvh e ficava "quadrada" em janelas mais altas
+   que largas. */
 body {
   margin: 0;
-  background: var(--surface-page);
+  background: #e5e5e5;
   color: var(--text-primary);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
-}
-
-/* Acima de 600px a moldura do app ganha um fundo neutro em volta. */
-@media (min-width: 600px) {
-  body {
-    background: color-mix(in srgb, var(--surface-page) 88%, #808080);
-    display: flex;
-    justify-content: center;
-  }
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 76px 12px 108px;
 }
 
 /* --------------------------------------------------------------------------
-   Moldura do app
+   Moldura do app — cartao fixo 360x800 (mesmas medidas de .lacar-phone-frame
+   e .phone-frame), para que todas as telas do prototipo tenham exatamente o
+   mesmo tamanho e proporcao de celular.
    -------------------------------------------------------------------------- */
 .app-frame {
   position: relative;
-  width: 100%;
-  max-width: var(--app-width);
-  margin-inline: auto;
-  min-height: 100dvh;
+  width: 360px;
+  height: 800px;
   background: var(--surface-page);
+  border-radius: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-
-@media (min-width: 600px) {
-  .app-frame {
-    min-height: 100dvh;
-    box-shadow: 0 0 0 1px var(--border-subtle), 0 24px 60px rgba(0, 0, 0, 0.12);
-  }
 }
 
 /* --------------------------------------------------------------------------
    Status bar (decorativa, faz parte da composição do mock)
    -------------------------------------------------------------------------- */
+/* Padronizado com .lacar-statusbar/.jovi-statusbar: mesmo padding, mesma
+   fonte (JOVI Sans CN) e os mesmos 3 ícones (status-signal/wifi/battery.svg)
+   em todas as telas do protótipo, no lugar dos ícones antigos (sprite
+   inline em traço lucide, 24 de viewBox, e fonte Inter). */
 .status-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: var(--statusbar-h);
-  padding-inline: var(--space-12);
+  padding: 12px 24px;
   flex: none;
 }
 
 .status-bar__time {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-weight: 500;
   font-size: 14px;
+  line-height: 20px;
   color: var(--text-primary);
 }
 
@@ -68,12 +69,18 @@ body {
   gap: 6px;
   color: var(--text-primary);
 }
+.status-bar__icons img { height: 16px; width: auto; }
+[data-bs-theme="light"] .status-bar__icons img { filter: none; }
+[data-bs-theme="dark"] .status-bar__icons img { filter: brightness(0) invert(1); }
 
 /* Sobre foto a status bar é sempre branca, independente do tema */
 .status-bar--on-media,
 .status-bar--on-media .status-bar__time,
 .status-bar--on-media .status-bar__icons {
   color: #ffffff;
+}
+.status-bar--on-media .status-bar__icons img {
+  filter: brightness(0) invert(1) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -379,18 +386,16 @@ body {
 
 .chat-bubble p { margin: 0; }
 
-/* Barra de escrita ancorada no rodapé da moldura */
+/* Barra de escrita ancorada no rodapé da moldura — item normal do flex
+   column de .app-frame (não mais position:fixed: isso a ancorava ao
+   viewport do navegador, não ao cartão do celular). */
 .composer {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(100%, var(--app-width));
+  flex-shrink: 0;
+  width: 100%;
   height: 85px;
   padding: 16px 20px 0; /* 17px do Figma menos o 1px da borda de cima */
   background: var(--surface-page);
   border-top: 1px solid var(--border-hairline);
-  z-index: 1030;
 }
 
 .composer__row {
@@ -455,12 +460,10 @@ body {
 /* --------------------------------------------------------------------------
    Navegação inferior, ancorada à moldura do app
    -------------------------------------------------------------------------- */
+/* Item normal do flex column de .app-frame — não mais position:fixed. */
 .bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(100%, var(--app-width));
+  flex-shrink: 0;
+  width: 100%;
   height: var(--nav-h);
   display: flex;
   align-items: center;
@@ -468,7 +471,6 @@ body {
   padding: 12px 33.6px;
   background: var(--surface-page);
   border-top: 1px solid var(--border-strong);
-  z-index: 1030;
 }
 
 .bottom-nav__item {

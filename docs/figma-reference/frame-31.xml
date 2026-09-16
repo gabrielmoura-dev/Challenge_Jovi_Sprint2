@@ -1,0 +1,30 @@
+<frame id="550:1638" name="tela 31" x="6165" y="9541" width="360" height="800">
+    <frame id="550:1639" name="StatusBar" x="0" y="0" width="360" height="44">
+      <text id="550:1640" name="txt/23:41" x="24" y="12" width="38" height="20" />
+      <frame id="550:1641" name="Container" x="272" y="12" width="64" height="20">
+        <frame id="550:1642" name="asset/lari-signal" x="0" y="2" width="16" height="16" />
+        <frame id="550:1649" name="asset/lari-wifi" x="22" y="2" width="16" height="16" />
+        <frame id="550:1655" name="asset/lari-battery" x="44" y="0" width="20" height="20" />
+      </frame>
+    </frame>
+    <frame id="550:1660" name="Conteúdo" x="0" y="44" width="360" height="672">
+      <frame id="550:1661" name="espaço" x="28" y="0" width="304" height="110" />
+      <text id="550:1662" name="data" x="28" y="110" width="304" height="20" />
+      <text id="550:1663" name="relógio" x="28" y="130" width="304" height="88" />
+      <text id="550:1664" name="bateria" x="28" y="218" width="304" height="20" />
+      <frame id="550:1665" name="espaço" x="28" y="238" width="304" height="64" />
+      <frame id="550:1666" name="Container (vidro)" x="28" y="302" width="304" height="152">
+        <frame id="550:1667" name="Container (ícone)" x="132" y="18" width="40" height="40">
+          <frame id="550:1668" name="asset/volume" x="10" y="10" width="20" height="20" />
+        </frame>
+        <text id="550:1671" name="Heading" x="18" y="68" width="268" height="20" />
+        <text id="550:1672" name="Paragraph" x="18" y="98" width="268" height="36" />
+      </frame>
+    </frame>
+    <frame id="550:1673" name="Container (ações)" x="0" y="716" width="360" height="84">
+      <frame id="550:1674" name="Button (primário)" x="30" y="10" width="300" height="50">
+        <text id="550:1675" name="label · trocar p/ JOVI Sans CN Bold" x="76" y="13" width="148" height="24" />
+      </frame>
+    </frame>
+  </frame>
+  

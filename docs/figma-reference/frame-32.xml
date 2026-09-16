@@ -1,0 +1,96 @@
+<frame id="553:1749" name="tela 32" x="6165" y="10435" width="360" height="800">
+    <frame id="553:1750" name="StatusBar" x="0" y="0" width="360" height="44">
+      <text id="553:1751" name="txt/17:32" x="24" y="12" width="36" height="20" />
+      <frame id="553:1752" name="Container" x="272" y="12" width="64" height="20">
+        <frame id="553:1753" name="asset/lari-signal" x="0" y="2" width="16" height="16" />
+        <frame id="553:1760" name="asset/lari-wifi" x="22" y="2" width="16" height="16" />
+        <frame id="553:1766" name="asset/lari-battery" x="44" y="0" width="20" height="20" />
+      </frame>
+    </frame>
+    <frame id="553:1771" name="Container (header)" x="0" y="44" width="360" height="64">
+      <frame id="553:1772" name="Button (voltar)" x="16" y="16" width="32" height="32">
+        <frame id="553:1773" name="asset/lari-chevron-left" x="4" y="4" width="24" height="24" />
+      </frame>
+      <text id="553:1776" name="Heading 1 · trocar p/ JOVI Sans CN Demibold" x="60" y="18" width="284" height="28" />
+    </frame>
+    <frame id="553:1777" name="Conteúdo" x="0" y="108" width="360" height="608">
+      <frame id="553:1778" name="Container (lista)" x="28" y="12" width="304" height="64">
+        <frame id="553:1779" name="Row (mestre)" x="0" y="0" width="304" height="64">
+          <frame id="553:1780" name="Container (ícone)" x="12" y="12" width="40" height="40">
+            <frame id="553:1781" name="asset/bell-ring" x="10" y="10" width="20" height="20" />
+          </frame>
+          <text id="553:1786" name="txt/Modo Farol ativo" x="64" y="10" width="180" height="24" />
+          <text id="553:1787" name="txt/Alerta discreto pa" x="64" y="36" width="180" height="16" />
+          <frame id="553:1788" name="Switch" x="246" y="19" width="44" height="26">
+            <frame id="553:1789" name="knob" x="20" y="2" width="22" height="22" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="553:1790" name="Seção · Gesto de ativação" x="28" y="96" width="304" height="300">
+        <text id="553:1791" name="Label" x="0" y="0" width="304" height="20" />
+        <text id="553:1792" name="help" x="0" y="32" width="304" height="32" />
+        <frame id="553:1793" name="Container (lista)" x="0" y="76" width="304" height="224">
+          <frame id="553:1794" name="Button (3× volume)" x="0" y="0" width="304" height="56">
+            <frame id="553:1795" name="Container (ícone)" x="12" y="10" width="36" height="36">
+              <frame id="553:1796" name="asset/volume" x="9" y="9" width="18" height="18" />
+            </frame>
+            <text id="553:1799" name="txt/3× volume" x="60" y="9" width="200" height="20" />
+            <text id="553:1800" name="txt/Aperte o volume tr" x="60" y="30" width="200" height="16" />
+            <frame id="553:1801" name="check" x="266" y="18" width="20" height="20" />
+          </frame>
+          <frame id="553:1803" name="Button (Volume + Ligar por 7s)" x="0" y="56" width="304" height="56">
+            <frame id="553:1804" name="Container (ícone)" x="12" y="10" width="36" height="36">
+              <frame id="553:1805" name="asset/power" x="9" y="9" width="18" height="18" />
+            </frame>
+            <text id="553:1808" name="txt/Volume + Ligar por" x="60" y="9" width="200" height="20" />
+            <text id="553:1809" name="txt/Segure os dois jun" x="60" y="30" width="200" height="16" />
+          </frame>
+          <frame id="553:1810" name="Button (Toque duplo nas costas)" x="0" y="112" width="304" height="56">
+            <frame id="553:1811" name="Container (ícone)" x="12" y="10" width="36" height="36">
+              <frame id="553:1812" name="asset/tap-double" x="9" y="9" width="18" height="18" />
+            </frame>
+            <text id="553:1816" name="txt/Toque duplo nas co" x="60" y="9" width="200" height="20" />
+            <text id="553:1817" name="txt/Dois toques na tra" x="60" y="30" width="200" height="16" />
+          </frame>
+          <frame id="553:1818" name="Button (Chacoalhar 3×)" x="0" y="168" width="304" height="56">
+            <frame id="553:1819" name="Container (ícone)" x="12" y="10" width="36" height="36">
+              <frame id="553:1820" name="asset/vibrate" x="9" y="9" width="18" height="18" />
+            </frame>
+            <text id="553:1824" name="txt/Chacoalhar 3×" x="60" y="9" width="200" height="20" />
+            <text id="553:1825" name="txt/Sacuda, mesmo no b" x="60" y="30" width="200" height="16" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="553:1826" name="Seção · Quem recebe o alerta" x="28" y="416" width="304" height="160">
+        <text id="553:1827" name="Label" x="0" y="0" width="304" height="20" />
+        <frame id="553:1828" name="Container (lista)" x="0" y="32" width="304" height="128">
+          <frame id="553:1829" name="Row (Marina Costa)" x="0" y="0" width="304" height="64">
+            <frame id="553:1830" name="Container (avatar)" x="12" y="12" width="40" height="40">
+              <text id="553:1831" name="txt/MC" x="0" y="8" width="40" height="24" />
+            </frame>
+            <text id="553:1832" name="txt/Marina Costa" x="64" y="10" width="170" height="24" />
+            <text id="553:1833" name="txt/irmã" x="64" y="36" width="170" height="16" />
+            <frame id="553:1834" name="Switch" x="246" y="19" width="44" height="26">
+              <frame id="553:1835" name="knob" x="20" y="2" width="22" height="22" />
+            </frame>
+          </frame>
+          <frame id="553:1836" name="Row (Rafael Teixeira)" x="0" y="64" width="304" height="64">
+            <frame id="553:1837" name="Container (avatar)" x="12" y="12" width="40" height="40">
+              <text id="553:1838" name="txt/RT" x="0" y="8" width="40" height="24" />
+            </frame>
+            <text id="553:1839" name="txt/Rafael Teixeira" x="64" y="10" width="170" height="24" />
+            <text id="553:1840" name="txt/amigo próximo" x="64" y="36" width="170" height="16" />
+            <frame id="553:1841" name="Switch" x="246" y="19" width="44" height="26">
+              <frame id="553:1842" name="knob" x="20" y="2" width="22" height="22" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="553:1843" name="Container (ações)" x="0" y="716" width="360" height="84">
+      <frame id="553:1844" name="Button (primário)" x="30" y="10" width="300" height="50">
+        <text id="553:1845" name="label · trocar p/ JOVI Sans CN Bold" x="87" y="13" width="126" height="24" />
+      </frame>
+    </frame>
+  </frame>
+  

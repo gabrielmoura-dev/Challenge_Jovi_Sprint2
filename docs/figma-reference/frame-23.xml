@@ -1,0 +1,229 @@
+<frame id="550:1110" name="tela 23" x="6554" y="8494" width="360" height="800">
+    <frame id="550:1111" name="StatusBar" x="0" y="0" width="360" height="44">
+      <text id="550:1112" name="txt/17:32" x="24" y="12" width="36" height="20" />
+      <frame id="550:1113" name="Container" x="272" y="12" width="64" height="20">
+        <frame id="550:1114" name="asset/lari-signal" x="0" y="2" width="16" height="16" />
+        <frame id="550:1121" name="asset/lari-wifi" x="22" y="2" width="16" height="16" />
+        <frame id="550:1127" name="asset/lari-battery" x="44" y="0" width="20" height="20" />
+      </frame>
+    </frame>
+    <frame id="550:1132" name="Container (header)" x="0" y="44" width="360" height="60">
+      <frame id="550:1133" name="Button (voltar)" x="16" y="10" width="32" height="32">
+        <frame id="550:1134" name="asset/lari-chevron-left" x="4" y="4" width="24" height="24" />
+      </frame>
+      <text id="550:1137" name="Heading 1 · trocar p/ JOVI Sans CN Demibold" x="60" y="6" width="280" height="28" />
+      <text id="550:1138" name="meta" x="60" y="35" width="280" height="17" />
+    </frame>
+    <frame id="550:1139" name="Conteúdo" x="0" y="104" width="360" height="558">
+      <frame id="550:1140" name="Container (páginas)" x="20" y="8" width="320" height="74">
+        <frame id="550:1141" name="Página 1" x="0" y="0" width="74" height="74">
+          <frame id="550:1142" name="asset/estudo-quadro-a" x="0" y="0" width="74" height="74">
+            <vector id="550:1143" name="Vector" x="0" y="0" width="169.14285278320312" height="74" />
+            <vector id="550:1144" name="Vector" x="0" y="0" width="169.14285278320312" height="74" />
+            <frame id="550:1145" name="Group" x="1.7619047164916992" y="7.400000095367432" width="165.61904907226562" height="56.909523010253906" />
+            <frame id="550:1147" name="Group" x="6.519047737121582" y="4.757143020629883" width="142.70001220703125" height="57.9140625">
+              <text id="550:1148" name="A área entre dois limites" x="6.519047737121582" y="4.757143020629883" width="43" height="4" />
+              <vector id="550:1149" name="Vector" x="7.047623813152313" y="18.500062942504883" width="38.05714416503906" height="36.64761734008789" />
+              <vector id="550:1150" name="Vector" x="18.147624015808105" y="23.08101463317871" width="18.676191329956055" height="29.600000381469727" />
+              <vector id="550:1151" name="Vector" x="11.10000467300415" y="20.085777282714844" width="28.895238876342773" height="29.600000381469727" />
+              <vector id="550:1152" name="Vector" x="18.147624015808105" y="23.257205963134766" width="18.676191329956055" height="29.423809051513672" />
+              <text id="550:1153" name="1" x="16.738100051879883" y="55.14768028259277" width="2" height="4" />
+              <text id="550:1154" name="3" x="35.7666711807251" y="55.14768028259277" width="3" height="4" />
+              <text id="550:1155" name="y = 2x" x="14.976195335388184" y="21.319110870361328" width="11" height="4" />
+              <text id="550:1156" name="∫" x="49.68571949005127" y="17.971491813659668" width="2" height="8" />
+              <text id="550:1157" name="3" x="52.85714817047119" y="16.20958709716797" width="2" height="4" />
+              <text id="550:1158" name="1" x="52.68095874786377" y="24.138158798217773" width="2" height="4" />
+              <text id="550:1159" name="2x dx" x="57.2619104385376" y="18.67625331878662" width="14" height="6" />
+              <text id="550:1160" name="F(x) = x²" x="59.55238437652588" y="34.70958709716797" width="22" height="6" />
+              <text id="550:1161" name="F(3) − F(1)" x="119.28095722198486" y="19.38101577758789" width="22" height="5" />
+              <text id="550:1162" name="9 − 1 = 8" x="119.45715045928955" y="32.77149200439453" width="24" height="7" />
+              <text id="550:1163" name="unidades de área" x="121.2190523147583" y="58.671491622924805" width="28" height="4" />
+            </frame>
+            <frame id="550:1164" name="Group" x="40.347618103027344" y="34.70952224731445" width="111.88090515136719" height="17.410655975341797" />
+            <vector id="550:1168" name="Vector" x="5.684341886080802e-14" y="72.4142837524414" width="169.14285278320312" height="0" />
+          </frame>
+          <frame id="550:1169" name="nº" x="6" y="6" width="20" height="20">
+            <text id="550:1170" name="txt/1" x="0" y="0" width="20" height="20" />
+          </frame>
+        </frame>
+        <frame id="550:1171" name="Página 2" x="82" y="0" width="74" height="74">
+          <frame id="550:1172" name="asset/estudo-quadro-b" x="0" y="0" width="74" height="74">
+            <vector id="550:1173" name="Vector" x="-47.57143020629883" y="1.1368683772161603e-13" width="169.14285278320312" height="74" />
+            <vector id="550:1174" name="Vector" x="-47.57143020629883" y="1.1368683772161603e-13" width="169.14285278320312" height="74" />
+            <frame id="550:1175" name="Group" x="-45.80952453613281" y="7.400000095367432" width="165.61904907226562" height="56.909523010253906" />
+            <frame id="550:1177" name="Group" x="-41.0523796081543" y="4.757143020629883" width="142.69998168945312" height="57.9140625">
+              <text id="550:1178" name="A área entre dois limites" x="-41.0523796081543" y="4.757143020629883" width="43" height="4" />
+              <vector id="550:1179" name="Vector" x="-40.523820996284485" y="18.500062942504883" width="38.05714416503906" height="36.64761734008789" />
+              <vector id="550:1180" name="Vector" x="-29.42382049560547" y="23.08101463317871" width="18.676191329956055" height="29.600000381469727" />
+              <vector id="550:1181" name="Vector" x="-36.471439838409424" y="20.085777282714844" width="28.895238876342773" height="29.600000381469727" />
+              <vector id="550:1182" name="Vector" x="-29.42382049560547" y="23.257205963134766" width="18.676191329956055" height="29.423809051513672" />
+              <text id="550:1183" name="1" x="-30.83334445953369" y="55.14768028259277" width="2" height="4" />
+              <text id="550:1184" name="3" x="-11.804773330688477" y="55.14768028259277" width="3" height="4" />
+              <text id="550:1185" name="y = 2x" x="-32.59524917602539" y="21.319110870361328" width="11" height="4" />
+              <text id="550:1186" name="∫" x="2.1142730712890625" y="17.971491813659668" width="2" height="8" />
+              <text id="550:1187" name="3" x="5.285701751708984" y="16.20958709716797" width="2" height="4" />
+              <text id="550:1188" name="1" x="5.1095123291015625" y="24.138158798217773" width="2" height="4" />
+              <text id="550:1189" name="2x dx" x="9.69046401977539" y="18.67625331878662" width="14" height="6" />
+              <text id="550:1190" name="F(x) = x²" x="11.980941772460938" y="34.70958709716797" width="22" height="6" />
+              <text id="550:1191" name="F(3) − F(1)" x="71.70951461791992" y="19.38101577758789" width="22" height="5" />
+              <text id="550:1192" name="9 − 1 = 8" x="71.88570022583008" y="32.77149200439453" width="24" height="7" />
+              <text id="550:1193" name="unidades de área" x="73.64760971069336" y="58.671491622924805" width="28" height="4" />
+            </frame>
+            <frame id="550:1194" name="Group" x="-7.223809719085693" y="34.70952224731445" width="111.88090515136719" height="17.410655975341797" />
+            <vector id="550:1198" name="Vector" x="-47.57143020629883" y="72.4142837524414" width="169.14285278320312" height="0" />
+          </frame>
+          <frame id="550:1199" name="nº" x="6" y="6" width="20" height="20">
+            <text id="550:1200" name="txt/2" x="0" y="0" width="20" height="20" />
+          </frame>
+        </frame>
+        <frame id="550:1201" name="Página 3" x="164" y="0" width="74" height="74">
+          <frame id="550:1202" name="asset/estudo-quadro-c" x="0" y="0" width="74" height="74">
+            <vector id="550:1203" name="Vector" x="-95.14286041259766" y="1.1368683772161603e-13" width="169.14285278320312" height="74" />
+            <vector id="550:1204" name="Vector" x="-95.14286041259766" y="1.1368683772161603e-13" width="169.14285278320312" height="74" />
+            <frame id="550:1205" name="Group" x="-93.38095092773438" y="7.400000095367432" width="165.61904907226562" height="56.909523010253906" />
+            <frame id="550:1207" name="Group" x="-88.62380981445312" y="4.757143020629883" width="142.69998168945312" height="57.9140625">
+              <text id="550:1208" name="A área entre dois limites" x="-88.62380981445312" y="4.757143020629883" width="43" height="4" />
+              <vector id="550:1209" name="Vector" x="-88.09526860713959" y="18.500062942504883" width="38.05714416503906" height="36.64761734008789" />
+              <vector id="550:1210" name="Vector" x="-76.99526882171631" y="23.08101463317871" width="18.676191329956055" height="29.600000381469727" />
+              <vector id="550:1211" name="Vector" x="-84.0428876876831" y="20.085777282714844" width="28.895238876342773" height="29.600000381469727" />
+              <vector id="550:1212" name="Vector" x="-76.99526882171631" y="23.257205963134766" width="18.676191329956055" height="29.423809051513672" />
+              <text id="550:1213" name="1" x="-78.40479278564453" y="55.14768028259277" width="2" height="4" />
+              <text id="550:1214" name="3" x="-59.376220703125" y="55.14768028259277" width="3" height="4" />
+              <text id="550:1215" name="y = 2x" x="-80.16669750213623" y="21.319110870361328" width="11" height="4" />
+              <text id="550:1216" name="∫" x="-45.45717239379883" y="17.971491813659668" width="2" height="8" />
+              <text id="550:1217" name="3" x="-42.285743713378906" y="16.20958709716797" width="2" height="4" />
+              <text id="550:1218" name="1" x="-42.461936950683594" y="24.138158798217773" width="2" height="4" />
+              <text id="550:1219" name="2x dx" x="-37.8809814453125" y="18.67625331878662" width="14" height="6" />
+              <text id="550:1220" name="F(x) = x²" x="-35.59050750732422" y="34.70958709716797" width="22" height="6" />
+              <text id="550:1221" name="F(3) − F(1)" x="24.1380615234375" y="19.38101577758789" width="22" height="5" />
+              <text id="550:1222" name="9 − 1 = 8" x="24.314254760742188" y="32.77149200439453" width="24" height="7" />
+              <text id="550:1223" name="unidades de área" x="26.076156616210938" y="58.671491622924805" width="28" height="4" />
+            </frame>
+            <frame id="550:1224" name="Group" x="-54.79523849487305" y="34.70952224731445" width="111.88087463378906" height="17.410655975341797" />
+            <vector id="550:1228" name="Vector" x="-95.14286041259766" y="72.4142837524414" width="169.14285278320312" height="0" />
+          </frame>
+          <frame id="550:1229" name="nº" x="6" y="6" width="20" height="20">
+            <text id="550:1230" name="txt/3" x="0" y="0" width="20" height="20" />
+          </frame>
+        </frame>
+        <frame id="550:1231" name="Página 4" x="246" y="0" width="74" height="74">
+          <frame id="550:1232" name="asset/estudo-rascunho-antes" x="0" y="-9.86666488647461" width="74" height="93.73332977294922">
+            <vector id="550:1233" name="Vector" x="0" y="0" width="74" height="93.73332977294922" />
+            <vector id="550:1234" name="Vector" x="0" y="0" width="74" height="93.73332977294922" />
+            <vector id="550:1235" name="Vector" x="8.140000343322754" y="-2.2737367544323206e-13" width="0" height="93.73332977294922" />
+            <frame id="550:1236" name="Group" x="1.4800000190734863" y="4.440000057220459" width="2.2200000286102295" height="85.83999633789062" />
+            <frame id="550:1245" name="Group" x="10.219883918762207" y="7.986331939697266" width="32.880065237105555" height="73.22417696657249">
+              <text id="550:1246" name="Cálculo · capítulo 5" x="10.836220802885816" y="7.975522559761933" width="25.04854997061193" height="3.435853274539113" />
+              <text id="550:1247" name="Integrais definidas / exercício 03" x="10.93739269741494" y="13.771346035912984" width="31.03018382564187" height="2.54071999900043" />
+              <text id="550:1248" name="∫" x="12.680379285945678" y="21.75880549658097" width="2.1044098548591137" height="6.033991072326899" />
+              <text id="550:1249" name="3" x="14.884962738343884" y="20.856870572245427" width="2.0520526375621557" height="3.034447941929102" />
+              <text id="550:1250" name="1" x="14.733054326970088" y="26.286969334287242" width="2.0520526375621557" height="3.034447941929102" />
+              <text id="550:1251" name="2x dx = ?" x="18.231704337419153" y="21.785243267646344" width="19.084368521347642" height="5.330834260210395" />
+              <text id="550:1252" name="F(x) = x²" x="11.30546553789258" y="34.85809287608957" width="15.067525275051594" height="4.261176927015185" />
+              <text id="550:1253" name="F(3) = 3²" x="11.512085066391915" y="46.696288304995456" width="16.067372985184193" height="4.278629332780838" />
+              <text id="550:1254" name="= 9" x="11.714428764812723" y="58.28787200512241" width="6.0863482896238565" height="5.10395298525691" />
+              <vector id="550:1255" name="Vector" x="11.191978443074808" y="63.69159668338623" width="9.381089357521887" height="0.689729301186162" />
+              <text id="550:1256" name="área entre 1 e 3" x="12.052360949342496" y="77.64825790131579" width="17.04976828955114" height="3.296234028413892" />
+            </frame>
+          </frame>
+          <frame id="550:1257" name="nº" x="6" y="6" width="20" height="20">
+            <text id="550:1258" name="txt/4" x="0" y="0" width="20" height="20" />
+          </frame>
+        </frame>
+        <frame id="550:1259" name="Página (nova)" x="328" y="0" width="74" height="74">
+          <frame id="550:1260" name="Frame" x="26" y="20" width="22" height="22" />
+          <text id="550:1263" name="txt/Página" x="0" y="44" width="74" height="13" />
+        </frame>
+      </frame>
+      <frame id="550:1264" name="Seção · Tópicos que saíram destas fotos" x="20" y="96" width="320" height="346">
+        <text id="550:1265" name="Label" x="0" y="0" width="320" height="20" />
+        <frame id="550:1266" name="Container (lista)" x="0" y="28" width="320" height="318">
+          <frame id="550:1267" name="Tópico (Limites)" x="0" y="0" width="320" height="53">
+            <frame id="550:1268" name="texto" x="14" y="9" width="207" height="35">
+              <text id="550:1269" name="txt/Limites" x="0" y="0" width="207" height="19" />
+              <text id="550:1270" name="txt/Foto 1 · 4 pergunt" x="0" y="20" width="207" height="15" />
+            </frame>
+            <frame id="550:1271" name="Coroas (2/3)" x="231" y="19" width="51" height="15">
+              <frame id="550:1272" name="Frame" x="0" y="0" width="15" height="15" />
+              <frame id="550:1274" name="Frame" x="18" y="0" width="15" height="15" />
+              <frame id="550:1276" name="Frame" x="36" y="0" width="15" height="15" />
+            </frame>
+            <frame id="550:1278" name="Frame" x="292" y="18.5" width="16" height="16" />
+          </frame>
+          <frame id="550:1280" name="Tópico (Integrais definidas)" x="0" y="53" width="320" height="53">
+            <frame id="550:1281" name="texto" x="14" y="9" width="207" height="35">
+              <text id="550:1282" name="txt/Integrais definida" x="0" y="0" width="207" height="19" />
+              <text id="550:1283" name="txt/Foto 1 · 5 pergunt" x="0" y="20" width="207" height="15" />
+            </frame>
+            <frame id="550:1284" name="Coroas (3/3)" x="231" y="19" width="51" height="15">
+              <frame id="550:1285" name="Frame" x="0" y="0" width="15" height="15" />
+              <frame id="550:1287" name="Frame" x="18" y="0" width="15" height="15" />
+              <frame id="550:1289" name="Frame" x="36" y="0" width="15" height="15" />
+            </frame>
+            <frame id="550:1291" name="Frame" x="292" y="18.5" width="16" height="16" />
+          </frame>
+          <frame id="550:1293" name="Tópico (Teorema fundamental)" x="0" y="106" width="320" height="53">
+            <frame id="550:1294" name="texto" x="14" y="9" width="207" height="35">
+              <text id="550:1295" name="txt/Teorema fundamenta" x="0" y="0" width="207" height="19" />
+              <text id="550:1296" name="txt/Foto 2 · 4 pergunt" x="0" y="20" width="207" height="15" />
+            </frame>
+            <frame id="550:1297" name="Coroas (1/3)" x="231" y="19" width="51" height="15">
+              <frame id="550:1298" name="Frame" x="0" y="0" width="15" height="15" />
+              <frame id="550:1300" name="Frame" x="18" y="0" width="15" height="15" />
+              <frame id="550:1302" name="Frame" x="36" y="0" width="15" height="15" />
+            </frame>
+            <frame id="550:1304" name="Frame" x="292" y="18.5" width="16" height="16" />
+          </frame>
+          <frame id="550:1306" name="Tópico (Área sob a curva)" x="0" y="159" width="320" height="53">
+            <frame id="550:1307" name="texto" x="14" y="9" width="207" height="35">
+              <text id="550:1308" name="txt/Área sob a curva" x="0" y="0" width="207" height="19" />
+              <text id="550:1309" name="txt/Foto 2 · 4 pergunt" x="0" y="20" width="207" height="15" />
+            </frame>
+            <frame id="550:1310" name="Coroas (0/3)" x="231" y="19" width="51" height="15">
+              <frame id="550:1311" name="Frame" x="0" y="0" width="15" height="15" />
+              <frame id="550:1313" name="Frame" x="18" y="0" width="15" height="15" />
+              <frame id="550:1315" name="Frame" x="36" y="0" width="15" height="15" />
+            </frame>
+            <frame id="550:1317" name="Frame" x="292" y="18.5" width="16" height="16" />
+          </frame>
+          <frame id="550:1319" name="Tópico (Substituição)" x="0" y="212" width="320" height="53">
+            <frame id="550:1320" name="texto" x="14" y="9" width="207" height="35">
+              <text id="550:1321" name="txt/Substituição" x="0" y="0" width="207" height="19" />
+              <text id="550:1322" name="txt/Foto 3 · 4 pergunt" x="0" y="20" width="207" height="15" />
+            </frame>
+            <frame id="550:1323" name="Coroas (0/3)" x="231" y="19" width="51" height="15">
+              <frame id="550:1324" name="Frame" x="0" y="0" width="15" height="15" />
+              <frame id="550:1326" name="Frame" x="18" y="0" width="15" height="15" />
+              <frame id="550:1328" name="Frame" x="36" y="0" width="15" height="15" />
+            </frame>
+            <frame id="550:1330" name="Frame" x="292" y="18.5" width="16" height="16" />
+          </frame>
+          <frame id="550:1332" name="Tópico (Integração por partes)" x="0" y="265" width="320" height="53">
+            <frame id="550:1333" name="texto" x="14" y="9" width="207" height="35">
+              <text id="550:1334" name="txt/Integração por par" x="0" y="0" width="207" height="19" />
+              <text id="550:1335" name="txt/Foto 4 · 3 pergunt" x="0" y="20" width="207" height="15" />
+            </frame>
+            <frame id="550:1336" name="Coroas (0/3)" x="231" y="19" width="51" height="15">
+              <frame id="550:1337" name="Frame" x="0" y="0" width="15" height="15" />
+              <frame id="550:1339" name="Frame" x="18" y="0" width="15" height="15" />
+              <frame id="550:1341" name="Frame" x="36" y="0" width="15" height="15" />
+            </frame>
+            <frame id="550:1343" name="Frame" x="292" y="18.5" width="16" height="16" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="550:1345" name="Container (insight)" x="20" y="456" width="320" height="79">
+        <frame id="550:1346" name="Frame" x="12" y="12" width="18" height="18" />
+        <text id="550:1348" name="Paragraph" x="38" y="12" width="270" height="59" />
+      </frame>
+    </frame>
+    <frame id="550:1349" name="Container (ações)" x="0" y="662" width="360" height="138">
+      <frame id="550:1350" name="Button (Girar a roleta deste álbum)" x="20" y="12" width="320" height="50">
+        <text id="550:1351" name="label · trocar p/ JOVI Sans CN Bold" x="61" y="13" width="198" height="24" />
+      </frame>
+      <frame id="550:1352" name="Button (Fotografar mais uma página)" x="20" y="70" width="320" height="50">
+        <text id="550:1353" name="label" x="52.5" y="13" width="215" height="24" />
+      </frame>
+    </frame>
+  </frame>
+  

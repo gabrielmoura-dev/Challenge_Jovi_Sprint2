@@ -6,7 +6,6 @@
 
 /* Tela de abertura: ocupa a altura toda e não rola. */
 .app-frame--onboarding {
-  height: 100dvh;
   min-height: 0;
   overflow: hidden;
   background: #0a0a0a;
@@ -108,3 +107,52 @@
 .onboarding__actions .btn-block--ghost { margin-top: 26px; }
 
 .onboarding__dots { margin-top: 25px; }
+
+/* =========================================================
+   Entrada animada — dá o primeiro "aceno" do protótipo: a marca JOVI
+   nasce com leve zoom, a tagline e os botões sobem em sequência. Só
+   acontece uma vez, no carregamento, e respeita quem prefere menos
+   movimento.
+   ========================================================= */
+.onboarding__mark {
+  animation: jovi-onb-mark 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.onboarding__tagline {
+  animation: jovi-onb-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.15s;
+}
+.onboarding__actions .btn-block--inverse {
+  animation: jovi-onb-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.28s;
+}
+.onboarding__actions .btn-block--ghost {
+  animation: jovi-onb-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.38s;
+}
+.onboarding__dots {
+  animation: jovi-onb-fade 0.6s ease both;
+  animation-delay: 0.5s;
+}
+
+@keyframes jovi-onb-mark {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes jovi-onb-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes jovi-onb-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onboarding__mark,
+  .onboarding__tagline,
+  .onboarding__actions .btn-block--inverse,
+  .onboarding__actions .btn-block--ghost,
+  .onboarding__dots {
+    animation: none;
+  }
+}

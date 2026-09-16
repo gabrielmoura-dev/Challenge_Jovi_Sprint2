@@ -71,7 +71,7 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 76px 12px 24px;
+  padding: 76px 12px 108px;
 }
 
 .phone-frame {
@@ -88,13 +88,17 @@ body {
 }
 
 /* Status bar */
+/* Padronizado com .lacar-statusbar (mesmo padding, peso e altura de
+   linha) para o topo de todas as telas ficar 100% igual. */
 .jovi-statusbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 24px 8px;
+  padding: 12px 24px;
   font-size: 14px;
+  line-height: 20px;
   font-weight: 500;
+  font-family: var(--jovi-font);
   flex-shrink: 0;
 }
 .jovi-statusbar img {

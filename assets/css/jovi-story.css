@@ -1,0 +1,116 @@
+/* =========================================================
+   JOVI — Trilho do Modo História (assets/js/jovi-story.js)
+
+   Barra fixa no rodapé da JANELA (não do cartão do celular — fica fora
+   dele, como uma legenda de apresentação), com o ato da história atual,
+   o progresso e um botão para seguir a sequência narrativa. Só aparece
+   nas 31 telas que fazem parte da história (ver HISTORIA em jovi-story.js);
+   as 4 telas legadas substituídas por versões novas não a recebem.
+   ========================================================= */
+
+.jovi-story-rail {
+  /* position/top são definidos via JS (jovi-story.js), logo abaixo do
+     cartão do celular — o fallback abaixo só vale por um instante antes do
+     JS calcular a posição exata, ou se o JS falhar por algum motivo. */
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 1090;
+  width: min(360px, calc(100vw - 32px));
+  padding: 10px 16px 12px;
+  border-radius: 18px;
+  background: rgba(10, 10, 10, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  font-family: "JOVI Sans CN", var(--jovi-font, "Inter"), sans-serif;
+  color: #ffffff;
+  animation: jovi-story-rail-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.15s;
+}
+
+@keyframes jovi-story-rail-in {
+  from { opacity: 0; transform: translate(-50%, 16px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.jovi-story-rail__topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.jovi-story-rail__ato {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #c9bdfb;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.jovi-story-rail__passo {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.jovi-story-rail__barra {
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.jovi-story-rail__barra span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7c5bd9, #b5a1e8);
+  transition: width 0.3s ease;
+}
+
+.jovi-story-rail__proxima {
+  margin: 0 0 6px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.jovi-story-rail__btn {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  background: #7c5bd9;
+  color: #ffffff;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.jovi-story-rail__btn span { font-weight: 700; }
+.jovi-story-rail__btn:hover { background: #6d4cc9; }
+.jovi-story-rail__btn--fim {
+  background: rgba(255, 255, 255, 0.1);
+  justify-content: center;
+}
+.jovi-story-rail__btn--fim:hover { background: rgba(255, 255, 255, 0.16); }
+
+/* Em telas pequenas o trilho não deve brigar com o toggle de tema, que já
+   ocupa o canto superior — como o trilho vive no rodapé, não há conflito
+   em nenhuma largura. Só reduzimos um pouco o respiro em mobile real. */
+@media (max-width: 420px) {
+  .jovi-story-rail { bottom: 10px; }
+}

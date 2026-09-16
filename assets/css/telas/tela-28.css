@@ -1,0 +1,87 @@
+/* =========== Tela 28 — Complete a expressão =========== */
+/* Medidas e cores do nó 550:813. O cabeçalho com X é o mesmo da Tela 27
+   (regra em tela-27.css). */
+
+.enunciado-bloco { flex-shrink: 0; }
+
+/* Cartão com a expressão e as duas lacunas */
+.expressao-card {
+  flex-shrink: 0;
+  padding: 26px 16px;
+  border-radius: 16px;
+  background: var(--estudo-surface);
+  border: 1px solid var(--estudo-borda);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.expressao-fixa {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  color: var(--lacar-text);
+}
+.expressao-fixa sub,
+.expressao-fixa sup { font-size: 11px; }
+
+/* Lacuna vazia: contorno tracejado (estado não desenhado no Figma).
+   Preenchida: fundo roxo a 12% e borda verde de 2px, como na frame. */
+.expressao-lacuna {
+  width: 62px;
+  height: 42px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 2px dashed var(--estudo-borda);
+  background: var(--lacar-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--lacar-text);
+}
+[data-bs-theme="dark"] .expressao-lacuna { background: #262626; }
+.expressao-lacuna.is-preenchida {
+  border-style: solid;
+  border-color: var(--estudo-success);
+  background: rgba(124, 91, 217, 0.12);
+}
+
+/* Bandeja de tokens */
+.tokens-bloco {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tokens-label {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+.tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.token {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--estudo-borda);
+  background: var(--estudo-surface);
+  color: var(--lacar-text);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+}
+/* Token já usado continua visível, mas a 35% (como no Figma). */
+.token.is-usado {
+  opacity: 0.35;
+  pointer-events: none;
+}

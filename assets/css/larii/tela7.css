@@ -14,8 +14,16 @@
 }
 
 .gallery {
+  /* Regiao rolavel entre o topo fixo (.gallery-top) e a nav inferior --
+     sem isso, o conteudo crescia alem dos 800px fixos do cartao e ficava
+     cortado pelo overflow:hidden do .app-frame, sem nenhuma forma de rolar. */
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
   padding-top: 19px;
-  padding-bottom: calc(var(--nav-h) + 24px);
+  /* .bottom-nav agora ocupa espaço próprio no flex column (não é mais
+     position:fixed sobreposto), então só precisa de respiro normal aqui. */
+  padding-bottom: 24px;
   display: flex;
   flex-direction: column;
 }

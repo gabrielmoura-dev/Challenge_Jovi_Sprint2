@@ -1,0 +1,83 @@
+/* =========== Tela 27 — Caça ao erro =========== */
+/* Medidas e cores do nó 550:714.
+   Atenção à leitura das cores: aqui o vermelho marca o passo ERRADO da
+   resolução do aluno — ou seja, é o acerto da atividade. Por isso o passo
+   .is-correta usa a paleta de perigo, enquanto o card de feedback
+   (estudo-componentes.css) continua verde, confirmando o acerto. */
+
+/* Cabeçalho desta tela usa o X no lugar do chevron de voltar. */
+.tela-27 .estudo-header,
+.tela-28 .estudo-header { height: 52px; padding-top: 12px; }
+
+.enunciado-bloco { flex-shrink: 0; }
+
+/* Os passos são um único card com linhas divididas. */
+.passos {
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: var(--estudo-surface);
+  border: 1px solid var(--estudo-borda);
+  overflow: hidden;
+}
+.passo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 15px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--estudo-borda);
+}
+.passo:last-child { border-bottom: none; }
+
+.passo-num {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--lacar-bg);
+  border: 1px solid var(--estudo-borda);
+  color: var(--lacar-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+}
+[data-bs-theme="dark"] .passo-num { background: #262626; }
+.passo-texto {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  color: var(--lacar-text);
+}
+.passo-texto sub,
+.passo-texto sup { font-size: 10px; }
+.passo-marca {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  display: none;
+}
+
+/* Passo errado identificado — estado desenhado no Figma. */
+.passo.is-correta { background: var(--estudo-danger-soft); }
+.passo.is-correta .passo-num {
+  background: var(--estudo-danger);
+  border-color: var(--estudo-danger);
+  color: #ffffff;
+}
+.passo.is-correta .passo-marca { display: block; }
+
+/* Passo certo tocado por engano — estado derivado, não desenhado. */
+.passo.is-incorreta .passo-num {
+  background: var(--lacar-text-muted);
+  border-color: var(--lacar-text-muted);
+  color: #ffffff;
+}
+.passos.is-respondida .passo:not(.is-correta):not(.is-incorreta) { opacity: 0.45; }

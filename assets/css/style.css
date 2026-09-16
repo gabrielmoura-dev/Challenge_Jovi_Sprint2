@@ -20,9 +20,10 @@
 
 @import url("tokens.css");
 
+/* Fundo neutro atrás do cartão flutuante, igual ao das demais telas. */
 body {
   margin: 0;
-  background: #000;
+  background: #e5e5e5;
   font-family: var(--jovi-font);
 }
 
@@ -30,20 +31,25 @@ body {
   font-family: var(--jovi-font);
 }
 
+/* Cartão fixo 360x800, padronizado com .lacar-phone-frame/.phone-frame
+   (telas 05 e 13) — antes usava aspect-ratio responsivo sem moldura nem
+   sombra, destoando do resto do protótipo. Os valores internos já são
+   todos em cqw/%, então continuam corretos com o contêiner fixo. */
 .onboarding-wrapper {
   display: flex;
+  align-items: flex-start;
   justify-content: center;
-  padding: 0;
+  min-height: 100vh;
+  padding: 76px 12px 108px;
 }
 
-/* Frame responsivo mobile-first: mantém a proporção 360:800 do Figma
-   em qualquer largura de tela usando container query units (cqw). */
 .onboarding-screen {
   position: relative;
   container-type: inline-size;
-  width: 100%;
-  max-width: 400px;
-  aspect-ratio: 360 / 800;
+  width: 360px;
+  height: 800px;
+  border-radius: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
   overflow: hidden;
   background: #d9d9d9;
 }
@@ -86,27 +92,16 @@ body {
   color: var(--jovi-white);
 }
 
+/* Mesmos 3 arquivos (status-signal/wifi/battery.svg) de todas as outras
+   telas do protótipo — antes usava um battery-vector1+2 remontado em duas
+   partes; agora é a mesma imagem única. Ícones nascem pretos, então
+   viram brancos aqui (tela sempre sobre foto, igual à Tela 1). */
 .status-icon {
   width: 4.444cqw;
   height: 4.444cqw;
+  filter: brightness(0) invert(1);
 }
-
-.battery-icon {
-  position: relative;
-  width: 4.444cqw;
-  height: 2.778cqw;
-}
-
-.battery-body {
-  width: 100%;
-  height: 100%;
-}
-
-.battery-tip {
-  position: absolute;
-  right: -0.6cqw;
-  top: 30%;
-}
+.status-icon--battery { width: 6.667cqw; height: auto; }
 
 /* Logo "JOVI" — wordmark de texto provisório (ver TODO no HTML) */
 .onboarding-heading {

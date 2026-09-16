@@ -1,0 +1,109 @@
+/* =========== Tela 31 — Modo Farol · simulação na tela bloqueada =========== */
+/* Medidas e cores do nó 550:1638. Tema fixo em dark, sem variante clara.
+   Este arquivo também carrega as bases usadas pelas Telas 32 e 33
+   (fundo, botão primário e rodapé). */
+
+.tela-31 {
+  background: var(--jovi-bg-dark);
+  color: var(--jovi-white);
+  font-family: var(--jovi-font);
+}
+.tela-31 .lacar-statusbar { color: var(--jovi-white); }
+.tela-31 .lacar-statusbar img { filter: brightness(0) invert(1); }
+
+/* Relógio da tela de bloqueio */
+.bloqueio-corpo {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Espaços fixos do Figma: 110px antes do relógio e 64px antes do card. */
+.bloqueio-relogio { padding-top: 110px; text-align: center; }
+.bloqueio-data {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.55);
+}
+.bloqueio-hora {
+  font-size: 72px;
+  font-weight: 300;
+  line-height: 88px;
+  letter-spacing: -2px;
+  margin: 0;
+  color: var(--jovi-white);
+}
+.bloqueio-bateria {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 0 64px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Card de vidro explicando o gesto */
+.bloqueio-card {
+  width: 100%;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.bloqueio-ico {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: rgba(141, 117, 247, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.bloqueio-ico img { width: 20px; height: 20px; }
+.bloqueio-titulo {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  margin: 0;
+  color: var(--jovi-white);
+}
+.bloqueio-texto {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.bloqueio-rodape {
+  flex-shrink: 0;
+  padding: 10px 30px 24px;
+}
+
+/* Botão primário do Farol — compartilhado com as Telas 32 e 33. */
+.farol-btn {
+  width: 100%;
+  height: 50px;
+  border-radius: 18px;
+  border: none;
+  background: var(--jovi-purple);
+  color: var(--jovi-white);
+  font-family: var(--jovi-font);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  padding: 0;
+}
+/* Pulso curto ao simular o gesto, antes de navegar. */
+.farol-btn.is-firing { animation: farol-pulso 0.4s ease; }
+@keyframes farol-pulso {
+  50% { transform: scale(0.96); opacity: 0.85; }
+}

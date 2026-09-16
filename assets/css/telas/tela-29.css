@@ -1,0 +1,107 @@
+/* =========== Tela 29 — Quadro fragmentado =========== */
+/* Medidas e cores do nó 550:911. Esta tela usa margens laterais de 28px
+   (as demais do pilar usam 20px) e cabeçalho de 64px. */
+
+.tela-29 .estudo-header { height: 64px; padding: 16px 20px 0; }
+.tela-29 .estudo-scroll { padding: 12px 28px 20px; gap: 20px; }
+
+.investigacao-label,
+.recortes-label {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  margin: 0;
+  color: var(--lacar-text);
+  flex-shrink: 0;
+}
+
+/* O card de dica desta tela usa o sparkle de 16px. */
+.tela-29 .estudo-dica img { width: 16px; height: 16px; }
+
+.recortes-secao {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.reconstrucao-secao {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Os três recortes do quadro, na ordem embaralhada */
+.recortes {
+  display: flex;
+  gap: 8px;
+}
+.recorte {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 96px;
+  border-radius: 12px;
+  border: none;
+  background: #233d38;
+  padding: 0;
+  overflow: hidden;
+}
+.recorte img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.recorte-nome {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 9px 4px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 15px;
+}
+/* Recorte já posicionado sai da lista de escolhas. */
+.recorte.is-usado { opacity: 0.35; pointer-events: none; }
+
+.reconstrucao-contador {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+  margin: 0;
+  color: var(--lacar-text-muted);
+}
+
+/* Slots da reconstrução */
+.slots {
+  display: flex;
+  gap: 8px;
+}
+.slot {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 96px;
+  border-radius: 12px;
+  border: 1px dashed var(--estudo-borda);
+  background: var(--estudo-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  color: var(--lacar-text-muted);
+}
+.slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slot.is-preenchido {
+  border-style: solid;
+  border-color: var(--lacar-primary);
+}
+
+/* O rodapé desta tela não tem borda superior e usa margens de 30px. */
+.tela-29 .estudo-rodape {
+  border-top: none;
+  padding: 10px 30px 24px;
+}
+.tela-29 .estudo-btn:disabled { opacity: 0.4; }

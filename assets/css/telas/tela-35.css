@@ -1,0 +1,179 @@
+/* =========== Tela 35 — Guia de pose (silhueta) ===========
+   Estado ativo depois que o usuário escolhe uma pose no carrossel da
+   tela 13. Mesma família de componentes (jullia-componentes.css +
+   tokens.css) — não usa o sistema larii/app-frame das telas 07/12/14. */
+
+.pose-guide-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+}
+.pose-guide-close img { width: 18px; height: 18px; filter: brightness(0) invert(1); }
+
+/* Tag de estilo da pose escolhida — sem mais PiP redundante, já que o
+   palco abaixo já mostra a foto de referência inteira. */
+.pose-guide-pip-tag--floating {
+  position: absolute;
+  top: 64px;
+  right: 16px;
+  z-index: 3;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+/* Preenchimento de fundo: mesma foto, desfocada e escurecida, cobrindo
+   o frame inteiro — evita tarja vazia já que a referência é quadrada
+   (480x480) e o viewfinder é retrato. */
+.pose-guide-fill {
+  filter: blur(28px) brightness(0.55) saturate(1.05);
+  transform: scale(1.15);
+}
+
+/* Palco: a foto em si, sem corte (contain), com o traçado por cima
+   ocupando exatamente a mesma caixa — por isso os dois são um
+   quadrado (aspect-ratio 1/1) centralizado, não um cover esticado. */
+.pose-guide-stage {
+  position: absolute;
+  inset: 0 0 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.pose-guide-stage__photo {
+  position: relative;
+  width: 100%;
+  max-height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  display: block;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  transition: opacity 160ms ease;
+}
+.pose-guide-silhouette {
+  position: absolute;
+  width: 100%;
+  max-height: 100%;
+  aspect-ratio: 1 / 1;
+  pointer-events: none;
+}
+.pose-guide-silhouette__line {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  opacity: 0.82;
+  filter:
+    drop-shadow(0 0 1px rgba(255, 255, 255, 0.9))
+    drop-shadow(0 0 3px rgba(255, 255, 255, 0.38));
+}
+.pose-guide-silhouette.is-aligned .pose-guide-silhouette__line {
+  filter:
+    brightness(0) saturate(100%) invert(89%) sepia(18%) saturate(1041%) hue-rotate(92deg) brightness(96%) contrast(88%)
+    drop-shadow(0 0 1px rgba(126, 230, 189, 1))
+    drop-shadow(0 0 5px rgba(126, 230, 189, 0.82));
+}
+
+/* Legenda com a dica de voz em texto — funciona como captions pra quem
+   está com o som desligado ou não ouve. */
+.pose-guide-caption {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 234px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+}
+.pose-guide-caption[hidden] { display: none; }
+.pose-guide-caption-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: rgba(245, 166, 35, 0.25);
+  color: #f5a623;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pose-guide-caption-icon svg { width: 12px; height: 12px; }
+
+/* Três exemplos, sempre com a linha sobre a foto original. A faixa ocupa
+   pouco espaço do visor e funciona como seletor da pose ampliada. */
+.pose-guide-examples {
+  position: absolute;
+  z-index: 3;
+  left: 16px;
+  right: 16px;
+  bottom: 137px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.pose-guide-example {
+  min-width: 0;
+  padding: 3px 3px 6px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 12px;
+  background: rgba(10,10,10,.58);
+  color: rgba(255,255,255,.78);
+  font-size: 10px;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+.pose-guide-example:active { transform: scale(.97); }
+.pose-guide-example.is-active {
+  border-color: rgba(255,255,255,.9);
+  background: rgba(10,10,10,.76);
+  color: #fff;
+}
+.pose-guide-example__media {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+.pose-guide-example__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pose-guide-example__media img + img {
+  opacity: .78;
+  filter: drop-shadow(0 0 2px rgba(255,255,255,.45));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pose-guide-stage__photo,
+  .pose-guide-example { transition: none; }
+}

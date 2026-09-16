@@ -5,7 +5,6 @@
    ========================================================================== */
 
 .app-frame--camera {
-  height: 100dvh;
   min-height: 0;
   overflow: hidden;
   background: #0a0a0a;

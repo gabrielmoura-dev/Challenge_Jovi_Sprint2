@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JOVI · Caça ao erro</title>
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (e) {}
+      if (saved !== "light" && saved !== "dark") {
+        saved = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-bs-theme", saved);
+    })();
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/lacar-componentes.css">
+  <link rel="stylesheet" href="../assets/css/telas/estudo-componentes.css">
+  <link rel="stylesheet" href="../assets/css/telas/tela-27.css">
+  <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <link rel="stylesheet" href="../assets/css/jovi-story.css">
+</head>
+<body>
+  <button type="button" class="theme-toggle" data-theme-toggle style="left: 16px;">🌙 Dark</button>
+  <a href="../index.html" class="theme-toggle" style="right: 16px; left: auto; text-decoration:none;">← Telas</a>
+
+  <div class="lacar-phone-shell">
+    <main class="lacar-phone-frame estudo-tela tela-27">
+      <div class="lacar-statusbar">
+        <span>17:32</span>
+        <div class="d-flex align-items-center gap-1">
+          <img src="../assets/img/status-signal.svg" alt="">
+          <img src="../assets/img/status-wifi.svg" alt="">
+          <img src="../assets/img/status-battery.svg" alt="" style="height:14px;">
+        </div>
+      </div>
+
+      <header class="estudo-header">
+        <button type="button" class="estudo-back" aria-label="Sair da sessão" onclick="window.location.href='tela-25-estudo-roleta.html'">
+          <img src="../assets/img/estudo-fechar-22.svg" alt="">
+        </button>
+        <div class="estudo-header-text">
+          <h1 class="estudo-title">Caça ao erro</h1>
+        </div>
+      </header>
+
+      <div class="estudo-scroll">
+        <div class="estudo-origem">
+          <span class="estudo-origem-thumb">
+            <img src="../assets/img/estudo-origem-caderno.png" alt="">
+          </span>
+          <span class="estudo-origem-texto">
+            <span class="estudo-origem-titulo d-block">Foto 2 do seu caderno</span>
+            <span class="estudo-origem-sub d-block">Cálculo · Capítulo 5</span>
+          </span>
+          <img src="../assets/img/estudo-sparkle.svg" alt="" class="estudo-origem-ia">
+        </div>
+
+        <div class="enunciado-bloco">
+          <p class="estudo-kicker">Integrais definidas</p>
+          <h2 class="estudo-enunciado">Toque no passo onde o raciocínio quebra.</h2>
+        </div>
+
+        <!-- Os passos vêm da resolução fotografada; o 4º é o que está errado. -->
+        <div class="passos">
+          <button type="button" class="passo" data-opcao="incorreta">
+            <span class="passo-num">1</span>
+            <span class="passo-texto">∫<sub>1</sub><sup>3</sup> 2x dx</span>
+            <img src="../assets/img/estudo-erro-circulo.svg" alt="" class="passo-marca">
+          </button>
+          <button type="button" class="passo" data-opcao="incorreta">
+            <span class="passo-num">2</span>
+            <span class="passo-texto">F(x) = x²</span>
+            <img src="../assets/img/estudo-erro-circulo.svg" alt="" class="passo-marca">
+          </button>
+          <button type="button" class="passo" data-opcao="incorreta">
+            <span class="passo-num">3</span>
+            <span class="passo-texto">F(3) = 9</span>
+            <img src="../assets/img/estudo-erro-circulo.svg" alt="" class="passo-marca">
+          </button>
+          <button type="button" class="passo" data-opcao="correta">
+            <span class="passo-num">4</span>
+            <span class="passo-texto">Resultado = 9</span>
+            <img src="../assets/img/estudo-erro-circulo.svg" alt="" class="passo-marca">
+          </button>
+        </div>
+
+        <div class="estudo-feedback" data-feedback data-titulo-erro="Não é esse passo." data-texto-erro="Esse passo está correto. Procure onde o teorema deixou de subtrair o limite de baixo." hidden>
+          <p class="estudo-feedback-titulo">É esse o passo.</p>
+          <p class="estudo-feedback-texto">Faltou subtrair F(1). O teorema pede F(3) − F(1), ou seja 9 − 1 = 8. Foi exatamente o limite que ficou de fora no seu caderno.</p>
+        </div>
+      </div>
+
+      <div class="estudo-rodape">
+        <button type="button" class="estudo-btn" data-proxima onclick="window.location.href='tela-28-estudo-completar-expressao.html'">Próxima</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/estudo-jogo.js"></script>
+  <script src="../assets/js/jovi-story.js"></script>
+</body>
+</html>

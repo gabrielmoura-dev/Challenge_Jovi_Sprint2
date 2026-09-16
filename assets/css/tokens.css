@@ -82,6 +82,27 @@
      não importa aquele sistema de tokens. */
   --farol-danger: #ff7a85;
 
+  /* Adicionadas nas Telas 22-30 (Estudo) — paleta própria do pilar, extraída
+     dos nós 550:177 a 550:1059 do Figma. Só entram aqui as cores fora da
+     tolerância de 2% dos tokens acima; os ícones (coroas, chama, check)
+     são SVGs exportados do Figma e já vêm com a cor certa. */
+  /* Acerto: borda da alternativa correta e do card de retorno (Telas 26-28).
+     Mesmo hex de --tela16-pose-success e --farol-waveform, mantido separado
+     porque são pilares diferentes. */
+  --estudo-success: #3fa88d;
+  /* Fundo da alternativa correta — o mesmo verde a 12%. */
+  --estudo-success-soft: rgba(63, 168, 141, 0.12);
+  /* Erro: passo quebrado da Tela 27 e estados incorretos do quiz. Mesmo hex
+     de --farol-danger. */
+  --estudo-danger: #ff7a85;
+  --estudo-danger-soft: rgba(255, 122, 133, 0.12);
+  /* Setores da roleta da Tela 25 que não existem nos tokens acima — os
+     outros três reusam --jovi-purple, --jovi-ai-accent e
+     --jovi-purple-muted. */
+  --estudo-roleta-teorema: #5d43a8;
+  --estudo-roleta-subst: #8f72de;
+  --estudo-roleta-partes: #6a4cc0;
+
   /* Adicionada na Tela 16 (Câmera — guia de pose) — cor fora da tolerância
      de 2% dos tokens acima. Mesmo hex de --farol-waveform, mas mantida
      separada: são pilares diferentes (guia de pose vs. Modo Farol) e a

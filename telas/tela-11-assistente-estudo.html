@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="../assets/css/lacar-componentes.css">
   <link rel="stylesheet" href="../assets/css/telas/tela-13.css">
+  <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <link rel="stylesheet" href="../assets/css/jovi-story.css">
 </head>
 <body>
   <button type="button" class="theme-toggle" data-theme-toggle style="left: 16px;">🌙 Dark</button>
@@ -26,7 +28,7 @@
   <div class="lacar-phone-shell">
     <main class="lacar-phone-frame">
       <div class="lacar-statusbar">
-        <span>18:30</span>
+        <span>17:32</span>
         <div class="d-flex align-items-center gap-1">
           <img src="../assets/img/status-signal.svg" alt="">
           <img src="../assets/img/status-wifi.svg" alt="">
@@ -88,14 +90,17 @@
             </div>
           </div>
           <div class="summary-buttons">
-            <button type="button" class="summary-btn" data-toast="Download em breve">
-              <img src="../assets/img/download.svg" alt="">
-              <span>Baixar PDF</span>
-            </button>
-            <button type="button" class="summary-btn" data-toast="Compartilhamento em breve">
-              <img src="../assets/img/share-thin.svg" alt="">
-              <span>Compartilhar</span>
-            </button>
+              <button type="button" class="summary-btn" data-toast="Download em breve">
+                <img src="../assets/img/download.svg" alt="">
+                <span>Baixar PDF</span>
+              </button>
+              <button type="button" class="summary-btn" data-toast="Compartilhamento em breve">
+                <img src="../assets/img/share-thin.svg" alt="">
+                <span>Compartilhar</span>
+              </button>
+              <button type="button" class="summary-btn" onclick="window.location.href='tela-22-estudo.html'">
+                <span>Jogar estudo</span>
+              </button>
           </div>
         </div>
 
@@ -134,5 +139,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/theme.js"></script>
   <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/jovi-story.js"></script>
 </body>
 </html>

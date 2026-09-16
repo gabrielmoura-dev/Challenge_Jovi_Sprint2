@@ -1,0 +1,180 @@
+/* =========== Tela 24 — Tentativa de exercício (câmera) =========== */
+/* Medidas do nó 550:359 (360x800). Diferente das outras telas de câmera do
+   projeto, esta não usa tela-10.css: o layout do Figma é todo absoluto sobre
+   a folha de papel, com a barra de controles em bottom sheet arredondado.
+   Sufixo "-estudo" no nome porque tela-24.css já existe (Modo Farol).
+   Tema fixo em dark, sem variante clara no design. */
+
+.tela-24-estudo {
+  position: relative;
+  /* Tom do papel/mesa que aparece em volta da foto enquadrada. */
+  background: #ded8cb;
+  font-family: var(--jovi-font);
+}
+
+/* Foto do caderno, exportada do Figma (360x456, a partir de y=104). */
+.tentativa-foto {
+  position: absolute;
+  left: 0;
+  top: 104px;
+  width: 360px;
+  height: 456px;
+  display: block;
+}
+
+/* Barras translúcidas do topo */
+.tela-24-estudo .lacar-statusbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 360px;
+  height: 44px;
+  background: rgba(10, 10, 10, 0.55);
+  color: var(--jovi-white);
+  z-index: 2;
+}
+.tela-24-estudo .lacar-statusbar img { filter: brightness(0) invert(1); }
+
+.tentativa-topbar {
+  position: absolute;
+  left: 0;
+  top: 44px;
+  width: 360px;
+  height: 60px;
+  background: rgba(10, 10, 10, 0.55);
+  z-index: 2;
+}
+.tentativa-back {
+  position: absolute;
+  left: 20px;
+  top: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.tentativa-back img { width: auto; height: auto; }
+.tentativa-pill {
+  position: absolute;
+  left: 123px;
+  top: 12px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  /* Lilás claro do Figma — mesmo token do balão de chat da Tela 09. */
+  color: var(--lacar-chat-highlight);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+}
+
+/* Cantos do enquadramento: 300x380 a partir de (30, 140) */
+.tentativa-visor {
+  position: absolute;
+  left: 30px;
+  top: 140px;
+  width: 300px;
+  height: 380px;
+  z-index: 1;
+}
+.visor-canto {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 3px solid #ffffff;
+}
+.canto-tl { top: 0; left: 0; border-right: none; border-bottom: none; border-top-left-radius: 10px; }
+.canto-tr { top: 0; left: 274px; border-left: none; border-bottom: none; border-top-right-radius: 10px; }
+.canto-bl { top: 354px; left: 0; border-right: none; border-top: none; border-bottom-left-radius: 10px; }
+.canto-br { top: 354px; left: 274px; border-left: none; border-top: none; border-bottom-right-radius: 10px; }
+
+/* Painel de controles */
+.tentativa-painel {
+  position: absolute;
+  left: 0;
+  top: 619px;
+  width: 360px;
+  height: 181px;
+  background: rgba(10, 10, 10, 0.74);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.12);
+  z-index: 2;
+}
+.tentativa-titulo {
+  position: absolute;
+  left: 20px;
+  top: 17px;
+  width: 320px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+  color: var(--jovi-white);
+}
+.tentativa-sub {
+  position: absolute;
+  left: 20px;
+  top: 41px;
+  width: 320px;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: center;
+  color: var(--jovi-white);
+  opacity: 0.7;
+}
+.tentativa-controles {
+  position: absolute;
+  left: 20px;
+  top: 79px;
+  width: 320px;
+  height: 72px;
+}
+.tentativa-lateral {
+  position: absolute;
+  top: 8px;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.tentativa-lateral img { width: auto; height: auto; }
+.tentativa-lateral.is-galeria { left: 0; }
+.tentativa-lateral.is-inverter { left: 264px; }
+.tentativa-obturador {
+  position: absolute;
+  left: 124px;
+  top: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 36px;
+  background: #ffffff;
+  border: none;
+  padding: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.tentativa-obturador span {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background: var(--jovi-bg-dark);
+}

@@ -1,0 +1,64 @@
+/* =========================================================
+   JOVI — Transições entre telas (View Transitions API)
+
+   O protótipo é HTML estático multi-página (cada tela é um arquivo
+   separado), então uma navegação normal recarrega a página inteira e
+   "pisca" para branco. A View Transitions API entre documentos (suportada
+   em navegadores Chromium recentes) resolve isso sem JavaScript: o
+   navegador tira uma "foto" da tela atual e da tela nova e faz um morph
+   entre as duas automaticamente.
+
+   Damos ao cartão do celular (independente do sistema — lacar, jullia ou
+   larii) o mesmo view-transition-name em todas as telas. Como agora todos
+   os cartões têm exatamente 360x800 (ver Larii-componentes.css, style.css e
+   tela-03.css), o cartão parece permanecer parado no lugar enquanto só o
+   conteúdo de dentro troca — como se fosse um único app, não 35 páginas
+   soltas.
+
+   Em navegadores sem suporte, esta regra é ignorada e a navegação volta a
+   ser a troca de página normal — nada quebra.
+   ========================================================= */
+
+@view-transition {
+  navigation: auto;
+}
+
+.lacar-phone-frame,
+.phone-frame,
+.app-frame,
+.onboarding-screen,
+.tela03-screen {
+  view-transition-name: jovi-phone;
+}
+
+/* Transição "empurrada": a tela de saída encolhe e esmaece para baixo: a
+   tela de entrada nasce um pouco maior e de cima, criando uma sensação de
+   avanço (não um cross-fade parado). */
+::view-transition-group(jovi-phone) {
+  animation-duration: 0.42s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+::view-transition-old(jovi-phone) {
+  animation: jovi-frame-out 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+::view-transition-new(jovi-phone) {
+  animation: jovi-frame-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes jovi-frame-out {
+  to { opacity: 0; transform: scale(0.96) translateY(10px); }
+}
+@keyframes jovi-frame-in {
+  from { opacity: 0; transform: scale(1.03) translateY(-10px); }
+}
+
+/* Quem prefere menos movimento não recebe a animação de escala/posição —
+   só um cross-fade simples (o navegador já faz isso por padrão quando as
+   animações acima não se aplicam). */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(jovi-phone),
+  ::view-transition-old(jovi-phone),
+  ::view-transition-new(jovi-phone) {
+    animation: none !important;
+  }
+}

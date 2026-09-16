@@ -1,0 +1,322 @@
+/* =========================================================
+   JOVI — Componentes do pilar Estudo (Telas 22 a 30)
+
+   Arquivo compartilhado apenas pelas telas do jogo de estudo.
+   Depende de tokens.css e lacar-componentes.css (nessa ordem) —
+   nunca importar/editar jullia-componentes.css ou a pasta larii/
+   a partir daqui.
+
+   Aqui ficam só os elementos que se repetem em 2 ou mais telas do
+   pilar (cabeçalho de sessão, card da foto de origem, coroas, card
+   de feedback, rodapé fixo). O que é exclusivo de uma tela fica no
+   tela-XX.css correspondente.
+   ========================================================= */
+
+/* Cores derivadas do tema — as soft/borders do tokens.css são as do
+   tema claro; no escuro usamos versões translúcidas para não estourar
+   o contraste sobre --lacar-bg. */
+[data-bs-theme="dark"] .estudo-tela {
+  /* No escuro as superfícies claras do Figma (#f5f5f5) viram #1a1a1a e as
+     bordas #e5e5e5 viram #262626; as cores de acerto/erro são as mesmas. */
+  --estudo-surface: #1a1a1a;
+  --estudo-borda: #262626;
+}
+.estudo-tela {
+  --estudo-surface: #f5f5f5;
+  --estudo-borda: #e5e5e5;
+}
+
+.estudo-tela { font-family: var(--jovi-font); }
+
+/* ---------------------------------------------------------
+   Cabeçalho com voltar (Telas 23, 25, 29) — mesmo racional do
+   .settings-header da Tela 17, com espaço para uma linha de meta.
+   --------------------------------------------------------- */
+.estudo-header {
+  height: 60px;
+  padding: 6px 20px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.estudo-back {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 4px;
+  color: var(--lacar-text);
+  flex-shrink: 0;
+}
+/* O ícone exportado já tem o tamanho certo (chevron 8x14, X 22x22):
+   forçar uma medida aqui distorceria o traço. */
+.estudo-back img { width: auto; height: auto; }
+[data-bs-theme="dark"] .estudo-back img { filter: brightness(0) invert(1); }
+.estudo-header-text { min-width: 0; padding-top: 2px; }
+.estudo-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.44px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+.estudo-meta {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17px;
+  margin: 1px 0 0;
+  color: var(--lacar-text-muted);
+}
+
+/* ---------------------------------------------------------
+   Área rolável — mesmo comportamento do .study-scroll da Tela 11
+   (scrollbar escondida, conteúdo em coluna).
+   --------------------------------------------------------- */
+.estudo-scroll {
+  overflow-y: auto;
+  scrollbar-width: none;
+  flex: 1 1 auto;
+  padding: 8px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.estudo-scroll::-webkit-scrollbar { display: none; }
+
+/* ---------------------------------------------------------
+   Cabeçalho de sessão de pergunta (Telas 26, 27, 28)
+   --------------------------------------------------------- */
+.estudo-sessao-topo {
+  height: 44px;
+  padding: 0 24px 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.estudo-fechar {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  flex-shrink: 0;
+}
+.estudo-fechar img { width: 20px; height: 20px; }
+[data-bs-theme="dark"] .estudo-fechar img { filter: brightness(0) invert(1); }
+.estudo-progresso {
+  flex: 1 1 auto;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--estudo-borda);
+  overflow: hidden;
+}
+.estudo-progresso-barra {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--lacar-primary);
+}
+.estudo-combo {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: right;
+  color: var(--lacar-primary);
+}
+/* Variante das Telas 27/28: no lugar da barra, o nome da atividade. */
+.estudo-sessao-titulo {
+  flex: 1 1 auto;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.44px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+
+/* ---------------------------------------------------------
+   Card da foto de origem (Telas 25, 26, 27, 28)
+   Mostra de qual foto do caderno a pergunta saiu.
+   --------------------------------------------------------- */
+.estudo-origem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px 8px 8px;
+  background: var(--lacar-bg);
+  border: 1px solid var(--jovi-ai-accent);
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+[data-bs-theme="dark"] .estudo-origem { background: #1a1a1a; }
+.estudo-origem-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  background: #233d38;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.estudo-origem-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.estudo-origem-texto { flex: 1 1 auto; min-width: 0; }
+.estudo-origem-titulo {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 17px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+.estudo-origem-sub {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  margin: 0;
+  color: var(--lacar-text-subtle);
+}
+.estudo-origem-ia {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------
+   Rótulo do tópico acima do enunciado (Telas 26, 27, 28)
+   --------------------------------------------------------- */
+.estudo-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--lacar-primary);
+}
+.estudo-enunciado {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: -0.5px;
+  margin: 8px 0 0;
+  color: var(--lacar-text);
+}
+.estudo-instrucao {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+
+/* ---------------------------------------------------------
+   Card de feedback (Telas 26, 27, 28)
+   Estado padrão = acerto. .is-erro para a variante de erro.
+   --------------------------------------------------------- */
+.estudo-feedback {
+  padding: 14px 15px;
+  border-radius: 14px;
+  background: var(--estudo-surface);
+  border: 1px solid var(--estudo-success);
+  flex-shrink: 0;
+}
+.estudo-feedback.is-erro { border-color: var(--estudo-danger); }
+.estudo-feedback-titulo {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  margin: 0 0 4px;
+  color: var(--lacar-text);
+}
+.estudo-feedback-texto {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 19px;
+  margin: 0;
+  color: var(--lacar-text-subtle);
+}
+/* Enquanto a pergunta não foi respondida o feedback fica oculto. */
+.estudo-feedback[hidden] { display: none; }
+
+/* ---------------------------------------------------------
+   Card de dica da IA (Telas 23 e 29) — borda lilás #b5a1e8
+   --------------------------------------------------------- */
+.estudo-dica {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 12px 12px 8px;
+  border-radius: 16px;
+  background: var(--lacar-bg);
+  border: 1px solid var(--jovi-ai-accent);
+  flex-shrink: 0;
+}
+[data-bs-theme="dark"] .estudo-dica { background: #1a1a1a; }
+.estudo-dica img {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.estudo-dica p {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 19.5px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+
+/* ---------------------------------------------------------
+   Coroas — progresso por tópico (Telas 22, 23, 25, 30)
+   --------------------------------------------------------- */
+.estudo-coroas {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+/* Os ícones de coroa vêm exportados do Figma já com as cores certas
+   (#FFCE4F preenchida, #E5E5E5 vazia) — não recolorir por CSS. */
+.estudo-coroas img { width: 15px; height: 15px; display: block; }
+
+/* ---------------------------------------------------------
+   Rodapé fixo com botões (Telas 23, 25, 26, 27, 28, 29, 30)
+   Fica fora da área rolável, colado na base da moldura.
+   --------------------------------------------------------- */
+.estudo-rodape {
+  flex-shrink: 0;
+  padding: 12px 20px 18px;
+  background: var(--lacar-bg);
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+[data-bs-theme="dark"] .estudo-rodape { border-top-color: #262626; }
+
+.estudo-btn {
+  width: 100%;
+  height: 50px;
+  border-radius: 18px;
+  border: 1px solid var(--lacar-primary);
+  background: var(--lacar-primary);
+  color: var(--lacar-primary-contrast);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  padding: 0;
+}
+.estudo-btn:disabled { opacity: 0.45; }
+.estudo-btn-secundario {
+  background: var(--lacar-bg);
+  color: var(--lacar-text);
+  border-color: #e5e5e5;
+}
+[data-bs-theme="dark"] .estudo-btn-secundario { background: #1a1a1a; border-color: #262626; }

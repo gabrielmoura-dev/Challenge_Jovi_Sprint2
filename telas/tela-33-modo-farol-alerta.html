@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JOVI · Alerta do Farol</title>
+
+  <!--
+    Nota: esta é a tela de QUEM RECEBE o alerta, não a de quem acionou.
+    Chega aqui pela simulação da Tela 31. Tema fixo em dark (nó 553:2032).
+    Todas as ações são simuladas — não há ligação real para o 190 nem
+    transmissão de câmera/áudio.
+  -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/lacar-componentes.css">
+  <link rel="stylesheet" href="../assets/css/telas/tela-31.css">
+  <link rel="stylesheet" href="../assets/css/telas/tela-33.css">
+  <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <link rel="stylesheet" href="../assets/css/jovi-story.css">
+</head>
+<body>
+  <a href="../index.html" class="theme-toggle" style="right: 16px; left: auto; text-decoration:none;">← Telas</a>
+
+  <div class="lacar-phone-shell">
+    <main class="lacar-phone-frame tela-31 tela-33">
+      <div class="lacar-statusbar">
+        <span>23:41</span>
+        <div class="d-flex align-items-center gap-1">
+          <img src="../assets/img/status-signal.svg" alt="">
+          <img src="../assets/img/status-wifi.svg" alt="">
+          <img src="../assets/img/status-battery.svg" alt="" style="height:14px;">
+        </div>
+      </div>
+
+      <header class="farol-header">
+        <button type="button" class="farol-back" aria-label="Voltar" onclick="window.location.href='tela-31-modo-farol-ativacao.html'">
+          <img src="../assets/img/farol-chevron-left.svg" alt="">
+        </button>
+        <h1 class="farol-titulo">Alerta do Farol</h1>
+        <span class="alerta-vivo">
+          <span class="alerta-vivo-ponto"></span>
+          <span>AO VIVO</span>
+        </span>
+      </header>
+
+      <div class="farol-scroll">
+        <div class="transmissao">
+          <span class="transmissao-tempo" data-cronometro>00:12</span>
+          <img src="../assets/img/farol-camera.svg" alt="">
+          <p class="transmissao-texto">Câmera e áudio sendo transmitidos</p>
+        </div>
+
+        <div class="farol-vidro">
+          <span class="contato-avatar">LC</span>
+          <span class="contato-texto">
+            <span class="contato-nome">Larissa Carvalho</span>
+            <span class="contato-relacao">Acionou o Farol às 23:41</span>
+          </span>
+        </div>
+
+        <div class="local">
+          <span class="local-info">
+            <img src="../assets/img/farol-pin.svg" alt="" class="local-ico">
+            <span class="local-texto">Rua Aurora · 240 m daqui</span>
+          </span>
+          <button type="button" class="local-link" data-toast="Mapa em breve">Abrir mapa</button>
+        </div>
+
+        <section class="como-agir">
+          <h2 class="como-agir-titulo">Como agir agora</h2>
+          <div class="como-agir-item">
+            <span class="como-agir-bolinha"></span>
+            <div>
+              <p class="como-agir-item-titulo">Ver ao vivo não emite som</p>
+              <p class="como-agir-item-texto">O aparelho dela continua silencioso — ninguém por perto percebe que você está olhando.</p>
+            </div>
+          </div>
+          <div class="como-agir-item">
+            <span class="como-agir-bolinha"></span>
+            <div>
+              <p class="como-agir-item-titulo">Ela pode não conseguir falar</p>
+              <p class="como-agir-item-texto">Se a transmissão mostrar risco, ligue 190 e informe a localização acima.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="alerta-rodape">
+        <div class="alerta-acoes">
+          <button type="button" class="farol-btn" data-toast="Transmissão ao vivo é simulada nesta demo">Ver ao vivo</button>
+          <button type="button" class="farol-btn farol-btn-perigo" data-toast="Demonstração: nenhuma ligação foi feita">Ligar 190</button>
+        </div>
+        <button type="button" class="alerta-falso" data-toast="Alerta marcado como falso alarme (demo)">Marcar como falso alarme</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/toast.js"></script>
+  <script src="../assets/js/farol-simulacao.js"></script>
+  <script src="../assets/js/jovi-story.js"></script>
+</body>
+</html>

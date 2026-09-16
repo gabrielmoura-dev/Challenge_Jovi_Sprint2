@@ -1,0 +1,127 @@
+/* =========== Tela 30 — Resultado e recompensa =========== */
+/* Medidas e cores do nó 550:1059. Esta tela não tem cabeçalho: o card roxo
+   começa logo abaixo da status bar. */
+
+.tela-30 .estudo-scroll { padding: 20px 20px; gap: 18px; }
+
+.recompensa-card {
+  flex-shrink: 0;
+  border-radius: 20px;
+  padding: 26px 20px 30px;
+  background: var(--lacar-primary);
+  color: var(--lacar-primary-contrast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.recompensa-coroa { width: 40px; height: 40px; }
+.recompensa-xp {
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 50px;
+  letter-spacing: -2px;
+  margin: 0;
+}
+.recompensa-topico {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+}
+.recompensa-selo {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+}
+.recompensa-selo img { width: 15px; height: 15px; }
+
+/* Resumo da sessão */
+.resultado-linhas { flex-shrink: 0; }
+.resultado-linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--estudo-borda);
+}
+.resultado-linha:last-child { border-bottom: none; }
+.resultado-label {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 19px;
+  color: var(--lacar-text-subtle);
+}
+/* Todos os valores do resumo são roxos e em negrito no Figma. */
+.resultado-valor {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 19px;
+  text-align: right;
+  color: var(--lacar-primary);
+}
+
+.resultado-nota {
+  flex-shrink: 0;
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 17px;
+  margin: 0;
+  color: var(--lacar-text-subtle);
+}
+
+/* O botão secundário desta tela usa peso Medium. */
+.tela-30 .estudo-btn-secundario { font-weight: 500; }
+
+/* =========================================================
+   Efeito de recompensa — o card de prêmio "aparece" com uma leve pulsação
+   e confetes caem por cima dele por um instante (ver assets/js/confete.js).
+   É o momento de clímax da sessão de estudo, então é o único ponto do
+   pilar Estudo com um efeito assim — os outros cards da tela continuam
+   estáticos, para o destaque não se perder.
+   ========================================================= */
+.recompensa-card {
+  animation: jovi-recompensa-pop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: 0.1s;
+}
+@keyframes jovi-recompensa-pop {
+  from { opacity: 0; transform: scale(0.82); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.confete-camada {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 5;
+}
+.confete-pedaco {
+  position: absolute;
+  top: -12px;
+  width: 7px;
+  height: 11px;
+  border-radius: 2px;
+  opacity: 0.95;
+  animation-name: jovi-confete-cair;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+  animation-fill-mode: forwards;
+}
+@keyframes jovi-confete-cair {
+  from { transform: translateY(0) rotate(0deg); opacity: 0.95; }
+  to { transform: translateY(220px) rotate(340deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recompensa-card { animation: none; }
+  .confete-camada { display: none; }
+}

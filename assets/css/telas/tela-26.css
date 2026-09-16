@@ -1,0 +1,84 @@
+/* =========== Tela 26 — Pergunta de múltipla escolha (Limites) =========== */
+/* Medidas e cores do nó 550:613. O HUD da sessão, o card da foto de origem
+   e o card de feedback vêm de estudo-componentes.css. */
+
+.enunciado-bloco { flex-shrink: 0; }
+
+.alternativas {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alternativa {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 15px;
+  text-align: left;
+  background: var(--estudo-surface);
+  border: 1px solid var(--estudo-borda);
+  border-radius: 14px;
+}
+
+.alternativa-letra {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: var(--lacar-bg);
+  border: 1px solid var(--estudo-borda);
+  color: var(--lacar-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+}
+[data-bs-theme="dark"] .alternativa-letra { background: #262626; }
+.alternativa-texto {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--lacar-text);
+}
+/* A marca só aparece na alternativa respondida. */
+.alternativa-marca {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: none;
+}
+
+/* Estado desenhado no Figma: alternativa correta escolhida. */
+.alternativa.is-correta {
+  background: var(--estudo-success-soft);
+  border-color: var(--estudo-success);
+}
+.alternativa.is-correta .alternativa-letra {
+  background: var(--estudo-success);
+  border-color: var(--estudo-success);
+  color: #ffffff;
+}
+.alternativa.is-correta .alternativa-marca { display: block; }
+
+/* Estado de erro — não existe no Figma, derivado da mesma estrutura. */
+.alternativa.is-incorreta {
+  background: var(--estudo-danger-soft);
+  border-color: var(--estudo-danger);
+}
+.alternativa.is-incorreta .alternativa-letra {
+  background: var(--estudo-danger);
+  border-color: var(--estudo-danger);
+  color: #ffffff;
+}
+
+/* Depois de responder, as alternativas não escolhidas ficam a 45%. */
+.alternativas.is-respondida .alternativa:not(.is-correta):not(.is-incorreta) {
+  opacity: 0.45;
+}

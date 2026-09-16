@@ -1,0 +1,236 @@
+/* =========== Tela 32 — Modo Farol · configurar =========== */
+/* Medidas e cores do nó 553:1749. ATENÇÃO: diferente das Telas 31 e 33,
+   esta tela é CLARA no Figma (fundo branco, texto #0a0a0a) — ela vive
+   dentro de Ajustes, não na tela bloqueada. Por isso ela usa o tema
+   light/dark do lacar-componentes.css e não a paleta --farol-*. */
+
+.tela-32 { font-family: var(--jovi-font); }
+
+.farol-header {
+  flex-shrink: 0;
+  height: 64px;
+  padding: 16px 20px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+.farol-back {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  flex-shrink: 0;
+}
+.farol-back img { width: auto; height: auto; }
+[data-bs-theme="dark"] .farol-back img { filter: brightness(0) invert(1); }
+.farol-titulo {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.44px;
+  margin: 2px 0 0;
+  color: var(--lacar-text);
+}
+
+.farol-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 12px 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.farol-scroll::-webkit-scrollbar { display: none; }
+
+/* Cartão de lista — usado pelo switch mestre, pelos gestos e pelos contatos */
+.farol-lista {
+  border-radius: 10px;
+  background: var(--lacar-bg);
+  border: 1px solid var(--lacar-border-subtle);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+[data-bs-theme="dark"] .farol-lista { background: #1a1a1a; border-color: #262626; }
+.farol-linha {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--lacar-border-subtle);
+}
+[data-bs-theme="dark"] .farol-linha { border-bottom-color: #262626; }
+.farol-linha:last-child { border-bottom: none; }
+
+.farol-linha-ico {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: var(--lacar-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.farol-linha-ico img { width: 20px; height: 20px; }
+.farol-linha-texto {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.farol-linha-titulo {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.31px;
+  color: var(--lacar-text);
+}
+.farol-linha-sub {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--lacar-text-muted);
+}
+
+/* Switch 44x26 com knob de 22px */
+.farol-switch {
+  width: 44px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  border: none;
+  background: #d4d4d8;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.farol-switch.is-on {
+  background: var(--lacar-primary);
+  justify-content: flex-end;
+}
+.farol-switch-bolinha {
+  width: 22px;
+  height: 22px;
+  border-radius: 11px;
+  background: #ffffff;
+  display: block;
+}
+
+/* Seções */
+.farol-secao {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.farol-secao-titulo {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+.farol-secao-sub {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  margin: -6px 0 0;
+  color: var(--lacar-text-muted);
+}
+
+/* Gestos: linhas de 56px, ícone 36px. Só o ativo tem o círculo roxo. */
+.gesto {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--lacar-border-subtle);
+}
+[data-bs-theme="dark"] .gesto { border-bottom-color: #262626; }
+.gesto:last-child { border-bottom: none; }
+.gesto-ico {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background: #f5f5f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+[data-bs-theme="dark"] .gesto-ico { background: #262626; }
+.gesto-ico img { width: 18px; height: 18px; }
+.gesto.is-ativo .gesto-ico { background: var(--lacar-primary); }
+/* Os ícones de gesto são traço de uma cor só: o cinza (#737373) do estado
+   inativo e o branco do ativo saem do mesmo arquivo, por filtro. */
+.gesto-ico img { filter: brightness(0) invert(47%); }
+.gesto.is-ativo .gesto-ico img { filter: brightness(0) invert(1); }
+.gesto-texto {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.gesto-titulo {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.31px;
+  color: var(--lacar-text);
+}
+.gesto-sub {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--lacar-text-muted);
+}
+.gesto-marca {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.gesto.is-ativo .gesto-marca { opacity: 1; }
+
+/* Contatos de confiança */
+.contato-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: var(--lacar-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.31px;
+}
+/* O segundo contato usa o roxo secundário da marca. */
+.contato-avatar.is-secundario { background: var(--jovi-purple-muted); }
+
+/* Rodapé sem borda superior, margens de 30px. */
+.farol-rodape {
+  flex-shrink: 0;
+  padding: 10px 30px 24px;
+}

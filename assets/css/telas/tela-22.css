@@ -1,0 +1,230 @@
+/* =========== Tela 22 — Estudo (início do pilar) =========== */
+/* Medidas e cores extraídas do nó 550:177 (360x800) via get_design_context.
+   Componentes compartilhados com as outras telas de estudo estão em
+   estudo-componentes.css. */
+
+/* Card roxo "continuar de onde parou" */
+.retomar-card {
+  position: relative;
+  flex-shrink: 0;
+  height: 140px;
+  border-radius: 20px;
+  padding: 18px;
+  background: var(--lacar-primary);
+  color: var(--lacar-primary-contrast);
+  overflow: hidden;
+}
+/* Elipse decorativa exportada do Figma (nó 550:204). */
+.retomar-elipse {
+  position: absolute;
+  left: 228px;
+  top: -40px;
+  width: 150px;
+  height: 150px;
+}
+.retomar-card > *:not(.retomar-elipse) { position: relative; }
+.retomar-kicker {
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 13px;
+  letter-spacing: 0.8px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+.retomar-titulo {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: -0.4px;
+  margin: 5px 0 0;
+}
+.retomar-meta {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 17px;
+  margin: 11px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+}
+/* No Figma o botão é branco com texto roxo — não um branco translúcido. */
+.retomar-btn {
+  margin-top: 7px;
+  padding: 8px 15px 9px 14px;
+  border: none;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--lacar-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 17px;
+}
+.retomar-btn img { width: 15px; height: 15px; }
+
+/* Seção "Seus álbuns" */
+.secao-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+.albuns-secao {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.album-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px 10px 10px;
+  text-align: left;
+  background: var(--lacar-bg);
+  border: 1px solid var(--lacar-border-subtle);
+  border-radius: 14px;
+}
+[data-bs-theme="dark"] .album-item { background: #1a1a1a; border-color: #262626; }
+.album-capa {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  /* Tom de fundo da capa no Figma (bege do quadro). */
+  background: #ded8cb;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.album-capa img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.album-texto {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.album-titulo {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.31px;
+  color: var(--lacar-text);
+}
+.album-meta {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--lacar-text-muted);
+}
+.album-chevron { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* Entrada tracejada para criar um álbum novo — borda lilás (#b5a1e8),
+   não o roxo cheio da marca. */
+.album-novo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  background: transparent;
+  border: 1px dashed var(--jovi-ai-accent);
+  border-radius: 14px;
+  color: var(--lacar-primary);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 19px;
+}
+.album-novo img { width: 18px; height: 18px; }
+
+/* Card "Como uma foto vira pergunta" — fundo branco com borda sutil. */
+.como-funciona-card {
+  flex-shrink: 0;
+  padding: 14px;
+  border-radius: 14px;
+  background: var(--lacar-bg);
+  border: 1px solid var(--lacar-border-subtle);
+}
+[data-bs-theme="dark"] .como-funciona-card { background: #1a1a1a; border-color: #262626; }
+.fluxo {
+  margin-top: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+.fluxo-passo {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.fluxo-circulo {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  /* Roxo a 9% de opacidade, como no Figma. */
+  background: rgba(124, 91, 217, 0.09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fluxo-circulo img { width: 19px; height: 19px; }
+/* O último passo é o destaque da tela: círculo roxo cheio. */
+.fluxo-circulo.is-roxo { background: var(--lacar-primary); }
+.fluxo-texto {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+  text-align: center;
+  color: var(--lacar-text);
+}
+.fluxo-seta {
+  width: 14px;
+  height: 14px;
+  margin-top: 11px;
+  flex-shrink: 0;
+}
+
+/* Rodapé de armazenamento local */
+.armazenamento {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 13px 11px 12px;
+  border-radius: 12px;
+  background: var(--lacar-surface);
+}
+[data-bs-theme="dark"] .armazenamento { background: #1a1a1a; }
+.armazenamento img { width: 17px; height: 17px; flex-shrink: 0; }
+.armazenamento-texto { flex: 1 1 auto; min-width: 0; }
+.armazenamento-titulo {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 17px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+.armazenamento-sub {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 15px;
+  margin: 1px 0 0;
+  color: var(--lacar-text-muted);
+}
+.armazenamento-link {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 17px;
+  color: var(--lacar-primary);
+}

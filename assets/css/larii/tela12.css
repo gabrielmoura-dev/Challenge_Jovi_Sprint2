@@ -4,7 +4,6 @@
    ========================================================================== */
 
 .app-frame--assistant {
-  height: 100dvh;
   min-height: 0;
 }
 
@@ -14,8 +13,11 @@
 /* Área de conversa: rola por baixo do compositor fixo (85px). */
 .assistant {
   flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
-  padding: 16px 20px calc(85px + 16px);
+  /* .composer agora ocupa espaço próprio no flex column, então só precisa
+     de respiro normal aqui (não mais compensar um overlay fixo). */
+  padding: 16px 20px 16px;
 }
 
 /* Miniaturas das fotos em análise: 87x87 com 5px entre elas */

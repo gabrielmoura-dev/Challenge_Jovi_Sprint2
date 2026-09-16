@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JOVI · Resultado do estudo</title>
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (e) {}
+      if (saved !== "light" && saved !== "dark") {
+        saved = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-bs-theme", saved);
+    })();
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/lacar-componentes.css">
+  <link rel="stylesheet" href="../assets/css/telas/estudo-componentes.css">
+  <link rel="stylesheet" href="../assets/css/telas/tela-30.css">
+  <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <link rel="stylesheet" href="../assets/css/jovi-story.css">
+</head>
+<body>
+  <button type="button" class="theme-toggle" data-theme-toggle style="left: 16px;">🌙 Dark</button>
+  <a href="../index.html" class="theme-toggle" style="right: 16px; left: auto; text-decoration:none;">← Telas</a>
+
+  <div class="lacar-phone-shell">
+    <main class="lacar-phone-frame estudo-tela tela-30">
+      <div class="lacar-statusbar">
+        <span>17:32</span>
+        <div class="d-flex align-items-center gap-1">
+          <img src="../assets/img/status-signal.svg" alt="">
+          <img src="../assets/img/status-wifi.svg" alt="">
+          <img src="../assets/img/status-battery.svg" alt="" style="height:14px;">
+        </div>
+      </div>
+
+      <div class="estudo-scroll">
+        <section class="recompensa-card">
+          <img src="../assets/img/estudo-coroa-premio.svg" alt="" class="recompensa-coroa">
+          <p class="recompensa-xp">+35</p>
+          <p class="recompensa-topico">Acertou em Limites</p>
+          <span class="recompensa-selo">
+            <img src="../assets/img/estudo-coroa-selo.svg" alt="">
+            <span>Coroa de Limites</span>
+          </span>
+        </section>
+
+        <section class="resultado-linhas" aria-label="Resumo da sessão">
+          <div class="resultado-linha">
+            <span class="resultado-label">Combo máximo</span>
+            <span class="resultado-valor">×2</span>
+          </div>
+          <div class="resultado-linha">
+            <span class="resultado-label">Sequência</span>
+            <span class="resultado-valor">12 dias</span>
+          </div>
+          <div class="resultado-linha">
+            <span class="resultado-label">Para fechar esta coroa</span>
+            <span class="resultado-valor">Coroa fechada</span>
+          </div>
+          <div class="resultado-linha">
+            <span class="resultado-label">XP acumulado</span>
+            <span class="resultado-valor">240 XP</span>
+          </div>
+        </section>
+
+        <p class="resultado-nota">As perguntas continuam saindo das suas fotos. Fotografe mais uma página do caderno para o JOVI abrir novos tópicos neste capítulo.</p>
+      </div>
+
+      <div class="estudo-rodape">
+        <button type="button" class="estudo-btn" onclick="window.location.href='tela-25-estudo-roleta.html'">Girar de novo</button>
+        <button type="button" class="estudo-btn estudo-btn-secundario" onclick="window.location.href='tela-08-camera-estudo.html?intencao=nova-pagina&amp;album=calculo-5'">Fotografar mais uma página</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/theme.js"></script>
+    <script src="../assets/js/confete.js"></script>
+<script src="../assets/js/jovi-story.js"></script>
+</body>
+</html>

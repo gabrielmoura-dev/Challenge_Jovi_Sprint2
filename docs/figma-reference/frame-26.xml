@@ -1,0 +1,94 @@
+<frame id="550:613" name="tela 26" x="7782" y="8494" width="360" height="800">
+    <frame id="550:614" name="StatusBar" x="0" y="0" width="360" height="44">
+      <text id="550:615" name="txt/17:32" x="24" y="12" width="36" height="20" />
+      <frame id="550:616" name="Container" x="272" y="12" width="64" height="20">
+        <frame id="550:617" name="asset/lari-signal" x="0" y="2" width="16" height="16" />
+        <frame id="550:624" name="asset/lari-wifi" x="22" y="2" width="16" height="16" />
+        <frame id="550:630" name="asset/lari-battery" x="44" y="0" width="20" height="20" />
+      </frame>
+    </frame>
+    <frame id="550:635" name="Container (HUD)" x="0" y="44" width="360" height="44">
+      <frame id="550:636" name="Button (sair)" x="20" y="12" width="20" height="20" />
+      <frame id="550:639" name="Tempo" x="52" y="19" width="232" height="6">
+        <frame id="550:640" name="restante" x="0" y="0" width="155" height="6" />
+      </frame>
+      <text id="550:641" name="combo" x="296" y="13" width="40" height="18" />
+    </frame>
+    <frame id="550:642" name="Conteúdo" x="0" y="88" width="360" height="632">
+      <frame id="550:643" name="Container (origem)" x="20" y="8" width="320" height="56">
+        <frame id="550:644" name="miniatura" x="8" y="8" width="40" height="40">
+          <frame id="550:645" name="asset/estudo-quadro-a" x="0" y="0" width="40" height="40">
+            <vector id="550:646" name="Vector" x="0" y="0" width="91.42857360839844" height="40" />
+            <vector id="550:647" name="Vector" x="0" y="0" width="91.42857360839844" height="40" />
+            <frame id="550:648" name="Group" x="0.9523809552192688" y="4" width="89.52381134033203" height="30.761905670166016" />
+            <frame id="550:650" name="Group" x="3.5238094329833984" y="2.5714285373687744" width="77" height="31.142578125">
+              <text id="550:651" name="A área entre dois limites" x="3.5238094329833984" y="2.5714285373687744" width="23" height="2" />
+              <vector id="550:652" name="Vector" x="3.8095295429229736" y="10.000017404556274" width="20.571428298950195" height="19.809524536132812" />
+              <vector id="550:653" name="Vector" x="9.809529304504395" y="12.476207971572876" width="10.095237731933594" height="16" />
+              <vector id="550:654" name="Vector" x="6.000005722045898" y="10.857159852981567" width="15.619047164916992" height="16" />
+              <vector id="550:655" name="Vector" x="9.809529304504395" y="12.57144570350647" width="10.095237731933594" height="15.904762268066406" />
+              <text id="550:656" name="1" x="9.047624588012695" y="29.809541940689087" width="1" height="2" />
+              <text id="550:657" name="3" x="19.333338737487793" y="29.809541940689087" width="2" height="2" />
+              <text id="550:658" name="y = 2x" x="8.09524393081665" y="11.523826837539673" width="6" height="2" />
+              <text id="550:659" name="∫" x="26.857149124145508" y="9.714303255081177" width="1" height="4" />
+              <text id="550:660" name="3" x="28.571434020996094" y="8.761922121047974" width="2" height="2" />
+              <text id="550:661" name="1" x="28.4761962890625" y="13.047636270523071" width="1" height="2" />
+              <text id="550:662" name="2x dx" x="30.9523868560791" y="10.095255613327026" width="8" height="3" />
+              <text id="550:663" name="F(x) = x²" x="32.190481185913086" y="18.76192307472229" width="12" height="3" />
+              <text id="550:664" name="F(3) − F(1)" x="64.47619438171387" y="10.476207971572876" width="12" height="3" />
+              <text id="550:665" name="9 − 1 = 8" x="64.57143592834473" y="17.714303255081177" width="13" height="4" />
+              <text id="550:666" name="unidades de área" x="65.52381706237793" y="31.71430230140686" width="15" height="2" />
+            </frame>
+            <frame id="550:667" name="Group" x="21.809524536132812" y="18.761905670166016" width="60.47623062133789" height="9.411270141601562" />
+            <vector id="550:671" name="Vector" x="4.973799150320701e-14" y="39.14285659790039" width="91.42857360839844" height="0" />
+          </frame>
+        </frame>
+        <frame id="550:672" name="texto" x="58" y="11" width="222" height="34">
+          <text id="550:673" name="txt/Foto 1 do seu quad" x="0" y="0" width="222" height="17" />
+          <text id="550:674" name="txt/Cálculo · Capítulo" x="0" y="18" width="222" height="16" />
+        </frame>
+        <frame id="550:675" name="asset/lari-sparkle" x="290" y="19" width="18" height="18" />
+      </frame>
+      <frame id="550:685" name="enunciado" x="20" y="82" width="320" height="75">
+        <text id="550:686" name="tópico" x="0" y="0" width="320" height="15" />
+        <text id="550:687" name="pergunta" x="0" y="23" width="320" height="52" />
+      </frame>
+      <frame id="550:688" name="alternativas" x="20" y="175" width="320" height="246">
+        <frame id="550:689" name="Alternativa A · apagada" x="0" y="0" width="320" height="54">
+          <frame id="550:690" name="letra" x="15" y="14" width="26" height="26">
+            <text id="550:691" name="txt/A" x="0" y="4" width="26" height="18" />
+          </frame>
+          <text id="550:692" name="txt/0" x="53" y="17" width="252" height="20" />
+        </frame>
+        <frame id="550:693" name="Alternativa B · apagada" x="0" y="64" width="320" height="54">
+          <frame id="550:694" name="letra" x="15" y="14" width="26" height="26">
+            <text id="550:695" name="txt/B" x="0" y="4" width="26" height="18" />
+          </frame>
+          <text id="550:696" name="txt/2" x="53" y="17" width="252" height="20" />
+        </frame>
+        <frame id="550:697" name="Alternativa C · certa" x="0" y="128" width="320" height="54">
+          <frame id="550:698" name="letra" x="15" y="14" width="26" height="26">
+            <text id="550:699" name="txt/C" x="0" y="4" width="26" height="18" />
+          </frame>
+          <text id="550:700" name="txt/4" x="53" y="17" width="220" height="20" />
+          <frame id="550:701" name="Frame" x="285" y="17" width="20" height="20" />
+        </frame>
+        <frame id="550:704" name="Alternativa D · apagada" x="0" y="192" width="320" height="54">
+          <frame id="550:705" name="letra" x="15" y="14" width="26" height="26">
+            <text id="550:706" name="txt/D" x="0" y="4" width="26" height="18" />
+          </frame>
+          <text id="550:707" name="txt/Não existe" x="53" y="17" width="252" height="20" />
+        </frame>
+      </frame>
+      <frame id="550:708" name="retorno" x="20" y="439" width="320" height="90">
+        <text id="550:709" name="título" x="15" y="14" width="290" height="20" />
+        <text id="550:710" name="porquê" x="15" y="38" width="290" height="38" />
+      </frame>
+    </frame>
+    <frame id="550:711" name="Container (ações)" x="0" y="720" width="360" height="80">
+      <frame id="550:712" name="Button (Próxima)" x="20" y="12" width="320" height="50">
+        <text id="550:713" name="label · trocar p/ JOVI Sans CN Bold" x="127" y="13" width="66" height="24" />
+      </frame>
+    </frame>
+  </frame>
+  

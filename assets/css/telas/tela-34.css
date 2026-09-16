@@ -1,0 +1,190 @@
+/* =========== Tela 34 — Modo Blindagem =========== */
+/* Medidas do nó 553:1846 (360x800). Mesma estrutura absoluta da Tela 24:
+   cena em imagem + barras translúcidas + bottom sheet de controles. Por isso
+   esta tela carrega tela-24-estudo.css antes e só complementa aqui.
+   Tema fixo em dark, sem variante clara no design.
+
+   O documento é a cena exportada do Figma — os SVGs assets/img/blindagem-*.svg
+   usados na Tela 18 desenham outro layout de boleto e não servem aqui. */
+
+.tela-34 {
+  position: relative;
+  background: #000000;
+  font-family: var(--jovi-font);
+}
+
+/* Cena do documento: 360x540 a partir de y=104. */
+.blindagem-cena {
+  position: absolute;
+  left: 0;
+  top: 104px;
+  width: 360px;
+  height: 540px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Barra de ações do topo (sobre a status bar translúcida da Tela 24). */
+.blindagem-badge {
+  position: absolute;
+  left: 105.5px;
+  top: 14px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--jovi-white);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.24px;
+}
+.blindagem-badge img { width: 16px; height: 16px; }
+.blindagem-config {
+  position: absolute;
+  left: 304px;
+  top: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.blindagem-config img { width: auto; height: auto; }
+
+/* Área de leitura: 320x300 centralizada, cantos roxos de 32px. */
+.blindagem-visor {
+  position: absolute;
+  left: 20px;
+  top: 250px;
+  width: 320px;
+  height: 300px;
+  z-index: 1;
+}
+.blindagem-canto {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--jovi-purple);
+}
+.blindagem-canto.canto-tl { top: 0; left: 0; border-right: none; border-bottom: none; border-top-left-radius: 16px; }
+.blindagem-canto.canto-tr { top: 0; left: 288px; border-left: none; border-bottom: none; border-top-right-radius: 16px; }
+.blindagem-canto.canto-bl { top: 268px; left: 0; border-right: none; border-top: none; border-bottom-left-radius: 16px; }
+.blindagem-canto.canto-br { top: 268px; left: 288px; border-left: none; border-top: none; border-bottom-right-radius: 16px; }
+
+/* Banner do resultado, sobreposto ao topo do documento. */
+.blindagem-veredito {
+  position: absolute;
+  left: 20px;
+  top: 116px;
+  width: 320px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 20px;
+  background: rgba(10, 10, 10, 0.72);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(74, 212, 147, 0.5);
+  z-index: 2;
+}
+.veredito-ico {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 18px;
+  /* Verde do veredicto no Figma desta tela. */
+  background: #4ad493;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.veredito-ico img { width: 20px; height: 20px; }
+.veredito-texto { min-width: 0; flex: 1 1 auto; }
+.veredito-titulo {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  margin: 0;
+  color: var(--jovi-white);
+}
+.veredito-sub {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin: 2px 0 0;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Variante de risco — no Figma só existe o estado "sem risco"; esta é a
+   contrapartida necessária para os outros alvos da demonstração. */
+.blindagem-veredito.is-risco { border-color: rgba(255, 122, 133, 0.5); }
+.blindagem-veredito.is-risco .veredito-ico { background: var(--farol-danger); }
+/* Enquanto "escaneia", o banner some de leve. */
+.blindagem-veredito.is-escaneando { opacity: 0.35; }
+
+/* Abas de alvo, dentro do painel de controles da Tela 24. */
+.blindagem-abas {
+  position: absolute;
+  left: 20px;
+  top: 17px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.blindagem-aba {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: var(--jovi-white);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+}
+.blindagem-aba.is-ativa {
+  background: rgba(255, 255, 255, 0.14);
+  /* Lilás claro do Figma, igual ao pill da Tela 24. */
+  color: var(--lacar-chat-highlight);
+}
+
+/* =========================================================
+   Linha de varredura — durante o "escaneando" (ver tela34.js), uma linha
+   roxa translúcida desce pelo visor, reforçando que uma verificação está
+   em andamento (e não só um card que pisca).
+   ========================================================= */
+.blindagem-visor::after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--jovi-purple), transparent);
+  box-shadow: 0 0 10px 1px rgba(124, 91, 217, 0.7);
+  opacity: 0;
+}
+/* .blindagem-visor vem ANTES de .blindagem-veredito no HTML, então só
+   :has() com combinador seguinte consegue reagir ao estado do irmão
+   posterior — um seletor "~" comum não alcançaria essa direção. */
+.blindagem-visor:has(~ .blindagem-veredito.is-escaneando)::after {
+  opacity: 1;
+  animation: jovi-scan-varredura 0.7s ease-in-out infinite;
+}
+@keyframes jovi-scan-varredura {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blindagem-visor::after { display: none; }
+}

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JOVI · Jogo de estudo</title>
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (e) {}
+      if (saved !== "light" && saved !== "dark") {
+        saved = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-bs-theme", saved);
+    })();
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/lacar-componentes.css">
+  <link rel="stylesheet" href="../assets/css/telas/estudo-componentes.css">
+  <link rel="stylesheet" href="../assets/css/telas/tela-25-estudo.css">
+  <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <link rel="stylesheet" href="../assets/css/jovi-story.css">
+</head>
+<body>
+  <button type="button" class="theme-toggle" data-theme-toggle style="left: 16px;">🌙 Dark</button>
+  <a href="../index.html" class="theme-toggle" style="right: 16px; left: auto; text-decoration:none;">← Telas</a>
+
+  <div class="lacar-phone-shell">
+    <main class="lacar-phone-frame estudo-tela tela-25-estudo">
+      <div class="lacar-statusbar">
+        <span>17:32</span>
+        <div class="d-flex align-items-center gap-1">
+          <img src="../assets/img/status-signal.svg" alt="">
+          <img src="../assets/img/status-wifi.svg" alt="">
+          <img src="../assets/img/status-battery.svg" alt="" style="height:14px;">
+        </div>
+      </div>
+
+      <header class="estudo-header">
+        <button type="button" class="estudo-back" aria-label="Voltar" onclick="window.location.href='tela-22-estudo.html'">
+          <img src="../assets/img/estudo-chevron-left.svg" alt="">
+        </button>
+        <div class="estudo-header-text">
+          <h1 class="estudo-title">Jogo de estudo</h1>
+        </div>
+      </header>
+
+      <div class="estudo-scroll">
+        <div class="estudo-origem">
+          <span class="estudo-origem-thumb">
+            <img src="../assets/img/estudo-origem-quadro.png" alt="">
+          </span>
+          <span class="estudo-origem-texto">
+            <span class="estudo-origem-titulo d-block">Cálculo · Capítulo 5</span>
+            <span class="estudo-origem-sub d-block">6 tópicos lidos das suas fotos</span>
+          </span>
+          <img src="../assets/img/estudo-sparkle.svg" alt="" class="estudo-origem-ia">
+        </div>
+
+        <section class="metricas" aria-label="Seu progresso">
+          <div class="metrica">
+            <img src="../assets/img/estudo-metrica-dias.svg" alt="">
+            <p class="metrica-valor">12</p>
+            <p class="metrica-label">dias seguidos</p>
+          </div>
+          <div class="metrica">
+            <img src="../assets/img/estudo-metrica-xp.svg" alt="">
+            <p class="metrica-valor">240</p>
+            <p class="metrica-label">XP total</p>
+          </div>
+          <div class="metrica">
+            <img src="../assets/img/estudo-metrica-coroa.svg" alt="">
+            <p class="metrica-valor">2 de 6</p>
+            <p class="metrica-label">coroas</p>
+          </div>
+        </section>
+
+        <!-- Roleta: fatias, centro e ponteiro exportados do Figma. O sorteio
+             fica em estudo-jogo.js, girando o contêiner .roleta. -->
+        <section class="roleta-area">
+          <img src="../assets/img/estudo-roleta-ponteiro.svg" alt="" class="roleta-ponteiro">
+          <div class="roleta" data-roleta>
+            <img src="../assets/img/estudo-fatia-limites.svg" alt="" class="roleta-fatia is-limites">
+            <img src="../assets/img/estudo-fatia-integrais.svg" alt="" class="roleta-fatia is-integrais">
+            <img src="../assets/img/estudo-fatia-teorema.svg" alt="" class="roleta-fatia is-teorema">
+            <img src="../assets/img/estudo-fatia-area.svg" alt="" class="roleta-fatia is-area">
+            <img src="../assets/img/estudo-fatia-subst.svg" alt="" class="roleta-fatia is-subst">
+            <img src="../assets/img/estudo-fatia-partes.svg" alt="" class="roleta-fatia is-partes">
+            <span class="roleta-setor is-limites">Limites</span>
+            <span class="roleta-setor is-integrais">Integrais</span>
+            <span class="roleta-setor is-teorema">Teorema</span>
+            <span class="roleta-setor is-area">Área</span>
+            <span class="roleta-setor is-subst">Subst.</span>
+            <span class="roleta-setor is-partes">Partes</span>
+            <button type="button" class="roleta-centro" data-roleta-girar>
+              <img src="../assets/img/estudo-roleta-centro.svg" alt="">
+              <span>girar</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="coroas-secao">
+          <h2 class="coroas-label">Coroas por tópico</h2>
+
+          <div class="coroa-linha is-ganha">
+            <span class="coroa-bolinha" style="background: var(--jovi-purple);"></span>
+            <span class="coroa-nome">Limites</span>
+            <span class="estudo-coroas"><img src="../assets/img/estudo-coroa-lista.svg" alt=""></span>
+          </div>
+          <div class="coroa-linha is-ganha">
+            <span class="coroa-bolinha" style="background: var(--jovi-ai-accent);"></span>
+            <span class="coroa-nome">Integrais definidas</span>
+            <span class="estudo-coroas"><img src="../assets/img/estudo-coroa-lista.svg" alt=""></span>
+          </div>
+          <div class="coroa-linha">
+            <span class="coroa-bolinha" style="background: var(--estudo-roleta-teorema);"></span>
+            <span class="coroa-nome">Teorema fundamental</span>
+            <!-- Sem coroa fechada ainda: 1 de 3 etapas concluídas. -->
+            <span class="coroa-passos" aria-label="1 de 3 etapas">
+              <img src="../assets/img/estudo-ponto-cheio.svg" alt="">
+              <img src="../assets/img/estudo-ponto-vazio.svg" alt="">
+              <img src="../assets/img/estudo-ponto-vazio.svg" alt="">
+            </span>
+          </div>
+          <div class="coroa-linha">
+            <span class="coroa-bolinha" style="background: var(--jovi-purple-muted);"></span>
+            <span class="coroa-nome">Área sob a curva</span>
+            <span class="coroa-passos" aria-label="0 de 3 etapas">
+              <img src="../assets/img/estudo-ponto-vazio.svg" alt="">
+              <img src="../assets/img/estudo-ponto-vazio.svg" alt="">
+              <img src="../assets/img/estudo-ponto-vazio.svg" alt="">
+            </span>
+          </div>
+          <div class="coroa-linha">
+            <span class="coroa-bolinha" style="background: var(--estudo-roleta-subst);"></span>
+            <span class="coroa-nome">Substituição</span>
+            <span class="coroa-passos" aria-label="0 de 3 etapas">
+              <img src="../assets/img/estudo-ponto-vazio.svg" alt="">
+              <img src="../assets/img/estudo-ponto-vazio.svg" alt="">
+              <img src="../assets/img/estudo-ponto-vazio.svg" alt="">
+            </span>
+          </div>
+          <div class="coroa-linha">
+            <span class="coroa-bolinha" style="background: var(--estudo-roleta-partes);"></span>
+            <span class="coroa-nome">Integração por partes</span>
+            <span class="coroa-passos" aria-label="0 de 3 etapas">
+              <img src="../assets/img/estudo-ponto-vazio.svg" alt="">
+              <img src="../assets/img/estudo-ponto-vazio.svg" alt="">
+              <img src="../assets/img/estudo-ponto-vazio.svg" alt="">
+            </span>
+          </div>
+        </section>
+      </div>
+
+      <div class="estudo-rodape">
+        <button type="button" class="estudo-btn" data-roleta-girar>Girar</button>
+      </div>
+
+      <nav class="lacar-nav-bottom" aria-label="Navegação principal">
+        <button type="button" class="btn p-0 border-0" aria-label="Início" onclick="window.location.href='tela-05-inicio.html'">
+          <svg class="lacar-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </button>
+        <button type="button" class="btn p-0 border-0" aria-label="Galeria" onclick="window.location.href='tela-06-galeria.html'">
+          <svg class="lacar-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+        </button>
+        <button type="button" class="lacar-nav-fab" aria-label="Abrir câmera" onclick="window.location.href='tela-13-camera.html'">
+          <img src="../assets/img/nav-camera.svg" alt="">
+        </button>
+        <button type="button" class="btn p-0 border-0" aria-label="Diário" aria-current="page" onclick="window.location.href='tela-22-estudo.html'">
+          <svg class="lacar-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+        </button>
+        <button type="button" class="btn p-0 border-0" aria-label="Ajustes" onclick="window.location.href='tela-17-ajustes.html'">
+          <svg class="lacar-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </nav>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/theme.js"></script>
+  <script src="../assets/js/estudo-jogo.js"></script>
+  <script src="../assets/js/jovi-story.js"></script>
+</body>
+</html>

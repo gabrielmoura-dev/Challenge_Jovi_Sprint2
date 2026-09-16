@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" fill="none">
+  <g stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Perímetro completo e contínuo, sem linhas internas na cintura. -->
+    <path d="M216 25C238 8 273 10 294 29C313 46 319 74 312 100C307 122 294 141 276 151"/>
+    <path d="M276 151C290 164 304 174 315 189C326 204 331 223 327 243C324 260 315 274 307 287C302 296 304 307 312 320C324 340 329 362 326 386C324 408 318 432 315 454L312 480"/>
+    <path d="M312 480H132C128 461 128 440 136 421C145 400 160 383 174 366C184 354 190 343 190 331"/>
+
+    <!-- Frente do tronco e posição do braço, sem fechar formas no quadril. -->
+    <path d="M216 141C202 156 194 177 194 200C194 219 201 237 213 252"/>
+    <path d="M213 252C200 264 190 278 182 294L159 329C152 340 155 351 165 356C175 361 186 356 192 346L215 310"/>
+    <path d="M215 310C211 327 203 342 190 355"/>
+
+    <!-- Mão sobre o braço. -->
+    <path d="M182 294C171 284 158 284 151 294C145 303 149 315 159 321"/>
+    <path d="M152 295C159 300 166 305 173 307M149 306C157 311 164 316 170 321M152 317C159 321 165 326 169 332"/>
+
+    <!-- Linha facial curta indica a direção do olhar. -->
+    <path d="M216 43C204 62 202 86 207 108C212 130 227 147 247 153"/>
+  </g>
+</svg>

@@ -1,0 +1,70 @@
+<frame id="550:359" name="tela 24" x="6949" y="8494" width="360" height="800">
+    <frame id="550:360" name="CameraInterface" x="0" y="0" width="360" height="800">
+      <frame id="550:361" name="foto" x="0" y="104" width="360" height="456.0000305175781">
+        <vector id="550:362" name="Vector" x="0" y="0" width="360" height="456.0000305175781" />
+        <vector id="550:363" name="Vector" x="0" y="0" width="360" height="456.0000305175781" />
+        <vector id="550:364" name="Vector" x="39.599971771240234" y="0" width="0" height="456.0000305175781" />
+        <frame id="550:365" name="Group" x="7.200007438659668" y="21.60002326965332" width="10.800000190734863" height="417.60003662109375">
+          <vector id="550:366" name="Vector" x="7.200007438659668" y="21.60002326965332" width="10.800000190734863" height="14.400001525878906" />
+          <vector id="550:367" name="Vector" x="7.200063920594403" y="79.20006370544434" width="10.800000190734863" height="14.400001525878906" />
+          <vector id="550:368" name="Vector" x="7.200063920594403" y="136.80005073547363" width="10.800000190734863" height="14.400001525878906" />
+          <vector id="550:369" name="Vector" x="7.200063920594403" y="194.4000415802002" width="10.800000190734863" height="14.400001525878906" />
+          <vector id="550:370" name="Vector" x="7.200063920594403" y="252.00003242492676" width="10.800000190734863" height="14.400001525878906" />
+          <vector id="550:371" name="Vector" x="7.200063920594403" y="309.60008430480957" width="10.800000190734863" height="14.400001525878906" />
+          <vector id="550:372" name="Vector" x="7.200063920594403" y="367.20005989074707" width="10.800000190734863" height="14.400001525878906" />
+          <vector id="550:373" name="Vector" x="7.200063920594403" y="424.8000965118408" width="10.800000190734863" height="14.400001525878906" />
+        </frame>
+        <frame id="550:374" name="Group" x="49.716949462890625" y="38.852413177490234" width="157.12008110799343" height="354.5815822562381">
+          <text id="550:375" name="Cálculo · capítulo 5" x="52.71635665323013" y="38.799822532328605" width="119.26111599802971" height="18.074399648234248" />
+          <text id="550:376" name="Integrais definidas / exercício 03" x="53.20842685947969" y="66.99547990564801" width="148.18688996881247" height="14.58112857490778" />
+          <text id="550:377" name="∫" x="61.68787413809561" y="105.85338146522211" width="7.505053738132119" height="29.117750434204936" />
+          <text id="550:378" name="3" x="72.4129457358026" y="101.46559127968641" width="8.243115361779928" height="14.137487187981606" />
+          <text id="550:379" name="1" x="71.67386660369952" y="127.88257637879215" width="6.2434199415147305" height="14.1025823764503" />
+          <text id="550:380" name="2x dx = ?" x="88.69426572756976" y="105.98210357366406" width="89.42275634594262" height="26.54945686645806" />
+          <text id="550:381" name="F(x) = x²" x="54.99913995582281" y="169.57997384774234" width="73.37283576652408" height="23.27067524380982" />
+          <text id="550:382" name="F(3) = 3²" x="56.004293845027206" y="227.17113357750398" width="74.35523107089102" height="22.288279939442873" />
+          <text id="550:383" name="= 9" x="56.988712853674016" y="283.5625212599058" width="30.396836636587977" height="23.520069506019354" />
+          <vector id="550:384" name="Vector" x="54.44709088806753" y="309.85087314696676" width="45.637736032438625" height="3.355440061968693" />
+          <text id="550:385" name="área entre 1 e 3" x="58.63275031741685" y="377.7481263550587" width="80.2146980855614" height="14.394212692975998" />
+        </frame>
+      </frame>
+      <frame id="550:386" name="Container (visor)" x="30" y="140" width="300" height="380">
+        <frame id="550:387" name="canto" x="0" y="0" width="26" height="26" />
+        <frame id="550:388" name="canto" x="274" y="0" width="26" height="26" />
+        <frame id="550:389" name="canto" x="0" y="354" width="26" height="26" />
+        <frame id="550:390" name="canto" x="274" y="354" width="26" height="26" />
+      </frame>
+    </frame>
+    <frame id="550:391" name="StatusBar" x="0" y="0" width="360" height="44">
+      <text id="550:392" name="txt/17:32" x="24" y="12" width="36" height="20" />
+      <frame id="550:393" name="Container" x="272" y="12" width="64" height="20">
+        <frame id="550:394" name="asset/lari-signal" x="0" y="2" width="16" height="16" />
+        <frame id="550:401" name="asset/lari-wifi" x="22" y="2" width="16" height="16" />
+        <frame id="550:407" name="asset/lari-battery" x="44" y="0" width="20" height="20" />
+      </frame>
+    </frame>
+    <frame id="550:412" name="Container (toolbar)" x="0" y="44" width="360" height="60">
+      <frame id="550:413" name="Button" x="20" y="12" width="36" height="36">
+        <frame id="550:414" name="asset/lari-chevron-left" x="6" y="6" width="24" height="24" />
+      </frame>
+      <frame id="550:417" name="Container (tentativa)" x="123" y="12" width="114" height="36">
+        <text id="550:418" name="txt/Tentativa 01" x="16" y="8" width="82" height="20" />
+      </frame>
+    </frame>
+    <frame id="550:419" name="Container (controles)" x="0" y="619" width="360" height="181">
+      <text id="550:420" name="Heading" x="20" y="18" width="320" height="20" />
+      <text id="550:421" name="Paragraph" x="20" y="42" width="320" height="16" />
+      <frame id="550:422" name="Container (obturador)" x="20" y="80" width="320" height="72">
+        <frame id="550:423" name="Button (galeria)" x="0" y="8" width="56" height="56">
+          <frame id="550:424" name="asset/cam-gallery-icon" x="16" y="16" width="24" height="24" />
+        </frame>
+        <frame id="550:429" name="Button (obturador)" x="124" y="0" width="72" height="72">
+          <frame id="550:430" name="Container" x="6" y="6" width="60" height="60" />
+        </frame>
+        <frame id="550:431" name="Button (inverter)" x="264" y="8" width="56" height="56">
+          <frame id="550:432" name="Icon" x="16" y="16" width="24" height="24" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  

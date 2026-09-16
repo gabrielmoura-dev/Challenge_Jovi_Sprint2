@@ -1,0 +1,294 @@
+/* =========== Tela 33 — Alerta do Farol (visão de quem recebe) =========== */
+/* Medidas e cores do nó 553:2032. Carrega depois de tela-31.css, que traz a
+   base escura do Farol. Tema fixo em dark. */
+
+.tela-33 { background: var(--farol-bg); }
+
+/* Cabeçalho com o badge AO VIVO */
+.farol-header {
+  flex-shrink: 0;
+  height: 64px;
+  padding: 16px 20px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+.farol-back {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  flex-shrink: 0;
+}
+.farol-back img { width: auto; height: auto; }
+.farol-titulo {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.44px;
+  margin: 2px 0 0;
+  color: var(--jovi-white);
+}
+.alerta-vivo {
+  margin: 5px 0 0 auto;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px 0 10px;
+  border-radius: 999px;
+  background: rgba(255, 122, 133, 0.14);
+  border: 1px solid rgba(255, 122, 133, 0.35);
+  color: var(--farol-danger);
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.63px;
+}
+.alerta-vivo-ponto {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--farol-danger);
+}
+
+.farol-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 12px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.farol-scroll::-webkit-scrollbar { display: none; }
+
+/* Preview da transmissão */
+.transmissao {
+  position: relative;
+  flex-shrink: 0;
+  height: 200px;
+  border-radius: 20px;
+  background: #1d1d22;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.transmissao-tempo {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  padding: 4px 10px 5px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--jovi-white);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+.transmissao img { width: 28px; height: 28px; }
+.transmissao-texto {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Cards de vidro (contato e localização) */
+.farol-vidro {
+  flex-shrink: 0;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.contato-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: var(--jovi-purple);
+  color: var(--jovi-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.contato-texto {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.contato-nome {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  color: var(--jovi-white);
+}
+.contato-relacao {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Localização */
+.local {
+  flex-shrink: 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.local-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.local-ico { width: auto; height: auto; flex-shrink: 0; opacity: 0.6; }
+.local-texto {
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--jovi-white);
+}
+.local-link {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--farol-accent-soft);
+}
+
+/* Card "Como agir agora" */
+.como-agir {
+  flex-shrink: 0;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.como-agir-titulo {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  margin: 0;
+  color: var(--farol-accent-soft);
+}
+.como-agir-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.como-agir-bolinha {
+  width: 5px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--farol-accent);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+.como-agir-item-titulo {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  margin: 0;
+  color: var(--jovi-white);
+}
+.como-agir-item-texto {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  margin: 2px 0 0;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Rodapé de ações */
+.alerta-rodape {
+  flex-shrink: 0;
+  padding: 10px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.alerta-acoes {
+  display: flex;
+  gap: 12px;
+}
+/* "Ver ao vivo" usa o roxo claro do Farol (#8d75f7). */
+.alerta-acoes .farol-btn { flex: 1 1 0; min-width: 0; background: var(--farol-accent); }
+/* Ação de perigo: fundo vermelho a 12% com contorno, nunca preenchido, para
+   não convidar ao toque acidental. Precisa da mesma especificidade da regra
+   acima para não ser sobreposta por ela. */
+.alerta-acoes .farol-btn-perigo {
+  background: rgba(255, 122, 133, 0.12);
+  border: 1px solid rgba(255, 122, 133, 0.4);
+  color: var(--farol-danger);
+}
+.alerta-falso {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================================
+   Efeitos de tensão — reforçam que isto é uma emergência ao vivo, não uma
+   tela estática: o ponto do badge "AO VIVO" pisca como um indicador real
+   de gravação, e a moldura da transmissão pulsa bem de leve, como um
+   batimento. Sutil de propósito — isto é uma tela de segurança, não um
+   jogo; o efeito não pode parecer alarmista ou brincalhão.
+   ========================================================= */
+.alerta-vivo-ponto {
+  animation: jovi-vivo-pisca 1.4s ease-in-out infinite;
+}
+@keyframes jovi-vivo-pisca {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.transmissao {
+  animation: jovi-transmissao-pulso 2.6s ease-in-out infinite;
+}
+@keyframes jovi-transmissao-pulso {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 122, 133, 0); }
+  50% { box-shadow: 0 0 0 3px rgba(255, 122, 133, 0.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alerta-vivo-ponto,
+  .transmissao {
+    animation: none;
+  }
+}

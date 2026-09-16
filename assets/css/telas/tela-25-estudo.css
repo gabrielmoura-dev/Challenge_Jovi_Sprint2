@@ -1,0 +1,184 @@
+/* =========== Tela 25 — Jogo de estudo (roleta) =========== */
+/* Medidas e cores extraídas do nó 550:437 via get_design_context.
+   Sufixo "-estudo" no nome porque assets/css/telas/tela-25.css já existe
+   e pertence ao Modo Farol (Tela 21). */
+
+/* Esta tela tem cabeçalho de 52px e só o título (sem linha de meta). */
+.tela-25-estudo .estudo-header { height: 52px; padding-top: 12px; }
+
+/* Card de estatísticas: 3 colunas divididas por 1px #e5e5e5 */
+.metricas {
+  flex-shrink: 0;
+  height: 78px;
+  display: flex;
+  align-items: stretch;
+  border-radius: 12px;
+  background: var(--lacar-bg);
+  border: 1px solid #e5e5e5;
+}
+[data-bs-theme="dark"] .metricas { background: #1a1a1a; border-color: #262626; }
+.metrica {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+}
+/* Divisor de 46px de altura, centralizado verticalmente. */
+.metrica + .metrica {
+  border-left: 1px solid #e5e5e5;
+  /* O divisor do Figma não encosta nas bordas do card. */
+  margin: 15px 0;
+  padding-top: 0;
+}
+[data-bs-theme="dark"] .metrica + .metrica { border-left-color: #262626; }
+.metrica img { width: 20px; height: 20px; }
+.metrica-valor {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 22px;
+  margin: 3px 0 0;
+  color: var(--lacar-text);
+}
+.metrica-label {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+  margin: 2px 0 0;
+  color: var(--lacar-text-muted);
+}
+
+/* ---------------------------------------------------------
+   Roleta — as 6 fatias, o centro e o ponteiro são os SVGs
+   exportados do Figma, sobrepostos em coordenadas absolutas.
+   --------------------------------------------------------- */
+.roleta-area {
+  position: relative;
+  flex-shrink: 0;
+  height: 196px;
+  width: 100%;
+}
+/* Posição do vetor já rotacionado 180 graus dentro da caixa 22x16 do Figma. */
+.roleta-ponteiro {
+  position: absolute;
+  left: 150.47px;
+  top: 4px;
+  width: 19.05px;
+  height: 12px;
+  /* No Figma o ponteiro está rotacionado 180°, apontando para a roleta. */
+  transform: rotate(180deg);
+  z-index: 1;
+}
+.roleta {
+  position: absolute;
+  left: 70px;
+  top: 16px;
+  width: 180px;
+  height: 180px;
+  /* O giro é aplicado pelo estudo-jogo.js via transform: rotate(). */
+  transition: transform 3.2s cubic-bezier(0.17, 0.67, 0.21, 1);
+}
+/* Cada fatia é exportada já recortada: entra na sua própria sub-área
+   dentro do círculo de 180px (coordenadas do Figma). */
+.roleta-fatia { position: absolute; display: block; }
+.roleta-fatia.is-limites   { left: 90px;    top: 0;    width: 77.94px; height: 90px; }
+.roleta-fatia.is-integrais { left: 90px;    top: 45px; width: 90px;    height: 90px; }
+.roleta-fatia.is-teorema   { left: 90px;    top: 90px; width: 77.94px; height: 90px; }
+.roleta-fatia.is-area      { left: 12.06px; top: 90px; width: 77.94px; height: 90px; }
+.roleta-fatia.is-subst     { left: 0;       top: 45px; width: 90px;    height: 90px; }
+.roleta-fatia.is-partes    { left: 12.06px; top: 0;    width: 77.94px; height: 90px; }
+.roleta-setor {
+  position: absolute;
+  width: 60px;
+  height: 14px;
+  margin-left: -30px;
+  text-align: center;
+  font-size: 9.5px;
+  font-weight: 700;
+  line-height: 14px;
+  color: #ffffff;
+  pointer-events: none;
+}
+/* Posições exatas dos rótulos no Figma (centro do texto). */
+.roleta-setor.is-limites { left: 118px; top: 34.5px; }
+.roleta-setor.is-integrais { left: 146px; top: 83px; }
+.roleta-setor.is-teorema { left: 118px; top: 131.5px; }
+.roleta-setor.is-area { left: 62px; top: 131.5px; }
+.roleta-setor.is-subst { left: 34px; top: 83px; }
+.roleta-setor.is-partes { left: 62px; top: 34.5px; }
+
+.roleta-centro {
+  position: absolute;
+  left: 65px;
+  top: 65px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+.roleta-centro img { width: 50px; height: 50px; display: block; }
+.roleta-centro span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 16px;
+  color: var(--lacar-text-muted);
+}
+
+/* Lista "Coroas por tópico" */
+.coroas-secao {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.coroas-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  margin: 0;
+  color: var(--lacar-text);
+}
+.coroa-linha {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+[data-bs-theme="dark"] .coroa-linha { border-bottom-color: #262626; }
+.coroa-linha:last-child { border-bottom: none; }
+.coroa-bolinha {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.coroa-nome {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 19px;
+  color: var(--lacar-text-subtle);
+}
+/* Tópico com a coroa fechada: nome em negrito e na cor de texto cheia. */
+.coroa-linha.is-ganha .coroa-nome {
+  font-weight: 700;
+  color: var(--lacar-text);
+}
+.coroa-linha .estudo-coroas img { width: 17px; height: 17px; }
+/* Três pontinhos = etapas até fechar a coroa do tópico. */
+.coroa-passos {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.coroa-passos img { width: 7px; height: 7px; display: block; }
