@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../assets/css/lacar-componentes.css">
   <link rel="stylesheet" href="../assets/css/telas/tela-10.css">
   <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <script src="../assets/js/jovi-transicao.js"></script>
   <link rel="stylesheet" href="../assets/css/jovi-story.css">
 </head>
 <body>
@@ -51,7 +52,7 @@
             <img src="../assets/img/cam-lightning.svg" alt="">
           </button>
         </div>
-        <button type="button" class="camera-settings-btn" aria-label="Configurações">
+        <button type="button" class="camera-settings-btn" aria-label="Configurações" onclick="joviNavegar('tela-17-ajustes.html')">
           <img src="../assets/img/cam-settings.svg" alt="">
         </button>
       </div>
@@ -79,10 +80,10 @@
         </div>
 
         <div class="camera-shutter-row">
-          <button type="button" class="shutter-side-btn" aria-label="Galeria" onclick="window.location.href='tela-06-galeria.html'">
+          <button type="button" class="shutter-side-btn" aria-label="Galeria" onclick="joviNavegar('tela-06-galeria.html')">
             <img src="../assets/img/cam-gallery-icon.svg" alt="">
           </button>
-          <button type="button" class="shutter-btn" aria-label="Capturar foto" data-camera-shutter onclick="window.location.href='tela-09-selecao-fotos-ia.html'">
+          <button type="button" class="shutter-btn" aria-label="Capturar foto" data-camera-shutter onclick="joviNavegar('tela-09-selecao-fotos-ia.html')">
             <span class="shutter-btn-inner"></span>
           </button>
           <button type="button" class="shutter-side-btn" aria-label="Alternar câmera">

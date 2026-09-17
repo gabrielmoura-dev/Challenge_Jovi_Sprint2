@@ -114,8 +114,8 @@
       btn.type = "button";
       btn.className = "jovi-story-rail__btn";
       btn.innerHTML = "Continuar a história <span>&rarr;</span>";
-      btn.addEventListener("click", function () {
-        window.location.href = proximo.file;
+      btn.addEventListener("click", function (event) {
+        window.joviNavegar(proximo.file, event);
       });
       acao.appendChild(btn);
     } else {
@@ -123,8 +123,8 @@
       fim.type = "button";
       fim.className = "jovi-story-rail__btn jovi-story-rail__btn--fim";
       fim.innerHTML = "Fim da história — rever do início &#8635;";
-      fim.addEventListener("click", function () {
-        window.location.href = HISTORIA[0].file;
+      fim.addEventListener("click", function (event) {
+        window.joviNavegar(HISTORIA[0].file, event);
       });
       acao.appendChild(fim);
     }

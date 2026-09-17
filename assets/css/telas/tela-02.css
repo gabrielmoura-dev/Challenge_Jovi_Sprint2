@@ -15,11 +15,21 @@
 .tela02-heading {
   top: 46.875%;
   left: 50%;
-  transform: translateX(-50%);
-  width: 36.111%;
+  width: 100%;
   height: 6.25%;
   justify-content: center;
   text-align: center;
+  /* Mesmo logotipo da Tela 1 (larii/tela1.css .onboarding__mark span):
+     JOVI Sans CN Medium, 42.5px em 360 de largura, alargado em 34.7% para
+     reproduzir a largura da família do logotipo do Figma. Substitui o
+     wordmark provisório em peso 900 (que a fonte não tem — o navegador
+     engrossava artificialmente). */
+  font-weight: 500;
+  font-size: 11.806cqw;
+  line-height: 13.333cqw;
+  letter-spacing: -0.22px;
+  text-indent: -0.22px;
+  transform: translateX(-50%) scaleX(1.347);
 }
 
 /* Campo "Digite seu nome" */

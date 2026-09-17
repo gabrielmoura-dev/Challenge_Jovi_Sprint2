@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="../assets/css/telas/estudo-componentes.css">
   <link rel="stylesheet" href="../assets/css/telas/tela-23-estudo.css">
   <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <script src="../assets/js/jovi-transicao.js"></script>
   <link rel="stylesheet" href="../assets/css/jovi-story.css">
 </head>
 <body>
@@ -38,7 +39,7 @@
       </div>
 
       <header class="estudo-header">
-        <button type="button" class="estudo-back" aria-label="Voltar" onclick="window.location.href='tela-22-estudo.html'">
+        <button type="button" class="estudo-back" aria-label="Voltar" onclick="joviNavegar('tela-22-estudo.html')">
           <img src="../assets/img/estudo-chevron-left.svg" alt="">
         </button>
         <div class="estudo-header-text">
@@ -65,7 +66,7 @@
             <img src="../assets/img/estudo-pagina-4.png" alt="">
             <span class="pagina-num">4</span>
           </button>
-          <button type="button" class="pagina-nova" onclick="window.location.href='tela-08-camera-estudo.html?intencao=nova-pagina&amp;album=calculo-5'">
+          <button type="button" class="pagina-nova" onclick="joviNavegar('tela-08-camera-estudo.html?intencao=nova-pagina&amp;album=calculo-5')">
             <img src="../assets/img/estudo-pagina-nova.svg" alt="">
             <span>Página</span>
           </button>
@@ -156,8 +157,8 @@
       </div>
 
       <div class="estudo-rodape">
-        <button type="button" class="estudo-btn" onclick="window.location.href='tela-25-estudo-roleta.html?album=calculo-5'">Girar a roleta deste álbum</button>
-        <button type="button" class="estudo-btn estudo-btn-secundario" onclick="window.location.href='tela-08-camera-estudo.html?intencao=nova-pagina&amp;album=calculo-5'">Fotografar mais uma página</button>
+        <button type="button" class="estudo-btn" onclick="joviNavegar('tela-25-estudo-roleta.html?album=calculo-5')">Girar a roleta deste álbum</button>
+        <button type="button" class="estudo-btn estudo-btn-secundario" onclick="joviNavegar('tela-08-camera-estudo.html?intencao=nova-pagina&amp;album=calculo-5')">Fotografar mais uma página</button>
       </div>
     </main>
   </div>

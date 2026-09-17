@@ -1,64 +1,163 @@
 /* =========================================================
-   JOVI — Transições entre telas (View Transitions API)
+   JOVI — Transições entre telas
 
    O protótipo é HTML estático multi-página (cada tela é um arquivo
    separado), então uma navegação normal recarrega a página inteira e
-   "pisca" para branco. A View Transitions API entre documentos (suportada
-   em navegadores Chromium recentes) resolve isso sem JavaScript: o
-   navegador tira uma "foto" da tela atual e da tela nova e faz um morph
-   entre as duas automaticamente.
+   "pisca". Aqui a troca vira a transição de um app de celular: a tela
+   nova sobe por cima da atual com uma curva de desaceleração (padrão
+   Material/iOS), e ao voltar o movimento inverte — a tela atual recua e
+   some, revelando a anterior. A moldura do celular fica parada.
 
-   Damos ao cartão do celular (independente do sistema — lacar, jullia ou
-   larii) o mesmo view-transition-name em todas as telas. Como agora todos
-   os cartões têm exatamente 360x800 (ver Larii-componentes.css, style.css e
-   tela-03.css), o cartão parece permanecer parado no lugar enquanto só o
-   conteúdo de dentro troca — como se fosse um único app, não 35 páginas
-   soltas.
+   Dois mecanismos, escolhidos em assets/js/jovi-transicao.js:
+   - View Transitions entre documentos (Chromium 126+, Safari 18.2+): o
+     navegador tira uma "foto" da tela atual e da nova e anima entre as
+     duas. O cartão recebe um view-transition-name próprio.
+   - Fallback (html.jovi-saindo / html.jovi-entrando): o cartão inteiro
+     esmaece na saída e surge na chegada.
 
-   Em navegadores sem suporte, esta regra é ignorada e a navegação volta a
-   ser a troca de página normal — nada quebra.
+   html.jovi-voltando marca uma navegação de volta (botão "Voltar"/"Fechar"
+   ou histórico do navegador).
    ========================================================= */
 
 @view-transition {
   navigation: auto;
 }
 
+/* Cartão do celular — independente do sistema de componentes (lacar,
+   jullia ou larii). Todos têm 360x800 com raio de 40px. */
 .lacar-phone-frame,
 .phone-frame,
 .app-frame,
 .onboarding-screen,
 .tela03-screen {
   view-transition-name: jovi-phone;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
-/* Transição "empurrada": a tela de saída encolhe e esmaece para baixo: a
-   tela de entrada nasce um pouco maior e de cima, criando uma sensação de
-   avanço (não um cross-fade parado). */
-::view-transition-group(jovi-phone) {
-  animation-duration: 0.42s;
-  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+/* Só o cartão anima. A raiz da página (fundo, botões de tema, trilho da
+   história) troca na hora: sem isso o navegador faz um cross-fade da página
+   inteira e a tela anterior "pisca" como sombra fora do celular. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
+::view-transition-old(root) {
+  opacity: 0;
+}
+
+/* O grupo não anima posição/tamanho: cada sistema de componentes coloca o
+   cartão num ponto um pouco diferente da página, e a animação padrão
+   deslizaria a foto da tela anterior de um ponto ao outro. O cartão fica
+   parado onde a tela nova o põe e só o conteúdo anima.
+
+   overflow: clip (e não clip-path) recorta as fotos das telas na moldura
+   arredondada sem cortar a sombra do próprio grupo. A sombra é a mesma que
+   todos os cartões usam; sem ela, a sombra do cartão sumia durante a troca
+   e voltava no fim, piscando no fundo a cada toque. */
+::view-transition-group(jovi-phone) {
+  animation: none;
+  overflow: clip;
+  border-radius: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  background: #000;
+}
+::view-transition-image-pair(jovi-phone) {
+  isolation: isolate;
+}
+::view-transition-old(jovi-phone),
+::view-transition-new(jovi-phone) {
+  mix-blend-mode: normal;
+}
+
+/* AVANÇAR — a tela nova sobe por cima (opacidade + escala 0.96 -> 1) com
+   curva de desaceleração: rápida no início, assentando no fim. A atual
+   fica parada por baixo e só escurece um pouco, como o fundo de um app
+   quando outra tela entra. */
 ::view-transition-old(jovi-phone) {
-  animation: jovi-frame-out 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: jovi-recuo 0.2s cubic-bezier(0, 0, 0.2, 1) both;
 }
 ::view-transition-new(jovi-phone) {
-  animation: jovi-frame-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation:
+    jovi-surgir 0.16s cubic-bezier(0, 0, 0.2, 1) both,
+    jovi-assentar 0.2s cubic-bezier(0, 0, 0.2, 1) both;
 }
 
-@keyframes jovi-frame-out {
-  to { opacity: 0; transform: scale(0.96) translateY(10px); }
+/* VOLTAR — o inverso: a tela atual recua e some (fica menor e transparente),
+   revelando a anterior, que já está no lugar. */
+html.jovi-voltando::view-transition-old(jovi-phone) {
+  animation:
+    jovi-sumir 0.14s cubic-bezier(0.4, 0, 1, 1) both,
+    jovi-encolher 0.18s cubic-bezier(0.4, 0, 0.6, 1) both;
+  z-index: 1;
 }
-@keyframes jovi-frame-in {
-  from { opacity: 0; transform: scale(1.03) translateY(-10px); }
+html.jovi-voltando::view-transition-new(jovi-phone) {
+  animation: jovi-clarear 0.18s cubic-bezier(0, 0, 0.2, 1) both;
 }
 
-/* Quem prefere menos movimento não recebe a animação de escala/posição —
-   só um cross-fade simples (o navegador já faz isso por padrão quando as
-   animações acima não se aplicam). */
+@keyframes jovi-surgir   { from { opacity: 0; } to { opacity: 1; } }
+@keyframes jovi-assentar { from { transform: scale(0.96); } to { transform: scale(1); } }
+@keyframes jovi-recuo    { to { opacity: 0.6; } }
+@keyframes jovi-sumir    { to { opacity: 0; } }
+@keyframes jovi-encolher { to { transform: scale(0.94); } }
+@keyframes jovi-clarear  { from { opacity: 0.6; } to { opacity: 1; } }
+
+/* Feedback de toque: entra no pointerdown (jovi-transicao.js) e some ao
+   soltar. Entrada quase instantânea, retorno um pouco mais lento — a
+   resposta de um botão físico. O encolhimento só entra em elementos sem
+   `transform` próprio (o script decide). */
+.jovi-pressionado {
+  opacity: 0.72 !important;
+  transition: scale 0.04s ease-out, opacity 0.04s ease-out !important;
+}
+.jovi-pressionado--escala {
+  scale: 0.96 !important;
+}
+.jovi-soltando {
+  transition: scale 0.18s cubic-bezier(0, 0, 0.2, 1), opacity 0.18s cubic-bezier(0, 0, 0.2, 1) !important;
+}
+
+/* Fallback sem View Transitions: anima o cartão inteiro. */
+html.jovi-saindo .lacar-phone-frame,
+html.jovi-saindo .phone-frame,
+html.jovi-saindo .app-frame,
+html.jovi-saindo .onboarding-screen,
+html.jovi-saindo .tela03-screen {
+  animation: jovi-cartao-saida 0.08s ease-in both;
+}
+html.jovi-entrando .lacar-phone-frame,
+html.jovi-entrando .phone-frame,
+html.jovi-entrando .app-frame,
+html.jovi-entrando .onboarding-screen,
+html.jovi-entrando .tela03-screen {
+  animation: jovi-cartao-entrada 0.18s cubic-bezier(0, 0, 0.2, 1) both;
+}
+@keyframes jovi-cartao-saida {
+  to { opacity: 0; transform: scale(0.99); }
+}
+@keyframes jovi-cartao-entrada {
+  from { opacity: 0; transform: scale(0.97); }
+}
+
+/* Quem prefere menos movimento recebe só um fade curto, sem escala. */
 @media (prefers-reduced-motion: reduce) {
-  ::view-transition-group(jovi-phone),
   ::view-transition-old(jovi-phone),
-  ::view-transition-new(jovi-phone) {
-    animation: none !important;
+  html.jovi-voltando::view-transition-old(jovi-phone) { animation: none; }
+  ::view-transition-new(jovi-phone),
+  html.jovi-voltando::view-transition-new(jovi-phone) { animation: jovi-surgir 0.12s linear both; }
+  .jovi-pressionado--escala { scale: none !important; }
+  html.jovi-saindo .lacar-phone-frame,
+  html.jovi-saindo .phone-frame,
+  html.jovi-saindo .app-frame,
+  html.jovi-saindo .onboarding-screen,
+  html.jovi-saindo .tela03-screen,
+  html.jovi-entrando .lacar-phone-frame,
+  html.jovi-entrando .phone-frame,
+  html.jovi-entrando .app-frame,
+  html.jovi-entrando .onboarding-screen,
+  html.jovi-entrando .tela03-screen {
+    animation-duration: 0.12s;
+    animation-name: jovi-surgir;
   }
 }

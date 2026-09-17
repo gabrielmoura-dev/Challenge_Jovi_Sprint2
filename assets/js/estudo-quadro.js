@@ -39,9 +39,14 @@
 
     if (verificar) {
       verificar.addEventListener("click", function () {
+        if (verificar.disabled) return;
+        verificar.disabled = true;
         if (window.JoviToast) {
-          window.JoviToast.show("Investigação 2 de 2 em breve");
+          window.JoviToast.show("Conexões verificadas! Calculando recompensa…");
         }
+        window.setTimeout(function () {
+          window.joviNavegar("tela-30-estudo-resultado.html");
+        }, 900);
       });
     }
   });

@@ -21,10 +21,10 @@
 @font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Thin.ttf") format("truetype"); font-weight: 100; font-style: normal; font-display: swap; }
 @font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Extralight.ttf") format("truetype"); font-weight: 200; font-style: normal; font-display: swap; }
 @font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Light.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
-@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
-@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Demibold.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
-@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/jovi-sans-cn/JOVISansCN-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/jovi-sans-cn/JOVISansCN-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/jovi-sans-cn/JOVISansCN-Demibold.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/jovi-sans-cn/JOVISansCN-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
 @font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Extrabold.ttf") format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
 @font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Heavy.ttf") format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
 

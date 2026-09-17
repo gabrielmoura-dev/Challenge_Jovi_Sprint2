@@ -36,8 +36,8 @@
 
       // Espera a transição do CSS terminar antes de abrir a pergunta.
       window.setTimeout(function () {
-        window.location.href = TOPICOS[sorteado].tela + "?topico=" +
-          encodeURIComponent(TOPICOS[sorteado].nome);
+        window.joviNavegar(TOPICOS[sorteado].tela + "?topico=" +
+          encodeURIComponent(TOPICOS[sorteado].nome));
       }, 3400);
     }
 

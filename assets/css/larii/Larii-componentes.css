@@ -162,7 +162,11 @@ body {
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   flex: none;
+  cursor: grab;
 }
+.chip-row::-webkit-scrollbar { display: none; }
+.chip-row.is-arrastando { cursor: grabbing; user-select: none; }
+.chip-row.is-arrastando .chip { pointer-events: none; }
 
 .chip-row::-webkit-scrollbar { display: none; }
 

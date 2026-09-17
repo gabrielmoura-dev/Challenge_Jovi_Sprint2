@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="../assets/css/lacar-componentes.css">
   <link rel="stylesheet" href="../assets/css/telas/tela-24-estudo.css">
   <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <script src="../assets/js/jovi-transicao.js"></script>
   <link rel="stylesheet" href="../assets/css/jovi-story.css">
 </head>
 <body>
@@ -37,7 +38,7 @@
       </div>
 
       <div class="tentativa-topbar">
-        <button type="button" class="tentativa-back" aria-label="Voltar" onclick="window.location.href='tela-23-estudo-album.html'">
+        <button type="button" class="tentativa-back" aria-label="Voltar" onclick="joviNavegar('tela-23-estudo-album.html')">
           <img src="../assets/img/farol-chevron-left.svg" alt="">
         </button>
         <span class="tentativa-pill">Tentativa 01</span>
@@ -55,10 +56,10 @@
         <p class="tentativa-sub">Enquadre o exercício e sua resolução, mesmo incompleta.</p>
 
         <div class="tentativa-controles">
-          <button type="button" class="tentativa-lateral is-galeria" aria-label="Galeria" onclick="window.location.href='tela-06-galeria.html'">
+          <button type="button" class="tentativa-lateral is-galeria" aria-label="Galeria" onclick="joviNavegar('tela-06-galeria.html')">
             <img src="../assets/img/estudo-cam-galeria.svg" alt="">
           </button>
-          <button type="button" class="tentativa-obturador" aria-label="Capturar tentativa" onclick="window.location.href='tela-23-estudo-album.html?tentativa=enviada'">
+          <button type="button" class="tentativa-obturador" aria-label="Capturar tentativa" onclick="joviNavegar('tela-23-estudo-album.html?tentativa=enviada')">
             <span></span>
           </button>
           <button type="button" class="tentativa-lateral is-inverter" aria-label="Alternar câmera">

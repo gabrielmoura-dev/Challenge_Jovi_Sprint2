@@ -14,7 +14,7 @@
 
     var startBtn = document.querySelector("[data-onboarding-start]");
     if (startBtn) {
-      startBtn.addEventListener("click", function () {
+      startBtn.addEventListener("click", function (event) {
         if (nameInput) {
           var value = nameInput.value.trim();
           if (value) {
@@ -26,15 +26,15 @@
           }
         }
         var next = startBtn.getAttribute("data-next");
-        if (next) window.location.href = next;
+        if (next) window.joviNavegar(next, event);
       });
     }
 
     var skipBtn = document.querySelector("[data-onboarding-skip]");
     if (skipBtn) {
-      skipBtn.addEventListener("click", function () {
+      skipBtn.addEventListener("click", function (event) {
         var next = skipBtn.getAttribute("data-next") || "tela-05-inicio.html";
-        window.location.href = next;
+        window.joviNavegar(next, event);
       });
     }
   });

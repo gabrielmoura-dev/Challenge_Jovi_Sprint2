@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="../assets/css/lacar-componentes.css">
   <link rel="stylesheet" href="../assets/css/telas/tela-13.css">
   <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <script src="../assets/js/jovi-transicao.js"></script>
   <link rel="stylesheet" href="../assets/css/jovi-story.css">
 </head>
 <body>
@@ -56,7 +57,7 @@
               <p class="chapter-title">Cálculo · Capítulo 5</p>
               <p class="chapter-subtitle">3 fotos</p>
             </div>
-            <button type="button" class="chapter-go-btn" onclick="window.location.href='tela-08-camera-estudo.html'">IR</button>
+            <button type="button" class="chapter-go-btn" onclick="joviNavegar('tela-10-assistente.html')">IR</button>
           </div>
         </div>
 
@@ -98,7 +99,7 @@
                 <img src="../assets/img/share-thin.svg" alt="">
                 <span>Compartilhar</span>
               </button>
-              <button type="button" class="summary-btn" onclick="window.location.href='tela-22-estudo.html'">
+              <button type="button" class="summary-btn" onclick="joviNavegar('tela-22-estudo.html')">
                 <span>Jogar estudo</span>
               </button>
           </div>
@@ -117,19 +118,19 @@
       </div>
 
       <nav class="lacar-nav-bottom" aria-label="Navegação principal">
-        <button type="button" class="btn p-0 border-0" aria-label="Início" onclick="window.location.href='tela-05-inicio.html'">
+        <button type="button" class="btn p-0 border-0" aria-label="Início" onclick="joviNavegar('tela-05-inicio.html')">
           <svg class="lacar-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </button>
-        <button type="button" class="btn p-0 border-0" aria-label="Galeria" onclick="window.location.href='tela-06-galeria.html'">
+        <button type="button" class="btn p-0 border-0" aria-label="Galeria" onclick="joviNavegar('tela-06-galeria.html')">
           <svg class="lacar-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
         </button>
-        <button type="button" class="lacar-nav-fab" aria-label="Abrir câmera" onclick="window.location.href='tela-13-camera.html'">
+        <button type="button" class="lacar-nav-fab" aria-label="Abrir câmera" onclick="joviNavegar('tela-08-camera-estudo.html')">
           <img src="../assets/img/nav-camera.svg" alt="">
         </button>
         <button type="button" class="btn p-0 border-0" aria-label="Diário" aria-current="page">
           <svg class="lacar-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
         </button>
-        <button type="button" class="btn p-0 border-0" aria-label="Ajustes" onclick="window.location.href='tela-17-ajustes.html'">
+        <button type="button" class="btn p-0 border-0" aria-label="Ajustes" onclick="joviNavegar('tela-17-ajustes.html')">
           <svg class="lacar-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
         </button>
       </nav>

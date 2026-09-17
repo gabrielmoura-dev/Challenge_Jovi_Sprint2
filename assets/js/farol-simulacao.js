@@ -26,13 +26,21 @@
       });
     });
 
-    // Pulso visual antes de navegar, na simulação do gesto (Tela 31).
+    // Pulso visual antes de navegar, na simulação do gesto (Tela 31). O pulso
+    // (0.4s em tela-31.css) precisa terminar antes da troca de tela.
     var simular = document.querySelector("[data-simular-gesto]");
     if (simular) {
+      var disparado = false;
       simular.addEventListener("click", function () {
+        if (disparado) return;
+        disparado = true;
         simular.classList.remove("is-firing");
         void simular.offsetWidth; // força reflow para poder repetir a animação
         simular.classList.add("is-firing");
+        var destino = simular.getAttribute("data-destino");
+        if (destino) {
+          window.setTimeout(function () { window.joviNavegar(destino); }, 700);
+        }
       });
     }
 

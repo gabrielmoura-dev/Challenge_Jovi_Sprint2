@@ -7,10 +7,14 @@
   var chipRow = document.querySelector("[data-chips]");
   var panels = document.querySelectorAll("[data-filter-panel]");
 
-  // "Vídeos" não tem design próprio ainda — cai de volta no painel "Tudo"
-  // em vez de mostrar uma tela vazia.
+  // "Vídeos" não tem design próprio ainda — os únicos vídeos da galeria são
+  // as palestras, então o chip mostra esse painel. Filtros sem painel caem
+  // em "Tudo" em vez de mostrar uma tela vazia.
+  var PANEL_ALIAS = { videos: "palestras" };
+
   function showPanel(filter) {
     if (!panels.length) return;
+    filter = PANEL_ALIAS[filter] || filter;
     var hasPanel = document.querySelector('[data-filter-panel="' + filter + '"]');
     var target = hasPanel ? filter : "tudo";
 
@@ -20,9 +24,42 @@
   }
 
   if (chipRow) {
+    // Arrastar para rolar (mouse ou dedo) e roda do mouse na horizontal —
+    // os chips passam da largura do cartão e a barra de rolagem fica oculta.
+    var arrasto = null;
+    chipRow.addEventListener("pointerdown", function (event) {
+      if (event.button !== 0) return;
+      arrasto = { x: event.clientX, scroll: chipRow.scrollLeft, moveu: false };
+    });
+    chipRow.addEventListener("pointermove", function (event) {
+      if (!arrasto) return;
+      var dx = event.clientX - arrasto.x;
+      if (!arrasto.moveu && Math.abs(dx) < 6) return;
+      if (!arrasto.moveu) {
+        arrasto.moveu = true;
+        chipRow.classList.add("is-arrastando");
+        chipRow.setPointerCapture(event.pointerId);
+      }
+      chipRow.scrollLeft = arrasto.scroll - dx;
+    });
+    function terminarArrasto() {
+      if (!arrasto) return;
+      var moveu = arrasto.moveu;
+      arrasto = null;
+      // Solta a classe só depois do click, para um arrasto não selecionar chip.
+      window.setTimeout(function () { chipRow.classList.remove("is-arrastando"); }, moveu ? 50 : 0);
+    }
+    chipRow.addEventListener("pointerup", terminarArrasto);
+    chipRow.addEventListener("pointercancel", terminarArrasto);
+    chipRow.addEventListener("wheel", function (event) {
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      chipRow.scrollLeft += event.deltaY;
+      event.preventDefault();
+    }, { passive: false });
+
     chipRow.addEventListener("click", function (event) {
       var chip = event.target.closest(".chip");
-      if (!chip) return;
+      if (!chip || chipRow.classList.contains("is-arrastando")) return;
 
       chipRow.querySelectorAll(".chip").forEach(function (item) {
         var active = item === chip;
@@ -77,9 +114,12 @@
   /* --------------------------------------------------------------- header */
   var backBtn = document.querySelector("[data-gallery-back]");
   if (backBtn) {
-    backBtn.addEventListener("click", function () {
-      if (window.history.length > 1) window.history.back();
-      else window.location.href = "tela-05-inicio.html";
+    backBtn.addEventListener("click", function (event) {
+      // Só volta pelo histórico se a tela anterior for do próprio app; se a
+      // galeria foi aberta direto (catálogo, link externo), vai para o Início.
+      var veioDoApp = document.referrer.indexOf("/telas/") !== -1;
+      if (veioDoApp && window.history.length > 1) window.history.back();
+      else window.joviNavegar("tela-05-inicio.html", event);
     });
   }
 
@@ -98,11 +138,12 @@
   // as fotos/álbuns do painel "Tudo" reaproveitam os mesmos botões/classes.
   if (galleryMain) {
     galleryMain.addEventListener("click", function (event) {
-      // Só o vídeo de palestra abre a tela-15: é o único conteúdo do painel
-      // que bate com o que ela mostra (legenda ao vivo, transcrição).
-      var play = event.target.closest(".gallery-card__play");
-      if (play) {
-        window.location.href = "tela-15-visualizador-midia.html";
+      // Palestra: tocar no card (ou no play) confirma o momento capturado —
+      // o visualizador de palestra (tela-15) segue acessível pelo trilho da
+      // história, não pela galeria.
+      var palestra = event.target.closest('.gallery-card__play, [data-filter-panel="palestras"] .gallery-card');
+      if (palestra && !event.target.closest("[data-card-action]")) {
+        if (window.JoviToast) window.JoviToast.show("Momento capturado");
         return;
       }
 
@@ -149,10 +190,10 @@
 
       switch (btn.getAttribute("data-nav")) {
         case "inicio":
-          window.location.href = "tela-05-inicio.html";
+          window.joviNavegar("tela-05-inicio.html");
           break;
         case "camera":
-          window.location.href = "tela-13-camera.html";
+          window.joviNavegar("tela-13-camera.html");
           break;
         case "albuns": {
           var tudoChip = document.querySelector('[data-filter="tudo"]');
