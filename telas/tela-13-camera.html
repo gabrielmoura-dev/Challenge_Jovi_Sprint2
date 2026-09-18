@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="../assets/css/jullia-componentes.css">
   <link rel="stylesheet" href="../assets/css/telas/tela-16.css">
   <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <link rel="stylesheet" href="../assets/css/jovi-base.css">
   <script src="../assets/js/jovi-transicao.js"></script>
-  <link rel="stylesheet" href="../assets/css/jovi-story.css">
+  <script src="../assets/js/jovi-ui.js"></script>
 </head>
 <body>
-  <a href="../index.html" class="theme-toggle" style="right: 16px; left: auto; text-decoration:none;">← Telas</a>
   <!--
     Nota: a tela 16 no Figma só existe em versão "no escuro" (câmera em
     fullscreen sobre foto). Não faz sentido um modo "light" aqui — o
@@ -94,24 +94,9 @@
 
           <!-- Barra inferior -->
           <div class="camera-bottom">
-            <div class="camera-mode-strip d-flex gap-2 overflow-auto mb-3" role="tablist" aria-label="Modo de captura">
-              <button type="button" class="camera-mode-pill active" data-camera-mode>
-                <img src="../assets/img/cam-mode-sport.svg" alt="" style="width:16px;height:16px;">
-                Esporte
-              </button>
-              <button type="button" class="camera-mode-pill" data-camera-mode>
-                <img src="../assets/img/cam-mode-photo.svg" alt="" style="width:16px;height:16px;">
-                Foto
-              </button>
-              <button type="button" class="camera-mode-pill" data-camera-mode>
-                <img src="../assets/img/cam-mode-portrait.svg" alt="" style="width:16px;height:16px;">
-                Retrato
-              </button>
-              <button type="button" class="camera-mode-pill" data-camera-mode>
-                <img src="../assets/img/cam-mode-night.svg" alt="" style="width:16px;height:16px;">
-                Noturno
-              </button>
-            </div>
+            <!-- Faixa de modos: rótulos, ordem e destinos vêm de
+                 assets/js/camera-modes.js (fonte única do protótipo). -->
+            <div class="jovi-modes" data-camera-modes="gerais" data-modo-ativo="foto"></div>
 
             <div class="camera-shutter-row">
               <button type="button" class="camera-side-btn" aria-label="Abrir galeria" onclick="joviNavegar('tela-06-galeria.html')">
@@ -152,6 +137,6 @@
       render();
     })();
   </script>
-  <script src="../assets/js/jovi-story.js"></script>
+  <script src="../assets/js/camera-modes.js"></script>
 </body>
 </html>

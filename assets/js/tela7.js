@@ -24,38 +24,10 @@
   }
 
   if (chipRow) {
-    // Arrastar para rolar (mouse ou dedo) e roda do mouse na horizontal —
-    // os chips passam da largura do cartão e a barra de rolagem fica oculta.
-    var arrasto = null;
-    chipRow.addEventListener("pointerdown", function (event) {
-      if (event.button !== 0) return;
-      arrasto = { x: event.clientX, scroll: chipRow.scrollLeft, moveu: false };
-    });
-    chipRow.addEventListener("pointermove", function (event) {
-      if (!arrasto) return;
-      var dx = event.clientX - arrasto.x;
-      if (!arrasto.moveu && Math.abs(dx) < 6) return;
-      if (!arrasto.moveu) {
-        arrasto.moveu = true;
-        chipRow.classList.add("is-arrastando");
-        chipRow.setPointerCapture(event.pointerId);
-      }
-      chipRow.scrollLeft = arrasto.scroll - dx;
-    });
-    function terminarArrasto() {
-      if (!arrasto) return;
-      var moveu = arrasto.moveu;
-      arrasto = null;
-      // Solta a classe só depois do click, para um arrasto não selecionar chip.
-      window.setTimeout(function () { chipRow.classList.remove("is-arrastando"); }, moveu ? 50 : 0);
-    }
-    chipRow.addEventListener("pointerup", terminarArrasto);
-    chipRow.addEventListener("pointercancel", terminarArrasto);
-    chipRow.addEventListener("wheel", function (event) {
-      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
-      chipRow.scrollLeft += event.deltaY;
-      event.preventDefault();
-    }, { passive: false });
+    // Arrastar para rolar + roda do mouse na horizontal: os chips passam da
+    // largura do cartão e a barra de rolagem fica oculta. Mesma mecânica da
+    // faixa de modos da câmera — mora em assets/js/jovi-ui.js.
+    if (window.JoviUI) window.JoviUI.rolagemHorizontal(chipRow);
 
     chipRow.addEventListener("click", function (event) {
       var chip = event.target.closest(".chip");
@@ -79,7 +51,26 @@
   var form = sheetEl.querySelector("form");
   var input = sheetEl.querySelector("#album-nome");
   var submit = sheetEl.querySelector("[data-sheet-submit]");
-  var sheet = new bootstrap.Modal(sheetEl, { backdrop: true, keyboard: true });
+  var sheet = new bootstrap.Modal(sheetEl, { backdrop: false, keyboard: true });
+
+  // Véu dentro da moldura, no lugar do backdrop do Bootstrap (que é fixo na
+  // janela e escureceria a página em volta do celular).
+  var veil = document.querySelector("[data-sheet-veil]");
+  if (veil) {
+    sheetEl.addEventListener("show.bs.modal", function () {
+      veil.hidden = false;
+      // Um quadro depois, para a transição de opacidade acontecer.
+      requestAnimationFrame(function () { veil.classList.add("is-open"); });
+    });
+    sheetEl.addEventListener("hide.bs.modal", function () {
+      veil.classList.remove("is-open");
+    });
+    sheetEl.addEventListener("hidden.bs.modal", function () {
+      veil.hidden = true;
+    });
+    // Tocar fora do sheet fecha, como no backdrop nativo.
+    veil.addEventListener("click", function () { sheet.hide(); });
+  }
 
   function syncSubmitState() {
     submit.disabled = input.value.trim().length === 0;
@@ -115,11 +106,10 @@
   var backBtn = document.querySelector("[data-gallery-back]");
   if (backBtn) {
     backBtn.addEventListener("click", function (event) {
-      // Só volta pelo histórico se a tela anterior for do próprio app; se a
-      // galeria foi aberta direto (catálogo, link externo), vai para o Início.
-      var veioDoApp = document.referrer.indexOf("/telas/") !== -1;
-      if (veioDoApp && window.history.length > 1) window.history.back();
-      else window.joviNavegar("tela-05-inicio.html", event);
+      // joviVoltar (assets/js/jovi-transicao.js): volta pelo histórico se a
+      // tela anterior for do próprio app; se a galeria foi aberta direto
+      // (catálogo, link externo), vai para o Início.
+      window.joviVoltar("tela-05-inicio.html", event);
     });
   }
 
@@ -195,15 +185,11 @@
         case "camera":
           window.joviNavegar("tela-13-camera.html");
           break;
-        case "albuns": {
-          var tudoChip = document.querySelector('[data-filter="tudo"]');
-          if (tudoChip && !tudoChip.classList.contains("is-active")) tudoChip.click();
-          var section = document.getElementById("sec-albuns");
-          if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+        case "diario":
+          window.joviNavegar("tela-11-assistente-estudo.html");
           break;
-        }
-        case "perfil":
-          if (window.JoviToast) window.JoviToast.show("Perfil em breve");
+        case "ajustes":
+          window.joviNavegar("tela-17-ajustes.html");
           break;
       }
     });

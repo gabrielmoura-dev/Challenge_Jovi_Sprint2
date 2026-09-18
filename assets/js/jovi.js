@@ -1,6 +1,7 @@
 // JOVI — comportamento compartilhado entre telas
-// Tema fica só em assets/js/theme.js (AppTheme). Este arquivo cuida de
-// tiles de preferência (Telas 03/04) e modos de captura das câmeras.
+// Tema fica só em assets/js/theme.js (AppTheme). A faixa de modos de captura
+// fica em assets/js/camera-modes.js (fonte única de rótulos/ordem/destinos).
+// Este arquivo cuida de tiles de preferência (Telas 03/04) e do obturador.
 // O filtro de categoria da Galeria (Tela 06) tem lógica própria demais
 // (troca de painel, fallback de "Vídeos") — fica em assets/js/tela7.js.
 (function () {
@@ -19,16 +20,8 @@
     });
   }
 
-  // Tela 16 — seleção de modo de captura (Esporte / Foto / Retrato / Noturno)
-  function initCameraModes() {
-    var modes = document.querySelectorAll("[data-camera-mode]");
-    modes.forEach(function (mode) {
-      mode.addEventListener("click", function () {
-        modes.forEach(function (m) { m.classList.remove("active"); });
-        mode.classList.add("active");
-      });
-    });
-
+  // Flash do obturador — feedback de captura das telas de câmera.
+  function initShutter() {
     var shutter = document.querySelector("[data-camera-shutter]");
     if (shutter) {
       shutter.addEventListener("click", function () {
@@ -42,6 +35,6 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     initPrefTiles();
-    initCameraModes();
+    initShutter();
   });
 })();

@@ -295,24 +295,6 @@
   color: var(--text-primary);
 }
 
-/* Botão de troca de tema — mesmo padrão visual usado nas telas que já têm
-   essa opção (assets/css/lacar-componentes.css / jullia-componentes.css),
-   mas com os tokens da própria família larii, já que esta tela não carrega
-   aqueles dois arquivos. */
-.theme-toggle {
-  position: fixed;
-  top: 16px;
-  z-index: 50;
-  border-radius: 999px;
-  border: 1px solid var(--border-strong);
-  background: var(--surface-raised);
-  color: var(--text-primary);
-  padding: 8px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
 /* Curtir (ações de card) — coração preenchido usa a mesma cor de marca do
    botão de Favoritos do header. */
 .gallery-card__action.is-liked { color: var(--brand); }

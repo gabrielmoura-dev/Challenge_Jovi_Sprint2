@@ -46,7 +46,7 @@
    quadrado (aspect-ratio 1/1) centralizado, não um cover esticado. */
 .pose-guide-stage {
   position: absolute;
-  inset: 0 0 128px;
+  inset: 0 0 172px;   /* 128 + 44px da faixa de modos */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,7 +94,7 @@
   position: absolute;
   left: 16px;
   right: 16px;
-  bottom: 234px;
+  bottom: 278px;      /* 234 + 44px da faixa de modos */
   z-index: 2;
   display: flex;
   align-items: center;
@@ -129,7 +129,7 @@
   z-index: 3;
   left: 16px;
   right: 16px;
-  bottom: 137px;
+  bottom: 181px;      /* 137 + 44px da faixa de modos */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;

@@ -23,7 +23,7 @@
   var SUPORTA_VIEW_TRANSITION = "onpagereveal" in window;
   var TEMPO_SAIDA_FALLBACK = 80;
   var DIRECAO_KEY = "jovi-direcao";
-  var SELETOR_TOCAVEL = "[onclick*='joviNavegar('], a[href], button, [role='button']";
+  var SELETOR_TOCAVEL = "[onclick*='joviNavegar('], [onclick*='joviVoltar('], a[href], button, [role='button']";
   var raiz = document.documentElement;
   var navegando = false;
 
@@ -172,7 +172,7 @@
     document.head.appendChild(link);
   }
   function destinoDe(elemento) {
-    var alvo = elemento.closest ? elemento.closest("[onclick*='joviNavegar('], a[href]") : null;
+    var alvo = elemento.closest ? elemento.closest("[onclick*='joviNavegar('], [onclick*='joviVoltar('], a[href]") : null;
     if (!alvo) return null;
     var oc = alvo.getAttribute("onclick");
     var m = oc && oc.match(/joviNavegar\('([^']+)'/);
@@ -185,5 +185,21 @@
     }, { capture: true, passive: true });
   });
 
+  /* Voltar. Com a faixa de modos da câmera, várias telas passaram a ter mais
+     de uma origem (a Blindagem chega dos Ajustes e também da câmera), então um
+     destino fixo no botão "voltar" manda a pessoa para um lugar em que ela
+     nunca esteve. Aqui: volta pelo histórico quando a tela anterior é do
+     próprio app; senão, cai no destino declarado pela tela. */
+  function joviVoltar(fallback, evento) {
+    var veioDoApp = document.referrer && document.referrer.indexOf("/telas/") !== -1;
+    if (veioDoApp && window.history.length > 1) {
+      try { sessionStorage.setItem(DIRECAO_KEY, "voltar"); } catch (e) {}
+      window.history.back();
+      return;
+    }
+    joviNavegar(fallback, evento);
+  }
+
   window.joviNavegar = joviNavegar;
+  window.joviVoltar = joviVoltar;
 })();

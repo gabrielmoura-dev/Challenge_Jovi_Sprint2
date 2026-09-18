@@ -10,11 +10,11 @@
   <link rel="stylesheet" href="../assets/css/telas/tela-16.css">
   <link rel="stylesheet" href="../assets/css/telas/tela-35.css">
   <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <link rel="stylesheet" href="../assets/css/jovi-base.css">
   <script src="../assets/js/jovi-transicao.js"></script>
-  <link rel="stylesheet" href="../assets/css/jovi-story.css">
+  <script src="../assets/js/jovi-ui.js"></script>
 </head>
 <body>
-  <a href="../index.html" class="theme-toggle" style="right: 16px; left: auto; text-decoration:none;">← Telas</a>
   <!--
     Tela nova (22), mockup de time — não vem do Figma. Estado ativo do
     guia de pose: usuário já escolheu uma referência no carrossel da
@@ -112,6 +112,10 @@
 
           <!-- Barra inferior -->
           <div class="camera-bottom">
+            <!-- Faixa de modos: rótulos, ordem e destinos vêm de
+                 assets/js/camera-modes.js (fonte única do protótipo). -->
+            <div class="jovi-modes" data-camera-modes="gerais" data-modo-ativo="retrato"></div>
+
             <div class="camera-shutter-row">
               <button type="button" class="camera-side-btn" aria-label="Trocar pose" onclick="joviNavegar('tela-13-camera.html')">
                 <img src="../assets/img/cam-gallery-icon.svg" alt="" style="width:24px;height:24px;">
@@ -142,6 +146,6 @@
       caption.hidden = !isOn;
     })();
   </script>
-  <script src="../assets/js/jovi-story.js"></script>
+  <script src="../assets/js/camera-modes.js"></script>
 </body>
 </html>

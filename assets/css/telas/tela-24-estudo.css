@@ -104,10 +104,15 @@
   top: 619px;
   width: 360px;
   height: 181px;
-  background: rgba(10, 10, 10, 0.74);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
+  /* Mesma lâmina de vidro das outras barras de câmera — tokens em
+     assets/css/jovi-base.css (antes esta tinha 0.74 sem blur, e a barra
+     ficava visivelmente mais escura que a das telas 07/12/13). */
+  background: var(--camera-bar-bg);
+  -webkit-backdrop-filter: blur(var(--camera-bar-blur));
+  backdrop-filter: blur(var(--camera-bar-blur));
+  border-top: 1px solid var(--camera-bar-border);
+  border-top-left-radius: var(--camera-bar-radius);
+  border-top-right-radius: var(--camera-bar-radius);
   box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.12);
   z-index: 2;
 }
