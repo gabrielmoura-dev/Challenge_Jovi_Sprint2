@@ -43,3 +43,5 @@
   background: var(--jovi-purple);
   color: var(--jovi-white);
 }
+
+.tela03-dark .tela03-back { color: var(--jovi-white); }

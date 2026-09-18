@@ -1,8 +1,8 @@
 /* Tela 3 — Preferências de fotografia: sincroniza o claro/escuro unificado.
    tela-03-dark.css já existe como camada de overrides sobre tela-03.css,
-   ativada pela classe .tela03-dark em .tela03-screen — este script só liga
-   essa classe ao mesmo botão de tema (assets/js/jovi.js) usado no resto do
-   app, e troca os ícones de categoria que têm arte própria por tema. */
+   ativada pela classe .tela03-dark em .tela03-screen — este script espelha
+   o tema salvo (assets/js/theme.js) nessa classe e troca os ícones de
+   categoria que têm arte própria por tema. */
 (function () {
   "use strict";
 
@@ -19,10 +19,8 @@
     });
   }
 
-  // jovi.js já aplicou o tema salvo e religou o clique do botão antes deste
-  // script rodar (carregado depois dele) — aqui só falta espelhar o estado
-  // inicial e reagir aos cliques seguintes.
   sync();
-  var toggle = document.querySelector("[data-theme-toggle]");
-  if (toggle) toggle.addEventListener("click", sync);
+  // O tema só muda pelos Ajustes (tela 17) ou pelo sistema; acompanha o
+  // atributo no <html> para refletir qualquer troca sem depender de botão.
+  new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ["data-bs-theme"] });
 })();

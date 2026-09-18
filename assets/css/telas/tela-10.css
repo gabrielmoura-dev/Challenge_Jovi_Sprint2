@@ -12,7 +12,7 @@
   object-fit: cover;
   z-index: 0;
 }
-.camera-frame > *:not(.camera-bg) {
+.camera-frame > *:not(.camera-bg, .jovi-toast-container) {
   position: relative;
   z-index: 1;
 }
@@ -96,51 +96,22 @@
 
 .camera-bottombar {
   flex-shrink: 0;
-  background: rgba(10, 10, 10, 0.4);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 24px 24px 0 0;
   box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.12);
-  /* Total 181px no Figma (y=619 a 800): 21 topo + 44 modos + 20 gap + 72
-     obturador = 157, sobram 24px de respiro inferior (safe-area). */
+  /* Cores/bordas vêm de camera-shared.css ([data-camera-bar]). 21 topo +
+     44 modos + 16 gap + 30 intenções + 14 legenda + 16 gap + 72 obturador
+     + 24 de respiro inferior (safe-area). */
   padding: 21px 20px 24px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .camera-modes {
   height: 44px;
-  display: flex;
   align-items: center;
-  gap: 8px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
 }
-.camera-modes::-webkit-scrollbar { display: none; }
-.mode-pill {
-  flex-shrink: 0;
-  height: 36px;
-  border-radius: 999px;
-  border: none;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0 16px;
-  color: #ffffff;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 600;
-  letter-spacing: -0.15px;
-  font-family: var(--jovi-font);
-}
-.mode-pill.active { background: rgba(255, 255, 255, 0.15); }
-.mode-pill img { width: 16px; height: 16px; filter: brightness(0) invert(1); }
-.mode-pill.mode-sport,
-.mode-pill.mode-chat,
-.mode-pill.mode-palestra { font-family: "JOVI Sans CN"; }
-.mode-pill.mode-noturno { font-family: "Inter"; font-weight: 700; }
+.camera-intents { margin-top: -4px; }
+.camera-intent-label { margin-top: -8px; }
 
 .camera-shutter-row {
   height: 72px;
@@ -149,13 +120,6 @@
   justify-content: space-between;
 }
 .shutter-side-btn {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  display: flex;
-  align-items: center;
   justify-content: center;
   padding: 0;
 }

@@ -111,6 +111,73 @@
 }
 
 /* =========================================================
+   Toast do protótipo (assets/js/toast.js). Fica DENTRO do cartão do celular
+   (o container é anexado ao frame da tela), por isso é absolute em relação
+   a ele — nunca fixo na janela do browser.
+   ========================================================= */
+.jovi-toast-container {
+  position: absolute;
+  z-index: 40;
+  left: 16px;
+  right: 16px;
+  bottom: 82px;
+  display: grid;
+  gap: 8px;
+  pointer-events: none;
+}
+.jovi-toast {
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: #fff;
+  background: #202020;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .3);
+  font-family: var(--jovi-font, "Inter", sans-serif);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* =========================================================
+   Botão discreto de "voltar" — usado em telas que não têm um botão de
+   voltar próprio na família de componentes que carregam. Duas variantes:
+   - .jovi-back: para dentro de uma linha de cabeçalho existente (herda a
+     cor do texto ao redor, já correta por tema);
+   - .jovi-back--overlay: flutua sobre uma foto/cena (onboarding, câmeras,
+     telas de bloqueio), sempre branco sobre um fundo escuro translúcido.
+   Chama window.joviVoltar(destinoDeReserva, event) — volta pelo histórico
+   real do navegador quando possível, e só usa o destino de reserva quando
+   a tela foi aberta direto (sem uma tela anterior do próprio app). */
+.jovi-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  border-radius: 999px;
+  padding: 4px;
+  color: inherit;
+  cursor: pointer;
+}
+.jovi-back svg { width: 20px; height: 20px; display: block; }
+.jovi-back:active { background: rgba(127, 127, 127, 0.16); }
+
+.jovi-back--overlay {
+  position: absolute;
+  z-index: 5;
+  top: 14px;
+  left: 16px;
+  color: #ffffff;
+  background: rgba(10, 10, 10, 0.35);
+}
+.jovi-back--overlay:active { background: rgba(10, 10, 10, 0.55); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .jovi-back { transition: background-color 0.15s ease; }
+}
+
+/* =========================================================
    Sistema de tokens "Larii" — unificado aqui em 2026-09-16.
    Antes vivia em assets/css/larii/tokens.css como um sistema paralelo
    (mesmas cores, nomes de variável diferentes: --brand em vez de

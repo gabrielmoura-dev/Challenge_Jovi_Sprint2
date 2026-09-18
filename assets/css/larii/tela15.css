@@ -38,16 +38,10 @@
   background: rgba(0, 0, 0, 0.37);
 }
 
-/* O painel é uma lâmina de vidro: cantos de cima arredondados e um fio de
-   luz só na aresta superior (as laterais e a base não têm borda). */
+/* Painel inferior sólido (padrão compartilhado em camera-shared.css). */
 .camera__veil--bottom {
-  --glass-bg: rgba(0, 0, 0, 0.355);
-  --glass-border: transparent;
-  --glass-blur: 24px;
   bottom: 0;
   height: 181px;
-  border-top-color: rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
 .camera__ui {
@@ -147,33 +141,42 @@
   height: 181px;
 }
 
-/* Faixa de modos, rolável na horizontal (Noturno fica fora do frame) */
+/* Quando a tela tem intenções de Estudo, o painel (e o véu) crescem 44px
+   para acomodar a segunda faixa entre os modos e as ações. */
+.app-frame--camera:has(.camera__intents) .camera__panel,
+.app-frame--camera:has(.camera__intents) .camera__veil--bottom { height: 225px; }
+.app-frame--camera:has(.camera__intents) .camera__actions { top: 129px; }
+
+.camera__intents {
+  position: absolute;
+  top: 69px;
+  left: 20px;
+  right: 20px;
+}
+.camera__intent-label {
+  position: absolute;
+  top: 103px;
+  left: 20px;
+  right: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Faixa de modos, rolável na horizontal (o padrão compartilhado de
+   rolagem/estados fica em assets/css/camera-shared.css). */
 .camera__modes {
   position: absolute;
   top: 21px;
   left: 20px;
   right: 0;
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  scrollbar-width: none;
+  padding-right: 20px;
 }
-
-.camera__modes::-webkit-scrollbar { display: none; }
 
 .camera__mode {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  flex: none;
-  height: 36px;
-  padding-inline: 16px;
-  border: 0;
-  border-radius: var(--radius-pill);
-  background: transparent;
-  color: #ffffff;
-  white-space: nowrap;
-  cursor: pointer;
 }
 
 /* Espessura de traço por contexto. Os symbols não trazem stroke-width para
@@ -183,12 +186,6 @@
 .status-bar svg { stroke-width: 2; }
 .camera__mode svg { stroke-width: 2.25; }       /* 2.25/24 * 16px = 1.5px */
 .camera__side-button svg { stroke-width: 1.5; } /* 1.5/24 * 24px = 1.5px */
-
-/* O modo corrente é destacado só pela cor do texto e do ícone (#e9d0f9),
-   sem fundo — é assim no design. */
-.camera__mode.is-active { color: #e9d0f9; }
-
-.camera__mode:active { background: rgba(255, 255, 255, 0.12); }
 
 /* Linha de ações: galeria, disparo e troca de câmera */
 .camera__actions {
@@ -203,15 +200,7 @@
 }
 
 .camera__side-button {
-  --glass-blur: 24px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-sm);
   color: #ffffff;
-  cursor: pointer;
 }
 
 /* Disparo: círculo branco de 72px com um miolo opaco de 60px (#0a0a0a),

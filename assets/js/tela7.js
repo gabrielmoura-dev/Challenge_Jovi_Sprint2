@@ -79,7 +79,28 @@
   var form = sheetEl.querySelector("form");
   var input = sheetEl.querySelector("#album-nome");
   var submit = sheetEl.querySelector("[data-sheet-submit]");
-  var sheet = new bootstrap.Modal(sheetEl, { backdrop: true, keyboard: true });
+  var lastFocus = null;
+  var albumList = document.querySelector('.album-row');
+  var albums = [];
+  try { albums = JSON.parse(localStorage.getItem('jovi-albums') || '[]'); } catch (error) {}
+  if (!Array.isArray(albums)) albums = [];
+  albums = albums.filter(function (name) { return typeof name === 'string'; });
+  function renderAlbum(name) {
+    var item = document.createElement('button');
+    item.type = 'button';
+    item.className = 'created-album';
+    item.setAttribute('data-created-album', '');
+    item.textContent = name;
+    item.addEventListener('click', function () { window.JoviToast.show('Álbum “' + name + '” · Nenhuma foto adicionada'); });
+    albumList.appendChild(item);
+  }
+  albums.forEach(renderAlbum);
+  sheetEl.inert = true;
+  function setBackgroundInert(value) {
+    Array.from(sheetEl.parentElement.children).forEach(function (child) {
+      if (child !== sheetEl) child.inert = value;
+    });
+  }
 
   function syncSubmitState() {
     submit.disabled = input.value.trim().length === 0;
@@ -87,26 +108,59 @@
 
   document.querySelectorAll("[data-open-sheet]").forEach(function (trigger) {
     trigger.addEventListener("click", function () {
-      sheet.show();
+      lastFocus = trigger;
+      sheetEl.inert = false;
+      setBackgroundInert(true);
+      sheetEl.classList.add("is-open");
+      sheetEl.setAttribute("aria-hidden", "false");
+      sheetEl.removeAttribute("inert");
+      input.focus({ preventScroll: true });
     });
   });
 
   input.addEventListener("input", syncSubmitState);
 
-  sheetEl.addEventListener("shown.bs.modal", function () {
-    input.focus();
-  });
-
-  // Ao fechar, volta ao estado inicial: campo vazio e "Criar" desabilitado.
-  sheetEl.addEventListener("hidden.bs.modal", function () {
+  function closeSheet() {
+    setBackgroundInert(false);
+    if (lastFocus) lastFocus.focus({ preventScroll: true });
+    sheetEl.classList.remove("is-open");
+    sheetEl.setAttribute("aria-hidden", "true");
+    sheetEl.setAttribute("inert", "");
+    sheetEl.inert = true;
     form.reset();
     syncSubmitState();
+    if (lastFocus) lastFocus.focus();
+  }
+  sheetEl.querySelectorAll("[data-sheet-close]").forEach(function (button) { button.addEventListener("click", closeSheet); });
+  sheetEl.addEventListener("click", function (event) { if (event.target === sheetEl) closeSheet(); });
+  sheetEl.addEventListener('keydown', function (event) {
+    if (event.key !== 'Tab') return;
+    var focusable = Array.from(sheetEl.querySelectorAll('button:not(:disabled), input'));
+    var first = focusable[0], last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  });
+  document.addEventListener("keydown", function (event) {
+    if (!sheetEl.classList.contains("is-open")) return;
+    if (event.key === "Escape") { closeSheet(); return; }
+    if (event.key === "Tab") {
+      var focusables = Array.from(sheetEl.querySelectorAll("button:not([disabled]), input:not([disabled])"));
+      var index = focusables.indexOf(document.activeElement);
+      if (event.shiftKey && index === 0) { event.preventDefault(); focusables[focusables.length - 1].focus(); }
+      else if (!event.shiftKey && index === focusables.length - 1) { event.preventDefault(); focusables[0].focus(); }
+    }
   });
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     if (submit.disabled) return;
-    sheet.hide();
+    var name = input.value.trim();
+    if (!name) return;
+    albums.push(name);
+    try { localStorage.setItem('jovi-albums', JSON.stringify(albums)); } catch (error) {}
+    renderAlbum(name);
+    closeSheet();
+    if (window.JoviToast) window.JoviToast.show("Álbum “" + name + "” criado");
   });
 
   syncSubmitState();
@@ -181,31 +235,22 @@
     });
   }
 
-  /* ---------------------------------------------------------- nav inferior */
+  /* ---------------------------------------------------------- nav inferior
+     Mesmos destinos da nav do Início (tela 05): Início · Galeria · Câmera ·
+     Estudo · Configurações. */
   var nav = document.querySelector(".bottom-nav");
   if (nav) {
+    var destinos = {
+      inicio: "tela-05-inicio.html",
+      camera: "tela-13-camera.html",
+      estudo: "tela-22-estudo.html",
+      configuracoes: "tela-17-ajustes.html"
+    };
     nav.addEventListener("click", function (event) {
       var btn = event.target.closest("[data-nav]");
       if (!btn) return;
-
-      switch (btn.getAttribute("data-nav")) {
-        case "inicio":
-          window.joviNavegar("tela-05-inicio.html");
-          break;
-        case "camera":
-          window.joviNavegar("tela-13-camera.html");
-          break;
-        case "albuns": {
-          var tudoChip = document.querySelector('[data-filter="tudo"]');
-          if (tudoChip && !tudoChip.classList.contains("is-active")) tudoChip.click();
-          var section = document.getElementById("sec-albuns");
-          if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
-          break;
-        }
-        case "perfil":
-          if (window.JoviToast) window.JoviToast.show("Perfil em breve");
-          break;
-      }
+      var destino = destinos[btn.getAttribute("data-nav")];
+      if (destino) window.joviNavegar(destino);
     });
   }
 })();

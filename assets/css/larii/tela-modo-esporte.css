@@ -13,8 +13,8 @@
    cantos arredondados nos quatro lados — é um cartão solto, não uma
    continuação do painel. */
 .camera__bursts {
-  --glass-bg: rgba(10, 10, 10, 0.4);
-  --glass-blur: 24px;
+  background: #202020;
+  border: 1px solid rgba(255,255,255,.14);
   position: absolute;
   left: 16px;
   right: 16px;

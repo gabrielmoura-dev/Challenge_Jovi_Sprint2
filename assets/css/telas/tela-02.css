@@ -32,6 +32,30 @@
   transform: translateX(-50%) scaleX(1.347);
 }
 
+/* Botão de voltar (mesmo padrão de .jovi-back--overlay, duplicado aqui
+   porque esta tela não carrega assets/css/tokens.css). */
+.jovi-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 999px;
+  padding: 4px;
+  cursor: pointer;
+}
+.jovi-back svg { width: 20px; height: 20px; display: block; }
+.jovi-back--overlay {
+  position: absolute;
+  z-index: 5;
+  top: 14px;
+  left: 16px;
+  color: #ffffff;
+  background: rgba(10, 10, 10, 0.35);
+}
+.jovi-back--overlay:active { background: rgba(10, 10, 10, 0.55); }
+
 /* Campo "Digite seu nome" */
 .onboarding-input {
   position: absolute;

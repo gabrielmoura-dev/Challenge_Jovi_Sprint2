@@ -131,6 +131,23 @@
 /* Enquanto "escaneia", o banner some de leve. */
 .blindagem-veredito.is-escaneando { opacity: 0.35; }
 
+/* Painel da Blindagem: 44px mais alto que o da Tela 24 para caber a faixa
+   global de modos acima das abas de alvo. Cores vêm de camera-shared.css. */
+.blindagem-painel {
+  top: 575px;
+  height: 225px;
+}
+.blindagem-modos {
+  position: absolute;
+  left: 20px;
+  right: 0;
+  top: 13px;
+  padding-right: 20px;
+}
+.blindagem-painel .blindagem-abas { top: 57px; }
+.blindagem-painel .tentativa-controles { top: 123px; }
+.blindagem-painel .tentativa-lateral { top: 8px; }
+
 /* Abas de alvo, dentro do painel de controles da Tela 24. */
 .blindagem-abas {
   position: absolute;
@@ -141,19 +158,20 @@
   gap: 8px;
 }
 .blindagem-aba {
-  height: 36px;
-  padding: 0 16px;
+  height: 32px;
+  padding: 0 14px;
   border-radius: 999px;
-  border: none;
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #242424;
   color: var(--jovi-white);
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 600;
   line-height: 20px;
   letter-spacing: -0.15px;
 }
 .blindagem-aba.is-ativa {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(184, 155, 234, 0.18);
+  border-color: #b89bea;
   /* Lilás claro do Figma, igual ao pill da Tela 24. */
   color: var(--lacar-chat-highlight);
 }

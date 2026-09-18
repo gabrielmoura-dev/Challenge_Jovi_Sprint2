@@ -15,23 +15,22 @@
   function ensureContainer() {
     if (container) return container;
     container = document.createElement("div");
-    container.className = "toast-container position-fixed bottom-0 start-50 translate-middle-x p-3";
-    container.style.zIndex = "1080";
-    document.body.appendChild(container);
+    container.className = "jovi-toast-container";
+    (document.querySelector(".app-frame, .lacar-phone-frame, .phone-frame") || document.body).appendChild(container);
     return container;
   }
 
   function show(message) {
     var host = ensureContainer();
     var el = document.createElement("div");
-    el.className = "toast align-items-center text-bg-dark border-0";
+    el.className = "jovi-toast";
     el.setAttribute("role", "status");
     el.setAttribute("aria-live", "polite");
     el.setAttribute("aria-atomic", "true");
-    el.innerHTML =
-      '<div class="d-flex">' +
-        '<div class="toast-body">' + message + "</div>" +
-      "</div>";
+    var body = document.createElement('div');
+    body.className = 'toast-body';
+    body.textContent = message;
+    el.appendChild(body);
     host.appendChild(el);
 
     if (global.bootstrap && global.bootstrap.Toast) {

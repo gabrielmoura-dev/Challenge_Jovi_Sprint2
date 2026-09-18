@@ -1,0 +1,130 @@
+/* ==========================================================================
+   JOVI — Câmera: padrão compartilhado das barras e controles.
+
+   Uma única fonte de verdade para tudo que se repete entre as câmeras
+   (Esporte, Estudo, Foto, Retrato, Vídeo, Blindagem): barra inferior
+   sólida (sem transparência nem blur), botões laterais, faixa de modos
+   rolável e intenções do modo Estudo. Cada tela ainda tem seu CSS de
+   layout; este arquivo define só cores/estados para todas ficarem iguais.
+   ========================================================================== */
+
+:root {
+  --cam-bar-bg: #101010;
+  --cam-bar-border: rgba(255, 255, 255, 0.12);
+  --cam-bar-radius: 24px;
+  --cam-side-bg: #242424;
+  --cam-side-border: rgba(255, 255, 255, 0.16);
+  --cam-mode-active: #e9d0f9;
+  --cam-mode-active-bg: rgba(255, 255, 255, 0.14);
+  --cam-intent-active: #b89bea;
+}
+
+/* Barra inferior — sólida em todos os modos. */
+[data-camera-bar] {
+  background: var(--cam-bar-bg);
+  border-top: 1px solid var(--cam-bar-border);
+  border-radius: var(--cam-bar-radius) var(--cam-bar-radius) 0 0;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* Botões laterais (galeria / alternar câmera). */
+[data-camera-side] {
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: var(--cam-side-bg);
+  border: 1px solid var(--cam-side-border);
+  color: #fff;
+  cursor: pointer;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* Faixa de modos: rola na horizontal, sem barra de rolagem visível. */
+[data-camera-modes] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  touch-action: pan-x;
+  cursor: grab;
+  scroll-padding-inline: 12px;
+}
+[data-camera-modes]::-webkit-scrollbar { display: none; }
+[data-camera-modes].is-dragging { cursor: grabbing; user-select: none; }
+
+[data-camera-modes] [data-camera-mode] {
+  flex: none;
+  height: 36px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  font-family: var(--jovi-font, "Inter", sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.15px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+[data-camera-modes] [data-camera-mode].is-active {
+  color: var(--cam-mode-active);
+  background: var(--cam-mode-active-bg);
+}
+[data-camera-modes] [data-camera-mode]:focus-visible {
+  outline: 2px solid var(--cam-mode-active);
+  outline-offset: 2px;
+}
+
+/* Intenções do modo Estudo (Chat / Palestra / Exercício). */
+[data-study-intent] {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+[data-study-intent]::-webkit-scrollbar { display: none; }
+[data-study-intent] button {
+  flex: none;
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid var(--cam-side-border);
+  border-radius: 999px;
+  background: var(--cam-side-bg);
+  color: #fff;
+  font-family: var(--jovi-font, "Inter", sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+[data-study-intent] button.is-active {
+  color: var(--cam-mode-active);
+  border-color: var(--cam-intent-active);
+  background: rgba(184, 155, 234, 0.18);
+}
+[data-study-intent-label] {
+  margin: 0;
+  color: #d7c5f2;
+  font-size: 11px;
+  line-height: 14px;
+}
+
+/* Obturador em modo vídeo: miolo vermelho de gravação. */
+[data-camera-shutter].is-video {
+  background: #e53935;
+  background-clip: padding-box;
+}
+[data-camera-shutter].is-video .camera-shutter-inner,
+[data-camera-shutter].is-video .shutter-btn-inner {
+  background: #e53935;
+}

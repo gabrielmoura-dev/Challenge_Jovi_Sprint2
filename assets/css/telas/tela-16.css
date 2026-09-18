@@ -105,46 +105,17 @@
 }
 .camera-bottom {
   margin-top: auto;
-  background: var(--jovi-overlay);
-  border-top: 1px solid rgba(255,255,255,0.12);
-  border-radius: 24px 24px 0 0;
+  /* Cores/bordas vêm de camera-shared.css ([data-camera-bar]). */
   padding: 18px 20px 24px;
 }
-.camera-mode-pill {
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-.camera-mode-pill.active { background: rgba(255,255,255,0.15); }
-.camera-mode-strip {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.camera-mode-strip::-webkit-scrollbar { display: none; }
+.camera-mode-strip { padding-bottom: 8px; }
 .camera-shutter-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 20px;
 }
-.camera-side-btn {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.camera-side-btn img { width: 24px; height: 24px; }
 .camera-shutter {
   width: 72px;
   height: 72px;

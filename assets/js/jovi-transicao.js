@@ -23,7 +23,7 @@
   var SUPORTA_VIEW_TRANSITION = "onpagereveal" in window;
   var TEMPO_SAIDA_FALLBACK = 80;
   var DIRECAO_KEY = "jovi-direcao";
-  var SELETOR_TOCAVEL = "[onclick*='joviNavegar('], a[href], button, [role='button']";
+  var SELETOR_TOCAVEL = "[onclick*='joviNavegar('], [onclick*='joviVoltar('], a[href], button, [role='button']";
   var raiz = document.documentElement;
   var navegando = false;
 
@@ -158,6 +158,23 @@
     joviNavegar(href, evento);
   });
 
+  // Botão discreto de "voltar" que aparece em (quase) toda tela: prefere o
+  // histórico real do navegador (para não pular telas intermediárias em
+  // fluxos com múltiplas entradas, como as câmeras) e só usa a URL de
+  // reserva quando não há de onde voltar (aba nova, link direto, catálogo).
+  function joviVoltar(fallback, evento) {
+    var temHistoricoDoApp = document.referrer && document.referrer.indexOf(window.location.origin) === 0;
+    if (temHistoricoDoApp && window.history.length > 1) {
+      try { sessionStorage.setItem(DIRECAO_KEY, "voltar"); } catch (e) {}
+      var botao = elementoTocado(evento || window.event);
+      if (botao) pressionar(botao);
+      window.history.back();
+      return;
+    }
+    joviNavegar(fallback, evento);
+  }
+  window.joviVoltar = joviVoltar;
+
   /* ------------------------------------------------ pré-carregamento */
   // Pré-carrega a tela de destino assim que o dedo/cursor chega no botão:
   // quando o toque vem, o HTML já está no cache e a transição começa na
@@ -172,10 +189,10 @@
     document.head.appendChild(link);
   }
   function destinoDe(elemento) {
-    var alvo = elemento.closest ? elemento.closest("[onclick*='joviNavegar('], a[href]") : null;
+    var alvo = elemento.closest ? elemento.closest("[onclick*='joviNavegar('], [onclick*='joviVoltar('], a[href]") : null;
     if (!alvo) return null;
     var oc = alvo.getAttribute("onclick");
-    var m = oc && oc.match(/joviNavegar\('([^']+)'/);
+    var m = oc && oc.match(/jovi(?:Navegar|Voltar)\('([^']+)'/);
     return m ? m[1] : alvo.getAttribute("href");
   }
   ["pointerenter", "pointerdown", "touchstart", "focusin"].forEach(function (tipo) {

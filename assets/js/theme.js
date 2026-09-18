@@ -4,10 +4,8 @@
    sistema (prefers-color-scheme) e continua acompanhando o sistema em
    tempo real.
 
-   Duas formas de controle na UI, ambas ligadas aqui:
-   - botão simples [data-theme-toggle] (ícone 🌙/☀️, alterna claro/escuro)
-   - seletor de 3 opções [data-appearance-option="light|dark|system"]
-     (Tela 17 · Ajustes)
+   Controle na UI: seletor de 3 opções [data-appearance-option="light|dark|system"]
+   (Tela 17 · Ajustes). Não existe mais botão de tema fora do celular.
 
    Cada tela que usa tema chama este arquivo no fim do <body>. Para evitar
    o "flash" da tela no tema errado, a tela também deve ter um pequeno
@@ -66,11 +64,6 @@
     if (!stored()) apply(event.matches ? "dark" : "light");
   });
 
-  function syncToggleButton() {
-    var toggle = document.querySelector("[data-theme-toggle]");
-    if (toggle) toggle.textContent = current() === "dark" ? "☀️ Light" : "🌙 Dark";
-  }
-
   function syncAppearanceOptions() {
     var mode = stored() || "system";
     document.querySelectorAll("[data-appearance-option]").forEach(function (btn) {
@@ -81,19 +74,10 @@
   }
 
   function refreshControls() {
-    syncToggleButton();
     syncAppearanceOptions();
   }
 
   function initControls() {
-    var toggle = document.querySelector("[data-theme-toggle]");
-    if (toggle) {
-      toggle.addEventListener("click", function () {
-        set(current() === "dark" ? "light" : "dark");
-        refreshControls();
-      });
-    }
-
     document.querySelectorAll("[data-appearance-option]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var option = btn.getAttribute("data-appearance-option");

@@ -47,11 +47,17 @@
     if (alt) preview.setAttribute("alt", alt);
   }
 
-  // Troca de alvo: atualiza a foto de fundo e volta o veredito ao estado
-  // daquele alvo (a Tela 15.js já cuida de marcar o botão como ativo).
+  // Troca de alvo: marca o botão ativo, atualiza a foto de fundo e volta o
+  // veredito ao estado daquele alvo.
   modes.addEventListener("click", function (event) {
     var button = event.target.closest(".camera__mode");
     if (!button || scanning) return;
+    modes.querySelectorAll(".camera__mode").forEach(function (item) {
+      var active = item === button;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-pressed", String(active));
+    });
+    button.scrollIntoView({ inline: "nearest", block: "nearest", behavior: "smooth" });
     applyTarget(button);
     setVerdict(
       button.getAttribute("data-state") || "safe",
