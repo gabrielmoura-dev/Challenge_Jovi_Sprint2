@@ -20,11 +20,11 @@
 <link href="../assets/css/larii/Larii-componentes.css" rel="stylesheet">
 <link href="../assets/css/larii/tela15.css" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <link rel="stylesheet" href="../assets/css/jovi-base.css">
   <script src="../assets/js/jovi-transicao.js"></script>
-  <link rel="stylesheet" href="../assets/css/jovi-story.css">
+  <script src="../assets/js/jovi-ui.js"></script>
 </head>
 <body>
-
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-book-open-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
     <path d="M12 7C12 5.93913 11.5786 4.92172 10.8284 4.17157C10.0783 3.42143 9.06087 3 8 3H2V18H9C9.79565 18 10.5587 18.3161 11.1213 18.8787C11.6839 19.4413 12 20.2044 12 21M12 7V21M12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H22V18H15C14.2044 18 13.4413 18.3161 12.8787 18.8787C12.3161 19.4413 12 20.2044 12 21M6 8H8M6 12H8M16 8H18M16 12H18"/>
@@ -102,20 +102,9 @@
 
     <div class="camera__panel">
 
-      <div class="camera__modes" data-modes role="group" aria-label="Modo de captura">
-        <button type="button" class="camera__mode t-label" aria-pressed="false">
-          <svg width="16" height="16" aria-hidden="true"><use href="#i-zap"/></svg>Esporte
-        </button>
-        <button type="button" class="camera__mode t-label" aria-pressed="false">
-          <svg width="16" height="16" aria-hidden="true"><use href="#i-message-circle"/></svg>Chat
-        </button>
-        <button type="button" class="camera__mode t-label is-active" aria-pressed="true">
-          <svg width="16" height="16" aria-hidden="true"><use href="#i-video"/></svg>Palestra
-        </button>
-        <button type="button" class="camera__mode t-label" aria-pressed="false">
-          <svg width="16" height="16" aria-hidden="true"><use href="#i-moon"/></svg>Noturno
-        </button>
-      </div>
+      <!-- Faixa de modos: rótulos, ordem e destinos vêm de
+           assets/js/camera-modes.js (fonte única do protótipo). -->
+      <div class="jovi-modes" data-camera-modes="estudo" data-modo-ativo="palestra"></div>
 
       <div class="camera__actions">
         <button type="button" class="camera__side-button glass" aria-label="Abrir galeria" onclick="joviNavegar('tela-06-galeria.html')">
@@ -147,6 +136,6 @@
     });
   })();
 </script>
-  <script src="../assets/js/jovi-story.js"></script>
+  <script src="../assets/js/camera-modes.js"></script>
 </body>
 </html>

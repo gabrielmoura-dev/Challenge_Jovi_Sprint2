@@ -190,27 +190,3 @@ body { background: #e5e5e5; margin: 0; }
   background: var(--jovi-purple);
 }
 
-/* Botão de troca de tema — mesmo padrão visual usado nas demais telas do
-   fluxo (assets/css/lacar-componentes.css / jullia-componentes.css), com
-   os tokens desta família (--jovi-*), já que a página não carrega
-   aqueles arquivos. Fica fora de .tela03-screen, então usa data-bs-theme
-   no <html> (ligado por assets/js/jovi.js) em vez de .tela03-dark. */
-.theme-toggle {
-  position: fixed;
-  top: 16px;
-  z-index: 50;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: var(--jovi-white);
-  color: var(--jovi-bg-dark);
-  padding: 8px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-[data-bs-theme="dark"] .theme-toggle {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: var(--jovi-surface-dark);
-  color: var(--jovi-white);
-}

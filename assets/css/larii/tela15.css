@@ -41,13 +41,16 @@
 /* O painel é uma lâmina de vidro: cantos de cima arredondados e um fio de
    luz só na aresta superior (as laterais e a base não têm borda). */
 .camera__veil--bottom {
-  --glass-bg: rgba(0, 0, 0, 0.355);
+  /* Cor, opacidade e blur vêm dos tokens de assets/css/jovi-base.css — a
+     mesma lâmina de vidro das demais telas de câmera (antes esta família
+     tinha um valor próprio, e a barra parecia diferente por tela). */
+  --glass-bg: var(--camera-bar-bg);
   --glass-border: transparent;
-  --glass-blur: 24px;
+  --glass-blur: var(--camera-bar-blur);
   bottom: 0;
   height: 181px;
-  border-top-color: rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border-top-color: var(--camera-bar-border);
+  border-radius: var(--camera-bar-radius) var(--camera-bar-radius) 0 0;
 }
 
 .camera__ui {

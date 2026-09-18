@@ -10,12 +10,11 @@
   <link rel="stylesheet" href="../assets/css/telas/tela-10.css">
   <link rel="stylesheet" href="../assets/css/telas/tela-11.css">
   <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <link rel="stylesheet" href="../assets/css/jovi-base.css">
   <script src="../assets/js/jovi-transicao.js"></script>
-  <link rel="stylesheet" href="../assets/css/jovi-story.css">
+  <script src="../assets/js/jovi-ui.js"></script>
 </head>
 <body>
-  <a href="../index.html" class="theme-toggle" style="right: 16px; left: auto; text-decoration:none;">← Telas</a>
-
   <div class="lacar-phone-shell">
     <main class="lacar-phone-frame camera-frame" data-node-id="159:4405" data-name="tela 11">
       <img src="../assets/img/camera-interface-bg.png" alt="" class="camera-bg" data-node-id="159:4406">
@@ -84,24 +83,10 @@
       </div>
 
       <div class="camera-bottombar" data-node-id="159:4466">
-        <div class="camera-modes">
-          <button type="button" class="mode-pill mode-sport" data-camera-mode="esporte">
-            <img src="../assets/img/cam-mode-sport.svg" alt="">
-            <span>Esporte</span>
-          </button>
-          <button type="button" class="mode-pill mode-chat" data-camera-mode="chat">
-            <img src="../assets/img/message-circle.svg" alt="">
-            <span>Chat</span>
-          </button>
-          <button type="button" class="mode-pill mode-palestra" data-camera-mode="palestra">
-            <img src="../assets/img/video.svg" alt="">
-            <span>Palestra</span>
-          </button>
-          <button type="button" class="mode-pill mode-noturno" data-camera-mode="noturno">
-            <img src="../assets/img/cam-mode-night.svg" alt="">
-            <span>Noturno</span>
-          </button>
-        </div>
+        <!-- Faixa de modos: rótulos, ordem e destinos vêm de
+             assets/js/camera-modes.js (fonte única do protótipo). Esta tela
+             é o pós-captura do Modo Estudo, então usa a faixa de estudo. -->
+        <div class="jovi-modes" data-camera-modes="estudo" data-modo-ativo="chat"></div>
 
         <div class="camera-shutter-row">
           <button type="button" class="shutter-side-btn" aria-label="Galeria" onclick="joviNavegar('tela-06-galeria.html')">
@@ -132,6 +117,6 @@
       });
     })();
   </script>
-  <script src="../assets/js/jovi-story.js"></script>
+  <script src="../assets/js/camera-modes.js"></script>
 </body>
 </html>

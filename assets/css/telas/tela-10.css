@@ -96,9 +96,12 @@
 
 .camera-bottombar {
   flex-shrink: 0;
-  background: rgba(10, 10, 10, 0.4);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 24px 24px 0 0;
+  /* Tokens em assets/css/jovi-base.css — idêntica às demais telas de câmera. */
+  background: var(--camera-bar-bg);
+  -webkit-backdrop-filter: blur(var(--camera-bar-blur));
+  backdrop-filter: blur(var(--camera-bar-blur));
+  border-top: 1px solid var(--camera-bar-border);
+  border-radius: var(--camera-bar-radius) var(--camera-bar-radius) 0 0;
   box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.12);
   /* Total 181px no Figma (y=619 a 800): 21 topo + 44 modos + 20 gap + 72
      obturador = 157, sobram 24px de respiro inferior (safe-area). */
@@ -108,39 +111,8 @@
   gap: 20px;
 }
 
-.camera-modes {
-  height: 44px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-}
-.camera-modes::-webkit-scrollbar { display: none; }
-.mode-pill {
-  flex-shrink: 0;
-  height: 36px;
-  border-radius: 999px;
-  border: none;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0 16px;
-  color: #ffffff;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 600;
-  letter-spacing: -0.15px;
-  font-family: var(--jovi-font);
-}
-.mode-pill.active { background: rgba(255, 255, 255, 0.15); }
-.mode-pill img { width: 16px; height: 16px; filter: brightness(0) invert(1); }
-.mode-pill.mode-sport,
-.mode-pill.mode-chat,
-.mode-pill.mode-palestra { font-family: "JOVI Sans CN"; }
-.mode-pill.mode-noturno { font-family: "Inter"; font-weight: 700; }
+/* A faixa de modos agora é .jovi-modes/.jovi-mode (assets/css/jovi-base.css),
+   renderizada por assets/js/camera-modes.js — igual em todas as telas. */
 
 .camera-shutter-row {
   height: 72px;

@@ -107,21 +107,6 @@ body {
 [data-bs-theme="light"] .lacar-statusbar img { filter: none; }
 [data-bs-theme="dark"] .lacar-statusbar img { filter: brightness(0) invert(1); }
 
-/* Toggle de tema — ferramenta de QA, não faz parte do design */
-.theme-toggle {
-  position: fixed;
-  top: 16px;
-  z-index: 50;
-  border-radius: 999px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: var(--lacar-bg);
-  color: var(--lacar-text);
-  padding: 8px 14px;
-  font-size: 13px;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
 /* Nav inferior */
 .lacar-nav-bottom {
   background: var(--lacar-navbar-bg);

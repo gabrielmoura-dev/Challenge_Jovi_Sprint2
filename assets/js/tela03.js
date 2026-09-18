@@ -19,10 +19,8 @@
     });
   }
 
-  // jovi.js já aplicou o tema salvo e religou o clique do botão antes deste
-  // script rodar (carregado depois dele) — aqui só falta espelhar o estado
-  // inicial e reagir aos cliques seguintes.
+  // jovi.js já aplicou o tema salvo antes deste script rodar (carregado
+  // depois dele) — aqui só falta espelhar o estado inicial nas imagens.
+  // O tema muda pela Tela 17 (Ajustes), que recarrega a tela ao navegar.
   sync();
-  var toggle = document.querySelector("[data-theme-toggle]");
-  if (toggle) toggle.addEventListener("click", sync);
 })();

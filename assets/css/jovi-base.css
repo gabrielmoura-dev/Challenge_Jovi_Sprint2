@@ -1,0 +1,146 @@
+/* =========================================================================
+   JOVI — base compartilhada por TODAS as telas.
+
+   Carregado em todas as 35 telas, junto de jovi-transitions.css. Existe para
+   as coisas que precisam ser idênticas no protótipo inteiro e que antes
+   estavam duplicadas (ou divergentes) em cada família de CSS:
+
+     1. tokens da barra inferior da câmera — uma cor, uma opacidade, um blur;
+     2. a faixa de modos de captura (.jovi-modes / .jovi-mode), renderizada
+        por assets/js/camera-modes.js;
+     3. elementos criados por JS que precisam viver DENTRO da moldura do
+        celular: toast e bottom sheet. Nada do protótipo é pintado fora do
+        frame de 360x800.
+   ========================================================================= */
+
+:root {
+  /* --------------------------------------------------------------------
+     Barra inferior da câmera. Antes existiam três valores diferentes para
+     a mesma barra (rgba(0,0,0,.355) com blur em umas telas, rgba(10,10,10,.4)
+     sem blur em outras) — o que fazia a Tela 13 parecer transparente demais
+     e a Tela 12 parecer "meio blur". Agora todas as telas de câmera leem
+     estes tokens: mesma lâmina de vidro em todos os modos.
+     -------------------------------------------------------------------- */
+  --camera-bar-bg: rgba(10, 10, 10, 0.55);
+  --camera-bar-blur: 24px;
+  --camera-bar-border: rgba(255, 255, 255, 0.12);
+  --camera-bar-radius: 24px;
+
+  /* Realce do modo de captura ativo (mesmo lilás do design). */
+  --camera-mode-active: #e9d0f9;
+}
+
+/* =========================================================================
+   Faixa de modos de captura
+   ========================================================================= */
+
+.jovi-modes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* A faixa tem mais modos do que cabe na largura do celular — de propósito.
+     Esta máscara esmaece a borda direita para deixar claro que há mais
+     opções à espera de um arrasto, como num app de câmera de verdade. */
+  -webkit-mask-image: linear-gradient(to right, #000 0, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 0, #000 88%, transparent 100%);
+  cursor: grab;
+}
+
+.jovi-modes::-webkit-scrollbar { display: none; }
+.jovi-modes.is-arrastando { cursor: grabbing; }
+
+.jovi-mode {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #ffffff;
+  font-family: "JOVI Sans CN", var(--font-display, var(--jovi-font, "Inter")), sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: -0.15px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+/* O modo corrente: fundo de vidro leve + rótulo e ícone em lilás. */
+.jovi-mode.is-active {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--camera-mode-active);
+}
+
+.jovi-mode:hover:not(.is-active) { background: rgba(255, 255, 255, 0.08); }
+.jovi-mode:active { transform: scale(0.97); }
+
+/* Espessura de traço do ícone. O seletor tem dois níveis de propósito: as
+   telas de câmera da família larii têm uma regra `.app-frame--camera svg
+   { stroke-width: 1 }` que, sendo mais específica que uma classe só,
+   afinaria o ícone até quase desaparecer. */
+.jovi-mode > .jovi-mode__ico {
+  flex: none;
+  stroke-width: 2.25;  /* 2.25 no viewBox de 24 = 1.5px em tela */
+}
+
+/* Onde a faixa se encaixa em cada família de tela. Só posição — a aparência
+   é a mesma em todas. */
+.camera__panel > .jovi-modes {
+  position: absolute;
+  top: 21px;
+  left: 20px;
+  right: 0;
+}
+
+.camera-bottombar > .jovi-modes,
+.camera-bottom > .jovi-modes {
+  margin: 0;
+}
+
+/* =========================================================================
+   Toast e bottom sheet ancorados na moldura (não na janela)
+   ========================================================================= */
+
+/* Container criado por assets/js/toast.js dentro da moldura. */
+.jovi-toast-host {
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* Acima da nav inferior / da barra da câmera, como num aviso de celular. */
+  bottom: 88px;
+  z-index: 1080;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.jovi-toast-host .toast { pointer-events: auto; }
+
+/* Véu do bottom sheet — o backdrop do Bootstrap é fixo na janela e escurecia
+   a página toda em volta do celular. Este fica dentro da moldura. */
+.jovi-sheet-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1050;
+  background: rgba(15, 15, 15, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.jovi-sheet-veil.is-open { opacity: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .jovi-sheet-veil { transition: none; }
+  .jovi-mode { transition: none; }
+}

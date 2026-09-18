@@ -105,30 +105,18 @@
 }
 .camera-bottom {
   margin-top: auto;
-  background: var(--jovi-overlay);
-  border-top: 1px solid rgba(255,255,255,0.12);
-  border-radius: 24px 24px 0 0;
+  /* Tokens em assets/css/jovi-base.css. Antes usava --jovi-overlay (0.4 sem
+     blur), o que deixava esta barra visivelmente mais transparente que as
+     outras telas de câmera. */
+  background: var(--camera-bar-bg);
+  -webkit-backdrop-filter: blur(var(--camera-bar-blur));
+  backdrop-filter: blur(var(--camera-bar-blur));
+  border-top: 1px solid var(--camera-bar-border);
+  border-radius: var(--camera-bar-radius) var(--camera-bar-radius) 0 0;
   padding: 18px 20px 24px;
 }
-.camera-mode-pill {
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-.camera-mode-pill.active { background: rgba(255,255,255,0.15); }
-.camera-mode-strip {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.camera-mode-strip::-webkit-scrollbar { display: none; }
+/* A faixa de modos agora é .jovi-modes/.jovi-mode (assets/css/jovi-base.css),
+   renderizada por assets/js/camera-modes.js — igual em todas as telas. */
 .camera-shutter-row {
   display: flex;
   align-items: center;

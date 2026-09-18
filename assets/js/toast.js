@@ -4,6 +4,9 @@
    "mensagem") de qualquer script de tela; o container é criado sozinho na
    primeira chamada.
 
+   O container é ancorado DENTRO da moldura do celular (JoviFrame.host()), não
+   no rodapé da janela: o protótipo não pinta nada fora do frame.
+
    Atalho declarativo: qualquer botão com data-toast="mensagem" já dispara
    o toast sozinho, sem precisar de JS extra na tela (basta incluir este
    arquivo). */
@@ -13,11 +16,10 @@
   var container = null;
 
   function ensureContainer() {
-    if (container) return container;
+    if (container && container.isConnected) return container;
     container = document.createElement("div");
-    container.className = "toast-container position-fixed bottom-0 start-50 translate-middle-x p-3";
-    container.style.zIndex = "1080";
-    document.body.appendChild(container);
+    container.className = "toast-container p-3 jovi-toast-host";
+    (global.JoviFrame ? global.JoviFrame.host() : document.body).appendChild(container);
     return container;
   }
 

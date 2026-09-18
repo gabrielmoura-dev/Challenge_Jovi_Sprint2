@@ -26,14 +26,11 @@
 <link href="../assets/css/larii/Larii-componentes.css" rel="stylesheet">
 <link href="../assets/css/larii/tela7.css" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/jovi-transitions.css">
+  <link rel="stylesheet" href="../assets/css/jovi-base.css">
   <script src="../assets/js/jovi-transicao.js"></script>
-  <link rel="stylesheet" href="../assets/css/jovi-story.css">
+  <script src="../assets/js/jovi-ui.js"></script>
 </head>
 <body>
-
-<button type="button" class="theme-toggle" data-theme-toggle style="left: 16px;">🌙 Dark</button>
-<a href="../index.html" class="theme-toggle" style="right: 16px; left: auto; text-decoration:none;">← Telas</a>
-
 <!-- Biblioteca de ícones (Lucide, o mesmo conjunto usado no Figma).
      Herdam a cor do elemento pai via currentColor, então acompanham o tema. -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -75,8 +72,9 @@
   <symbol id="i-book-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/>
   </symbol>
-  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+  <symbol id="i-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+    <circle cx="12" cy="12" r="3"/>
   </symbol>
   <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
@@ -429,6 +427,10 @@
 
   </main>
 
+  <!-- Nav inferior: os mesmos 5 destinos das outras telas do app
+       (Início · Galeria · Câmera · Diário · Ajustes). Antes esta tela tinha
+       "Álbuns" (que só rolava a página) e "Perfil" com ícone de pessoa —
+       era a única fora do padrão. -->
   <nav class="bottom-nav" aria-label="Navegação principal">
     <button type="button" class="bottom-nav__item" aria-label="Início" data-nav="inicio">
       <svg width="20" height="20" aria-hidden="true"><use href="#i-home"/></svg>
@@ -436,51 +438,55 @@
     <button type="button" class="bottom-nav__item is-active" aria-label="Galeria" aria-current="page">
       <svg width="20" height="20" aria-hidden="true"><use href="#i-image"/></svg>
     </button>
-    <button type="button" class="bottom-nav__fab" aria-label="Nova foto" data-nav="camera">
+    <button type="button" class="bottom-nav__fab" aria-label="Abrir câmera" data-nav="camera">
       <svg width="24" height="24" aria-hidden="true"><use href="#i-camera"/></svg>
     </button>
-    <button type="button" class="bottom-nav__item" aria-label="Álbuns" data-nav="albuns">
+    <button type="button" class="bottom-nav__item" aria-label="Diário" data-nav="diario">
       <svg width="20" height="20" aria-hidden="true"><use href="#i-book-open"/></svg>
     </button>
-    <button type="button" class="bottom-nav__item" aria-label="Perfil" data-nav="perfil">
-      <svg width="20" height="20" aria-hidden="true"><use href="#i-user"/></svg>
+    <button type="button" class="bottom-nav__item" aria-label="Ajustes" data-nav="ajustes">
+      <svg width="20" height="20" aria-hidden="true"><use href="#i-settings"/></svg>
     </button>
   </nav>
 
-</div>
+  <!-- Bottom sheet "Criar álbum" — vive DENTRO da moldura (antes estava fora
+       dela: subia do rodapé da janela do navegador, e o véu escurecia a página
+       toda). O véu abaixo substitui o backdrop do Bootstrap, que é fixo na
+       janela. -->
+  <div class="jovi-sheet-veil" data-sheet-veil hidden></div>
+  <div class="modal fade sheet" id="sheet-criar-album" tabindex="-1" aria-labelledby="sheet-titulo" aria-hidden="true"
+       data-bs-backdrop="false">
+    <div class="modal-dialog">
+      <form class="modal-content">
+        <div class="sheet__header">
+          <h2 class="sheet__title t-heading-lg" id="sheet-titulo">Criar álbum</h2>
+          <button type="button" class="icon-button icon-button--32" data-bs-dismiss="modal" aria-label="Fechar">
+            <svg width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg>
+          </button>
+        </div>
 
-<!-- Bottom sheet "Criar álbum" -->
-<div class="modal fade sheet" id="sheet-criar-album" tabindex="-1" aria-labelledby="sheet-titulo" aria-hidden="true"
-     data-bs-backdrop="true">
-  <div class="modal-dialog">
-    <form class="modal-content">
-      <div class="sheet__header">
-        <h2 class="sheet__title t-heading-lg" id="sheet-titulo">Criar álbum</h2>
-        <button type="button" class="icon-button icon-button--32" data-bs-dismiss="modal" aria-label="Fechar">
-          <svg width="20" height="20" aria-hidden="true"><use href="#i-x"/></svg>
-        </button>
-      </div>
+        <div class="sheet__field">
+          <label class="sheet__label t-body-sm" for="album-nome">Nome do álbum</label>
+          <input class="sheet__input t-body-md" id="album-nome" type="text" placeholder="Ex: Viagem 2024" autocomplete="off">
+        </div>
 
-      <div class="sheet__field">
-        <label class="sheet__label t-body-sm" for="album-nome">Nome do álbum</label>
-        <input class="sheet__input t-body-md" id="album-nome" type="text" placeholder="Ex: Viagem 2024" autocomplete="off">
-      </div>
-
-      <div class="sheet__actions">
-        <button type="button" class="btn-sheet btn-sheet--neutral t-button" data-bs-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn-sheet btn-sheet--brand t-button" data-sheet-submit disabled>
-          <svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg>
-          Criar
-        </button>
-      </div>
-    </form>
+        <div class="sheet__actions">
+          <button type="button" class="btn-sheet btn-sheet--neutral t-button" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn-sheet btn-sheet--brand t-button" data-sheet-submit disabled>
+            <svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg>
+            Criar
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
+
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/theme.js"></script>
 <script src="../assets/js/toast.js"></script>
 <script src="../assets/js/tela7.js"></script>
-  <script src="../assets/js/jovi-story.js"></script>
 </body>
 </html>
