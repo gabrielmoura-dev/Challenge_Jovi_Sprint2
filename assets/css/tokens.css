@@ -488,3 +488,47 @@
   font-size: 14px;
   line-height: 22.75px;
 }
+
+/* --------------------------------------------------------------------------
+   Mobile real: sem "celular mockado". Acima de 420px o cartão 360x800
+   flutuante (apresentação em desktop) continua igual; em celular de verdade
+   o cartão vira a própria tela. Cobre os cinco cartões e os quatro wrappers
+   que centralizam/afastam o cartão (padding 76px 12px 108px). dvh evita o
+   corte pela barra de endereço do navegador móvel; vh fica de fallback.
+   -------------------------------------------------------------------------- */
+@media (max-width: 420px) {
+  html,
+  body {
+    background: #000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+
+  .lacar-phone-shell,
+  .phone-shell,
+  .onboarding-wrapper,
+  .tela03-shell {
+    display: block !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .app-frame,
+  .lacar-phone-frame,
+  .phone-frame,
+  .onboarding-screen,
+  .tela03-screen {
+    width: 100% !important;
+    max-width: none !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+  }
+}

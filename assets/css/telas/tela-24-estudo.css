@@ -178,3 +178,23 @@
   border-radius: 30px;
   background: var(--jovi-bg-dark);
 }
+
+/* Celular real (≤420px): o cartão vira a tela inteira (ver tokens.css) e
+   deixa de ter 360x800. Faixas e painel passam a acompanhar a largura, o
+   painel ancora no rodapé e o que estava centralizado por `left` fixo é
+   recentralizado. Em exatos 360x800 o resultado é idêntico ao do Figma. */
+@media (max-width: 420px) {
+  .tentativa-foto,
+  .tela-24-estudo .lacar-statusbar,
+  .tentativa-topbar,
+  .tentativa-painel { width: 100%; }
+  .tentativa-foto { height: calc(100% - 344px); object-fit: cover; }
+  .tentativa-painel { top: auto; bottom: 0; }
+  .tentativa-pill { left: 50%; transform: translateX(-50%); }
+  .tentativa-visor { left: 50%; margin-left: -150px; }
+  .tentativa-titulo,
+  .tentativa-sub,
+  .tentativa-controles { width: calc(100% - 40px); }
+  .tentativa-lateral.is-inverter { left: auto; right: 0; }
+  .tentativa-obturador { left: 50%; margin-left: -36px; }
+}

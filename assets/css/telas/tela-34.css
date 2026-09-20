@@ -206,3 +206,13 @@
 @media (prefers-reduced-motion: reduce) {
   .blindagem-visor::after { display: none; }
 }
+
+/* Celular real (≤420px): ver bloco equivalente em tela-24-estudo.css. */
+@media (max-width: 420px) {
+  .blindagem-cena { width: 100%; height: calc(100% - 260px); }
+  .blindagem-badge { left: calc(50% - 74.5px); }
+  .blindagem-config { left: auto; right: 20px; }
+  .blindagem-visor { left: 50%; margin-left: -160px; }
+  .blindagem-veredito { width: calc(100% - 40px); }
+  .blindagem-painel { top: auto; bottom: 0; }
+}

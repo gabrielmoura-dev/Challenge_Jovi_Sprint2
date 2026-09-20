@@ -161,3 +161,30 @@ html.jovi-entrando .tela03-screen {
     animation-name: jovi-surgir;
   }
 }
+
+/* Celular real (≤420px): o cartão é a própria tela (ver tokens.css). Na troca
+   não pode aparecer moldura: sem raio, sem sombra e sem encolher o cartão
+   (a escala deixaria bordas pretas nas laterais). Fica só o fade. */
+@media (max-width: 420px) {
+  ::view-transition-group(jovi-phone) {
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+  ::view-transition-old(jovi-phone) { animation: jovi-recuo 0.2s cubic-bezier(0, 0, 0.2, 1) both; }
+  ::view-transition-new(jovi-phone) { animation: jovi-surgir 0.16s cubic-bezier(0, 0, 0.2, 1) both; }
+  html.jovi-voltando::view-transition-old(jovi-phone) { animation: jovi-sumir 0.14s cubic-bezier(0.4, 0, 1, 1) both; }
+  html.jovi-voltando::view-transition-new(jovi-phone) { animation: jovi-clarear 0.18s cubic-bezier(0, 0, 0.2, 1) both; }
+
+  html.jovi-saindo .lacar-phone-frame,
+  html.jovi-saindo .phone-frame,
+  html.jovi-saindo .app-frame,
+  html.jovi-saindo .onboarding-screen,
+  html.jovi-saindo .tela03-screen { animation-name: jovi-mobile-saida; }
+  html.jovi-entrando .lacar-phone-frame,
+  html.jovi-entrando .phone-frame,
+  html.jovi-entrando .app-frame,
+  html.jovi-entrando .onboarding-screen,
+  html.jovi-entrando .tela03-screen { animation-name: jovi-surgir; }
+  @keyframes jovi-mobile-saida { to { opacity: 0; } }
+}
