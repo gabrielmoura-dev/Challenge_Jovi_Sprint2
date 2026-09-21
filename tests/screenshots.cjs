@@ -2,7 +2,7 @@
 const { chromium } = require('@playwright/test');
 const fs = require('node:fs');
 (async () => {
-  const browser = await chromium.launch({ executablePath: process.env.JOVI_BROWSER || 'C:/Program Files (x86)/Microsoft/EdgeCore/153.0.4234.32/msedge.exe' });
+  const browser = await chromium.launch({ executablePath: process.env.JOVI_BROWSER || undefined });
   const page = await browser.newPage({ viewport: { width: 390, height: 900 } });
   fs.mkdirSync('docs/evidence', { recursive: true });
   const shots = [

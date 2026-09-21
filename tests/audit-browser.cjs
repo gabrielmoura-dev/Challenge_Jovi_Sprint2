@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 (async () => {
-  const browser = await chromium.launch({ executablePath: process.env.JOVI_BROWSER || 'C:/Program Files (x86)/Microsoft/EdgeCore/153.0.4234.32/msedge.exe', headless: true });
+  const browser = await chromium.launch({ executablePath: process.env.JOVI_BROWSER || undefined, headless: true });
   const results = [];
   for (const width of [1280, 320]) {
     const context = await browser.newContext({ viewport: { width, height: 960 } });

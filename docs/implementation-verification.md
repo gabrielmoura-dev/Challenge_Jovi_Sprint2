@@ -7,7 +7,7 @@ verificação. Nada foi commitado; todas as mudanças estão no working tree.
 
 ```bash
 npm install                # @playwright/test + http-server (devDependencies)
-npx playwright test        # sobe http-server em :4173 e roda os 20 testes
+npx playwright test        # sobe http-server em :4173 e roda os 21 testes
 node tests/static-audit.cjs   # sintaxe JS/inline + referências locais de assets
 node tests/audit-browser.cjs  # abre as 35 telas em 1280px e 320px, grava docs/evidence/browser-audit.json
 node tests/screenshots.cjs    # regenera docs/evidence/*.png (precisa do servidor em :4173)

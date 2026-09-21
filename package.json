@@ -1,4 +1,13 @@
 {
+  "name": "jovi-vision-prototipo",
+  "version": "1.0.0",
+  "description": "Protótipo navegável em HTML/CSS/JS do aplicativo JOVI Vision (Challenge Sprint 2)",
+  "private": true,
+  "scripts": {
+    "start": "http-server . -p 8080 -c-1 -o /telas/tela-01-onboarding.html",
+    "test": "playwright test --reporter=line",
+    "audit": "node tests/static-audit.cjs"
+  },
   "devDependencies": {
     "@playwright/test": "^1.63.0",
     "http-server": "^14.1.1"

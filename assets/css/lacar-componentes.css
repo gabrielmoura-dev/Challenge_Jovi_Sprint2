@@ -16,17 +16,17 @@
 @import url("tokens.css");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
-/* Fonte real do Figma (JOVI_Sans_CN) — arquivos em assets/fonts/,
+/* Fonte real do Figma (JOVI_Sans_CN) — arquivos em assets/fonts/jovi-sans-cn/,
    usada apenas nas telas 05/10/13/21 (não altera tokens.css/jullia-componentes.css). */
-@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Thin.ttf") format("truetype"); font-weight: 100; font-style: normal; font-display: swap; }
-@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Extralight.ttf") format("truetype"); font-weight: 200; font-style: normal; font-display: swap; }
-@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Light.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/jovi-sans-cn/JOVISansCN-Thin.ttf") format("truetype"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/jovi-sans-cn/JOVISansCN-Extralight.ttf") format("truetype"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/jovi-sans-cn/JOVISansCN-Light.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
 @font-face { font-family: "JOVI Sans CN"; src: url("../fonts/jovi-sans-cn/JOVISansCN-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "JOVI Sans CN"; src: url("../fonts/jovi-sans-cn/JOVISansCN-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
 @font-face { font-family: "JOVI Sans CN"; src: url("../fonts/jovi-sans-cn/JOVISansCN-Demibold.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
 @font-face { font-family: "JOVI Sans CN"; src: url("../fonts/jovi-sans-cn/JOVISansCN-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
-@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Extrabold.ttf") format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
-@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/JOVISansCN-Heavy.ttf") format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/jovi-sans-cn/JOVISansCN-Extrabold.ttf") format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "JOVI Sans CN"; src: url("../fonts/jovi-sans-cn/JOVISansCN-Heavy.ttf") format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
 
 :root,
 [data-bs-theme="light"] {
