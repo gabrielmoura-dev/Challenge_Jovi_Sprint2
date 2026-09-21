@@ -1,8 +1,7 @@
 # JOVI Argos — Protótipo navegável
 
 Protótipo de alta fidelidade do aplicativo **JOVI Argos** (câmera e galeria com IA),
-desenvolvido para o Challenge — Sprint 2. É um site estático (HTML, CSS e JavaScript
-puros, com Bootstrap 5), sem etapa de build: 35 telas ligadas entre si que simulam a
+desenvolvido para o Challenge — Sprint 2. É um site estático (HTML, CSS e JavaScript com Bootstrap 5), sem etapa de build: 35 telas ligadas entre si que simulam a
 jornada do app.
 
 - **Demonstração online (GitHub Pages):** https://gabrielmoura-dev.github.io/Challenge_Jovi_Sprint2/
