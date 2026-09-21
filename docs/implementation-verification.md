@@ -1,4 +1,4 @@
-# Verificação da implementação — protótipo JOVI Vision
+# Verificação da implementação — protótipo JOVI Argos
 
 Registro das correções aprovadas (8 requisitos) e das execuções reais de
 verificação. Nada foi commitado; todas as mudanças estão no working tree.
