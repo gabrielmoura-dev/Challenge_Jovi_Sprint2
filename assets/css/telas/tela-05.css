@@ -134,3 +134,16 @@
   color: #737373;
   margin: 0;
 }
+
+/* Mobile real (frame = 100dvh): compacta banner/grade para os 4 cards não
+   encostarem na nav inferior. */
+@media (max-width: 420px) {
+  .home-scroll { padding-bottom: 20px; }
+  .home-header { padding-top: 16px; }
+  .home-banner { margin: 18px 0 18px; padding: 10px 16px 12px; }
+  .home-banner-badge { margin-bottom: 4px; }
+  .home-banner-subtitle { margin-bottom: 10px; }
+  .home-grid { gap: 14px; }
+  .home-card { padding: 14px 5px 14px 16px; }
+  .home-card-icon { margin-bottom: 14px; }
+}

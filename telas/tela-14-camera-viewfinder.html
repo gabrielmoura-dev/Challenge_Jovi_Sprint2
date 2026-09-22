@@ -144,8 +144,8 @@
 <script src="../assets/js/toast.js"></script>
 <script src="../assets/js/camera-modes.js"></script>
 <script>
-  // Viewfinder de palestra: o obturador alterna gravação (simulada) e
-  // confirma com um toast; não há tela de revisão nesse fluxo.
+  // Viewfinder de palestra: o 1º toque grava (simulado); o 2º para e leva
+  // ao visualizador da palestra (tela 15).
   (function () {
     var shutter = document.querySelector("[data-camera-shutter]");
     if (!shutter) return;
@@ -155,6 +155,7 @@
       shutter.classList.toggle("is-video", gravando);
       shutter.setAttribute("aria-label", gravando ? "Parar gravação" : "Gravar palestra");
       if (window.JoviToast) window.JoviToast.show(gravando ? "Gravando palestra…" : "Palestra salva com transcrição");
+      if (!gravando && window.joviNavegar) window.joviNavegar("tela-15-visualizador-midia.html");
     });
   })();
 </script>

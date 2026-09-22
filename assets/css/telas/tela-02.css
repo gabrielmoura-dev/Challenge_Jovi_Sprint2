@@ -84,3 +84,8 @@
 .btn-onboarding-secondary--bordered {
   border: 1px solid #000000;
 }
+
+/* Mobile: o voltar sai de cima do horário da status bar. */
+@media (max-width: 420px) {
+  .jovi-back--overlay { top: 44px; }
+}
