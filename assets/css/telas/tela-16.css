@@ -133,3 +133,10 @@
   border-radius: 999px;
   background: #0a0a0a;
 }
+
+/* Mobile real: o frame tem 100dvh, então o min-height de 800px cortava a
+   barra do obturador. */
+@media (max-width: 420px) {
+  .camera-frame { min-height: 0; height: 100%; }
+  .camera-bottom { padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px)); }
+}

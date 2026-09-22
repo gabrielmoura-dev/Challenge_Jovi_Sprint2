@@ -79,3 +79,8 @@
   .lock-topwash.is-flash { animation: none; opacity: .38; }
   .lock-indicator.is-on { animation: none; }
 }
+
+/* Mobile: o voltar sai de cima da data/hora da barra de status. */
+@media (max-width: 420px) {
+  .tela-24 .jovi-back--overlay { top: 44px; }
+}

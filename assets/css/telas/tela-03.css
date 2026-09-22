@@ -199,3 +199,30 @@ body { background: #e5e5e5; margin: 0; }
   background: var(--jovi-purple);
 }
 
+
+/* Mobile real (frame = 100dvh): o voltar sai de cima do horário; cards têm
+   altura limitada e os botões ancoram por baixo para nunca colarem na grade. */
+@media (max-width: 420px) {
+  .tela03-back { top: 40px; }
+
+  .tela03-grid { gap: 2.222cqw; }
+  .tela03-card {
+    aspect-ratio: auto;
+    height: clamp(72px, 12.5dvh, 95px);
+  }
+
+  .tela03-btn-primary {
+    top: auto;
+    bottom: 16dvh;
+    height: 50px;
+  }
+  .tela03-btn-secondary {
+    top: auto;
+    bottom: 8dvh;
+    height: 46px;
+  }
+  .tela03-dots {
+    top: auto;
+    bottom: 3.5dvh;
+  }
+}
