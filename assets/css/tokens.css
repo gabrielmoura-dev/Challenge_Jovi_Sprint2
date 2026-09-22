@@ -532,3 +532,10 @@
     margin: 0 !important;
   }
 }
+
+/* Adicionado na Tela 12 (Câmera — cena detectada): o ponto ao lado do
+   rótulo era vermelho puro, que no contexto de câmera lê como "gravando".
+   Rosa da mesma família do roxo da marca, sem esse ruído de significado. */
+:root {
+  --jovi-pink: #ff4f9b;
+}

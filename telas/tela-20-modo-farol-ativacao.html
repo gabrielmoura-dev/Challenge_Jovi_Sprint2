@@ -27,7 +27,10 @@
 
   <div class="lacar-phone-shell">
     <main class="lacar-phone-frame tela-24">
-      <button type="button" class="jovi-back jovi-back--overlay" aria-label="Voltar" onclick="joviVoltar('tela-19-modo-farol-configurar.html', event)">
+      <!-- Destino fixo, e não joviVoltar(): quem volta da Tela 21 tinha
+           esta tela no histórico, então o history.back() devolvia pro alerta
+           e o par 20↔21 virava um laço sem saída. -->
+      <button type="button" class="jovi-back jovi-back--overlay" aria-label="Voltar" onclick="joviNavegar('tela-19-modo-farol-configurar.html')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
       </button>
       <div class="lock-topwash" id="topwash"></div>

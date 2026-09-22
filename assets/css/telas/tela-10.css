@@ -89,6 +89,16 @@
   padding: 0;
 }
 .camera-settings-btn img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
+/* O chevron de voltar entra como <svg> inline, sem width/height — sem isso
+   ele esticava até os 40px do botão e saía bem mais grosso/maior que os
+   outros ícones da barra. Mesmo tamanho dos <img> e traço mais leve. */
+.camera-settings-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 1.5;
+  color: #ffffff;
+  opacity: 0.9;
+}
 
 .camera-spacer {
   flex: 1 1 auto;

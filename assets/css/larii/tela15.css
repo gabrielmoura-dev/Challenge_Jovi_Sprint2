@@ -218,3 +218,11 @@
 }
 
 .camera__shutter:active { background: rgba(255, 255, 255, 0.25); }
+
+/* Tela 12: ponto rosa (o vermelho lia como indicador de gravação). A Tela 7
+   (Esporte) continua com o vermelho original, por isso o modificador em vez
+   de trocar a cor na classe base. */
+.camera__scene-dot--rosa {
+  background: var(--jovi-pink);
+  opacity: 0.8;
+}

@@ -36,21 +36,31 @@
       </div>
 
       <div class="home-scroll">
-        <div class="home-header d-flex align-items-start justify-content-between">
+        <!-- No Figma (node 71:5476) o cabeçalho é alinhado à esquerda e não
+             tem botão de voltar. Mantemos o voltar numa linha própria acima
+             — é requisito de navegabilidade do protótipo (ver
+             tests/back-button-coverage.spec.js) — e a saudação fica alinhada
+             à esquerda como no design. -->
+        <div class="home-back-row">
           <button type="button" class="jovi-back" aria-label="Voltar" onclick="joviVoltar('tela-01-onboarding.html', event)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
           </button>
-          <div class="text-end">
-            <h1 class="home-greeting">Olá, <span class="text-home-primary" data-user-name>Larissa</span></h1>
-            <p class="home-subtitle">Pronto para criar algo incrível hoje?</p>
-          </div>
+        </div>
+        <div class="home-header">
+          <h1 class="home-greeting">Olá, <span class="text-home-primary" data-user-name>Larissa</span></h1>
+          <p class="home-subtitle">Pronto para criar algo incrível hoje?</p>
         </div>
 
+        <!-- Banner conforme a versão final do Figma (node 71:5500): chama o
+             Modo Estudo pela roleta, não um "Experimentar" genérico. -->
         <div class="home-banner">
-          <div class="home-banner-badge">📚 Novidade</div>
-          <div class="home-banner-title">IA que ensina</div>
-          <div class="home-banner-subtitle">Explore novos recursos</div>
-          <button type="button" class="home-banner-btn" onclick="joviNavegar('tela-08-camera-estudo.html')">Experimentar</button>
+          <div class="home-banner-badge">
+            <img src="../assets/img/home-banner-zap.svg" alt="">
+            <span>Novo no Modo Estudo</span>
+          </div>
+          <div class="home-banner-title">Suas fotos viram jogo</div>
+          <div class="home-banner-subtitle">O JOVI lê o caderno e monta as perguntas</div>
+          <button type="button" class="home-banner-btn" onclick="joviNavegar('tela-25-estudo-roleta.html')">Girar a roleta</button>
         </div>
 
         <div class="home-grid">

@@ -170,3 +170,139 @@
   color: #666666;
   margin: 0;
 }
+
+/* =========================================================================
+   Alinhamento com a versão final do Figma — node 71:5245 ("tela 50").
+   O CSS acima veio do node antigo "Tela 21", que tinha os botões de
+   aparência como cards quadrados de 94px e cada linha como um bloco cinza
+   solto. No design final: pills de 40px e listas em card branco com
+   divisória. Tudo aqui é escopado em .tela-21 porque tela-21.css também
+   atende a Tela 19 (Modo Farol), que usa .tela-23 e só aproveita o
+   cabeçalho/scroll.
+   ========================================================================= */
+.tela-21 .settings-scroll {
+  padding: 12px 28px 0;
+  gap: 24px;
+}
+.tela-21 .settings-section-title {
+  margin-bottom: 12px;
+  font-weight: 500;
+  letter-spacing: -0.15px;
+}
+.tela-21 .appearance-section .settings-section-title { margin-bottom: 12px; }
+
+/* Aparência — segmentado de 3 pills */
+.tela-21 .appearance-grid {
+  gap: 8px;
+  margin-bottom: 0;
+}
+.tela-21 .appearance-btn {
+  height: 40px;
+  flex-direction: row;
+  gap: 6px;
+  border-radius: 14px;
+  border: 1px solid var(--lacar-toggle-border-light);
+  background: #ffffff;
+  color: var(--jovi-bg-dark);
+}
+.tela-21 .appearance-btn img { width: 16px; height: 16px; }
+.tela-21 .appearance-btn span {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.3125px;
+}
+.tela-21 .appearance-btn.active {
+  background: var(--jovi-purple);
+  border-color: var(--jovi-purple);
+  color: var(--jovi-white);
+}
+[data-bs-theme="dark"] .tela-21 .appearance-btn {
+  background: var(--jovi-surface-dark);
+  border-color: #262626;
+  color: var(--jovi-white);
+}
+[data-bs-theme="dark"] .tela-21 .appearance-btn.active {
+  background: var(--jovi-purple);
+  border-color: var(--jovi-purple);
+}
+
+/* Listas (Preferências / Segurança) — um card por seção, linhas de 64px */
+.tela-21 .settings-list {
+  background: #ffffff;
+  border: 1px solid var(--lacar-border-subtle);
+  border-radius: 10px;
+  overflow: hidden;
+}
+[data-bs-theme="dark"] .tela-21 .settings-list {
+  background: var(--jovi-surface-dark);
+  border-color: #262626;
+}
+.tela-21 .settings-list .settings-row {
+  height: 64px;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  padding: 0 12px;
+  gap: 12px;
+}
+.tela-21 .settings-list .settings-row + .settings-row {
+  margin-top: 0;
+  border-top: 1px solid var(--lacar-border-subtle);
+}
+[data-bs-theme="dark"] .tela-21 .settings-list .settings-row + .settings-row {
+  border-top-color: #262626;
+}
+.tela-21 .settings-row-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+.tela-21 .settings-row-icon img,
+.tela-21 .settings-row-icon.icon-lg img { width: 20px; height: 20px; }
+/* Lixeira: no design o ícone é escuro sobre círculo claro (não é ação
+   primária como as outras linhas). */
+.tela-21 .settings-row-icon--suave { background: #f5f5f7; }
+.tela-21 .settings-row-icon--suave img { filter: none; }
+[data-bs-theme="dark"] .tela-21 .settings-row-icon--suave { background: #262626; }
+[data-bs-theme="dark"] .tela-21 .settings-row-icon--suave img { filter: brightness(0) invert(1); }
+.tela-21 .settings-row-title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.3125px;
+}
+.tela-21 .settings-row-subtitle {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--lacar-text-muted);
+}
+
+/* Sobre — mesmo card branco, duas linhas, sem a legenda extra */
+.tela-21 .about-card {
+  height: auto;
+  background: #ffffff;
+  border: 1px solid var(--lacar-border-subtle);
+  border-radius: 10px;
+  padding: 0;
+  gap: 0;
+}
+[data-bs-theme="dark"] .tela-21 .about-card {
+  background: var(--jovi-surface-dark);
+  border-color: #262626;
+}
+.tela-21 .about-row {
+  height: auto;
+  padding: 14px 16px;
+}
+.tela-21 .about-row + .about-row { border-top: 1px solid var(--lacar-border-subtle); }
+[data-bs-theme="dark"] .tela-21 .about-row + .about-row { border-top-color: #262626; }
+.tela-21 .about-label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.3125px;
+}
+.tela-21 .about-value {
+  font-size: 14px;
+  color: var(--lacar-text-muted);
+}

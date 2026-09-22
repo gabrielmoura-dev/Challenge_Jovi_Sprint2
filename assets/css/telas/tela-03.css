@@ -199,3 +199,15 @@ body { background: #e5e5e5; margin: 0; }
   background: var(--jovi-purple);
 }
 
+
+/* Câmera/Livro/Troféu vieram do Figma já com stroke branco (arte do estado
+   selecionado). Ao desmarcar o card no tema claro o fundo volta pro cinza
+   #f5f5f5 e o ícone branco some — escurecemos esses três por filtro, do
+   mesmo jeito que o .selected clareia os demais. No tema escuro o card
+   desmarcado é #1a1a1a, então ali o branco original já serve. */
+.tela03-card:not(.selected) .tela03-icon-branco {
+  filter: brightness(0);
+}
+.tela03-dark .tela03-card:not(.selected) .tela03-icon-branco {
+  filter: none;
+}

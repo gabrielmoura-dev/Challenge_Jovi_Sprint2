@@ -60,39 +60,56 @@
           </div>
         </section>
 
+        <!-- Preferências e Segurança viram uma lista única por seção (card
+             branco com divisória entre as linhas), como na versão final do
+             Figma. A Lixeira estava numa segunda seção "Preferências" no fim
+             da tela; no design ela é a segunda linha desta mesma lista. -->
         <section>
           <h2 class="settings-section-title">Preferências</h2>
-          <button type="button" class="settings-row" onclick="try { localStorage.removeItem('jovi-user-name'); } catch (e) {} joviNavegar('tela-01-onboarding.html')">
-            <div class="settings-row-icon">
-              <img src="../assets/img/refresh-cw.svg" alt="">
-            </div>
-            <div>
-              <p class="settings-row-title">Refazer Onboarding</p>
-              <p class="settings-row-subtitle">Atualize suas preferências</p>
-            </div>
-          </button>
+          <div class="settings-list">
+            <button type="button" class="settings-row" onclick="try { localStorage.removeItem('jovi-user-name'); } catch (e) {} joviNavegar('tela-01-onboarding.html')">
+              <div class="settings-row-icon">
+                <img src="../assets/img/refresh-cw.svg" alt="">
+              </div>
+              <div>
+                <p class="settings-row-title">Refazer onboarding</p>
+                <p class="settings-row-subtitle">Revise suas preferências</p>
+              </div>
+            </button>
+            <button type="button" class="settings-row">
+              <div class="settings-row-icon settings-row-icon--suave">
+                <img src="../assets/img/trash.svg" alt="">
+              </div>
+              <div>
+                <p class="settings-row-title">Lixeira</p>
+                <p class="settings-row-subtitle">Recupere fotos excluídas</p>
+              </div>
+            </button>
+          </div>
         </section>
 
         <section>
           <h2 class="settings-section-title">Segurança</h2>
-          <button type="button" class="settings-row" onclick="joviNavegar('tela-34-modo-blindagem.html')">
-            <div class="settings-row-icon">
-              <img src="../assets/img/shield.svg" alt="">
-            </div>
-            <div>
-              <p class="settings-row-title">Modo Blindagem</p>
-              <p class="settings-row-subtitle">Verifique se uma cobrança é golpe</p>
-            </div>
-          </button>
-          <button type="button" class="settings-row" onclick="joviNavegar('tela-32-modo-farol-configurar.html')">
-            <div class="settings-row-icon">
-              <img src="../assets/img/bell-ring.svg" alt="">
-            </div>
-            <div>
-              <p class="settings-row-title">Modo Farol</p>
-              <p class="settings-row-subtitle">Configure o alerta discreto para um contato de confiança</p>
-            </div>
-          </button>
+          <div class="settings-list">
+            <button type="button" class="settings-row" onclick="joviNavegar('tela-34-modo-blindagem.html')">
+              <div class="settings-row-icon">
+                <img src="../assets/img/shield.svg" alt="">
+              </div>
+              <div>
+                <p class="settings-row-title">Modo Blindagem</p>
+                <p class="settings-row-subtitle">Verifique se uma cobrança é golpe</p>
+              </div>
+            </button>
+            <button type="button" class="settings-row" onclick="joviNavegar('tela-32-modo-farol-configurar.html')">
+              <div class="settings-row-icon">
+                <img src="../assets/img/bell-ring.svg" alt="">
+              </div>
+              <div>
+                <p class="settings-row-title">Modo Farol</p>
+                <p class="settings-row-subtitle">Alerta discreto para um contato</p>
+              </div>
+            </button>
+          </div>
         </section>
 
         <section>
@@ -106,23 +123,7 @@
               <span class="about-label">Jovi · OriginOS</span>
               <span class="about-value">6.0</span>
             </div>
-            <div class="about-divider">
-              <p class="about-caption">Câmera com IA integrada. Otimizada para V70 5G.</p>
-            </div>
           </div>
-        </section>
-
-        <section>
-          <h2 class="settings-section-title">Preferências</h2>
-          <button type="button" class="settings-row">
-            <div class="settings-row-icon icon-lg">
-              <img src="../assets/img/trash.svg" alt="">
-            </div>
-            <div>
-              <p class="settings-row-title">Lixeira</p>
-              <p class="settings-row-subtitle">Recupere o que foi excluído</p>
-            </div>
-          </button>
         </section>
       </div>
 

@@ -34,7 +34,11 @@
       </div>
 
       <header class="farol-header">
-        <button type="button" class="farol-back" aria-label="Voltar" onclick="joviNavegar('tela-31-modo-farol-ativacao.html')">
+        <!-- Última tela do fluxo do Farol (e a única na visão de quem RECEBE
+             o alerta). O voltar encerra a simulação e devolve pros Ajustes,
+             de onde o Modo Farol foi aberto — voltar pra Tela 31 prendia o
+             usuário num vai-e-vem entre simulação e alerta. -->
+        <button type="button" class="farol-back" aria-label="Voltar" onclick="joviNavegar('tela-17-ajustes.html')">
           <img src="../assets/img/farol-chevron-left.svg" alt="">
         </button>
         <h1 class="farol-titulo">Alerta do Farol</h1>

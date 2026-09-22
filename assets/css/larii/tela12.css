@@ -37,3 +37,24 @@
   margin-top: 11px;
   width: 256px;
 }
+
+/* Aviso de escopo (node 1:5045): 12px abaixo do balão, ícone de 13px e
+   texto em 11.5px com 55% de opacidade — some no escuro se não invertermos
+   o ícone, que vem do Figma com o traço fixo em #0a0a0a. */
+.assistant__scope-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  width: 288px;
+  margin: 12px 0 0;
+  font-size: 11.5px;
+  line-height: 16px;
+  color: rgba(10, 10, 10, 0.55);
+}
+.assistant__scope-note img {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+[data-bs-theme="dark"] .assistant__scope-note { color: rgba(255, 255, 255, 0.55); }
+[data-bs-theme="dark"] .assistant__scope-note img { filter: brightness(0) invert(1); }

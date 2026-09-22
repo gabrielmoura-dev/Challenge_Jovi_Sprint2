@@ -5,8 +5,16 @@
   padding: 0 28px 24px;
 }
 
+/* Linha só do botão de voltar (o Figma não tem esse controle; ele existe
+   por requisito de navegabilidade do protótipo). */
+.home-back-row {
+  padding-top: 10px;
+  margin-bottom: 2px;
+}
+
 .home-header {
-  padding-top: 34px;
+  padding-top: 0;
+  text-align: left;
 }
 
 .home-greeting {
@@ -36,11 +44,15 @@
 [data-bs-theme="dark"] .home-banner { background: #7c5bd9; }
 
 .home-banner-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   font-size: 12px;
   line-height: 16px;
   opacity: 0.8;
   margin-bottom: 8px;
 }
+.home-banner-badge img { width: 13px; height: 13px; }
 .home-banner-title {
   font-size: 18px;
   line-height: 24.75px;
@@ -59,11 +71,12 @@
   justify-content: center;
   height: 31px;
   background: #fff;
-  color: #0a0a0a;
+  /* Rótulo em roxo, como na versão final do Figma (node 71:5512). */
+  color: #764ba2;
   border: none;
   border-radius: 24px;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   padding: 0;
   width: 194px;
   margin: 0 auto;
